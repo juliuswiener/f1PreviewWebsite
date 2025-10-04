@@ -478,20 +478,24 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
         requestBody.temperature = temperature;
     }
 
-    // Handle response_format for structured outputs
+    // Handle text.format for structured outputs
     if (options.responseFormat) {
         const { type, json_schema } = options.responseFormat;
 
         if (type === 'json_object') {
             // Simple JSON object mode
-            requestBody.response_format = {
-                type: 'json_object'
+            requestBody.text = {
+                format: {
+                    type: 'json_object'
+                }
             };
         } else if (type === 'json_schema' && json_schema) {
             // Structured outputs with schema validation
-            requestBody.response_format = {
-                type: 'json_schema',
-                json_schema: json_schema
+            requestBody.text = {
+                format: {
+                    type: 'json_schema',
+                    json_schema: json_schema
+                }
             };
         }
     }
