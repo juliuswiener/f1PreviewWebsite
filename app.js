@@ -168,6 +168,22 @@ async function loadPreviewData() {
                 }
             };
             console.log('✓ Loaded pre-generated preview data');
+
+            // Update race info display
+            const raceInfo = document.getElementById('race-info');
+            const raceTitle = document.getElementById('race-title');
+            const raceSubtitle = document.getElementById('race-subtitle');
+
+            if (data.metadata) {
+                const circuitName = data.metadata.circuit || 'Unknown';
+                const season = data.metadata.season || '2025';
+                const date = data.metadata.date || '';
+
+                raceTitle.textContent = `${circuitName.toUpperCase()} GP ${season}`;
+                raceSubtitle.textContent = `Race Weekend: ${date}`;
+                raceInfo.style.display = 'block';
+            }
+
             renderAllContent();
         }
     } catch (error) {

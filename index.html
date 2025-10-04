@@ -388,77 +388,9 @@
     </div>
 
     <div class="container">
-        <div class="control-panel">
-            <h2>⚙️ Race Configuration</h2>
-            
-            <div class="settings-grid">
-                <div class="input-group">
-                    <label for="circuit">Circuit</label>
-                    <select id="circuit">
-                        <option value="singapore">Singapore GP - Marina Bay</option>
-                        <option value="japan">Japanese GP - Suzuka</option>
-                        <option value="qatar">Qatar GP - Losail</option>
-                        <option value="usa">United States GP - COTA</option>
-                        <option value="mexico">Mexico City GP</option>
-                        <option value="brazil">São Paulo GP - Interlagos</option>
-                        <option value="vegas">Las Vegas GP</option>
-                        <option value="abu-dhabi">Abu Dhabi GP - Yas Marina</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="race-date">Race Weekend Date</label>
-                    <input type="date" id="race-date" value="2025-10-05">
-                </div>
-
-                <div class="input-group">
-                    <label for="season">Season</label>
-                    <input type="number" id="season" value="2025" min="2024" max="2030">
-                </div>
-            </div>
-
-            <div class="api-settings">
-                <h3>🔑 OpenAI API Configuration</h3>
-                <div class="settings-grid">
-                    <div class="input-group">
-                        <label for="api-key">API Key</label>
-                        <input type="password" id="api-key" placeholder="sk-...">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="model">Model</label>
-                        <select id="model">
-                            <option value="gpt-5">GPT-5</option>
-                            <option value="gpt-4-turbo">GPT-4 Turbo</option>
-                            <option value="gpt-4">GPT-4</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="temperature">Temperature</label>
-                        <input type="number" id="temperature" value="0.7" min="0" max="2" step="0.1">
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
-                <button class="generate-btn" onclick="generateAllPreviews()">
-                    🚀 Generate All Previews
-                </button>
-                <button class="generate-btn secondary" onclick="togglePromptEditor()">
-                    ✏️ Edit Prompts
-                </button>
-                <button class="generate-btn danger" onclick="clearAllData()">
-                    🗑️ Clear Saved Data
-                </button>
-            </div>
-
-            <div class="progress-container" id="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill">0%</div>
-                </div>
-                <div class="progress-text" id="progress-text">Initializing...</div>
-            </div>
+        <div class="control-panel" id="race-info" style="display: none;">
+            <h2 id="race-title">Race Weekend Preview</h2>
+            <p id="race-subtitle" style="color: #ccc; margin-top: 0.5rem;"></p>
         </div>
 
         <div class="control-panel" id="prompt-editor" style="display: none;">
