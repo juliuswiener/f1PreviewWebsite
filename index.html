@@ -1009,9 +1009,14 @@ Return as JSON array:
             // Replace this with actual OpenAI API call
             const requestBody = {
                 model: model,
-                temperature: temperature,
                 input: prompt
             };
+
+            const isGPT5Family = /^gpt-5/i.test(model);
+
+            if (!isGPT5Family) {
+                requestBody.temperature = temperature;
+            }
 
             if (options.responseFormat) {
                 const { type, ...formatOptions } = options.responseFormat;
@@ -1050,6 +1055,20 @@ Return as JSON array:
                             ...formatOptions
                         }
                     };
+                }
+            }
+
+            if (isGPT5Family) {
+                const verbosity = temperature <= 0.33 ? 'low' : temperature >= 0.67 ? 'high' : 'medium';
+                const effort = temperature <= 0.33 ? 'minimal' : temperature >= 0.67 ? 'high' : 'medium';
+
+                requestBody.text = {
+                    ...(requestBody.text || {}),
+                    verbosity
+                };
+
+                if (!requestBody.reasoning) {
+                    requestBody.reasoning = { effort };
                 }
             }
 
