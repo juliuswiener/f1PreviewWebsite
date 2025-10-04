@@ -228,9 +228,24 @@ async def call_openai(client, prompt, enable_search=True):
     raise Exception("No text found in response")
 
 
+def clean_urls(text):
+    """Remove all URLs and URL markdown from text"""
+    import re
+    # Remove markdown links [text](url)
+    text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
+    # Remove bare URLs
+    text = re.sub(r'https?://[^\s\)]+', '', text)
+    # Remove remaining URL references in parentheses like (domain.com) or (www.domain.com)
+    text = re.sub(r'\s*\([a-zA-Z0-9\-\.]+\.(com|org|net|co\.uk|io|gov|edu)[^\)]*\)', '', text)
+    return text.strip()
+
+
 def parse_driver_preview(text):
     """Parse structured driver preview text into dict"""
     import re
+
+    # Clean URLs from text first
+    text = clean_urls(text)
 
     preview = {}
 
@@ -278,6 +293,9 @@ def parse_top5(text):
     """Parse top 5 text into list of dicts"""
     import re
 
+    # Clean URLs from text first
+    text = clean_urls(text)
+
     top5 = []
 
     # Find all driver entries (#1 through #5)
@@ -303,6 +321,9 @@ def parse_top5(text):
 def parse_underdogs(text):
     """Parse underdogs text into list of dicts"""
     import re
+
+    # Clean URLs from text first
+    text = clean_urls(text)
 
     underdogs = []
 
@@ -383,7 +404,8 @@ async def main():
         raceDate=RACE_DATE,
         season=SEASON
     )
-    race_context = await call_openai(client, race_context_prompt)
+    race_context_raw = await call_openai(client, race_context_prompt)
+    race_context = clean_urls(race_context_raw)
     print(f"   ✓ Race context generated ({len(race_context)} chars)")
 
     # Step 2: Generate driver previews in parallel
