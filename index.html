@@ -499,9 +499,9 @@
         </div>
 
         <div class="tabs" id="tabs">
-            <button class="tab active" onclick="switchTab('highlights')">🏆 Top 5 to Watch</button>
-            <button class="tab" onclick="switchTab('underdogs')">🔥 Underdog Stories</button>
-            <button class="tab" onclick="switchTab('all-drivers')">👥 All Drivers</button>
+            <button class="tab active" onclick="switchTab(event, 'highlights')">🏆 Top 5 to Watch</button>
+            <button class="tab" onclick="switchTab(event, 'underdogs')">🔥 Underdog Stories</button>
+            <button class="tab" onclick="switchTab(event, 'all-drivers')">👥 All Drivers</button>
         </div>
 
         <div class="content-area">
@@ -575,7 +575,7 @@ Keep it concise and factual. Format as structured data.`,
 
             driverPreview: `Write a "what to look for with {driverName}" text for the upcoming F1 {circuit} GP. 
 
-Driver: {driverName} (#${driverNumber})
+Driver: {driverName} (#{driverNumber})
 Team: {team}
 
 Race Context:
@@ -657,18 +657,22 @@ Return as JSON array:
 ]`
         };
 
-        let generatedData = {
-            drivers: {},
-            top5: [],
-            underdogs: [],
-            raceContext: '',
-            metadata: {
-                circuit: '',
-                date: '',
-                season: '',
-                generatedAt: null
-            }
-        };
+        function createEmptyGeneratedData() {
+            return {
+                drivers: {},
+                top5: [],
+                underdogs: [],
+                raceContext: '',
+                metadata: {
+                    circuit: '',
+                    date: '',
+                    season: '',
+                    generatedAt: null
+                }
+            };
+        }
+
+        var generatedData = createEmptyGeneratedData();
 
         // Initialize
         function init() {
@@ -691,7 +695,23 @@ Return as JSON array:
         function loadSavedData() {
             const saved = localStorage.getItem('f1-preview-data');
             if (saved) {
-                generatedData = JSON.parse(saved);
+                try {
+                    const parsed = JSON.parse(saved);
+                    const fresh = createEmptyGeneratedData();
+
+                    generatedData = {
+                        ...fresh,
+                        ...parsed,
+                        metadata: {
+                            ...fresh.metadata,
+                            ...(parsed.metadata || {})
+                        }
+                    };
+                } catch (err) {
+                    console.warn('Failed to parse saved preview data, starting fresh.', err);
+                    localStorage.removeItem('f1-preview-data');
+                    generatedData = createEmptyGeneratedData();
+                }
                 
                 // Update UI with saved circuit/date
                 if (generatedData.metadata.circuit) {
@@ -773,13 +793,7 @@ Return as JSON array:
         function clearAllData() {
             if (confirm('Clear all saved data? This will remove all generated previews and you will need to regenerate them.')) {
                 localStorage.removeItem('f1-preview-data');
-                generatedData = {
-                    drivers: {},
-                    top5: [],
-                    underdogs: [],
-                    raceContext: '',
-                    metadata: {}
-                };
+                generatedData = createEmptyGeneratedData();
                 initializeDriverGrid();
                 document.getElementById('highlights-content').innerHTML = '<div class="empty-state"><p>Generate previews to see the top 5 drivers to watch this weekend</p></div>';
                 document.getElementById('underdogs-content').innerHTML = '<div class="empty-state"><p>Generate previews to discover the underdog stories</p></div>';
@@ -810,12 +824,19 @@ Return as JSON array:
             }).join('');
         }
 
-        function switchTab(tab) {
+        function switchTab(evt, tab) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            
+
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            }
+
             document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-            document.getElementById(`${tab}-content`).style.display = 'block';
+
+            const target = document.getElementById(`${tab}-content`);
+            if (target) {
+                target.style.display = 'block';
+            }
         }
 
         async function generateAllPreviews() {
@@ -928,7 +949,7 @@ Return as JSON array:
                 .replace('{raceDate}', raceDate)
                 .replace('{season}', season);
 
-            return await callOpenAI(apiKey, model, prompt, temperature);
+            return await callOpenAI(apiKey, model, prompt, temperature, { responseFormat: { type: 'json_object' } });
         }
 
         async function generateDriverPreview(apiKey, model, driver, circuit, raceContext, temperature) {
@@ -940,7 +961,7 @@ Return as JSON array:
                 .replace('{circuit}', circuit)
                 .replace('{raceContext}', raceContext);
 
-            const response = await callOpenAI(apiKey, model, prompt, temperature);
+            const response = await callOpenAI(apiKey, model, prompt, temperature, { responseFormat: { type: 'json_object' } });
             
             // Try to parse as JSON, fallback to text
             try {
@@ -961,7 +982,7 @@ Return as JSON array:
             const driversData = JSON.stringify(driverPreviews, null, 2);
             const prompt = promptTemplate + '\n\nDriver Previews:\n' + driversData + '\n\nRace Context:\n' + raceContext;
 
-            const response = await callOpenAI(apiKey, model, prompt, temperature);
+            const response = await callOpenAI(apiKey, model, prompt, temperature, { responseFormat: { type: 'json_object' } });
             
             try {
                 return typeof response === 'string' ? JSON.parse(response) : response;
@@ -975,7 +996,7 @@ Return as JSON array:
             const driversData = JSON.stringify(driverPreviews, null, 2);
             const prompt = promptTemplate + '\n\nDriver Previews:\n' + driversData + '\n\nRace Context:\n' + raceContext;
 
-            const response = await callOpenAI(apiKey, model, prompt, temperature);
+            const response = await callOpenAI(apiKey, model, prompt, temperature, { responseFormat: { type: 'json_object' } });
             
             try {
                 return typeof response === 'string' ? JSON.parse(response) : response;
@@ -984,23 +1005,28 @@ Return as JSON array:
             }
         }
 
-        async function callOpenAI(apiKey, model, prompt, temperature) {
+        async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
             // Replace this with actual OpenAI API call
+            const requestBody = {
+                model: model,
+                messages: [{
+                    role: 'user',
+                    content: prompt
+                }],
+                temperature: temperature
+            };
+
+            if (options.responseFormat) {
+                requestBody.response_format = options.responseFormat;
+            }
+
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${apiKey}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    model: model,
-                    messages: [{ 
-                        role: 'user', 
-                        content: prompt 
-                    }],
-                    temperature: temperature,
-                    response_format: { type: "json_object" }
-                })
+                body: JSON.stringify(requestBody)
             });
 
             if (!response.ok) {
