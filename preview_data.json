@@ -1,0 +1,376 @@
+{
+  "drivers": {
+    "Max Verstappen": {
+      "tldr": "Singapore is usually trickier for Verstappen than most tracks, but his race craft, tyre care, and Safety Car management can flip it. Quali out\u2011lap prep and Turn 7 moves will decide whether Red Bull turns pace into track position.",
+      "full": "What to look for with Max Verstappen (#1, Red Bull): Singapore\u2019s stop\u2011start layout and bumps demand max downforce, stable braking, and superb traction\u2014areas where Verstappen excels when the car rides kerbs cleanly. Form guide: he typically strings podium\u2011level pace across recent races, but this venue has historically blunted outright dominance and rewards execution more than raw speed. Qualifying is everything here; expect meticulous out\u2011lap prep on the C5 to nail a banker as grip ramps fast under lights. Race day should favor a one\u2011stop (Medium\u2192Hard), with Softs risky for graining in traffic. High humidity and a 30\u201350% shower threat raise the odds of Safety Cars (usually 1\u20133 per race); Verstappen is lethal at restarts and making the pit call at the right time. Watch traction off T5 onto Raffles Blvd and late dives into Turn 7\u2014the prime passing spot\u2014plus brake temps through the Anderson Bridge hairpin sequence. If Red Bull\u2019s ride/kerb compliance is sorted, he\u2019ll be in win contention; if not, expect a defensive, track\u2011position race. Verify the latest weather and practice long\u2011run data for final expectations.",
+      "perfect_quali": "P1-P3",
+      "perfect_race": "Win",
+      "good_quali": "P4-P6",
+      "good_race": "Top-5 finish",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Elite tyre and thermal management in hot, humid conditions",
+        "Braking modulation and traction out of slow corners",
+        "Safety Car/VSC decision-making and restarts",
+        "Wet-weather pace and adaptability",
+        "Racecraft in tight street-circuit traffic"
+      ],
+      "watch_for": "Qualifying out\u2011lap prep and banker timing on C5s; how well the RB rides kerbs and manages rear traction out of T5; Turn 7 overtakes and SC pit timing that could swing track position."
+    },
+    "Yuki Tsunoda": {
+      "tldr": "Street-fighter test for Tsunoda in the Red Bull: nail qualifying amid big track evolution, then play the Safety Car lottery with disciplined tire and brake management. A clean run plus the right SC timing puts a podium in play.",
+      "full": "Marina Bay rewards precision on the brakes and traction off slow corners\u2014both areas that suit Tsunoda\u2019s style\u2014while punishing impatience. Expect Red Bull to run high downforce with compliant rear ride for kerbs, open brake ducts, and careful energy harvesting to attack the big stops at T7, the Esplanade end-zone, and the new back-straight chicane. Qualifying is everything here: traffic and evolving grip make out-lap prep and late track position critical; Yuki\u2019s one-lap punch could shine under lights. Race day is about discipline: manage rear-tire temps in humid air, protect brakes, and be ready to convert Safety Cars (historically 1\u20133) into free track position. Baseline is a one-stop (Medium\u2192Hard), extending the first stint to catch an SC; Softs are risky unless very late. Weather can swing it\u2014brief showers are common\u2014where Tsunoda\u2019s confidence on a changing surface can pay off. His Singapore record has been disrupted in the past, so a clean, mistake-free weekend is the priority. In a Red Bull seat, front-row contention is the target; a well-timed stop plus strong exits (notably T5) and assertive T7 braking puts a podium within reach.",
+      "perfect_quali": "P1\u2013P3",
+      "perfect_race": "Win or podium",
+      "good_quali": "P4\u2013P6",
+      "good_race": "Top-5 finish",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Heavy-braking confidence for overtakes into T7 and chicanes",
+        "Kerb riding and rotation in low-speed 90-degree corners",
+        "Strong single-lap execution under high track evolution"
+      ],
+      "watch_for": "An opportunistic stop under Safety Car between laps 18\u201335 to jump traffic, then decisive passes into Turn 7."
+    },
+    "Lewis Hamilton": {
+      "tldr": "Hamilton arrives at Marina Bay with Ferrari targeting front-row pace and a Safety Car-savvy race. Watch his traction out of T5/T7 and pit timing if rain or SCs shuffle the deck.",
+      "full": "What to look for: Hamilton\u2019s Singapore craft. He was P3 here in 2023 and has historically excelled under the lights with precise braking, tire care, and cool decision-making. Ferrari should trim for high downforce, strong rear stability over bumps, and robust brake cooling; kerb compliance and traction on the T5 and T7 exits will define his lap time and overtaking chances. Baseline strategy is one-stop (Medium\u2192Hard), but Marina Bay almost always brings Safety Cars\u2014expect Hamilton to push for a cheap stop or an overcut if he finds clean air. Softs can grain in traffic, so out\u2011lap prep in qualifying is crucial; a late, clear track could be gold with rapid evolution. Weather risk (heat, humidity, and possible showers) plays to his tire and mixed\u2011conditions strengths. Without session data here, recent form is the wildcard\u2014if his qualifying trend is strong, front two rows are realistic; race day is about patience, SC timing, and nailing restarts into T1\u20133 and T7. Stakes: high for Ferrari\u2019s points haul and Hamilton\u2019s street\u2011track pedigree.",
+      "perfect_quali": "P1",
+      "perfect_race": "Win (P1) or strong podium (P2\u2013P3)",
+      "good_quali": "P2\u2013P4",
+      "good_race": "Top 5 with strong points (P4\u2013P5)",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Street\u2011circuit precision and braking control",
+        "Tire and temperature management in hot/humid conditions",
+        "Safety Car/VSC judgment and pit\u2011call execution",
+        "Wet or mixed\u2011grip adaptability"
+      ],
+      "watch_for": "Out\u2011lap tire prep in Q3, launch into Turns 1\u20133, braking duels at Turn 7, and opportunistic stops under SC/VSC\u2014especially if showers hit."
+    },
+    "Charles Leclerc": {
+      "tldr": "Leclerc is always a Singapore specialist: razor-sharp in qualifying and tidy on traction-limited exits. If Ferrari nails out-lap prep and Safety Car timing, a front-row start and podium shot are on.",
+      "full": "Leclerc (#16) is typically formidable at Marina Bay: he took pole here in 2022 and Ferrari won in 2023, underscoring how their package and his style suit low-speed, big-braking street circuits. Form guide: verify his last-five results before lights out, but if recent qualifying strength continues, expect a front-row challenge. The priorities are classic Singapore: maximize front axle bite and ride over bumps, keep brake temps in check, and obsess over Q3 out-lap prep as grip surges with track evolution. Race-wise, track position is king; baseline is a one-stop (Medium\u2192Hard, laps 18\u201335), with thermal deg and rear-tyre traction management crucial, especially off T5 and into/exit of T7 and the hairpin. Softs can grain in traffic. Safety Cars are very likely (1\u20133 per race), so Ferrari must be ready to pit opportunistically under SC/VSC\u2014undercut is moderate, overcut can work with clean air. Starts matter enormously into T1\u20133. Weather carries a 30\u201350% shower risk and high humidity; Leclerc is comfortable in mixed conditions but execution (pit windows, tyre choice, stop precision) will decide whether a podium or better is on. No session results at time of writing.",
+      "perfect_quali": "P1\u2013P2",
+      "perfect_race": "Win (P1)",
+      "good_quali": "P3\u2013P5",
+      "good_race": "P3\u2013P5",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Elite one-lap pace on street circuits",
+        "Braking precision and rotation in low-speed corners",
+        "Calm execution in changing grip/conditions"
+      ],
+      "watch_for": "His Q3 out-lap prep and launch off the line; Ferrari\u2019s willingness to box under early Safety Car for track position versus protecting tyre life on a one-stop."
+    },
+    "Lando Norris": {
+      "tldr": "Singapore rewards precision, tyre nursing, and Safety Car savvy\u2014Norris\u2019 wheelhouse. With McLaren typically strong on high-downforce street tracks, he\u2019s a front-row/podium threat if they nail traction and brake cooling, especially if a shower or SC flips strategy.",
+      "full": "Norris arrives at a circuit that plays to his strengths: accuracy over bumps, patience on traction, and cool-headed SC management. He was P2 here in 2023, and McLaren\u2019s recent form on high-downforce street layouts suggests front-running potential if they unlock kerb compliance and rear-end traction. Expect a one-stop (Medium\u2192Hard) with a wide window around laps 18\u201335, but Singapore\u2019s near-certain Safety Car makes pit timing king\u2014overcut in clean air can beat the undercut. Qualifying is critical given traffic and big track evolution; out-lap prep and Turn 1\u20133 execution set the race. Watch brake temps, PU cooling, and rear tyre thermal deg; the Soft can grain in traffic. Primary moves: Turn 7 and the big stops at the Esplanade and the back-straight chicane. Weather could bring brief showers and variable winds; Norris is typically strong in mixed conditions. If his recent five-race trend is solid, he\u2019s a front-row contender with win-upside; if not, a top-6 start keeps him in the podium fight via SC timing and tyre life.",
+      "perfect_quali": "P1\u2013P2",
+      "perfect_race": "Win",
+      "good_quali": "P3\u2013P5",
+      "good_race": "P3\u2013P5",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Braking into heavy stops (T7/Esplanade/back-straight chicane)",
+        "Rear-tyre management and traction on street surfaces",
+        "Qualifying precision and out-lap prep in evolving grip",
+        "Composure and racecraft on Safety Car/VSC restarts",
+        "Wet/mixed-conditions pace"
+      ],
+      "watch_for": "Medium-start one-stop with a flexible pit window; opportunistic Stop under the first SC; Norris attacking/defending into Turn 7; managing brake temps and rear tyre deg if DRS trains form."
+    },
+    "Oscar Piastri": {
+      "tldr": "Street-fight specialist: Piastri\u2019s precision and tyre care suit Marina Bay\u2019s stop\u2011start rhythm and high-deg night heat. If McLaren\u2019s high-downforce package hooks up, watch for a Q3 lap and a podium shot via smart Safety Car timing.",
+      "full": "What to look for: Oscar Piastri (#81, McLaren) thrives on tidy braking, clean traction and tyre empathy\u2014exactly what Marina Bay demands. He climbed from deep on the grid to P7 here in 2023, showing sharp racecraft on a track where mistakes are costly and Safety Cars are frequent. Expect McLaren to run high downforce with robust brake cooling and a car trimmed for kerb compliance and traction off T5/T7 and the back-straight chicane. Qualifying is everything: out\u2011lap prep and traffic management can make or break Q1/Q2, and the track grips up fast under the lights. Strategy: baseline one\u2011stop (Medium\u2192Hard), but the pit delta is large and Singapore almost always features SC/VSC\u2014Oscar\u2019s calm tyre management could let him extend the first stint and box under a neutralization. Weather and humidity raise thermal stress; keeping fronts from graining on Softs in traffic is key. Stakes: medium\u2014solid points and beating intra\u2011team benchmarks keep McLaren\u2019s constructors push on track. Good day: Q3 and bank points; perfect day: a front\u2011two rows start and a podium if the race neutralizes at the right time.",
+      "perfect_quali": "P1-P3",
+      "perfect_race": "Podium finish",
+      "good_quali": "P4-P6",
+      "good_race": "Points finish",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Precise braking and kerb riding on street circuits",
+        "Tyre management in hot, high-degradation conditions",
+        "Calm execution during Safety Car/VSC windows",
+        "Strong traction on corner exits (T5, T7, hairpin)"
+      ],
+      "watch_for": "Out\u2011lap prep and track position in qualifying; extending the opening Medium stint to pit under a Safety Car; launches and positioning through Turns 1\u20133 for early gains."
+    },
+    "George Russell": {
+      "tldr": "Redemption shot: after the 2023 last\u2011lap crash here, Russell targets front rows if Mercedes nails high\u2011downforce balance and brake cooling. Watch Safety Car timing and bold moves into Turn 7 and the back\u2011straight chicane\u2014clean execution puts a podium in play.",
+      "full": "Singapore suits Russell\u2019s tidy, committed qualifying style\u2014critical on a bumpy, high\u2011downforce street track where track position rules. Recent form: check the latest results, but if his one\u2011lap pace from recent rounds holds, he\u2019s a front\u2011two\u2011row threat. He\u2019ll want payback for 2023\u2019s last\u2011lap error while chasing P2. Setup priorities: maximum downforce with compliant ride for kerbs, rock\u2011solid braking stability (Anderson Bridge to hairpin), and aggressive but safe brake cooling for the hot, humid night. Strategy skews one\u2011stop (Medium\u2192Hard, laps 18\u201335), but Singapore\u2019s near\u2011certain Safety Cars reward flexibility\u2014pitting under SC is often decisive. The Soft can grain in traffic; expect Russell to prefer Mediums to open unless conditions or grid spot dictate. Key battlegrounds: traction at Turns 1\u20133 and Turn 5 exit to launch down Raffles Blvd; late-brake chances at Turn 7 and the back\u2011straight chicane. Execution details\u2014out\u2011lap prep in quali traffic, restart awareness, and thermal management\u2014will decide whether strong quali translates to a podium. Weather risk (showers 30\u201350%) could spice strategy; verify the latest forecast.",
+      "perfect_quali": "P1\u2013P2",
+      "perfect_race": "Win or strong podium",
+      "good_quali": "P4\u2013P6",
+      "good_race": "P4\u2013P6",
+      "stakes_level": "high",
+      "key_strengths": [
+        "One\u2011lap precision under pressure",
+        "Braking consistency and Safety Car restart execution"
+      ],
+      "watch_for": "If Mercedes splits strategies or Russell stretches the Medium to catch a Safety Car window; confidence over the back\u2011straight chicane kerbs and decisive lunges into Turn 7."
+    },
+    "Kimi Antonelli": {
+      "tldr": "Rookie Antonelli tackles his first Singapore night race: survival, tyre care, and Turn 7 bravery will decide his ceiling. If Mercedes nails SC timing and he manages rear tyre temps, a dark\u2011horse podium isn\u2019t impossible; otherwise a clean points haul is the target.",
+      "full": "Context check: No live session/results here; verify latest. Antonelli enters his first F1 Singapore GP with rookie learning curves but strong street-circuit traits from juniors (braking feel, kerb riding). Marina Bay rewards traction and patience: watch Turns 1\u20133 launches, the T5 exit onto Raffles Blvd, and big stops at T7 and the back\u2011straight chicane. Setup-wise Mercedes should run max downforce, compliant ride over bumps, slightly softer rear for drive, and generous brake ducting\u2014thermal management and lift\u2011and\u2011coast will be vital in hot, humid air. Strategy skews to a one\u2011stop (Medium\u2192Hard), with Safety Cars highly likely; pitting under SC is often decisive. The Soft may grain in traffic\u2014expect it mostly for quali. Qualifying will hinge on out\u2011lap prep amid traffic and rapid track evolution; clean air is king. In-race, focus on rear tyre temps, brake fade, and restart discipline. Stakes are high for a rookie benchmark against Russell and Mercedes\u2019 rebuild; a tidy race with opportunistic calls could turn chaos into a big result.",
+      "perfect_quali": "P1-P3",
+      "perfect_race": "Podium finish",
+      "good_quali": "P4-P6",
+      "good_race": "Points finish",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Braking modulation into heavy stops",
+        "Kerb riding and car placement on streets",
+        "Traction management on corner exit",
+        "Calm in changeable/wet conditions"
+      ],
+      "watch_for": "Mercedes rolling the dice on a Safety Car pit window while Antonelli protects rear tyre temps for a late-race push at Turn 7"
+    },
+    "Fernando Alonso": {
+      "tldr": "Street-fighter Alonso is traditionally excellent at Marina Bay. If Aston Martin qualifies him in or near Q3, expect him to turn Safety Car chaos and tyre management into solid points, with podium upside if rain or late neutralizations hit.",
+      "full": "Two-time Singapore winner Fernando Alonso thrives on hot, stop-start street circuits that reward patience, tyre nursing, and opportunism. Marina Bay\u2019s heavy-braking, traction-led layout suits his strengths, and the race almost always features Safety Cars, which he historically exploits well. With high humidity and a non-trivial shower chance, mixed conditions could amplify his advantage. Expect Aston Martin to run high downforce, prioritize rear traction and kerb compliance through the chicanes, and keep cooling margins for brakes and power unit. Track evolution is big here, so Alonso\u2019s out-lap prep and traffic management in qualifying are key to sneaking into a strong grid slot. Strategy-wise, a Medium-to-Hard one-stop is baseline, but Alonso may extend the first stint to catch an SC window; the undercut is moderate, the overcut can work with clean air. Starts and restarts into Turn 7 are prime chances to gain positions. Stakes: medium. He is contracted long-term and remains Aston\u2019s race-craft benchmark; bagging strong points materially helps the Constructors\u2019 fight and keeps podium hopes alive if the race turns scrappy.",
+      "perfect_quali": "P3-P5",
+      "perfect_race": "Podium finish",
+      "good_quali": "P6-P9",
+      "good_race": "P5-P8",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Tyre management over long stints",
+        "Racecraft in traffic and restarts",
+        "Opportunistic Safety Car calls",
+        "Wet/mixed-conditions adaptability",
+        "Brake and energy management"
+      ],
+      "watch_for": "A long first stint on Mediums to pit under a Safety Car, then aggressive restarts targeting Turn 7 overtakes."
+    },
+    "Lance Stroll": {
+      "tldr": "Street-fighter Stroll returns to Marina Bay where he scored P6 in 2022 but crashed in 2023 quali. If he nails out\u2011lap prep and keeps it clean, a long first stint to catch the inevitable Safety Car could turn a midfield start into points\u2014especially if rain hits.",
+      "full": "What to look for with Lance Stroll in Singapore: he\u2019s historically better on Sundays than Saturdays here, with a standout P6 in the wet-to-dry 2022 race and a costly qualifying crash in 2023. Marina Bay rewards confidence on the brakes and clean traction\u2014areas where Stroll can shine when the car gives him rear stability. Expect Aston Martin to run high downforce and prioritize brake cooling and traction over kerb aggression on the bumpy surface. With a typical one-stop (Medium-to-Hard) and a high probability of Safety Cars, watch for Stroll to extend his first stint to pit under neutralizations; traffic often blunts the undercut. If showers arrive (30\u201350% risk), his wet-weather feel and calm safety-car restarts become valuable. Key zones: braking into Turn 7, exit of Turn 5 onto Raffles Blvd, and the back\u2011straight chicane\u2014gaining there sets up overtakes. Recent form note: Stroll often races stronger than he qualifies; a clean Q1/Q2 execution and disciplined tyre prep on out-laps are critical. A tidy, low-error night could yield solid points against a tightly bunched midfield.",
+      "perfect_quali": "P6\u2013P8",
+      "perfect_race": "P5\u2013P7 (capitalizing on Safety Car/rain)",
+      "good_quali": "P9\u2013P12",
+      "good_race": "P8\u2013P10 (points finish)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Strong race starts and Safety Car restarts",
+        "Wet-weather opportunism on street circuits",
+        "Tyre and brake management in hot, high-deg conditions"
+      ],
+      "watch_for": "A long first stint on Mediums to pit under Safety Car, and his confidence under heavy braking into Turn 7\u2014especially if conditions turn damp."
+    },
+    "Pierre Gasly": {
+      "tldr": "Gasly thrives on hot, technical street tracks and was P6 here in 2023. If Alpine nails quali prep and plays the Safety Car right, he can convert a Q3 start into solid points.",
+      "full": "What to look for with Pierre Gasly in Singapore: precision and patience. Marina Bay rewards clean execution on kerbs and traction zones, both Gasly strengths, and he\u2019s scored well here before (top-six in 2023). Alpine will likely run high downforce with extra ride height for bumps and aggressive brake cooling; getting front-end bite without rear instability on corner exits is the balancing act. Expect a Medium-to-Hard one-stop as baseline, with big value in stretching the opening stint to pit under a Safety Car (common here). Qualifying is half the battle: traffic and out-lap prep are tricky, so watch Alpine\u2019s timing to give him clean air and tyre/brake temps in the window. In the race, Turn 7 and the back-straight chicane are his main passing zones; lift-and-coast for temperatures will be routine in the humidity. Weather could throw brief showers into the mix\u2014Gasly is typically tidy in changeable conditions. Stakes are medium: consistent points consolidate his leadership at Alpine and keep leverage for future opportunities, especially if he outperforms the car\u2019s baseline.",
+      "perfect_quali": "P5\u2013P7",
+      "perfect_race": "P4\u2013P6",
+      "good_quali": "P8\u2013P10",
+      "good_race": "P7\u2013P10 (points finish)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Street-circuit precision and kerb riding",
+        "Tyre and brake management in high-heat conditions",
+        "Opportunism around Safety Car/VSC windows"
+      ],
+      "watch_for": "Alpine stretching the first stint on Mediums to pit under Safety Car; Gasly targeting moves into Turn 7 and the back-straight chicane; quali out-lap management to avoid traffic and hit tyre/brake temp sweet spot. If a shower hits, look for a quick call to inters and steady pace on a green track."
+    },
+    "Franco Colapinto": {
+      "tldr": "Rookie Franco Colapinto tackles Marina Bay in an Alpine that should like high downforce and traction zones. If he nails qualifying prep and keeps it clean through Safety Car chaos, points are on the table.",
+      "full": "Colapinto arrives as an F1 Singapore rookie, facing one of the calendar\u2019s toughest tests: 62 laps of heat, humidity, and walls. Alpine\u2019s high-downforce preference should suit the stop\u2011start, low-speed profile, where straight-line deficit matters less and traction, braking stability, and kerb compliance matter most. Expect the team to target a Medium-to-Hard one-stop, flexible around likely Safety Cars (pit-loss ~27\u201329s under green). Tyre thermal management is key\u2014avoid early Soft graining unless a late neutralization invites a sprint. Qualifying will hinge on out-lap prep and track evolution; a clean lap through T1\u20133 and a strong launch from Turn 5 to Turn 7 can define his race. In traffic, patience and braking feel at T7 and the back-straight chicane create passing chances, while brake cooling and rear-tyre temps need constant care. Recent rookie trend lines\u2014tidy execution, minimal errors, strong restarts\u2014will be decisive, as will beating his team-mate on a circuit that rewards discipline. A Q2 start with Safety Car-savvy strategy could elevate him into the points.",
+      "perfect_quali": "P8\u2013P10 (Q3)",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P11\u2013P13 (top of Q2)",
+      "good_race": "P9\u2013P10 (points)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Braking/traction in low-speed corners",
+        "Composure in traffic and Safety Car restarts",
+        "Tyre and brake temperature management"
+      ],
+      "watch_for": "If Alpine commits to a Medium-start and opportunistic stop under Safety Car; his launch and braking into Turn 7; and kerb riding at the new back-straight chicane without overheating brakes."
+    },
+    "Esteban Ocon": {
+      "tldr": "Street-fighter Ocon should lean on tyre and brake management to sneak Haas into the points at attrition-heavy Marina Bay. Track position, Safety Car timing, and calm restarts will define his ceiling.",
+      "full": "What to look for with Esteban Ocon (#31, Haas): Singapore rewards patience, precision, and tyre care\u2014three areas that suit Ocon. Expect Haas to trim the car for high downforce, compliant ride over bumps, and maximum brake cooling; getting traction off Turns 5, 7, and the back-straight chicane will decide both qualifying and wheel-to-wheel outcomes. With high humidity and a non-trivial rain risk, Ocon\u2019s composure in mixed conditions is an asset, and Safety Cars are almost guaranteed\u2014so watch for a long first stint on Mediums, extending to catch an SC window and jumping traffic. Out\u2011lap prep is critical under lights; he\u2019ll need a clean gap and strong Turn 1\u20133 execution to bank a lap as the track grips up rapidly. In the race, lift\u2011and\u2011coast to manage PU and brakes, disciplined tyre temps to avoid C5 graining in traffic, and opportunistic moves into Turn 7/Esplanade are his pathways forward. Stakes are meaningful for Haas\u2019s midfield fight: a tidy, interruption-savvy run can turn P12 pace into P8 at the flag.",
+      "perfect_quali": "P6\u2013P8",
+      "perfect_race": "Top-8 finish",
+      "good_quali": "P9\u2013P12",
+      "good_race": "Points finish (P9\u2013P10)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Tyre and thermal management",
+        "Brake modulation into heavy stops",
+        "Safety Car and restart execution",
+        "Composure in mixed/wet conditions"
+      ],
+      "watch_for": "Haas stretching the first stint on Mediums to pit under a Safety Car; Ocon\u2019s exits onto Raffles Blvd and attacks/defences into Turn 7."
+    },
+    "Oliver Bearman": {
+      "tldr": "Rookie Oliver Bearman tackles his first Singapore F1 start with Haas, where traction, brake cooling, and tyre temps decide everything. If he nails quali prep and manages Safety-Car windows, points are on the table\u2014watch his Turn 7 restarts.",
+      "full": "Bearman\u2019s first F1 Singapore outing will reward precision: big kerbs at T1\u20133, traction at T5/7, and commitment on the new back\u2011straight chicane. Expect Haas to run maximum downforce with attention on ride height and brake ducting for the heat and bumps; keeping rear tyres and brake temps in check is the weekend\u2019s make\u2011or\u2011break. Qualifying is king here\u2014track evolution is massive, so out\u2011lap prep and a clean final push are vital to reach Q2 (and maybe sneak Q3). Strategy: baseline one\u2011stop Medium\u2192Hard, with Soft mainly for quali; the Safety Car almost always appears in Singapore, so flexible timing and pitting under neutralization can swing his race. Weather could add spice (humid, a chance of showers), making smooth throttle on corner exits and quick tyre phase\u2011in crucial. Form guide: typical rookie ebb\u2011and\u2011flow, but clean races tend to bring Haas into the fringe points. Benchmarks: beat his teammate, execute restarts, and defend smartly into Turn 7 and the Esplanade braking zone. Stakes are medium\u2014constructors\u2019 points matter, and a tidy, opportunistic drive would strengthen his standing within Haas.",
+      "perfect_quali": "P8-P10",
+      "perfect_race": "P6-P8",
+      "good_quali": "P11-P13",
+      "good_race": "P9-P10 (points)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Braking/kerb usage on street circuits",
+        "Composure in traffic and Safety-Car restarts"
+      ],
+      "watch_for": "His execution around Safety-Car windows and restart aggression into Turn 7; managing rear-tyre temps and brake cooling in the humid night conditions."
+    },
+    "Alex Albon": {
+      "tldr": "Albon\u2019s precision and tyre care suit Singapore\u2019s stop\u2011start, high\u2011deg streets, but Williams\u2019 traction deficit makes Q3 a stretch. Watch for smart Safety Car calls and late-race moves at Turn 7 to sneak points.",
+      "full": "What to look for: a disciplined, elbows-out Alex Albon managing tyres and brakes while picking moments at Turn 7 and the end of Esplanade. Singapore\u2019s high downforce/traction demands aren\u2019t ideal for Williams, so expect the car trimmed for maximum grip and stability over kerbs, plus aggressive brake cooling and lift\u2011and\u2011coast to keep temps in check in the humid night air. Track position rules here; a Medium-to-Hard one\u2011stop is baseline, but with Singapore\u2019s frequent Safety Cars, Albon\u2019s racecraft and patience can flip the script\u2014pitting under SC/VSC is his biggest upside. Qualifying is all about out\u2011lap prep and avoiding traffic; nailing the Turn 1\u20133 sequence and getting clean air for the Raffles Boulevard run matter most. Historically this venue hasn\u2019t been a Williams stronghold, but Albon tends to keep it tidy and capitalize on chaos\u2014especially if showers pop up. Realistically, Q3 is the target and a late\u2011race push on a better tyre could convert marginal track position into low points for crucial Constructors\u2019 tally.",
+      "perfect_quali": "P7\u2013P9",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P10\u2013P12 (edge of Q3/Q2 high)",
+      "good_race": "P8\u2013P10 (points finish)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Tyre management in heat/humidity",
+        "Braking consistency and traction sensitivity",
+        "Defensive racecraft in traffic",
+        "Out\u2011lap prep and building pace with evolving grip"
+      ],
+      "watch_for": "Safety Car timing and an opportunistic stop; Albon protecting rears off Turn 5 and launching passes into Turn 7; lift\u2011and\u2011coast for brake/PU temps; kerb usage and traction at the back\u2011straight chicane. If rain threatens, his pace on a drying track could be a difference-maker."
+    },
+    "Carlos Sainz": {
+      "tldr": "Sainz returns to the scene of his 2023 masterclass, now leading Williams at a track that rewards precision, tyre care, and brains under Safety Cars. If he nails qualifying and manages a Medium-to-Hard one\u2011stop, he\u2019s a top\u2011six threat with outside podium upside in chaos.",
+      "full": "What to look for: Sainz\u2019s Singapore craft is proven (win in 2023, podium in 2022), and this venue plays to his strengths: measured braking, tyre nursing in heat, and calm, tactical race management. With Williams, expect maximum-downforce trim, meticulous brake cooling, and a focus on traction over the bumps (T1\u20133, T5, hairpin) and kerb compliance at the back\u2011straight chicane. Track position is king here, so qualifying execution and out\u2011lap prep in traffic will be decisive; a clean launch through T1\u20133 sets the tone. Strategy: baseline one\u2011stop (Medium\u2192Hard), pitting roughly laps 18\u201335, but be flexible\u2014Singapore almost always features SC/VSC, and a cheap stop can transform the day. Tyre deg and graining on Softs in traffic argue for avoiding the C5 in long stints. Watch Sainz manage DRS trains (like his 2023 \u2018pace control\u2019 playbook) to protect tyres and battery while defending into T7 and the Esplanade braking zones. Forecast suggests hot, humid, and possibly showery conditions\u2014thermal management matters. A clean Saturday and opportunistic Safety Car timing could lift Williams into the top six; a late neutralization is his best route to a podium shot.",
+      "perfect_quali": "P3-P5",
+      "perfect_race": "Podium finish",
+      "good_quali": "P6-P8",
+      "good_race": "Points finish",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Tyre management in hot, high-degradation races",
+        "Street-circuit precision and braking discipline"
+      ],
+      "watch_for": "Sainz controlling a DRS train to save tyres/energy, then pitting under Safety Car in the L18\u201335 window; traction out of T5 to set up T7 attacks/defences."
+    },
+    "Liam Lawson": {
+      "tldr": "Lawson returns to the scene of his first F1 points (P9 in 2023) with a car that should like Singapore\u2019s high-downforce, traction-heavy demands. If he nails out\u2011lap prep in quali and extends a Medium first stint to catch the inevitable Safety Car, points are on.",
+      "full": "Liam Lawson (#30) heads to Marina Bay\u2014where he scored his first F1 points in 2023\u2014looking to convert street\u2011circuit precision into a top\u201110. Singapore rewards high downforce, traction and brake stability: expect Racing Bulls to trim for rear grip over bumps and prioritize brake cooling and power\u2011unit temps in the humid night air. Qualifying is everything: traffic and rapid track evolution mean out\u2011lap prep is critical; watch Lawson ride the T1\u20133 curbs cleanly, maximize traction out of T5 onto Raffles Blvd, and commit on the big stop into T7. In the race, baseline is a one\u2011stop Medium\u2192Hard with a long opening stint\u2014perfect for capitalizing on Singapore\u2019s near\u2011certain Safety Cars. Avoiding Soft graining in traffic and managing rear\u2011tyre temps will be key. Overtakes: T7, end of the Esplanade straight, and the back\u2011straight chicane added for 2023; patience over Anderson Bridge into the Hairpin can set moves up. With a clean launch and timely SC call, Lawson can turn a Q3 fringe start into points even if raw pace is midfield. Check the latest weather\u2014brief showers can flip strategy.",
+      "perfect_quali": "P7\u2013P9",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P10\u2013P12",
+      "good_race": "Points (P9\u2013P10)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Street-circuit precision",
+        "Tyre and brake management",
+        "Calm under Safety Car/late restarts",
+        "Traction out of low-speed corners"
+      ],
+      "watch_for": "Aggressive but tidy braking into Turn 7 and a long Medium first stint to pit under Safety Car; managing brake temps and out\u2011lap prep to spring a late Q2\u2192Q3 jump."
+    },
+    "Isack Hadjar": {
+      "tldr": "Rookie night-fight: Hadjar\u2019s street-circuit composure, late-braking style, and tyre care could turn Safety Car chaos into points. If he nails Turn 7 braking and T5 traction, a Q3 berth and a top-10 are on the table for Racing Bulls.",
+      "full": "What to look for: Isack Hadjar (#6) tackles Marina Bay for the first time in F1, where discipline beats raw pace. Singapore\u2019s heat, humidity, and relentless 90-degree braking zones reward drivers who manage tyres, batteries, and brakes without errors\u2014an area that suits Hadjar\u2019s measured racecraft and confidence on walls-close street tracks. Expect Racing Bulls to run high downforce with a focus on rear-end traction and brake cooling; getting rotation without rear snap over bumps is key. Track evolution is massive, so out-lap prep in qualifying and clean space are critical\u2014one strong push lap could sneak him into Q3. Strategy-wise, a Medium-to-Hard one-stop is baseline, but with Singapore\u2019s near-certain Safety Cars, being flexible\u2014extending the first stint and pitting under neutralization\u2014can decide the day. Watch Turn 7 for his overtakes and the T5 exit for traction; both shape passes down the straights. With no prior F1 starts here and a long, physical two-hour window, an error-free race and sharp calls on SC/VSC timing are the pathway to points. Rain threats and gusty urban winds could amplify the chaos\u2014opportunity knocks if he stays tidy.",
+      "perfect_quali": "P7\u2013P9 (strong Q3, ahead of direct midfield rivals)",
+      "perfect_race": "P6\u2013P8 (clean one-stop, capitalizes on Safety Car timing)",
+      "good_quali": "P10\u2013P12 (Q2 high-end, near Q3 cut)",
+      "good_race": "P9\u2013P10 (points finish, minimal errors)",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Late-braking confidence and clean rotation in tight corners",
+        "Composed street-circuit racecraft near walls",
+        "Tyre and brake management in hot, stop\u2011start conditions",
+        "Adaptability to big track evolution across sessions"
+      ],
+      "watch_for": "Turn 7 dive opportunities and a long first stint on Mediums to catch a Safety Car window; if he nails T1\u20133 at the start and the T5 launch, Hadjar can convert chaos into points."
+    },
+    "Nico Hulkenberg": {
+      "tldr": "Hulkenberg\u2019s street-circuit precision suits Marina Bay, but converting a strong Saturday into points on Sunday is the hurdle. Watch Sauber gamble around Safety Cars with a long first stint and Nico\u2019s braking prowess into Turn 7.",
+      "full": "Nico Hulkenberg (#27) heads to Singapore with his usual calling card: sharp single-lap execution and tidy low-speed technique that matter most at Marina Bay. Recent form suggests solid qualifying pace versus the midfield, with race results hinging on tire life, traffic, and Safety Car timing. Historically he\u2019s been quick here but often luckless; clean execution and flexible strategy are key. Expect high-downforce setup, max traction focus (T5 exit, T7/Esplanade stops), and careful brake/PU cooling in the humid night air. Strategy: aim to start on Mediums, stretch the first stint, and pounce on the near-inevitable SC/VSC; Softs can grain in traffic, so track position is king. Starts and Lap 1 risk management will be vital, as will smooth out-lap prep to avoid front graining. Weather could bring brief showers\u2014conditions Nico typically handles well. Stakes are medium: he\u2019s an anchor for Sauber\u2019s Audi-bound project, so beating his teammate and bagging points matters more than heroics. A clean, patient race with one decisive pit call could turn Q3 pace into a top-8 finish.",
+      "perfect_quali": "P7\u2013P9",
+      "perfect_race": "P6\u2013P8 with SC-assisted strategy",
+      "good_quali": "P10\u2013P12 (high Q2, sniffing Q3)",
+      "good_race": "Points finish (P9\u2013P10)",
+      "stakes_level": "medium",
+      "key_strengths": [
+        "Street-circuit qualifying precision",
+        "Braking feel and low-speed traction management",
+        "Experience reading Safety Car/VSC windows"
+      ],
+      "watch_for": "Long first stint on Mediums to catch a Safety Car; late defensive work into Turn 7; clean pit stops and strong out-lap prep to avoid graining."
+    },
+    "Gabriel Bortoleto": {
+      "tldr": "Rookie Gabriel Bortoleto (#5) takes on his first F1 Singapore night race with Sauber. Clean quali execution, strong tyre care, and nailing Safety Car timing could turn a Q2/Q3 into points. Watch Turn 7 lunges and how he manages brakes and heat.",
+      "full": "What to look for with Gabriel Bortoleto at Marina Bay: This is his first F1 Singapore GP, a demanding night race where heat, humidity, and 62 laps of low\u2011speed corners punish brakes and tyres. Expect Sauber to run high downforce with an emphasis on ride compliance over bumps, robust brake cooling, and rear\u2011end traction for the 90\u2011degree exits and the back\u2011straight chicane. Qualifying is everything here\u2014out\u2011lap prep, track position, and clean banker laps are critical amid traffic. Race\u2011wise, a one\u2011stop (Medium to Hard) is baseline, but Singapore\u2019s near\u2011certain Safety Cars make flexibility the real weapon; extending the first stint into the Lap 18\u201335 window can be decisive. Bortoleto\u2019s smooth inputs and tyre sympathy should help in thermal degradation and in restarts, while measured aggression into Turn 7 and the chicane can open passing chances. With variable winds and a non\u2011trivial shower risk, keep an eye on his confidence on a green or damp track. Stakes are high for a rookie: error\u2011free execution, protecting the car, and being sharp on SC calls could convert a solid Q2 into points.",
+      "perfect_quali": "Q3 (P8\u2013P10)",
+      "perfect_race": "Solid points (P6\u2013P8)",
+      "good_quali": "High Q2 (P11\u2013P13)",
+      "good_race": "Points (P9\u2013P10)",
+      "stakes_level": "high",
+      "key_strengths": [
+        "Tyre management in hot, high-deg conditions",
+        "Braking discipline and traction out of slow corners"
+      ],
+      "watch_for": "Safety Car pit call timing around Laps 18\u201335, disciplined Turn 7 attacks, and kerb-riding/exit traction at the back\u2011straight chicane."
+    }
+  },
+  "top5": {
+    "drivers": [
+      {
+        "rank": 1,
+        "driver": "Max Verstappen",
+        "reason": "Singapore is one of his trickier venues, but elite tire/thermal management and ruthless Safety Car judgment can flip a good car into track position. Qualifying out-lap execution on the C5 and Turn 7 aggression will define his ceiling.",
+        "stakes": "Defend championship momentum and anchor Red Bull\u2019s constructors push at a track that historically blunts dominance."
+      },
+      {
+        "rank": 2,
+        "driver": "Lewis Hamilton",
+        "reason": "Street-circuit ace with proven Marina Bay craft, and Ferrari should be in the front-row mix. If showers or Safety Cars hit, his decision-making can swing the race to a win or podium.",
+        "stakes": "Big points for Ferrari\u2019s constructors fight and a shot at a first Ferrari win under the lights; intra-team leadership vs Leclerc."
+      },
+      {
+        "rank": 3,
+        "driver": "Lando Norris",
+        "reason": "McLaren typically thrives on high-downforce street layouts and he was P2 here in 2023. Clean Q3 prep plus smart Safety Car timing puts a win in play.",
+        "stakes": "Sustain title-bid momentum and keep McLaren\u2019s constructors challenge alive while beating Piastri on a key benchmark track."
+      },
+      {
+        "rank": 4,
+        "driver": "Charles Leclerc",
+        "reason": "A Singapore specialist with pole pedigree, he\u2019s a front-row threat if Ferrari nails Q3 out-lap prep. Track-position racing here suits his tidy low-speed style.",
+        "stakes": "Pole/podium points to boost Ferrari\u2019s title hopes and set the intra-team qualifying benchmark against Hamilton."
+      },
+      {
+        "rank": 5,
+        "driver": "Yuki Tsunoda",
+        "reason": "Aggressive late-braking and strong one-lap punch suit Marina Bay, and the Red Bull seat gives front-running upside. Converting Safety Car windows while managing rear tires is his pathway to a podium.",
+        "stakes": "Validate promotion by delivering podium-level points alongside Verstappen and securing his long-term Red Bull standing in the constructors fight."
+      }
+    ]
+  },
+  "underdogs": {
+    "underdogs": [
+      {
+        "driver": "Liam Lawson",
+        "title": "Back for More in Marina Bay",
+        "story": "Lawson returns to the track where he scored his first F1 points in 2023, a circuit that rewards his tidy street-circuit precision. If he keeps it clean in qualifying and plays the inevitable Safety Car windows, he can turn fringe-Q3 pace into a top-10.",
+        "surprise_factor": "Singapore\u2019s long, stop\u2011start stints suit his tyre/brake management and late-braking confidence into Turn 7. A long opening run on Mediums positions him perfectly to pit under SC/VSC and jump faster cars stuck in traffic."
+      },
+      {
+        "driver": "Lance Stroll",
+        "title": "Singapore Redemption After Quali Heartbreak",
+        "story": "Stroll\u2019s 2023 qualifying crash still stings, but he was P6 here in the wet-to-dry 2022 race. With a clean Saturday and disciplined tyre/brake management, he can convert a midfield start into points when Safety Cars shuffle the deck.",
+        "surprise_factor": "He\u2019s strong on restarts and heavy-braking passes into Turn 7, and his wet-weather feel is a hidden edge if showers hit. Extending the first stint to catch an SC plays to his Sunday strengths on a track where track position is everything."
+      },
+      {
+        "driver": "Oliver Bearman",
+        "title": "Rookie Night Raid for Haas Points",
+        "story": "Bearman tackles his first Singapore night race, where precision and patience matter more than raw speed. If he nails out-lap prep amid big track evolution and stays error-free, a smart one-stop with SC timing can lift him into the points.",
+        "surprise_factor": "His street-circuit braking discipline and calm Safety Car restarts align perfectly with Marina Bay\u2019s demands. Starting on Mediums and pitting under a neutralization could flip Haas\u2019s typical Q2 pace into a P8\u2013P10 finish."
+      }
+    ]
+  },
+  "raceContext": "{\n  \"event\": \"2025 Singapore Grand Prix\",\n  \"date_local\": \"2025-10-05\",\n  \"venue\": \"Marina Bay Street Circuit (night race)\",\n  \"weather_forecast\": {\n    \"as_of\": \"2025-10-04\",\n    \"confidence\": \"low (no live data access; based on typical early-October evenings in Singapore)\",\n    \"race_window_local\": \"20:00\u201322:00\",\n    \"temperature_c\": {\n      \"ambient\": [28, 31],\n      \"track\": [32, 40]\n    },\n    \"rain_probability_percent\": [30, 50],\n    \"wind\": {\n      \"speed_kmh\": [5, 15],\n      \"direction\": \"variable (urban canyons; often ENE\u2013SE)\",\n      \"gusts_kmh\": [15, 25]\n    },\n    \"notes\": \"High humidity; risk of brief thunderstorms/showers. Verify with latest official forecast.\"\n  },\n  \"track\": {\n    \"length_km\": 4.928,\n    \"laps\": 62,\n    \"total_race_distance_km\": 305.5,\n    \"characteristics\": [\n      \"Tight street circuit; low average speed\",\n      \"High downforce, high braking and traction demand\",\n      \"Bumpy surface; big track evolution across the weekend\",\n      \"Night race under lights; very hot and humid\"\n    ],\n    \"key_corners\": [\n      {\n        \"section\": \"Turns 1\u20133\",\n        \"note\": \"Opening chicane; heavy braking, curb usage, critical for lap time and start.\"\n      },\n      {\n        \"section\": \"Turn 5 exit\",\n        \"note\": \"Sets up the long Raffles Blvd straight; traction crucial.\"\n      },\n      {\n        \"section\": \"Turn 7\",\n        \"note\": \"Primary overtaking spot; big stop from high speed.\"\n      },\n      {\n        \"section\": \"Anderson Bridge \u2192 Hairpin\",\n        \"note\": \"Narrow bridge into tight hairpin; braking stability and traction key.\"\n      },\n      {\n        \"section\": \"End of Esplanade straight\",\n        \"note\": \"Another heavy-braking passing opportunity.\"\n      },\n      {\n        \"section\": \"Back-straight chicane (added with 2023 layout change)\",\n        \"note\": \"Major braking zone; kerb riding and exit traction; passing chance.\"\n      }\n    ]\n  },\n  \"safety_car_statistics\": {\n    \"timeframe\": \"Since inaugural 2008 race (excl. 2020/2021 cancellations)\",\n    \"safety_car_in_every_race\": true,\n    \"avg_safety_car_deployments_per_race_est\": {\n      \"range\": [1, 3],\n      \"median\": 2\n    },\n    \"typical_total_safety_car_laps_est\": [8, 15],\n    \"virtual_safety_car_frequency\": \"common\",\n    \"implications\": \"High likelihood of interruptions; pitting under SC often decisive.\"\n  },\n  \"strategy_considerations\": {\n    \"pirelli_compounds_expected\": [\n      \"C3 (Hard)\",\n      \"C4 (Medium)\",\n      \"C5 (Soft)\"\n    ],\n    \"baseline_strategy\": \"One-stop (track position king; long pit delta).\",\n    \"typical_pit_windows_lap\": {\n      \"one_stop_M_to_H\": \"Laps 18\u201335 (extend with SC)\",\n      \"two_stop\": \"Viable mainly with multiple SC/VSC or late neutralizations\"\n    },\n    \"pit_lane_time_loss_seconds_green\": [27, 29],\n    \"undercut_effect\": \"Moderate; traffic often blunts gains. Overcut can work with clean air/SC.\",\n    \"degradation_profile\": \"Thermal deg high; graining risk on Soft in traffic; Medium preferred for first stint.\",\n    \"operational_notes\": [\n      \"Safety Car timing often trumps pure pace.\",\n      \"Brake cooling and power unit thermal management critical.\",\n      \"Big track evolution\u2014qualifying grip improves rapidly.\"\n    ]\n  },\n  \"recent_race_history\": [\n    {\n      \"year\": 2024,\n      \"winner\": null,\n      \"pole\": null,\n      \"podium\": null,\n      \"notes\": \"Result not available in this model\u2019s data.\"\n    },\n    {\n      \"year\": 2023,\n      \"winner\": \"Carlos Sainz (Ferrari)\",\n      \"pole\": \"Carlos Sainz (Ferrari)\",\n      \"podium\": [\n        \"Carlos Sainz (Ferrari)\",\n        \"Lando Norris (McLaren)\",\n        \"Lewis Hamilton (Mercedes)\"\n      ],\n      \"notes\": \"First non-Red Bull win of 2023; late VSC; Russell crashed on final lap while chasing P2.\"\n    },\n    {\n      \"year\": 2022,\n      \"winner\": \"Sergio P\u00e9rez (Red Bull)\",\n      \"pole\": \"Charles Leclerc (Ferrari)\",\n      \"podium\": [\n        \"Sergio P\u00e9rez (Red Bull)\",\n        \"Charles Leclerc (Ferrari)\",\n        \"Carlos Sainz (Ferrari)\"\n      ],\n      \"notes\": \"Wet-to-dry race; multiple SC/VSC; P\u00e9rez kept win after SC infringement penalty.\"\n    }\n  ],\n  \"unique_challenges\": [\n    \"Extreme heat/humidity and long race duration strain drivers and machinery.\",\n    \"High probability of Safety Cars; strategy must be flexible.\",\n    \"Bumps and 90-degree corners punish setups; traction and braking stability vital.\",\n    \"Walls close and visibility changes under lights; errors are costly.\",\n    \"Traffic management in qualifying is difficult; out-lap prep critical.\"\n  ]\n}",
+  "metadata": {
+    "circuit": "singapore",
+    "date": "2025-10-05",
+    "season": "2025",
+    "generatedAt": null
+  }
+}

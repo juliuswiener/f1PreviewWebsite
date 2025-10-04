@@ -3,11 +3,12 @@
 Generate F1 race weekend previews using OpenAI API
 """
 
+import asyncio
 import json
 import os
 import sys
 from datetime import datetime
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 # Configuration
 CIRCUIT = "singapore"
@@ -181,8 +182,8 @@ Return as JSON array:
 }
 
 
-def call_openai(client, prompt, use_json_format=True):
-    """Call OpenAI Responses API"""
+async def call_openai(client, prompt, use_json_format=True):
+    """Call OpenAI Responses API asynchronously"""
     request_body = {
         "model": MODEL,
         "input": prompt,
@@ -196,7 +197,7 @@ def call_openai(client, prompt, use_json_format=True):
             }
         }
 
-    response = client.responses.create(**request_body)
+    response = await client.responses.create(**request_body)
 
     # Extract text from response
     for item in response.output:
@@ -208,14 +209,37 @@ def call_openai(client, prompt, use_json_format=True):
     raise Exception("No text found in response")
 
 
-def main():
+async def generate_driver_preview_async(client, driver, circuit, race_context, session_context):
+    """Generate a single driver preview asynchronously"""
+    driver_prompt = prompts["driver_preview"].format(
+        driverName=driver["name"],
+        driverNumber=driver["number"],
+        team=driver["team"],
+        circuit=circuit,
+        raceContext=race_context,
+        sessionContext=session_context or ""
+    )
+
+    try:
+        preview_text = await call_openai(client, driver_prompt)
+        preview = json.loads(preview_text)
+        return driver["name"], preview, None
+    except Exception as e:
+        return driver["name"], {
+            "tldr": "Error generating preview",
+            "full": str(e),
+            "stakes_level": "medium"
+        }, str(e)
+
+
+async def main():
     # Initialize OpenAI client
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         print("Error: OPENAI_API_KEY environment variable not set")
         return
 
-    client = OpenAI(api_key=api_key)
+    client = AsyncOpenAI(api_key=api_key)
 
     print(f"Generating previews for {CIRCUIT} GP on {RACE_DATE}...")
 
@@ -235,44 +259,38 @@ def main():
         raceDate=RACE_DATE,
         season=SEASON
     )
-    race_context = call_openai(client, race_context_prompt)
+    race_context = await call_openai(client, race_context_prompt)
     print(f"   ✓ Race context generated ({len(race_context)} chars)")
 
-    # Step 2: Generate driver previews
-    print(f"\n2. Generating {len(drivers_2025)} driver previews...")
+    # Step 2: Generate driver previews in parallel
+    print(f"\n2. Generating {len(drivers_2025)} driver previews in parallel...")
+
+    # Create tasks for all drivers
+    tasks = [
+        generate_driver_preview_async(client, driver, CIRCUIT, race_context, session_context)
+        for driver in drivers_2025
+    ]
+
+    # Run all tasks concurrently
+    results = await asyncio.gather(*tasks)
+
+    # Process results
     driver_previews = {}
+    for driver_name, preview, error in results:
+        driver_previews[driver_name] = preview
+        if error:
+            print(f"   ✗ {driver_name}: {error}")
+        else:
+            print(f"   ✓ {driver_name}")
 
-    for i, driver in enumerate(drivers_2025, 1):
-        print(f"   [{i}/{len(drivers_2025)}] {driver['name']}...", end=" ")
-
-        driver_prompt = prompts["driver_preview"].format(
-            driverName=driver["name"],
-            driverNumber=driver["number"],
-            team=driver["team"],
-            circuit=CIRCUIT,
-            raceContext=race_context,
-            sessionContext=session_context or ""
-        )
-
-        try:
-            preview_text = call_openai(client, driver_prompt)
-            preview = json.loads(preview_text)
-            driver_previews[driver["name"]] = preview
-            print("✓")
-        except Exception as e:
-            print(f"✗ Error: {e}")
-            driver_previews[driver["name"]] = {
-                "tldr": "Error generating preview",
-                "full": str(e),
-                "stakes_level": "medium"
-            }
+    print(f"   ✓ All {len(driver_previews)} driver previews generated")
 
     # Step 3: Generate top 5
     print("\n3. Generating top 5 analysis...")
     top5_prompt = prompts["top5"].format(sessionContext=session_context or "")
     top5_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
 
-    top5_text = call_openai(client, top5_prompt)
+    top5_text = await call_openai(client, top5_prompt)
     top5 = json.loads(top5_text)
     print(f"   ✓ Top 5 generated")
 
@@ -281,7 +299,7 @@ def main():
     underdogs_prompt = prompts["underdogs"].format(sessionContext=session_context or "")
     underdogs_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
 
-    underdogs_text = call_openai(client, underdogs_prompt)
+    underdogs_text = await call_openai(client, underdogs_prompt)
     underdogs = json.loads(underdogs_text)
     print(f"   ✓ Underdog stories generated")
 
@@ -309,4 +327,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
