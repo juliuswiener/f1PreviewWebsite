@@ -208,6 +208,12 @@ function loadPrompts() {
         'prompt-underdogs': localStorage.getItem('prompt-underdogs') || defaultPrompts.underdogs
     };
 
+    // Auto-fix old race context prompt that doesn't contain 'json' keyword
+    if (prompts['prompt-race-context'] && !prompts['prompt-race-context'].toLowerCase().includes('json')) {
+        prompts['prompt-race-context'] = defaultPrompts.raceContext;
+        localStorage.setItem('prompt-race-context', defaultPrompts.raceContext);
+    }
+
     Object.keys(prompts).forEach(id => {
         document.getElementById(id).value = prompts[id];
     });
