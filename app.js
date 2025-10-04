@@ -313,10 +313,29 @@ function togglePromptEditor() {
 
 function initializeDriverGrid() {
     const grid = document.getElementById('driver-grid');
+
+    // Team colors for 2025
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+
+    // Change from grid to list layout
+    grid.style.display = 'flex';
+    grid.style.flexDirection = 'column';
+    grid.style.gap = '1rem';
+
     grid.innerHTML = drivers2025.map(driver => {
         const hasPreview = generatedData.drivers[driver.name];
-        const statusClass = hasPreview ? 'generated' : '';
-        const statusBadge = hasPreview ? '✓' : '';
+        const teamColor = teamColors[driver.team] || '#999';
 
         // Get stakes level and color
         const stakesLevel = hasPreview?.stakes_level || 'medium';
@@ -328,12 +347,23 @@ function initializeDriverGrid() {
         const stakesColor = stakesColors[stakesLevel] || stakesColors['medium'];
 
         return `
-            <div class="driver-card ${statusClass}" id="card-${driver.number}" onclick="viewDriver('${driver.name}')">
-                <div class="status-badge">${statusBadge}</div>
-                <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">#${driver.number}</div>
-                <div style="font-size: 1.1rem; font-weight: 600;">${driver.name}</div>
-                <div style="color: #999; margin-top: 0.3rem;">${driver.team}</div>
-                ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">⚡ ${stakesLevel} stakes</div>` : ''}
+            <div style="display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.03); border-left: 4px solid ${teamColor}; border: 1px solid ${teamColor}40; border-left-width: 4px; border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.3s;"
+                 onclick="viewDriver('${driver.name}')"
+                 onmouseover="this.style.background='${teamColor}20'; this.style.borderColor='${teamColor}'"
+                 onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='${teamColor}40'; this.style.borderLeftColor='${teamColor}'; this.style.borderLeftWidth='4px'">
+                <img src="${getDriverImageUrl(driver.name, 'front')}"
+                     alt="${driver.name}"
+                     style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                     onerror="this.style.display='none'">
+                <div style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+                        <span style="font-size: 1.2rem; font-weight: bold; color: ${teamColor};">#${driver.number}</span>
+                        <span style="font-size: 1.1rem; font-weight: 600;">${driver.name}</span>
+                    </div>
+                    <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
+                    ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
+                </div>
+                ${hasPreview ? `<div style="color: #00ff88; font-size: 1.5rem;">✓</div>` : ''}
             </div>
         `;
     }).join('');
@@ -598,11 +628,11 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
     throw new Error('No text content found in response. Check console for details.');
 }
 
-function getDriverImageUrl(driverName) {
+function getDriverImageUrl(driverName, angle = 'right') {
     // Map of driver names to their team and code for 2025
     const driverInfo = {
-        'Max Verstappen': { team: 'redbull', code: 'maxver' },
-        'Yuki Tsunoda': { team: 'redbull', code: 'yuktsu01' },
+        'Max Verstappen': { team: 'redbullracing', code: 'maxver01' },
+        'Yuki Tsunoda': { team: 'redbullracing', code: 'yuktsu01' },
         'Lewis Hamilton': { team: 'ferrari', code: 'lewham01' },
         'Charles Leclerc': { team: 'ferrari', code: 'chalec01' },
         'Lando Norris': { team: 'mclaren', code: 'lannor01' },
@@ -626,7 +656,7 @@ function getDriverImageUrl(driverName) {
     const info = driverInfo[driverName];
     if (!info) return 'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/drivers/number-logo/GENERIC.png';
 
-    return `https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriverright.webp/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}right.webp`;
+    return `https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriver${angle}.webp/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}${angle}.webp`;
 }
 
 function renderHighlights() {
@@ -645,7 +675,7 @@ function renderHighlights() {
 
     content.innerHTML = `
         <div class="highlight-section">
-            <h3>🏆 Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
+            <h3>Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
             ${top5Data.map((item, i) => `
                 <div class="top-driver-item">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
@@ -657,7 +687,7 @@ function renderHighlights() {
                     </div>
                     <p><strong>Why watch:</strong> ${item.reason}</p>
                     ${item.stakes ? `<p style="color: #4db8ff; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
+                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">View full preview</a>
                 </div>
             `).join('')}
         </div>
@@ -680,7 +710,7 @@ function renderUnderdogs() {
 
     content.innerHTML = `
         <div class="highlight-section">
-            <h3>🔥 Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
+            <h3>Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
             ${underdogsData.map((item, i) => `
                 <div class="top-driver-item">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
@@ -695,7 +725,7 @@ function renderUnderdogs() {
                     </div>
                     <p>${item.story}</p>
                     ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.5rem;"><strong>Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
+                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">View full preview</a>
                 </div>
             `).join('')}
         </div>
