@@ -681,7 +681,7 @@ function renderHighlights() {
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                         <img src="${getDriverImageUrl(item.driver)}"
                              alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 2px solid #0096ff;"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 2px solid #0096ff;"
                              onerror="this.style.display='none'">
                         <h4 style="margin: 0;">#${item.rank || i + 1} ${item.driver}</h4>
                     </div>
@@ -716,7 +716,7 @@ function renderUnderdogs() {
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                         <img src="${getDriverImageUrl(item.driver)}"
                              alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 2px solid #ff8800;"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 2px solid #ff8800;"
                              onerror="this.style.display='none'">
                         <div style="flex: 1;">
                             <h4 style="margin: 0 0 0.25rem 0;">${item.driver}</h4>
