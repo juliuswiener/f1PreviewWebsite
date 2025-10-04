@@ -599,39 +599,34 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
 }
 
 function getDriverImageUrl(driverName) {
-    // Map of driver names to their official F1 headshot codes
-    const driverCodes = {
-        'Max Verstappen': 'MAXVER01',
-        'Sergio Perez': 'SERPER01',
-        'Lewis Hamilton': 'LEWHAM01',
-        'Charles Leclerc': 'CHALEC01',
-        'Lando Norris': 'LANNOR01',
-        'Oscar Piastri': 'OSCPIA01',
-        'George Russell': 'GEORUS01',
-        'Carlos Sainz': 'CARSAI01',
-        'Fernando Alonso': 'FERALO01',
-        'Lance Stroll': 'LANSTR01',
-        'Yuki Tsunoda': 'YUKTSU01',
-        'Pierre Gasly': 'PIEGAS01',
-        'Esteban Ocon': 'ESTOCO01',
-        'Alex Albon': 'ALEALB01',
-        'Franco Colapinto': 'FRACOL01',
-        'Nico Hulkenberg': 'NICHUL01',
-        'Kevin Magnussen': 'KEVMAG01',
-        'Daniel Ricciardo': 'DANRIC01',
-        'Valtteri Bottas': 'VALBOT01',
-        'Zhou Guanyu': 'GUAZHO01',
-        'Oliver Bearman': 'OLIBEA01',
-        'Liam Lawson': 'LIALAW01',
-        'Isack Hadjar': 'ISAHAD01',
-        'Kimi Antonelli': 'KIMANT01',
-        'Gabriel Bortoleto': 'GABBOR01'
+    // Map of driver names to their team and code for 2025
+    const driverInfo = {
+        'Max Verstappen': { team: 'redbull', code: 'maxver01' },
+        'Yuki Tsunoda': { team: 'redbull', code: 'yuktsu01' },
+        'Lewis Hamilton': { team: 'ferrari', code: 'lewham01' },
+        'Charles Leclerc': { team: 'ferrari', code: 'chalec01' },
+        'Lando Norris': { team: 'mclaren', code: 'lannor01' },
+        'Oscar Piastri': { team: 'mclaren', code: 'oscpia01' },
+        'George Russell': { team: 'mercedes', code: 'georus01' },
+        'Kimi Antonelli': { team: 'mercedes', code: 'kimant01' },
+        'Fernando Alonso': { team: 'astonmartin', code: 'feralo01' },
+        'Lance Stroll': { team: 'astonmartin', code: 'lanstr01' },
+        'Pierre Gasly': { team: 'alpine', code: 'piegas01' },
+        'Franco Colapinto': { team: 'alpine', code: 'fracol01' },
+        'Esteban Ocon': { team: 'haas', code: 'estoco01' },
+        'Oliver Bearman': { team: 'haas', code: 'olibea01' },
+        'Alex Albon': { team: 'williams', code: 'alealb01' },
+        'Carlos Sainz': { team: 'williams', code: 'carsai01' },
+        'Liam Lawson': { team: 'racingbulls', code: 'lialaw01' },
+        'Isack Hadjar': { team: 'racingbulls', code: 'isahad01' },
+        'Nico Hulkenberg': { team: 'sauber', code: 'nichul01' },
+        'Gabriel Bortoleto': { team: 'sauber', code: 'gabbor01' }
     };
 
-    const code = driverCodes[driverName];
-    if (!code) return 'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/drivers/number-logo/GENERIC.png';
+    const info = driverInfo[driverName];
+    if (!info) return 'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/drivers/number-logo/GENERIC.png';
 
-    return `https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/2024Drivers/${code}.png`;
+    return `https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriverright.webp/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}right.webp`;
 }
 
 function renderHighlights() {
@@ -656,7 +651,7 @@ function renderHighlights() {
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                         <img src="${getDriverImageUrl(item.driver)}"
                              alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #0096ff;"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 2px solid #0096ff;"
                              onerror="this.style.display='none'">
                         <h4 style="margin: 0;">#${item.rank || i + 1} ${item.driver}</h4>
                     </div>
@@ -691,7 +686,7 @@ function renderUnderdogs() {
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                         <img src="${getDriverImageUrl(item.driver)}"
                              alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #ff8800;"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 2px solid #ff8800;"
                              onerror="this.style.display='none'">
                         <div style="flex: 1;">
                             <h4 style="margin: 0 0 0.25rem 0;">${item.driver}</h4>
