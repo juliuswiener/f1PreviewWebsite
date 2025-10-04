@@ -1019,22 +1019,27 @@ Return as JSON array:
                 if (type === 'json_object') {
                     requestBody.text = {
                         format: {
-                            type: 'json_schema',
-                            name: 'json_response',
-                            schema: {
-                                type: 'object',
-                                additionalProperties: true
-                            }
+                            type: 'json_object'
                         }
                     };
                 } else if (type === 'json_schema') {
                     const schemaDefinition = formatOptions.json_schema || formatOptions.schema;
                     const { json_schema: _, schema: __, ...rest } = formatOptions;
 
+                    let normalizedSchema = schemaDefinition;
+
+                    if (schemaDefinition && typeof schemaDefinition === 'object' && !Array.isArray(schemaDefinition)) {
+                        normalizedSchema = { ...schemaDefinition };
+
+                        if (normalizedSchema.type === 'object' && normalizedSchema.additionalProperties !== false) {
+                            normalizedSchema.additionalProperties = false;
+                        }
+                    }
+
                     requestBody.text = {
                         format: {
                             type: 'json_schema',
-                            ...(schemaDefinition ? { schema: schemaDefinition } : {}),
+                            ...(normalizedSchema ? { schema: normalizedSchema } : {}),
                             ...rest
                         }
                     };
