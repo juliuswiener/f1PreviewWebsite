@@ -5,6 +5,8 @@ Generate F1 race weekend previews using OpenAI API
 
 import json
 import os
+import sys
+from datetime import datetime
 from openai import OpenAI
 
 # Configuration
@@ -13,6 +15,20 @@ RACE_DATE = "2025-10-05"
 SEASON = "2025"
 MODEL = "gpt-5"
 MAX_OUTPUT_TOKENS = 30000
+
+# Session results (if available) - UPDATE THIS MANUALLY
+# Set to None if session hasn't happened yet
+SESSION_RESULTS = {
+    "fp1": None,  # Free Practice 1 results
+    "fp2": None,  # Free Practice 2 results
+    "fp3": None,  # Free Practice 3 results
+    "sprint_qualifying": None,  # Sprint Qualifying (if sprint weekend)
+    "sprint": None,  # Sprint Race (if sprint weekend)
+    "qualifying": None,  # Main Qualifying results
+    # Example format:
+    # "fp1": "P1: Verstappen, P2: Norris, P3: Leclerc. Red flags: 1 (Stroll crash T7). Key: Mercedes struggling with balance.",
+    # "qualifying": "P1: Norris (1:29.525), P2: Verstappen (+0.203), P3: Hamilton (+0.421). Out in Q2: Perez, Tsunoda. Conditions: Dry, 28°C track temp.",
+}
 
 drivers_2025 = [
     {"name": "Max Verstappen", "team": "Red Bull", "number": 1},
@@ -37,6 +53,29 @@ drivers_2025 = [
     {"name": "Gabriel Bortoleto", "team": "Sauber", "number": 5},
 ]
 
+def get_session_context():
+    """Build a summary of completed sessions"""
+    completed = {k: v for k, v in SESSION_RESULTS.items() if v is not None}
+
+    if not completed:
+        return None
+
+    session_names = {
+        "fp1": "FP1",
+        "fp2": "FP2",
+        "fp3": "FP3",
+        "sprint_qualifying": "Sprint Qualifying",
+        "sprint": "Sprint Race",
+        "qualifying": "Qualifying"
+    }
+
+    context = "COMPLETED SESSIONS THIS WEEKEND:\n\n"
+    for session_key, results in completed.items():
+        context += f"**{session_names.get(session_key, session_key.upper())}:**\n{results}\n\n"
+
+    return context.strip()
+
+
 prompts = {
     "race_context": """Provide race weekend context for the {circuit} Grand Prix on {raceDate} in {season}. Include:
 - Weather forecast (temperature, rain probability, wind)
@@ -56,6 +95,8 @@ Team: {team}
 Race Context:
 {raceContext}
 
+{sessionContext}
+
 Consider:
 - Current form and recent results this season (last 5 races)
 - Previous performance at this circuit (if applicable)
@@ -63,6 +104,7 @@ Consider:
 - Stakes (championship position, career implications, contract situation)
 - Driver strengths and weaknesses relevant to this circuit
 - What would be a good/perfect result (qualifying and race)
+- **IF SESSION RESULTS PROVIDED**: How this driver performed in completed sessions (practice/qualifying) and what it means for the race
 
 Provide two versions:
 1. TLDR: 2-3 sentences max, punchy and informative
@@ -81,7 +123,9 @@ Format as JSON:
   "watch_for": "specific thing to watch"
 }""",
 
-    "top5": """Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for this race weekend.
+    "top5": """Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for the upcoming race.
+
+{sessionContext}
 
 Consider:
 - Championship stakes (title fight, team battles)
@@ -89,6 +133,7 @@ Consider:
 - Current form (hot streak, redemption arc)
 - Track-specific advantages (historical performance, driving style match)
 - Storylines (rivalries, milestones, team dynamics)
+- **IF SESSION RESULTS PROVIDED**: Performance in completed sessions (practice/qualifying) and grid positions
 
 For each driver, provide:
 - Driver name
@@ -106,7 +151,9 @@ Return as JSON array:
   }
 ]""",
 
-    "underdogs": """Identify 3 UNDERDOG STORIES for this race weekend.
+    "underdogs": """Identify 3 UNDERDOG STORIES for the upcoming race.
+
+{sessionContext}
 
 An underdog story should feature drivers who:
 - Could surprise with performance above expectations
@@ -114,6 +161,7 @@ An underdog story should feature drivers who:
 - Face adversity or a unique opportunity
 - Are flying under the radar but could shine
 - Have track-specific advantages not widely recognized
+- **IF SESSION RESULTS PROVIDED**: Showed promise in practice/qualifying despite lower expectations
 
 For each underdog, provide:
 - Driver name
@@ -171,6 +219,15 @@ def main():
 
     print(f"Generating previews for {CIRCUIT} GP on {RACE_DATE}...")
 
+    # Check for session results
+    session_context = get_session_context()
+    if session_context:
+        print(f"\n📊 Including results from completed sessions:")
+        completed_sessions = [k for k, v in SESSION_RESULTS.items() if v is not None]
+        print(f"   {', '.join(completed_sessions)}")
+    else:
+        print("\n📅 No session results provided (pre-weekend preview)")
+
     # Step 1: Generate race context
     print("\n1. Generating race context...")
     race_context_prompt = prompts["race_context"].format(
@@ -193,7 +250,8 @@ def main():
             driverNumber=driver["number"],
             team=driver["team"],
             circuit=CIRCUIT,
-            raceContext=race_context
+            raceContext=race_context,
+            sessionContext=session_context or ""
         )
 
         try:
@@ -211,7 +269,8 @@ def main():
 
     # Step 3: Generate top 5
     print("\n3. Generating top 5 analysis...")
-    top5_prompt = prompts["top5"] + "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
+    top5_prompt = prompts["top5"].format(sessionContext=session_context or "")
+    top5_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
 
     top5_text = call_openai(client, top5_prompt)
     top5 = json.loads(top5_text)
@@ -219,7 +278,8 @@ def main():
 
     # Step 4: Generate underdogs
     print("\n4. Generating underdog stories...")
-    underdogs_prompt = prompts["underdogs"] + "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
+    underdogs_prompt = prompts["underdogs"].format(sessionContext=session_context or "")
+    underdogs_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
 
     underdogs_text = call_openai(client, underdogs_prompt)
     underdogs = json.loads(underdogs_text)
