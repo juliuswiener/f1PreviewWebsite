@@ -474,7 +474,7 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
     const requestBody = {
         model: model,
         input: prompt,
-        max_output_tokens: 2000
+        max_output_tokens: 8000  // Increased for GPT-5 reasoning + output
     };
 
     const isGPT5Family = /^gpt-5/i.test(model);
@@ -525,26 +525,26 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
     // Debug: log response structure
     console.log('API Response:', JSON.stringify(data, null, 2));
 
-    // Parse response: prioritize output_text helper
-    if (typeof data.output_text === 'string') {
-        return data.output_text;
+    // Check for incomplete response
+    if (data.status === 'incomplete') {
+        const reason = data.incomplete_details?.reason || 'unknown';
+        throw new Error(`Response incomplete: ${reason}. Try increasing max_output_tokens.`);
     }
 
-    // Fallback: parse output array
+    // Parse response: look for message with content in output array
     if (Array.isArray(data.output)) {
-        const messageChunks = data.output
-            .filter(item => item.type === 'message' && Array.isArray(item.content))
-            .flatMap(item => item.content)
-            .filter(part => part.type === 'text' && typeof part.text === 'string')
-            .map(part => part.text.trim())
-            .filter(Boolean);
-
-        if (messageChunks.length > 0) {
-            return messageChunks.join('\n');
+        for (const item of data.output) {
+            if (item.type === 'message' && Array.isArray(item.content)) {
+                for (const part of item.content) {
+                    if (part.type === 'text' && typeof part.text === 'string') {
+                        return part.text.trim();
+                    }
+                }
+            }
         }
     }
 
-    throw new Error('Unexpected API response format. Check console for details.');
+    throw new Error('No text content found in response. Check console for details.');
 }
 
 function renderHighlights() {
