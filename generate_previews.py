@@ -16,6 +16,7 @@ RACE_DATE = "2025-10-05"
 SEASON = "2025"
 MODEL = "gpt-5"
 MAX_OUTPUT_TOKENS = 30000
+ENABLE_WEB_SEARCH = True  # Enable GPT-5 to search for latest race data, weather, results
 
 # Session results (if available) - UPDATE THIS MANUALLY
 # Set to None if session hasn't happened yet
@@ -78,7 +79,14 @@ def get_session_context():
 
 
 prompts = {
-    "race_context": """Provide race weekend context for the {circuit} Grand Prix on {raceDate} in {season}. Include:
+    "race_context": """Search for and provide race weekend context for the {circuit} Grand Prix on {raceDate} in {season}.
+
+IMPORTANT: Use web search to find the LATEST information about:
+- Current weather forecast for the race weekend
+- Any recent practice/qualifying session results if the weekend has started
+- Latest F1 news and developments
+
+Include in your response:
 - Weather forecast (temperature, rain probability, wind)
 - Track characteristics and key corners
 - Historical safety car statistics at this circuit
@@ -92,6 +100,11 @@ Keep it concise and factual. Return the response as JSON.""",
 
 Driver: {driverName} (#{driverNumber})
 Team: {team}
+
+IMPORTANT: Use web search to find {driverName}'s:
+- Latest race results and current form (last 3-5 races in {season})
+- Recent news, incidents, or statements
+- Practice/qualifying results if this race weekend has started
 
 Race Context:
 {raceContext}
@@ -182,7 +195,7 @@ Return as JSON array:
 }
 
 
-async def call_openai(client, prompt, use_json_format=True):
+async def call_openai(client, prompt, use_json_format=True, enable_search=True):
     """Call OpenAI Responses API asynchronously"""
     request_body = {
         "model": MODEL,
@@ -190,12 +203,19 @@ async def call_openai(client, prompt, use_json_format=True):
         "max_output_tokens": MAX_OUTPUT_TOKENS,
     }
 
-    if use_json_format:
+    # Web search and JSON mode are mutually exclusive
+    will_use_search = enable_search and ENABLE_WEB_SEARCH and MODEL.startswith("gpt-5")
+
+    if use_json_format and not will_use_search:
         request_body["text"] = {
             "format": {
                 "type": "json_object"
             }
         }
+
+    # Enable web search for GPT-5 (cannot be used with JSON mode)
+    if will_use_search:
+        request_body["tools"] = [{"type": "web_search"}]
 
     response = await client.responses.create(**request_body)
 
@@ -204,7 +224,21 @@ async def call_openai(client, prompt, use_json_format=True):
         if item.type == 'message':
             for part in item.content:
                 if part.type in ['text', 'output_text']:
-                    return part.text.strip()
+                    text = part.text.strip()
+
+                    # If we used web search, we need to extract JSON from markdown code blocks
+                    if will_use_search and use_json_format:
+                        # Try to extract JSON from markdown code blocks
+                        import re
+                        json_match = re.search(r'```json\s*\n(.*?)\n```', text, re.DOTALL)
+                        if json_match:
+                            return json_match.group(1).strip()
+                        # Try without markdown
+                        json_match = re.search(r'\{.*\}', text, re.DOTALL)
+                        if json_match:
+                            return json_match.group(0).strip()
+
+                    return text
 
     raise Exception("No text found in response")
 
@@ -243,6 +277,12 @@ async def main():
 
     print(f"Generating previews for {CIRCUIT} GP on {RACE_DATE}...")
 
+    # Check for web search capability
+    if ENABLE_WEB_SEARCH and MODEL.startswith("gpt-5"):
+        print(f"\n🌐 Web search ENABLED - Model will search for latest race data, weather, and results")
+    else:
+        print(f"\n📝 Web search DISABLED - Using model's training data only")
+
     # Check for session results
     session_context = get_session_context()
     if session_context:
@@ -250,7 +290,7 @@ async def main():
         completed_sessions = [k for k, v in SESSION_RESULTS.items() if v is not None]
         print(f"   {', '.join(completed_sessions)}")
     else:
-        print("\n📅 No session results provided (pre-weekend preview)")
+        print("\n📅 No manual session results provided")
 
     # Step 1: Generate race context
     print("\n1. Generating race context...")
