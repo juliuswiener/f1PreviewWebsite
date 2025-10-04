@@ -30,7 +30,7 @@ const defaultPrompts = {
 - Recent race history at this circuit (last 3 years)
 - Any unique challenges this circuit presents
 
-Keep it concise and factual. Format as structured data.`,
+Keep it concise and factual. Return the response as JSON.`,
 
     driverPreview: `Write a "what to look for with {driverName}" text for the upcoming F1 {circuit} GP.
 
