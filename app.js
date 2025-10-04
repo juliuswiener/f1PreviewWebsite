@@ -134,7 +134,10 @@ function createEmptyGeneratedData() {
 var generatedData = createEmptyGeneratedData();
 
 // Initialize
-function init() {
+async function init() {
+    // Try to load pre-generated preview data
+    await loadPreviewData();
+
     loadSavedData();
     loadPrompts();
     initializeDriverGrid();
@@ -149,6 +152,27 @@ function init() {
     ['api-key', 'model', 'temperature'].forEach(id => {
         document.getElementById(id).addEventListener('change', saveAPISettings);
     });
+}
+
+async function loadPreviewData() {
+    try {
+        const response = await fetch('preview_data.json');
+        if (response.ok) {
+            const data = await response.json();
+            generatedData = {
+                ...createEmptyGeneratedData(),
+                ...data,
+                metadata: {
+                    ...data.metadata,
+                    generatedAt: new Date().toISOString()
+                }
+            };
+            console.log('✓ Loaded pre-generated preview data');
+            renderAllContent();
+        }
+    } catch (error) {
+        console.log('No preview_data.json found, using localStorage or generate new');
+    }
 }
 
 function loadSavedData() {
