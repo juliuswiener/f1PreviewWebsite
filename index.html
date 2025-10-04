@@ -1014,10 +1014,12 @@ Return as JSON array:
             };
 
             if (options.responseFormat) {
-                if (options.responseFormat.type === 'json_object') {
-                    requestBody.response_format = {
-                        type: 'json_schema',
-                        json_schema: {
+                const { type, ...formatOptions } = options.responseFormat;
+
+                if (type === 'json_object') {
+                    requestBody.text = {
+                        format: 'json_schema',
+                        schema: {
                             name: 'json_response',
                             schema: {
                                 type: 'object',
@@ -1025,8 +1027,18 @@ Return as JSON array:
                             }
                         }
                     };
+                } else if (type === 'json_schema') {
+                    const schemaDefinition = formatOptions.schema || formatOptions.json_schema;
+
+                    requestBody.text = {
+                        format: 'json_schema',
+                        ...(schemaDefinition ? { schema: schemaDefinition } : {})
+                    };
                 } else {
-                    requestBody.response_format = options.responseFormat;
+                    requestBody.text = {
+                        format: type,
+                        ...formatOptions
+                    };
                 }
             }
 
