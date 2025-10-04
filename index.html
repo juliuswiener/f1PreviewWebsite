@@ -1019,7 +1019,7 @@ Return as JSON array:
                 if (type === 'json_object') {
                     requestBody.text = {
                         format: 'json_schema',
-                        schema: {
+                        json_schema: {
                             name: 'json_response',
                             schema: {
                                 type: 'object',
@@ -1028,11 +1028,11 @@ Return as JSON array:
                         }
                     };
                 } else if (type === 'json_schema') {
-                    const schemaDefinition = formatOptions.schema || formatOptions.json_schema;
+                    const schemaDefinition = formatOptions.json_schema || formatOptions.schema;
 
                     requestBody.text = {
                         format: 'json_schema',
-                        ...(schemaDefinition ? { schema: schemaDefinition } : {})
+                        ...(schemaDefinition ? { json_schema: schemaDefinition } : {})
                     };
                 } else {
                     requestBody.text = {
