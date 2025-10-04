@@ -598,6 +598,42 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
     throw new Error('No text content found in response. Check console for details.');
 }
 
+function getDriverImageUrl(driverName) {
+    // Map of driver names to their official F1 headshot codes
+    const driverCodes = {
+        'Max Verstappen': 'MAXVER01',
+        'Sergio Perez': 'SERPER01',
+        'Lewis Hamilton': 'LEWHAM01',
+        'Charles Leclerc': 'CHALEC01',
+        'Lando Norris': 'LANNOR01',
+        'Oscar Piastri': 'OSCPIA01',
+        'George Russell': 'GEORUS01',
+        'Carlos Sainz': 'CARSAI01',
+        'Fernando Alonso': 'FERALO01',
+        'Lance Stroll': 'LANSTR01',
+        'Yuki Tsunoda': 'YUKTSU01',
+        'Pierre Gasly': 'PIEGAS01',
+        'Esteban Ocon': 'ESTOCO01',
+        'Alex Albon': 'ALEALB01',
+        'Franco Colapinto': 'FRACOL01',
+        'Nico Hulkenberg': 'NICHUL01',
+        'Kevin Magnussen': 'KEVMAG01',
+        'Daniel Ricciardo': 'DANRIC01',
+        'Valtteri Bottas': 'VALBOT01',
+        'Zhou Guanyu': 'GUAZHO01',
+        'Oliver Bearman': 'OLIBEA01',
+        'Liam Lawson': 'LIALAW01',
+        'Isack Hadjar': 'ISAHAD01',
+        'Kimi Antonelli': 'KIMANT01',
+        'Gabriel Bortoleto': 'GABBOR01'
+    };
+
+    const code = driverCodes[driverName];
+    if (!code) return 'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/drivers/number-logo/GENERIC.png';
+
+    return `https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/2024Drivers/${code}.png`;
+}
+
 function renderHighlights() {
     const content = document.getElementById('highlights-content');
 
@@ -617,10 +653,16 @@ function renderHighlights() {
             <h3>🏆 Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
             ${top5Data.map((item, i) => `
                 <div class="top-driver-item">
-                    <h4>#${item.rank || i + 1} ${item.driver}</h4>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <img src="${getDriverImageUrl(item.driver)}"
+                             alt="${item.driver}"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #0096ff;"
+                             onerror="this.style.display='none'">
+                        <h4 style="margin: 0;">#${item.rank || i + 1} ${item.driver}</h4>
+                    </div>
                     <p><strong>Why watch:</strong> ${item.reason}</p>
-                    ${item.stakes ? `<p style="color: #ff1e00; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #e10600; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
+                    ${item.stakes ? `<p style="color: #4db8ff; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
+                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
                 </div>
             `).join('')}
         </div>
@@ -646,10 +688,19 @@ function renderUnderdogs() {
             <h3>🔥 Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
             ${underdogsData.map((item, i) => `
                 <div class="top-driver-item">
-                    <h4>${item.title || `Story ${i + 1}: ${item.driver}`}</h4>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <img src="${getDriverImageUrl(item.driver)}"
+                             alt="${item.driver}"
+                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #ff8800;"
+                             onerror="this.style.display='none'">
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0 0 0.25rem 0;">${item.driver}</h4>
+                            <p style="margin: 0; color: #ff8800; font-size: 0.95rem; font-style: italic;">${item.title}</p>
+                        </div>
+                    </div>
                     <p>${item.story}</p>
                     ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.5rem;"><strong>Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #e10600; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
+                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">→ View full preview</a>
                 </div>
             `).join('')}
         </div>
