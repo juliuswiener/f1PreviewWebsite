@@ -474,7 +474,7 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
     const requestBody = {
         model: model,
         input: prompt,
-        max_output_tokens: 8000  // Increased for GPT-5 reasoning + output
+        max_output_tokens: 30000
     };
 
     const isGPT5Family = /^gpt-5/i.test(model);
