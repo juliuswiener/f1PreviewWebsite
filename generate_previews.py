@@ -86,7 +86,7 @@ IMPORTANT: Use web search to find the LATEST information about:
 - Any recent practice/qualifying session results if the weekend has started
 - Latest F1 news and developments
 
-Include in your response:
+Provide a comprehensive race context summary including:
 - Weather forecast (temperature, rain probability, wind)
 - Track characteristics and key corners
 - Historical safety car statistics at this circuit
@@ -94,9 +94,9 @@ Include in your response:
 - Recent race history at this circuit (last 3 years)
 - Any unique challenges this circuit presents
 
-Keep it concise and factual. Return the response as JSON.""",
+Keep it factual and informative - this will be used to brief preview writers.""",
 
-    "driver_preview": """Write a "what to look for with {driverName}" text for the upcoming F1 {circuit} GP.
+    "driver_preview": """Write a "what to look for with {driverName}" preview for the upcoming F1 {circuit} GP.
 
 Driver: {driverName} (#{driverNumber})
 Team: {team}
@@ -120,22 +120,22 @@ Consider:
 - What would be a good/perfect result (qualifying and race)
 - **IF SESSION RESULTS PROVIDED**: How this driver performed in completed sessions (practice/qualifying) and what it means for the race
 
-Provide two versions:
-1. TLDR: 2-3 sentences max, punchy and informative
-2. FULL: Detailed informational text (150-200 words)
+Format your response EXACTLY as follows:
 
-Format as JSON:
-{{
-  "tldr": "...",
-  "full": "...",
-  "perfect_quali": "P1-P3",
-  "perfect_race": "Podium finish",
-  "good_quali": "P4-P6",
-  "good_race": "Points finish",
-  "stakes_level": "high/medium/low",
-  "key_strengths": ["strength1", "strength2"],
-  "watch_for": "specific thing to watch"
-}}""",
+TLDR: [2-3 punchy sentences about what to watch for with this driver]
+
+FULL: [Detailed 150-200 word analysis covering current form, track suitability, stakes, and what would constitute a good weekend]
+
+STAKES: [high/medium/low]
+
+PERFECT_QUALI: [e.g., "P1-P3" or "Pole position"]
+PERFECT_RACE: [e.g., "Podium finish" or "Victory"]
+GOOD_QUALI: [e.g., "P4-P6" or "Top 10"]
+GOOD_RACE: [e.g., "Points finish" or "P6-P8"]
+
+STRENGTHS: [2-3 key strengths relevant to this circuit, comma-separated]
+
+WATCH_FOR: [One specific thing to watch for this driver this weekend]""",
 
     "top5": """Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for the upcoming race.
 
@@ -149,21 +149,23 @@ Consider:
 - Storylines (rivalries, milestones, team dynamics)
 - **IF SESSION RESULTS PROVIDED**: Performance in completed sessions (practice/qualifying) and grid positions
 
-For each driver, provide:
-- Driver name
-- Position in ranking (1-5)
-- 1-2 sentence abstract explaining why they're must-watch
-- Link reference to full preview
+Format EXACTLY as follows for each of the 5 drivers:
 
-Return as JSON array:
-[
-  {{
-    "rank": 1,
-    "driver": "Driver Name",
-    "reason": "Compelling 1-2 sentence explanation",
-    "stakes": "What's on the line"
-  }}
-]""",
+#1: [Driver Name]
+REASON: [1-2 compelling sentences explaining why they're must-watch]
+STAKES: [What's on the line for this driver]
+
+#2: [Driver Name]
+REASON: [1-2 compelling sentences explaining why they're must-watch]
+STAKES: [What's on the line for this driver]
+
+[Continue for #3, #4, #5]
+
+Driver Previews:
+{driverPreviews}
+
+Race Context:
+{raceContext}""",
 
     "underdogs": """Identify 3 UNDERDOG STORIES for the upcoming race.
 
@@ -177,25 +179,32 @@ An underdog story should feature drivers who:
 - Have track-specific advantages not widely recognized
 - **IF SESSION RESULTS PROVIDED**: Showed promise in practice/qualifying despite lower expectations
 
-For each underdog, provide:
-- Driver name
-- Story title (catchy, 5-7 words)
-- Story description (2-3 sentences explaining the narrative)
-- Why they could surprise
+Format EXACTLY as follows for each of the 3 underdogs:
 
-Return as JSON array:
-[
-  {{
-    "driver": "Driver Name",
-    "title": "Catchy story title",
-    "story": "2-3 sentence narrative",
-    "surprise_factor": "Why they could overperform"
-  }}
-]"""
+UNDERDOG #1: [Driver Name]
+TITLE: [Catchy 5-7 word story title]
+STORY: [2-3 sentence narrative explaining why this is compelling]
+SURPRISE_FACTOR: [Why they could overperform this weekend]
+
+UNDERDOG #2: [Driver Name]
+TITLE: [Catchy 5-7 word story title]
+STORY: [2-3 sentence narrative explaining why this is compelling]
+SURPRISE_FACTOR: [Why they could overperform this weekend]
+
+UNDERDOG #3: [Driver Name]
+TITLE: [Catchy 5-7 word story title]
+STORY: [2-3 sentence narrative explaining why this is compelling]
+SURPRISE_FACTOR: [Why they could overperform this weekend]
+
+Driver Previews:
+{driverPreviews}
+
+Race Context:
+{raceContext}"""
 }
 
 
-async def call_openai(client, prompt, use_json_format=True, enable_search=True):
+async def call_openai(client, prompt, enable_search=True):
     """Call OpenAI Responses API asynchronously"""
     request_body = {
         "model": MODEL,
@@ -203,18 +212,8 @@ async def call_openai(client, prompt, use_json_format=True, enable_search=True):
         "max_output_tokens": MAX_OUTPUT_TOKENS,
     }
 
-    # Web search and JSON mode are mutually exclusive
-    will_use_search = enable_search and ENABLE_WEB_SEARCH and MODEL.startswith("gpt-5")
-
-    if use_json_format and not will_use_search:
-        request_body["text"] = {
-            "format": {
-                "type": "json_object"
-            }
-        }
-
-    # Enable web search for GPT-5 (cannot be used with JSON mode)
-    if will_use_search:
+    # Enable web search for GPT-5
+    if enable_search and ENABLE_WEB_SEARCH and MODEL.startswith("gpt-5"):
         request_body["tools"] = [{"type": "web_search"}]
 
     response = await client.responses.create(**request_body)
@@ -224,39 +223,124 @@ async def call_openai(client, prompt, use_json_format=True, enable_search=True):
         if item.type == 'message':
             for part in item.content:
                 if part.type in ['text', 'output_text']:
-                    text = part.text.strip()
-
-                    # If we used web search, we need to extract JSON from markdown code blocks
-                    if will_use_search and use_json_format:
-                        # Try to extract JSON from markdown code blocks
-                        import re
-                        json_match = re.search(r'```json\s*\n(.*?)\n```', text, re.DOTALL)
-                        if json_match:
-                            return json_match.group(1).strip()
-                        # Try without markdown
-                        json_match = re.search(r'\{.*\}', text, re.DOTALL)
-                        if json_match:
-                            return json_match.group(0).strip()
-
-                    return text
+                    return part.text.strip()
 
     raise Exception("No text found in response")
 
 
-async def generate_driver_preview_async(client, driver, circuit, race_context, session_context):
+def parse_driver_preview(text):
+    """Parse structured driver preview text into dict"""
+    import re
+
+    preview = {}
+
+    # Extract TLDR
+    tldr_match = re.search(r'TLDR:\s*(.+?)(?=\n\n|\nFULL:)', text, re.DOTALL)
+    preview['tldr'] = tldr_match.group(1).strip() if tldr_match else ""
+
+    # Extract FULL
+    full_match = re.search(r'FULL:\s*(.+?)(?=\n\n|\nSTAKES:)', text, re.DOTALL)
+    preview['full'] = full_match.group(1).strip() if full_match else ""
+
+    # Extract STAKES
+    stakes_match = re.search(r'STAKES:\s*(\w+)', text)
+    preview['stakes_level'] = stakes_match.group(1).lower() if stakes_match else "medium"
+
+    # Extract qualifying/race expectations
+    perfect_quali_match = re.search(r'PERFECT_QUALI:\s*(.+?)(?=\n)', text)
+    preview['perfect_quali'] = perfect_quali_match.group(1).strip() if perfect_quali_match else ""
+
+    perfect_race_match = re.search(r'PERFECT_RACE:\s*(.+?)(?=\n)', text)
+    preview['perfect_race'] = perfect_race_match.group(1).strip() if perfect_race_match else ""
+
+    good_quali_match = re.search(r'GOOD_QUALI:\s*(.+?)(?=\n)', text)
+    preview['good_quali'] = good_quali_match.group(1).strip() if good_quali_match else ""
+
+    good_race_match = re.search(r'GOOD_RACE:\s*(.+?)(?=\n)', text)
+    preview['good_race'] = good_race_match.group(1).strip() if good_race_match else ""
+
+    # Extract STRENGTHS
+    strengths_match = re.search(r'STRENGTHS:\s*(.+?)(?=\n\n|\nWATCH_FOR:)', text, re.DOTALL)
+    if strengths_match:
+        strengths_text = strengths_match.group(1).strip()
+        preview['key_strengths'] = [s.strip() for s in strengths_text.split(',')]
+    else:
+        preview['key_strengths'] = []
+
+    # Extract WATCH_FOR
+    watch_match = re.search(r'WATCH_FOR:\s*(.+?)(?=\n\n|$)', text, re.DOTALL)
+    preview['watch_for'] = watch_match.group(1).strip() if watch_match else ""
+
+    return preview
+
+
+def parse_top5(text):
+    """Parse top 5 text into list of dicts"""
+    import re
+
+    top5 = []
+
+    # Find all driver entries (#1 through #5)
+    pattern = r'#(\d+):\s*(.+?)\nREASON:\s*(.+?)\nSTAKES:\s*(.+?)(?=\n\n|#\d+:|$)'
+    matches = re.finditer(pattern, text, re.DOTALL)
+
+    for match in matches:
+        rank = int(match.group(1))
+        driver = match.group(2).strip()
+        reason = match.group(3).strip()
+        stakes = match.group(4).strip()
+
+        top5.append({
+            "rank": rank,
+            "driver": driver,
+            "reason": reason,
+            "stakes": stakes
+        })
+
+    return sorted(top5, key=lambda x: x['rank'])
+
+
+def parse_underdogs(text):
+    """Parse underdogs text into list of dicts"""
+    import re
+
+    underdogs = []
+
+    # Find all underdog entries
+    pattern = r'UNDERDOG #\d+:\s*(.+?)\nTITLE:\s*(.+?)\nSTORY:\s*(.+?)\nSURPRISE_FACTOR:\s*(.+?)(?=\n\n|UNDERDOG #|$)'
+    matches = re.finditer(pattern, text, re.DOTALL)
+
+    for match in matches:
+        driver = match.group(1).strip()
+        title = match.group(2).strip()
+        story = match.group(3).strip()
+        surprise_factor = match.group(4).strip()
+
+        underdogs.append({
+            "driver": driver,
+            "title": title,
+            "story": story,
+            "surprise_factor": surprise_factor
+        })
+
+    return underdogs
+
+
+async def generate_driver_preview_async(client, driver, circuit, race_context, session_context, season):
     """Generate a single driver preview asynchronously"""
     driver_prompt = prompts["driver_preview"].format(
         driverName=driver["name"],
         driverNumber=driver["number"],
         team=driver["team"],
         circuit=circuit,
+        season=season,
         raceContext=race_context,
         sessionContext=session_context or ""
     )
 
     try:
         preview_text = await call_openai(client, driver_prompt)
-        preview = json.loads(preview_text)
+        preview = parse_driver_preview(preview_text)
         return driver["name"], preview, None
     except Exception as e:
         return driver["name"], {
@@ -307,7 +391,7 @@ async def main():
 
     # Create tasks for all drivers
     tasks = [
-        generate_driver_preview_async(client, driver, CIRCUIT, race_context, session_context)
+        generate_driver_preview_async(client, driver, CIRCUIT, race_context, session_context, SEASON)
         for driver in drivers_2025
     ]
 
@@ -327,20 +411,33 @@ async def main():
 
     # Step 3: Generate top 5
     print("\n3. Generating top 5 analysis...")
-    top5_prompt = prompts["top5"].format(sessionContext=session_context or "")
-    top5_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
+
+    # Format driver previews as readable text for the prompt
+    driver_previews_text = "\n\n".join([
+        f"{name}:\n{preview.get('tldr', '')}"
+        for name, preview in driver_previews.items()
+    ])
+
+    top5_prompt = prompts["top5"].format(
+        sessionContext=session_context or "",
+        driverPreviews=driver_previews_text,
+        raceContext=race_context
+    )
 
     top5_text = await call_openai(client, top5_prompt)
-    top5 = json.loads(top5_text)
+    top5 = parse_top5(top5_text)
     print(f"   ✓ Top 5 generated")
 
     # Step 4: Generate underdogs
     print("\n4. Generating underdog stories...")
-    underdogs_prompt = prompts["underdogs"].format(sessionContext=session_context or "")
-    underdogs_prompt += "\n\nDriver Previews:\n" + json.dumps(driver_previews, indent=2) + "\n\nRace Context:\n" + race_context
+    underdogs_prompt = prompts["underdogs"].format(
+        sessionContext=session_context or "",
+        driverPreviews=driver_previews_text,
+        raceContext=race_context
+    )
 
     underdogs_text = await call_openai(client, underdogs_prompt)
-    underdogs = json.loads(underdogs_text)
+    underdogs = parse_underdogs(underdogs_text)
     print(f"   ✓ Underdog stories generated")
 
     # Compile results

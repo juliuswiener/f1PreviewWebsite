@@ -1,372 +1,359 @@
 {
   "drivers": {
     "Max Verstappen": {
-      "tldr": "Singapore is usually trickier for Verstappen than most tracks, but his race craft, tyre care, and Safety Car management can flip it. Quali out\u2011lap prep and Turn 7 moves will decide whether Red Bull turns pace into track position.",
-      "full": "What to look for with Max Verstappen (#1, Red Bull): Singapore\u2019s stop\u2011start layout and bumps demand max downforce, stable braking, and superb traction\u2014areas where Verstappen excels when the car rides kerbs cleanly. Form guide: he typically strings podium\u2011level pace across recent races, but this venue has historically blunted outright dominance and rewards execution more than raw speed. Qualifying is everything here; expect meticulous out\u2011lap prep on the C5 to nail a banker as grip ramps fast under lights. Race day should favor a one\u2011stop (Medium\u2192Hard), with Softs risky for graining in traffic. High humidity and a 30\u201350% shower threat raise the odds of Safety Cars (usually 1\u20133 per race); Verstappen is lethal at restarts and making the pit call at the right time. Watch traction off T5 onto Raffles Blvd and late dives into Turn 7\u2014the prime passing spot\u2014plus brake temps through the Anderson Bridge hairpin sequence. If Red Bull\u2019s ride/kerb compliance is sorted, he\u2019ll be in win contention; if not, expect a defensive, track\u2011position race. Verify the latest weather and practice long\u2011run data for final expectations.",
-      "perfect_quali": "P1-P3",
-      "perfect_race": "Win",
-      "good_quali": "P4-P6",
-      "good_race": "Top-5 finish",
+      "tldr": "Verstappen starts P2 after a feisty quali and looks sharp after topping FP3. He\u2019s won the last two races and was P2 at Zandvoort\u2014momentum is real\u2014but he\u2019s never won Singapore, so the launch versus Russell is everything. ([reuters.com](https://www.reuters.com/world/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Form guide says \u201csurge\u201d: Verstappen arrives off back\u2011to\u2011back wins at Monza and Baku, plus P2 at Zandvoort (last three: 1\u20111\u20112). That swing cut, but didn\u2019t erase, his title deficit to Oscar Piastri (\u221269). ([formula1.com](https://www.formula1.com/en/latest/article/verstappen-charges-to-italian-gp-win-over-norris-and-piastri.6J7R9E9tzOI9Asy6HBmoVf/?utm_source=openai)) In Singapore he\u2019s historically quick but winless, finishing P2 last year\u2014so Sunday is a shot to tick off a rare blank on his CV. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2024_Singapore_Grand_Prix?utm_source=openai)) The weekend started strong: P1 in FP3, then P2 in qualifying, where he complained Lando Norris baulked his final lap. That puts him on the clean side to attack Russell into Turn 1 and, more decisively, under brakes at T7. ([reuters.com](https://www.reuters.com/sports/formula1/resurgent-verstappen-quickest-singapore-lawson-crashes-again-2025-10-04/?utm_source=openai)) Car/track fit: Marina Bay rewards traction and rear\u2011tyre temperature management; baseline strategy is a one\u2011stop (Medium\u2192Hard) with Softs only for starts or late neutralisations. Expect Safety Car risk to shape undercut windows. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf/?utm_source=openai)) The FIA\u2019s first \u201cHeat Hazard\u201d adds a physical layer; cooling vests/ballast rules apply, so energy conservation and cockpit comfort matter over 62 laps. ([reuters.com](https://www.reuters.com/sports/formula1/fia-declares-first-formula-one-heat-hazard-race-singapore-2025-10-02/?utm_source=openai)) Net: a clean launch and smart SC timing could turn P2 on the grid into a win\u2014and keep his title push alive. ([reuters.com](https://www.reuters.com/world/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
       "stakes_level": "high",
+      "perfect_quali": "Pole position",
+      "perfect_race": "Victory",
+      "good_quali": "P2-P3",
+      "good_race": "Podium finish",
       "key_strengths": [
-        "Elite tyre and thermal management in hot, humid conditions",
-        "Braking modulation and traction out of slow corners",
-        "Safety Car/VSC decision-making and restarts",
-        "Wet-weather pace and adaptability",
-        "Racecraft in tight street-circuit traffic"
+        "Late\u2011braking consistency into heavy stops",
+        "traction/exit management on street circuits",
+        "race control under SC/VSC"
       ],
-      "watch_for": "Qualifying out\u2011lap prep and banker timing on C5s; how well the RB rides kerbs and manages rear traction out of T5; Turn 7 overtakes and SC pit timing that could swing track position."
+      "watch_for": "His start vs Russell and a first\u2011stint push to seize T7\u2014if he clears the Mercedes early, he can dictate the race."
     },
     "Yuki Tsunoda": {
-      "tldr": "Street-fighter test for Tsunoda in the Red Bull: nail qualifying amid big track evolution, then play the Safety Car lottery with disciplined tire and brake management. A clean run plus the right SC timing puts a podium in play.",
-      "full": "Marina Bay rewards precision on the brakes and traction off slow corners\u2014both areas that suit Tsunoda\u2019s style\u2014while punishing impatience. Expect Red Bull to run high downforce with compliant rear ride for kerbs, open brake ducts, and careful energy harvesting to attack the big stops at T7, the Esplanade end-zone, and the new back-straight chicane. Qualifying is everything here: traffic and evolving grip make out-lap prep and late track position critical; Yuki\u2019s one-lap punch could shine under lights. Race day is about discipline: manage rear-tire temps in humid air, protect brakes, and be ready to convert Safety Cars (historically 1\u20133) into free track position. Baseline is a one-stop (Medium\u2192Hard), extending the first stint to catch an SC; Softs are risky unless very late. Weather can swing it\u2014brief showers are common\u2014where Tsunoda\u2019s confidence on a changing surface can pay off. His Singapore record has been disrupted in the past, so a clean, mistake-free weekend is the priority. In a Red Bull seat, front-row contention is the target; a well-timed stop plus strong exits (notably T5) and assertive T7 braking puts a podium within reach.",
-      "perfect_quali": "P1\u2013P3",
-      "perfect_race": "Win or podium",
-      "good_quali": "P4\u2013P6",
-      "good_race": "Top-5 finish",
-      "stakes_level": "high",
+      "tldr": "Starting P13 after Williams\u2019 DQs, Tsunoda needs a clean first lap and smart tyre management to turn a tough quali into points. Watch his tyre warm\u2011up and an early undercut if a Safety Car appears. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-starting-grid/))",
+      "full": "Form guide is quietly improving: P6 Azerbaijan, P13 Italy, P9 Netherlands, P17 Hungary, P13 Belgium. That\u2019s 10 points in the last three rounds and 20 for the season (17th in the standings). ([skysports.com](https://www.skysports.com/f1/drivers/yuki-tsunoda/results?utm_source=openai)) After a solid Friday (FP1 P9, FP2 P11), Tsunoda said the big focus was getting the new Soft in on the first lap and that long\u2011run data was limited by stoppages. Qualifying didn\u2019t click: he was P15 on pace but moves up to P13 on the grid after both Williams cars were disqualified; he was also investigated for a Q1 yellow\u2011flag incident but cleared. ([formula1.com](https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-singapore-2025.YY9zZiq6tcKvKORPwN388?utm_source=openai)) Singapore suits tidy brake/traction technique but punishes tyre overheat and start execution\u2014two areas he\u2019s been working on since stepping up to Red Bull in March and through mid\u2011season upgrades (notably an extra floor at Spa) that have helped consistency. ([cnn.com](https://www.cnn.com/2025/03/27/sport/red-bull-yuki-tsunoda-replace-liam-lawson-spt-intl/index.html?utm_source=openai)) From P13, the baseline is Medium\u2192Hard one\u2011stop with undercut potential if he nails tyre warm\u2011up; the new fourth DRS zone can aid progress if he stays within one second through Sector 3. A \u201cgood\u201d night is banking points; the \u201cperfect\u201d one needs a sharp launch, clear air after the stop, and a timely SC/VSC. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-qualifying-results/?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "Q3 (P6\u2013P10)",
+      "perfect_race": "Top-6 finish",
+      "good_quali": "P11\u2013P13",
+      "good_race": "Points finish (P8\u2013P10)",
       "key_strengths": [
-        "Heavy-braking confidence for overtakes into T7 and chicanes",
-        "Kerb riding and rotation in low-speed 90-degree corners",
-        "Strong single-lap execution under high track evolution"
+        "Late\u2011braking confidence",
+        "rotation in low\u2011speed complexes",
+        "adaptability on street circuits"
       ],
-      "watch_for": "An opportunistic stop under Safety Car between laps 18\u201335 to jump traffic, then decisive passes into Turn 7."
+      "watch_for": "His first\u2011lap launch and Soft/Medium warm\u2011up\u2014if he hits the window early, Red Bull can try an aggressive undercut to jump into the points. ([formula1.com](https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-singapore-2025.YY9zZiq6tcKvKORPwN388?utm_source=openai))"
     },
     "Lewis Hamilton": {
-      "tldr": "Hamilton arrives at Marina Bay with Ferrari targeting front-row pace and a Safety Car-savvy race. Watch his traction out of T5/T7 and pit timing if rain or SCs shuffle the deck.",
-      "full": "What to look for: Hamilton\u2019s Singapore craft. He was P3 here in 2023 and has historically excelled under the lights with precise braking, tire care, and cool decision-making. Ferrari should trim for high downforce, strong rear stability over bumps, and robust brake cooling; kerb compliance and traction on the T5 and T7 exits will define his lap time and overtaking chances. Baseline strategy is one-stop (Medium\u2192Hard), but Marina Bay almost always brings Safety Cars\u2014expect Hamilton to push for a cheap stop or an overcut if he finds clean air. Softs can grain in traffic, so out\u2011lap prep in qualifying is crucial; a late, clear track could be gold with rapid evolution. Weather risk (heat, humidity, and possible showers) plays to his tire and mixed\u2011conditions strengths. Without session data here, recent form is the wildcard\u2014if his qualifying trend is strong, front two rows are realistic; race day is about patience, SC timing, and nailing restarts into T1\u20133 and T7. Stakes: high for Ferrari\u2019s points haul and Hamilton\u2019s street\u2011track pedigree.",
-      "perfect_quali": "P1",
-      "perfect_race": "Win (P1) or strong podium (P2\u2013P3)",
-      "good_quali": "P2\u2013P4",
-      "good_race": "Top 5 with strong points (P4\u2013P5)",
-      "stakes_level": "high",
+      "tldr": "Hamilton starts P6 for Ferrari with classic Singapore savvy and racecraft to lean on, but Ferrari\u2019s one\u2011lap ceiling looks below Mercedes/McLaren. Watch tyre/temperature management, Safety Car timing and the new fourth DRS zone to spring a podium bid. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Form guide says steady if unspectacular: P6 Monza (Sep 7), P8 Baku (Sep 21), DNF Zandvoort (Aug 31), P7 Spa, P12 Hungary \u2014 still chasing a first GP podium for Ferrari. ([espn.com](https://www.espn.com/racing/driver/raceresults/_/id/868/lewis-hamilton?utm_source=openai)) He qualified P6 and was P8 in FP3, cleared without penalty after a red\u2011flag pit\u2011entry review \u2014 so he keeps useful track position at a circuit where that matters. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai)) Ferrari\u2019s Saturday comments point to an \u201cunpredictable\u201d car and fewer recent upgrades than key rivals, raising the importance of race execution. ([reuters.com](https://www.reuters.com/sports/formula1/ferraris-leclerc-struggles-with-unpredictable-car-2025-10-04/)) Strategically, expect Medium\u2192Hard one\u2011stop, with Softs only for the start or late neutralisations; thermal deg is the limiter in the weekend\u2019s declared \u201cHeat Hazard.\u201d ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai)) Hamilton\u2019s Singapore record (wins in 2009, 2014, 2017, 2018) and elite tyre/cooling management suit Marina Bay\u2019s demands \u2014 and the added DRS zone between T14\u201316 could turn pressure into passes. ([theguardian.com](https://www.theguardian.com/sport/2009/sep/27/lewis-hamilton-wins-singapore?utm_source=openai)) With Ferrari in a tight fight for P2 in the Constructors\u2019, a clean opening stint, overcut/undercut flexibility around mid\u2011race, and sharp Safety Car calls are his route to a podium. ([reuters.com](https://www.reuters.com/sports/formula1/ferraris-leclerc-struggles-with-unpredictable-car-2025-10-04/))",
+      "stakes_level": "medium",
+      "perfect_quali": "P1\u2013P3",
+      "perfect_race": "Podium finish",
+      "good_quali": "P4\u2013P6",
+      "good_race": "P5\u2013P7",
       "key_strengths": [
-        "Street\u2011circuit precision and braking control",
-        "Tire and temperature management in hot/humid conditions",
-        "Safety Car/VSC judgment and pit\u2011call execution",
-        "Wet or mixed\u2011grip adaptability"
+        "Night\u2011race tyre/temperature management",
+        "precision in bumpy braking zones",
+        "Safety\u2011Car/restart savvy"
       ],
-      "watch_for": "Out\u2011lap tire prep in Q3, launch into Turns 1\u20133, braking duels at Turn 7, and opportunistic stops under SC/VSC\u2014especially if showers hit."
+      "watch_for": "Whether Hamilton stretches the first Medium stint to open an overcut onto the Hard, then exploits the new T14\u201316 DRS to convert P6 track position into podium range. ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai))"
     },
     "Charles Leclerc": {
-      "tldr": "Leclerc is always a Singapore specialist: razor-sharp in qualifying and tidy on traction-limited exits. If Ferrari nails out-lap prep and Safety Car timing, a front-row start and podium shot are on.",
-      "full": "Leclerc (#16) is typically formidable at Marina Bay: he took pole here in 2022 and Ferrari won in 2023, underscoring how their package and his style suit low-speed, big-braking street circuits. Form guide: verify his last-five results before lights out, but if recent qualifying strength continues, expect a front-row challenge. The priorities are classic Singapore: maximize front axle bite and ride over bumps, keep brake temps in check, and obsess over Q3 out-lap prep as grip surges with track evolution. Race-wise, track position is king; baseline is a one-stop (Medium\u2192Hard, laps 18\u201335), with thermal deg and rear-tyre traction management crucial, especially off T5 and into/exit of T7 and the hairpin. Softs can grain in traffic. Safety Cars are very likely (1\u20133 per race), so Ferrari must be ready to pit opportunistically under SC/VSC\u2014undercut is moderate, overcut can work with clean air. Starts matter enormously into T1\u20133. Weather carries a 30\u201350% shower risk and high humidity; Leclerc is comfortable in mixed conditions but execution (pit windows, tyre choice, stop precision) will decide whether a podium or better is on. No session results at time of writing.",
-      "perfect_quali": "P1\u2013P2",
-      "perfect_race": "Win (P1)",
-      "good_quali": "P3\u2013P5",
-      "good_race": "P3\u2013P5",
+      "tldr": "Leclerc starts P7 after wrestling an \u201cunpredictable\u201d Ferrari, with teammate Sainz sent to the back post\u2011qualifying \u2014 putting most of Ferrari\u2019s Sunday hopes on Charles. Expect him to play the long game: manage tyres, pounce on Safety Car timing, and use the new fourth DRS zone to climb toward the podium if race pace holds. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Current form hints at solid race craft if not outright winning pace: P9 Baku, P4 Monza, DNF Zandvoort, P4 Hungary, P3 Belgium. That\u2019s consistent points with occasional peaks, but little margin to the frontrunners. ([skysports.com](https://www.skysports.com/f1/drivers/charles-leclerc/results)) Singapore suits Leclerc\u2019s precision \u2014 he\u2019s twice taken pole here (2019, 2022) and finished P2 in 2022, plus P4 in 2023 \u2014 yet a win has eluded him. ([formula1.com](https://www.formula1.com/en/latest/article/qualifying-report-highlights-singapore-grand-prix-2019.1cvJVrsuToIx8LR8uOYFK5?utm_source=openai)) This weekend he qualified P7 and reported an edgy, understeery car; with Sainz disqualified, Ferrari\u2019s strategic flexibility pivots around Charles. Expect a baseline 1\u2011stop (M\u2192H) but high SC odds make an undercut/overcut fight likely; Ferrari may extend his first stint to attack late if track position stalls. Clean exits from T7 and the T10\u201311 reprofile are key to exploiting the added DRS between T14\u201316 for moves on rivals who fade in the heat. A podium is possible with a perfect execution and timely neutralisation; otherwise, strong points consolidate his P5 in the standings and Ferrari\u2019s constructors fight. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
       "stakes_level": "medium",
+      "perfect_quali": "P1-P3",
+      "perfect_race": "Podium finish",
+      "good_quali": "P5-P7",
+      "good_race": "P4-P6",
       "key_strengths": [
-        "Elite one-lap pace on street circuits",
-        "Braking precision and rotation in low-speed corners",
-        "Calm execution in changing grip/conditions"
+        "Qualifying lap extraction under pressure",
+        "precise braking/traction on street circuits",
+        "tyre temperature management"
       ],
-      "watch_for": "His Q3 out-lap prep and launch off the line; Ferrari\u2019s willingness to box under early Safety Car for track position versus protecting tyre life on a one-stop."
+      "watch_for": "Ferrari keeping Leclerc long on the first stint to flip track position via an undercut into the new T14\u201316 DRS zone if a Safety Car opens the pit window. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))"
     },
     "Lando Norris": {
-      "tldr": "Singapore rewards precision, tyre nursing, and Safety Car savvy\u2014Norris\u2019 wheelhouse. With McLaren typically strong on high-downforce street tracks, he\u2019s a front-row/podium threat if they nail traction and brake cooling, especially if a shower or SC flips strategy.",
-      "full": "Norris arrives at a circuit that plays to his strengths: accuracy over bumps, patience on traction, and cool-headed SC management. He was P2 here in 2023, and McLaren\u2019s recent form on high-downforce street layouts suggests front-running potential if they unlock kerb compliance and rear-end traction. Expect a one-stop (Medium\u2192Hard) with a wide window around laps 18\u201335, but Singapore\u2019s near-certain Safety Car makes pit timing king\u2014overcut in clean air can beat the undercut. Qualifying is critical given traffic and big track evolution; out-lap prep and Turn 1\u20133 execution set the race. Watch brake temps, PU cooling, and rear tyre thermal deg; the Soft can grain in traffic. Primary moves: Turn 7 and the big stops at the Esplanade and the back-straight chicane. Weather could bring brief showers and variable winds; Norris is typically strong in mixed conditions. If his recent five-race trend is solid, he\u2019s a front-row contender with win-upside; if not, a top-6 start keeps him in the podium fight via SC timing and tyre life.",
-      "perfect_quali": "P1\u2013P2",
-      "perfect_race": "Win",
-      "good_quali": "P3\u2013P5",
-      "good_race": "P3\u2013P5",
-      "stakes_level": "medium",
+      "tldr": "Norris starts P5 after a messy Friday (pit\u2011lane contact with Leclerc; Ferrari fined) and a Q3 flashpoint as Verstappen accused him of impeding. Recent form is 7\u20112\u2011DNF\u20111\u20112, so the pace is there; a podium would likely seal McLaren\u2019s constructors\u2019 crown and keep his 25\u2011point chase of Piastri alive. ([formula1.com](https://www.formula1.com/en/latest/article/must-see-norris-and-leclerc-collide-in-singapore-pit-lane-during-fp2.xacL3l4lmTImul4gVLHIx?utm_source=openai))",
+      "full": "The defending Singapore winner qualified P5, sharing row three with Hamilton after Russell took pole and Verstappen P2; Verstappen also alleged Norris baulked him in Q3, a claim Norris dismissed. Friday brought an unusual pit\u2011lane collision with Leclerc that broke Norris\u2019s front wing; stewards fined Ferrari for an unsafe release. On pure pace, Norris was P5 in FP2 (0.483s off Piastri) and around the sharp end in FP3, indicating a solid long\u2011run baseline even if single\u2011lap speed lagged teammate Piastri. Form over the last five races reads 7\u20112\u2011DNF\u20111\u20112, underlining podium\u2011level performance when trouble\u2011free. Strategically, starting P5 makes the launch and first stint tyre life critical for an undercut on Antonelli/Hamilton, with the new fourth DRS zone aiding progress. Stakes are significant: McLaren need roughly a podium\u2019s worth of points to clinch the constructors, while Norris sits 25 behind Piastri in the drivers\u2019 fight. In the weekend\u2019s heat\u2011hazard conditions, managing cockpit cooling and tyre temps will be vital to convert track position. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "stakes_level": "high",
+      "perfect_quali": "Front row (P1\u2013P2)",
+      "perfect_race": "Victory",
+      "good_quali": "P4\u2013P6",
+      "good_race": "Podium finish",
       "key_strengths": [
-        "Braking into heavy stops (T7/Esplanade/back-straight chicane)",
-        "Rear-tyre management and traction on street surfaces",
-        "Qualifying precision and out-lap prep in evolving grip",
-        "Composure and racecraft on Safety Car/VSC restarts",
-        "Wet/mixed-conditions pace"
+        "Street\u2011circuit precision and wall proximity management",
+        "confident trail\u2011braking/rotation into low\u2011speed 90s",
+        "tyre and pace management over long stints"
       ],
-      "watch_for": "Medium-start one-stop with a flexible pit window; opportunistic Stop under the first SC; Norris attacking/defending into Turn 7; managing brake temps and rear tyre deg if DRS trains form."
+      "watch_for": "An early undercut from P5 to jump Antonelli/Hamilton\u2014especially if he can extend the first stint to attack once the race settles."
     },
     "Oscar Piastri": {
-      "tldr": "Street-fight specialist: Piastri\u2019s precision and tyre care suit Marina Bay\u2019s stop\u2011start rhythm and high-deg night heat. If McLaren\u2019s high-downforce package hooks up, watch for a Q3 lap and a podium shot via smart Safety Car timing.",
-      "full": "What to look for: Oscar Piastri (#81, McLaren) thrives on tidy braking, clean traction and tyre empathy\u2014exactly what Marina Bay demands. He climbed from deep on the grid to P7 here in 2023, showing sharp racecraft on a track where mistakes are costly and Safety Cars are frequent. Expect McLaren to run high downforce with robust brake cooling and a car trimmed for kerb compliance and traction off T5/T7 and the back-straight chicane. Qualifying is everything: out\u2011lap prep and traffic management can make or break Q1/Q2, and the track grips up fast under the lights. Strategy: baseline one\u2011stop (Medium\u2192Hard), but the pit delta is large and Singapore almost always features SC/VSC\u2014Oscar\u2019s calm tyre management could let him extend the first stint and box under a neutralization. Weather and humidity raise thermal stress; keeping fronts from graining on Softs in traffic is key. Stakes: medium\u2014solid points and beating intra\u2011team benchmarks keep McLaren\u2019s constructors push on track. Good day: Q3 and bank points; perfect day: a front\u2011two rows start and a podium if the race neutralizes at the right time.",
-      "perfect_quali": "P1-P3",
-      "perfect_race": "Podium finish",
-      "good_quali": "P4-P6",
-      "good_race": "Points finish",
-      "stakes_level": "medium",
+      "tldr": "Championship leader Oscar Piastri starts P3 after topping FP2 and running Verstappen to 0.017s in FP3; he says he won\u2019t play it safe despite overtaking being tricky here. The Heat Hazard declaration plus a new fourth DRS zone set up a tyre\u2011temperature and track\u2011position chess match under the lights. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Piastri arrives with sharp but mixed recent form: wins at Belgium and the Netherlands, P3 at Monza, then a costly DNF in Baku that ended a 34\u2011race points streak. He still leads the championship by 25 points over Norris (69 over Verstappen) and insists he won\u2019t race conservatively. ([formula1.com](https://www.formula1.com/en/latest/article/piastri-wins-wet-dry-belgian-gp-after-late-pressure-from-title-rival-and.7QmPcUP90MvR5iX0w3j91?utm_source=openai)) At Marina Bay he was P3 last year, showing he can pass late on fresher tyres here. ([formula1.com](https://www.formula1.com/en/latest/article/norris-dominates-singapore-gp-to-cut-verstappens-title-lead-again.MZ20MuNu3E9hLQmNEg2Tc/?utm_source=openai)) This weekend: fastest in FP2, a near\u2011match to Verstappen in FP3, and P3 in qualifying behind Russell and Verstappen. That\u2019s front\u2011running pace with clear clean\u2011air potential if he nails the launch. ([formula1.com](https://www.formula1.com/en/latest/article/fp2-piastri-sets-the-pace-in-disrupted-singapore-second-practice-amid-two.2GQOZitaOxeKwIf3rhHfo8/?utm_source=openai)) Strategywise, expect a baseline one\u2011stop (Medium\u2192Hard), with Softs only for starts or late neutralisations; the fourth DRS zone between T14\u201316 may aid attacks but track position still rules. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf/?utm_source=openai)) With the FIA\u2019s first Heat Hazard in force, managing cockpit heat and rear\u2011tyre temps becomes decisive over 62 laps. A solid podium likely protects his title lead and, together with Norris, should be enough to clinch McLaren\u2019s constructors\u2019 crown. ([reuters.com](https://www.reuters.com/sports/formula1/fia-declares-first-formula-one-heat-hazard-race-singapore-2025-10-02/?utm_source=openai))",
+      "stakes_level": "high",
+      "perfect_quali": "Front row (P1\u2013P2)",
+      "perfect_race": "Victory",
+      "good_quali": "P3\u2013P4",
+      "good_race": "Podium finish",
       "key_strengths": [
-        "Precise braking and kerb riding on street circuits",
-        "Tyre management in hot, high-degradation conditions",
-        "Calm execution during Safety Car/VSC windows",
-        "Strong traction on corner exits (T5, T7, hairpin)"
+        "Precision on street circuits",
+        "calm tyre and energy management in heat",
+        "disciplined race execution"
       ],
-      "watch_for": "Out\u2011lap prep and track position in qualifying; extending the opening Medium stint to pit under a Safety Car; launches and positioning through Turns 1\u20133 for early gains."
+      "watch_for": "His Lap 1 launch from P3 and first\u2011stint pace on the Medium to set up an undercut/overcut on Russell/Verstappen\u2014helped by the new T14\u201316 DRS zone if he clears traffic early. ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai))"
     },
     "George Russell": {
-      "tldr": "Redemption shot: after the 2023 last\u2011lap crash here, Russell targets front rows if Mercedes nails high\u2011downforce balance and brake cooling. Watch Safety Car timing and bold moves into Turn 7 and the back\u2011straight chicane\u2014clean execution puts a podium in play.",
-      "full": "Singapore suits Russell\u2019s tidy, committed qualifying style\u2014critical on a bumpy, high\u2011downforce street track where track position rules. Recent form: check the latest results, but if his one\u2011lap pace from recent rounds holds, he\u2019s a front\u2011two\u2011row threat. He\u2019ll want payback for 2023\u2019s last\u2011lap error while chasing P2. Setup priorities: maximum downforce with compliant ride for kerbs, rock\u2011solid braking stability (Anderson Bridge to hairpin), and aggressive but safe brake cooling for the hot, humid night. Strategy skews one\u2011stop (Medium\u2192Hard, laps 18\u201335), but Singapore\u2019s near\u2011certain Safety Cars reward flexibility\u2014pitting under SC is often decisive. The Soft can grain in traffic; expect Russell to prefer Mediums to open unless conditions or grid spot dictate. Key battlegrounds: traction at Turns 1\u20133 and Turn 5 exit to launch down Raffles Blvd; late-brake chances at Turn 7 and the back\u2011straight chicane. Execution details\u2014out\u2011lap prep in quali traffic, restart awareness, and thermal management\u2014will decide whether strong quali translates to a podium. Weather risk (showers 30\u201350%) could spice strategy; verify the latest forecast.",
-      "perfect_quali": "P1\u2013P2",
-      "perfect_race": "Win or strong podium",
-      "good_quali": "P4\u2013P6",
-      "good_race": "P4\u2013P6",
+      "tldr": "George Russell starts from pole after a Friday crash, with a genuine shot to convert under the lights. Watch his launch and tyre/pace management as he tries to keep Verstappen and the McLarens at bay on a track where track position rules. ([reuters.com](https://www.reuters.com/sports/formula1/day-makes-big-difference-mercedes-russell-claims-singapore-pole-2025-10-04/?utm_source=openai))",
+      "full": "Russell arrives in Singapore on a strong run of form: P2 in Baku, then P5 (Italy), P4 (Netherlands), P3 (Hungary) and P5 (Belgium) \u2014 steady top\u2011five scoring that has him fourth in the standings (212 pts). ([skysports.com](https://www.skysports.com/f1/drivers/george-russell/results?utm_source=openai)) After a costly FP2 crash on Friday limited his running, he rebounded superbly to take pole in qualifying with 1:29.158, ahead of Verstappen and Piastri. He\u2019s cautious about conversion given \u201cpast mistakes\u201d here \u2014 a nod to his last\u2011lap 2023 crash \u2014 but confidence is clearly high. ([formula1.com](https://www.formula1.com/en/latest/article/russell-explains-annoying-fp2-crash-in-singapore-as-he-apologises-to.1FYRbpFuj1fSbs4go6LINL?utm_source=openai)) Marina Bay still rewards precision, traction and rear\u2011tyre temperature control, and the new fourth DRS zone will make defending the lead a little harder down the stretch. Expect Mercedes to favour a one\u2011stop (Medium\u2192Hard) and guard against the historically high Safety Car risk; clean execution around pit windows will be decisive. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix?utm_source=openai)) Physically, the FIA\u2019s Heat Hazard protocol means thermal management and hydration could influence stint lengths and driver performance late \u2014 another reason to control pace from the front. If Russell nails the launch and keeps the rears alive, this is a prime victory opportunity. ([reuters.com](https://www.reuters.com/sports/formula1/resurgent-verstappen-quickest-singapore-lawson-crashes-again-2025-10-04/?utm_source=openai))",
       "stakes_level": "high",
+      "perfect_quali": "Pole position",
+      "perfect_race": "Victory",
+      "good_quali": "P1-P3",
+      "good_race": "Podium finish",
       "key_strengths": [
-        "One\u2011lap precision under pressure",
-        "Braking consistency and Safety Car restart execution"
+        "Qualifying lap execution under pressure",
+        "late\u2011braking consistency into heavy stops (T7/T14)",
+        "tyre/pace management on long stints"
       ],
-      "watch_for": "If Mercedes splits strategies or Russell stretches the Medium to catch a Safety Car window; confidence over the back\u2011straight chicane kerbs and decisive lunges into Turn 7."
+      "watch_for": "His Lap 1 launch and first\u2011stint tyre preservation while managing engine/brake temps in the heat \u2014 especially with Verstappen in the new back\u2011to\u2011back DRS zones. ([reuters.com](https://www.reuters.com/sports/formula1/resurgent-verstappen-quickest-singapore-lawson-crashes-again-2025-10-04/?utm_source=openai))"
     },
     "Kimi Antonelli": {
-      "tldr": "Rookie Antonelli tackles his first Singapore night race: survival, tyre care, and Turn 7 bravery will decide his ceiling. If Mercedes nails SC timing and he manages rear tyre temps, a dark\u2011horse podium isn\u2019t impossible; otherwise a clean points haul is the target.",
-      "full": "Context check: No live session/results here; verify latest. Antonelli enters his first F1 Singapore GP with rookie learning curves but strong street-circuit traits from juniors (braking feel, kerb riding). Marina Bay rewards traction and patience: watch Turns 1\u20133 launches, the T5 exit onto Raffles Blvd, and big stops at T7 and the back\u2011straight chicane. Setup-wise Mercedes should run max downforce, compliant ride over bumps, slightly softer rear for drive, and generous brake ducting\u2014thermal management and lift\u2011and\u2011coast will be vital in hot, humid air. Strategy skews to a one\u2011stop (Medium\u2192Hard), with Safety Cars highly likely; pitting under SC is often decisive. The Soft may grain in traffic\u2014expect it mostly for quali. Qualifying will hinge on out\u2011lap prep amid traffic and rapid track evolution; clean air is king. In-race, focus on rear tyre temps, brake fade, and restart discipline. Stakes are high for a rookie benchmark against Russell and Mercedes\u2019 rebuild; a tidy race with opportunistic calls could turn chaos into a big result.",
-      "perfect_quali": "P1-P3",
+      "tldr": "Rookie Kimi Antonelli starts P4 after Mercedes\u2019 Saturday surge (with Russell on pole), putting both Silver Arrows in prime track position at a circuit where passing is tough. His recent form has rebounded from Zandvoort/Monza setbacks to a strong P4 in Baku; execution and heat management will decide if he turns P4 into a podium. ([reuters.com](https://www.reuters.com/world/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Form check: Antonelli\u2019s last four races read Spa P16, Zandvoort P16 (after penalties for a Leclerc clash and pit\u2011lane speeding), Monza P9 (amid a scruffy weekend Wolff called \u201cunderwhelming\u201d), and Baku P4\u2014a confidence\u2011boosting street\u2011track drive. He also owns a season\u2011highlight maiden podium in Canada, showing he can defend under pressure. Qualifying P4 in Singapore confirms the raw speed is there; the mission now is clean execution over 62 laps. Marina Bay still rewards track position, but a new fourth DRS zone should slightly aid overtakes; expect Mercedes to protect tyre temps and target a baseline Medium\u2192Hard one\u2011stop, flexing for SC/VSC. In the FIA\u2019s first \u201cHeat Hazard\u201d race, managing core body and rear\u2011tyre temperatures will be crucial for a rookie. Stakes: consolidate the upswing, bank big points for Mercedes\u2019 late\u2011season resurgence, and keep building trust after August mistakes. A tidy first stint\u2014nailing the launch from the dirty side and staying within undercut range\u2014keeps a podium firmly in play. ([planetf1.com](https://www.planetf1.com/news/f1-results-2025-belgian-grand-prix-spa-francorchamps?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "P1-P2",
       "perfect_race": "Podium finish",
-      "good_quali": "P4-P6",
-      "good_race": "Points finish",
-      "stakes_level": "high",
+      "good_quali": "P3-P5",
+      "good_race": "P5-P7",
       "key_strengths": [
-        "Braking modulation into heavy stops",
-        "Kerb riding and car placement on streets",
-        "Traction management on corner exit",
-        "Calm in changeable/wet conditions"
+        "Rapid learning curve on street circuits",
+        "strong defensive racecraft under pressure",
+        "improving single\u2011lap pace"
       ],
-      "watch_for": "Mercedes rolling the dice on a Safety Car pit window while Antonelli protects rear tyre temps for a late-race push at Turn 7"
+      "watch_for": "His Lap 1 launch from P4 and first\u2011stint rear\u2011tyre management in the heat\u2014if he holds/advances before T7, a podium bid is on."
     },
     "Fernando Alonso": {
-      "tldr": "Street-fighter Alonso is traditionally excellent at Marina Bay. If Aston Martin qualifies him in or near Q3, expect him to turn Safety Car chaos and tyre management into solid points, with podium upside if rain or late neutralizations hit.",
-      "full": "Two-time Singapore winner Fernando Alonso thrives on hot, stop-start street circuits that reward patience, tyre nursing, and opportunism. Marina Bay\u2019s heavy-braking, traction-led layout suits his strengths, and the race almost always features Safety Cars, which he historically exploits well. With high humidity and a non-trivial shower chance, mixed conditions could amplify his advantage. Expect Aston Martin to run high downforce, prioritize rear traction and kerb compliance through the chicanes, and keep cooling margins for brakes and power unit. Track evolution is big here, so Alonso\u2019s out-lap prep and traffic management in qualifying are key to sneaking into a strong grid slot. Strategy-wise, a Medium-to-Hard one-stop is baseline, but Alonso may extend the first stint to catch an SC window; the undercut is moderate, the overcut can work with clean air. Starts and restarts into Turn 7 are prime chances to gain positions. Stakes: medium. He is contracted long-term and remains Aston\u2019s race-craft benchmark; bagging strong points materially helps the Constructors\u2019 fight and keeps podium hopes alive if the race turns scrappy.",
-      "perfect_quali": "P3-P5",
-      "perfect_race": "Podium finish",
-      "good_quali": "P6-P9",
-      "good_race": "P5-P8",
+      "tldr": "Alonso\u2019s Singapore pace looks real: he topped FP1, was P4 in FP2, and made Q3, qualifying P10. If Aston\u2019s high\u2011downforce-friendly AMR25 hangs onto its tyres, his racecraft and Safety Car savvy could turn row five into solid points. ([formula1.com](https://www.formula1.com/en/latest/article/fp1-alonso-leads-leclerc-and-verstappen-during-first-practice-in-singapore.bU6SZHLZ8a8ZX9hp6mPvw?utm_source=openai))",
+      "full": "Recent form has been mixed: Hungary P5 and Netherlands P8 were encouraging, but Monza ended with a suspension\u2011failure DNF and Baku yielded P15 after a jump\u2011start penalty. He sits P14 in the standings on 30 points, with Aston Martin P7 in the Constructors\u2019 fight. The good news: Marina Bay suits Alonso and the AMR25 better\u2014he led FP1, was P4 in FP2, and qualified P10. High downforce, traction zones, and tyre management reward his strengths, and he\u2019s twice a winner here (2008, 2010). With the FIA\u2019s Heat Hazard in effect, expect a one\u2011stop Medium\u2192Hard baseline, but Alonso\u2019s hallmark is reading Safety Car/undercut windows\u2014vital in Singapore. Targets: bank points and help Aston defend P7 against Sauber/Haas. A top\u2011six would be a triumph; points are the realistic aim. Key tells: first\u2011stint tyre temps, how much front\u2011end bite the team found overnight, and whether he plays the cooling\u2011vest/ballast trade\u2011off. ([skysports.com](https://www.skysports.com/f1/teams/aston-martin/results?utm_source=openai))",
       "stakes_level": "medium",
+      "perfect_quali": "P5-P7",
+      "perfect_race": "P5-P6",
+      "good_quali": "P9-P11",
+      "good_race": "P8-P10",
       "key_strengths": [
-        "Tyre management over long stints",
-        "Racecraft in traffic and restarts",
-        "Opportunistic Safety Car calls",
-        "Wet/mixed-conditions adaptability",
-        "Brake and energy management"
+        "tyre and brake management in heat",
+        "traction out of slow corners",
+        "Safety Car/strategy awareness"
       ],
-      "watch_for": "A long first stint on Mediums to pit under a Safety Car, then aggressive restarts targeting Turn 7 overtakes."
+      "watch_for": "An early undercut or offset first stint to leapfrog the DRS trains from P10 if a Safety Car/VSC appears around mid\u2011race. ([formula1.com](https://www.formula1.com/en/latest/article/alonso-hails-probably-the-best-friday-of-2025-so-far-for-aston-martin-after.1SRfqnYFpCBLIdMyjBE70X.1SRfqnYFpCBLIdMyjBE70X?utm_source=openai))"
     },
     "Lance Stroll": {
-      "tldr": "Street-fighter Stroll returns to Marina Bay where he scored P6 in 2022 but crashed in 2023 quali. If he nails out\u2011lap prep and keeps it clean, a long first stint to catch the inevitable Safety Car could turn a midfield start into points\u2014especially if rain hits.",
-      "full": "What to look for with Lance Stroll in Singapore: he\u2019s historically better on Sundays than Saturdays here, with a standout P6 in the wet-to-dry 2022 race and a costly qualifying crash in 2023. Marina Bay rewards confidence on the brakes and clean traction\u2014areas where Stroll can shine when the car gives him rear stability. Expect Aston Martin to run high downforce and prioritize brake cooling and traction over kerb aggression on the bumpy surface. With a typical one-stop (Medium-to-Hard) and a high probability of Safety Cars, watch for Stroll to extend his first stint to pit under neutralizations; traffic often blunts the undercut. If showers arrive (30\u201350% risk), his wet-weather feel and calm safety-car restarts become valuable. Key zones: braking into Turn 7, exit of Turn 5 onto Raffles Blvd, and the back\u2011straight chicane\u2014gaining there sets up overtakes. Recent form note: Stroll often races stronger than he qualifies; a clean Q1/Q2 execution and disciplined tyre prep on out-laps are critical. A tidy, low-error night could yield solid points against a tightly bunched midfield.",
-      "perfect_quali": "P6\u2013P8",
-      "perfect_race": "P5\u2013P7 (capitalizing on Safety Car/rain)",
-      "good_quali": "P9\u2013P12",
-      "good_race": "P8\u2013P10 (points finish)",
+      "tldr": "Stroll starts P15 after qualifying P17 and being promoted by the Williams DQs, with flashes of Friday pace but a tougher Saturday. From mid\u2011grid, an early clean first lap and smart tyre calls in the heat could turn this into a points tilt if a Safety Car arrives. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-qualifying-results/?utm_source=openai))",
+      "full": "Recent form is mixed: after a solid midsummer run (P7 at Hungary and Zandvoort, plus P7 at Silverstone), he slipped to P18 at Monza and P17 in Baku; he enters Singapore 11th in the standings on 32 points, with Aston Martin seventh in the Constructors\u2019. ([skysports.com](https://www.skysports.com/f1/drivers/lance-stroll/results?utm_source=openai)) Practice showed a Friday uptick (FP1 P18, FP2 P6) but FP3 regression (P17), hinting at a narrow operating window; he then qualified P17 but will start P15 following Williams\u2019 post\u2011session disqualifications. ([formula1.com](https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-singapore-2025.YY9zZiq6tcKvKORPwN388?utm_source=openai)) The AMR25 has tended to fare better on high\u2011downforce tracks like Hungaroring/Zandvoort, which encourages Aston that Marina Bay can reward traction and rear\u2011tyre management if they nail the balance. ([formula1.com](https://www.formula1.com/en/latest/article/alonso-hails-probably-the-best-friday-of-2025-so-far-for-aston-martin-after.1SRfqnYFpCBLIdMyjBE70X.1SRfqnYFpCBLIdMyjBE70X?utm_source=openai)) Stroll\u2019s Singapore record is patchy but serviceable (P6 in 2022; withdrew after a quali crash in 2023; P14 in 2024), so banking points from mid\u2011pack would be a result. ([lancestroll.com](https://www.lancestroll.com/news/lance-secures-season-best-finish-in-singapore?utm_source=openai)) With F1\u2019s first Heat Hazard in effect, managing driver cooling versus ballast and tyre life will shape stint lengths and any late\u2011race Soft gamble if an SC appears. ([reuters.com](https://www.reuters.com/sports/formula1/fia-declares-first-formula-one-heat-hazard-race-singapore-2025-10-02/?utm_source=openai))",
       "stakes_level": "medium",
-      "key_strengths": [
-        "Strong race starts and Safety Car restarts",
-        "Wet-weather opportunism on street circuits",
-        "Tyre and brake management in hot, high-deg conditions"
-      ],
-      "watch_for": "A long first stint on Mediums to pit under Safety Car, and his confidence under heavy braking into Turn 7\u2014especially if conditions turn damp."
-    },
-    "Pierre Gasly": {
-      "tldr": "Gasly thrives on hot, technical street tracks and was P6 here in 2023. If Alpine nails quali prep and plays the Safety Car right, he can convert a Q3 start into solid points.",
-      "full": "What to look for with Pierre Gasly in Singapore: precision and patience. Marina Bay rewards clean execution on kerbs and traction zones, both Gasly strengths, and he\u2019s scored well here before (top-six in 2023). Alpine will likely run high downforce with extra ride height for bumps and aggressive brake cooling; getting front-end bite without rear instability on corner exits is the balancing act. Expect a Medium-to-Hard one-stop as baseline, with big value in stretching the opening stint to pit under a Safety Car (common here). Qualifying is half the battle: traffic and out-lap prep are tricky, so watch Alpine\u2019s timing to give him clean air and tyre/brake temps in the window. In the race, Turn 7 and the back-straight chicane are his main passing zones; lift-and-coast for temperatures will be routine in the humidity. Weather could throw brief showers into the mix\u2014Gasly is typically tidy in changeable conditions. Stakes are medium: consistent points consolidate his leadership at Alpine and keep leverage for future opportunities, especially if he outperforms the car\u2019s baseline.",
-      "perfect_quali": "P5\u2013P7",
-      "perfect_race": "P4\u2013P6",
-      "good_quali": "P8\u2013P10",
-      "good_race": "P7\u2013P10 (points finish)",
-      "stakes_level": "medium",
-      "key_strengths": [
-        "Street-circuit precision and kerb riding",
-        "Tyre and brake management in high-heat conditions",
-        "Opportunism around Safety Car/VSC windows"
-      ],
-      "watch_for": "Alpine stretching the first stint on Mediums to pit under Safety Car; Gasly targeting moves into Turn 7 and the back-straight chicane; quali out-lap management to avoid traffic and hit tyre/brake temp sweet spot. If a shower hits, look for a quick call to inters and steady pace on a green track."
-    },
-    "Franco Colapinto": {
-      "tldr": "Rookie Franco Colapinto tackles Marina Bay in an Alpine that should like high downforce and traction zones. If he nails qualifying prep and keeps it clean through Safety Car chaos, points are on the table.",
-      "full": "Colapinto arrives as an F1 Singapore rookie, facing one of the calendar\u2019s toughest tests: 62 laps of heat, humidity, and walls. Alpine\u2019s high-downforce preference should suit the stop\u2011start, low-speed profile, where straight-line deficit matters less and traction, braking stability, and kerb compliance matter most. Expect the team to target a Medium-to-Hard one-stop, flexible around likely Safety Cars (pit-loss ~27\u201329s under green). Tyre thermal management is key\u2014avoid early Soft graining unless a late neutralization invites a sprint. Qualifying will hinge on out-lap prep and track evolution; a clean lap through T1\u20133 and a strong launch from Turn 5 to Turn 7 can define his race. In traffic, patience and braking feel at T7 and the back-straight chicane create passing chances, while brake cooling and rear-tyre temps need constant care. Recent rookie trend lines\u2014tidy execution, minimal errors, strong restarts\u2014will be decisive, as will beating his team-mate on a circuit that rewards discipline. A Q2 start with Safety Car-savvy strategy could elevate him into the points.",
-      "perfect_quali": "P8\u2013P10 (Q3)",
-      "perfect_race": "P6\u2013P8",
-      "good_quali": "P11\u2013P13 (top of Q2)",
-      "good_race": "P9\u2013P10 (points)",
-      "stakes_level": "medium",
-      "key_strengths": [
-        "Braking/traction in low-speed corners",
-        "Composure in traffic and Safety Car restarts",
-        "Tyre and brake temperature management"
-      ],
-      "watch_for": "If Alpine commits to a Medium-start and opportunistic stop under Safety Car; his launch and braking into Turn 7; and kerb riding at the new back-straight chicane without overheating brakes."
-    },
-    "Esteban Ocon": {
-      "tldr": "Street-fighter Ocon should lean on tyre and brake management to sneak Haas into the points at attrition-heavy Marina Bay. Track position, Safety Car timing, and calm restarts will define his ceiling.",
-      "full": "What to look for with Esteban Ocon (#31, Haas): Singapore rewards patience, precision, and tyre care\u2014three areas that suit Ocon. Expect Haas to trim the car for high downforce, compliant ride over bumps, and maximum brake cooling; getting traction off Turns 5, 7, and the back-straight chicane will decide both qualifying and wheel-to-wheel outcomes. With high humidity and a non-trivial rain risk, Ocon\u2019s composure in mixed conditions is an asset, and Safety Cars are almost guaranteed\u2014so watch for a long first stint on Mediums, extending to catch an SC window and jumping traffic. Out\u2011lap prep is critical under lights; he\u2019ll need a clean gap and strong Turn 1\u20133 execution to bank a lap as the track grips up rapidly. In the race, lift\u2011and\u2011coast to manage PU and brakes, disciplined tyre temps to avoid C5 graining in traffic, and opportunistic moves into Turn 7/Esplanade are his pathways forward. Stakes are meaningful for Haas\u2019s midfield fight: a tidy, interruption-savvy run can turn P12 pace into P8 at the flag.",
-      "perfect_quali": "P6\u2013P8",
-      "perfect_race": "Top-8 finish",
-      "good_quali": "P9\u2013P12",
-      "good_race": "Points finish (P9\u2013P10)",
-      "stakes_level": "medium",
-      "key_strengths": [
-        "Tyre and thermal management",
-        "Brake modulation into heavy stops",
-        "Safety Car and restart execution",
-        "Composure in mixed/wet conditions"
-      ],
-      "watch_for": "Haas stretching the first stint on Mediums to pit under a Safety Car; Ocon\u2019s exits onto Raffles Blvd and attacks/defences into Turn 7."
-    },
-    "Oliver Bearman": {
-      "tldr": "Rookie Oliver Bearman tackles his first Singapore F1 start with Haas, where traction, brake cooling, and tyre temps decide everything. If he nails quali prep and manages Safety-Car windows, points are on the table\u2014watch his Turn 7 restarts.",
-      "full": "Bearman\u2019s first F1 Singapore outing will reward precision: big kerbs at T1\u20133, traction at T5/7, and commitment on the new back\u2011straight chicane. Expect Haas to run maximum downforce with attention on ride height and brake ducting for the heat and bumps; keeping rear tyres and brake temps in check is the weekend\u2019s make\u2011or\u2011break. Qualifying is king here\u2014track evolution is massive, so out\u2011lap prep and a clean final push are vital to reach Q2 (and maybe sneak Q3). Strategy: baseline one\u2011stop Medium\u2192Hard, with Soft mainly for quali; the Safety Car almost always appears in Singapore, so flexible timing and pitting under neutralization can swing his race. Weather could add spice (humid, a chance of showers), making smooth throttle on corner exits and quick tyre phase\u2011in crucial. Form guide: typical rookie ebb\u2011and\u2011flow, but clean races tend to bring Haas into the fringe points. Benchmarks: beat his teammate, execute restarts, and defend smartly into Turn 7 and the Esplanade braking zone. Stakes are medium\u2014constructors\u2019 points matter, and a tidy, opportunistic drive would strengthen his standing within Haas.",
       "perfect_quali": "P8-P10",
       "perfect_race": "P6-P8",
-      "good_quali": "P11-P13",
-      "good_race": "P9-P10 (points)",
-      "stakes_level": "medium",
+      "good_quali": "P11-P14",
+      "good_race": "Points finish (P9-P10)",
       "key_strengths": [
-        "Braking/kerb usage on street circuits",
-        "Composure in traffic and Safety-Car restarts"
+        "strong race starts and first\u2011lap aggression",
+        "decent tyre management on street circuits",
+        "confidence under braking in low\u2011speed zones"
       ],
-      "watch_for": "His execution around Safety-Car windows and restart aggression into Turn 7; managing rear-tyre temps and brake cooling in the humid night conditions."
+      "watch_for": "An extended first stint on Mediums from P15 to open an overcut/Safety\u2011Car window, plus whether Aston splits strategies to chase a late\u2011race Soft for track\u2011position gains."
     },
-    "Alex Albon": {
-      "tldr": "Albon\u2019s precision and tyre care suit Singapore\u2019s stop\u2011start, high\u2011deg streets, but Williams\u2019 traction deficit makes Q3 a stretch. Watch for smart Safety Car calls and late-race moves at Turn 7 to sneak points.",
-      "full": "What to look for: a disciplined, elbows-out Alex Albon managing tyres and brakes while picking moments at Turn 7 and the end of Esplanade. Singapore\u2019s high downforce/traction demands aren\u2019t ideal for Williams, so expect the car trimmed for maximum grip and stability over kerbs, plus aggressive brake cooling and lift\u2011and\u2011coast to keep temps in check in the humid night air. Track position rules here; a Medium-to-Hard one\u2011stop is baseline, but with Singapore\u2019s frequent Safety Cars, Albon\u2019s racecraft and patience can flip the script\u2014pitting under SC/VSC is his biggest upside. Qualifying is all about out\u2011lap prep and avoiding traffic; nailing the Turn 1\u20133 sequence and getting clean air for the Raffles Boulevard run matter most. Historically this venue hasn\u2019t been a Williams stronghold, but Albon tends to keep it tidy and capitalize on chaos\u2014especially if showers pop up. Realistically, Q3 is the target and a late\u2011race push on a better tyre could convert marginal track position into low points for crucial Constructors\u2019 tally.",
-      "perfect_quali": "P7\u2013P9",
-      "perfect_race": "P6\u2013P8",
-      "good_quali": "P10\u2013P12 (edge of Q3/Q2 high)",
-      "good_race": "P8\u2013P10 (points finish)",
+    "Pierre Gasly": {
+      "tldr": "Gasly starts P18 after Williams\u2019 post\u2011quali DQ, with Alpine short on single\u2011lap pace but faint race\u2011day upside via Safety Car/VSC and strategy. Expect a hard\u2011tyre gamble and patient tyre management in the first F1 \u201cHeat Hazard\u201d race. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix?utm_source=openai))",
+      "full": "Pierre Gasly arrives in Singapore as Alpine\u2019s bellwether: he\u2019s scored all of the team\u2019s points in 2025 and recently signed through 2028, but the last five races show how thin the margin is: P10 at Spa, then P17 Zandvoort, P16 Monza (from the pit lane), and P18 Baku after a qualifying disqualification for a fuel\u2011flow breach. ([reuters.com](https://www.reuters.com/sports/formula1/gasly-staying-renault-owned-alpine-f1-until-2028-2025-09-06/?utm_source=openai)) Singapore form this weekend has been tough: FP1 P13, FP2 P16, FP3 P19, and P20 in qualifying \u2014 he will start P18 after both Williams cars were thrown to the back. ([planetf1.com](https://www.planetf1.com/news/2025-singapore-grand-prix-free-practice-1-f1-results-marina-bay?utm_source=openai)) Alpine\u2019s own read is that Marina Bay\u2019s bumps and traction zones expose their weaknesses, so expect setup to prioritise rear stability and tyre life over peak pace. ([media.alpinecars.com](https://media.alpinecars.com/2025-formula-one-singapore-grand-prix-friday/?utm_source=openai)) Given high SC odds and a baseline 1\u2011stop (Medium\u2192Hard) in hot, humid conditions, Gasly\u2019s route is track position: a hard\u2011tyre start, long first stint, and pitting under SC/VSC. His P6 here in 2023 shows he can manage Singapore\u2019s demands if opportunities arise. Also factor in the FIA\u2019s first \u201cHeat Hazard\u201d protocol, which may influence vest/ballast choices and stint lengths. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf/?utm_source=openai))",
       "stakes_level": "medium",
+      "perfect_quali": "Q3 (P8\u2013P10)",
+      "perfect_race": "Points finish (P9\u2013P10)",
+      "good_quali": "Q2 (P11\u2013P14)",
+      "good_race": "P11\u2013P12",
       "key_strengths": [
-        "Tyre management in heat/humidity",
-        "Braking consistency and traction sensitivity",
-        "Defensive racecraft in traffic",
-        "Out\u2011lap prep and building pace with evolving grip"
+        "tyre management in heat",
+        "precise street\u2011circuit racecraft",
+        "braking/traction discipline"
       ],
-      "watch_for": "Safety Car timing and an opportunistic stop; Albon protecting rears off Turn 5 and launching passes into Turn 7; lift\u2011and\u2011coast for brake/PU temps; kerb usage and traction at the back\u2011straight chicane. If rain threatens, his pace on a drying track could be a difference-maker."
+      "watch_for": "A hard\u2011tyre start from P18 and an early VSC/SC window to flip track position with a cheap stop. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf/?utm_source=openai))"
     },
-    "Carlos Sainz": {
-      "tldr": "Sainz returns to the scene of his 2023 masterclass, now leading Williams at a track that rewards precision, tyre care, and brains under Safety Cars. If he nails qualifying and manages a Medium-to-Hard one\u2011stop, he\u2019s a top\u2011six threat with outside podium upside in chaos.",
-      "full": "What to look for: Sainz\u2019s Singapore craft is proven (win in 2023, podium in 2022), and this venue plays to his strengths: measured braking, tyre nursing in heat, and calm, tactical race management. With Williams, expect maximum-downforce trim, meticulous brake cooling, and a focus on traction over the bumps (T1\u20133, T5, hairpin) and kerb compliance at the back\u2011straight chicane. Track position is king here, so qualifying execution and out\u2011lap prep in traffic will be decisive; a clean launch through T1\u20133 sets the tone. Strategy: baseline one\u2011stop (Medium\u2192Hard), pitting roughly laps 18\u201335, but be flexible\u2014Singapore almost always features SC/VSC, and a cheap stop can transform the day. Tyre deg and graining on Softs in traffic argue for avoiding the C5 in long stints. Watch Sainz manage DRS trains (like his 2023 \u2018pace control\u2019 playbook) to protect tyres and battery while defending into T7 and the Esplanade braking zones. Forecast suggests hot, humid, and possibly showery conditions\u2014thermal management matters. A clean Saturday and opportunistic Safety Car timing could lift Williams into the top six; a late neutralization is his best route to a podium shot.",
-      "perfect_quali": "P3-P5",
-      "perfect_race": "Podium finish",
-      "good_quali": "P6-P8",
-      "good_race": "Points finish",
+    "Franco Colapinto": {
+      "tldr": "Starting P16 after Williams\u2019 double DQ, Colapinto needs a clean first stint and smart strategy to chase his first points of 2025. Watch tyre choice at lights-out and whether he can use the new fourth DRS zone to make ground on a track where track position is king. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-qualifying-results/?utm_source=openai))",
+      "full": "Form snapshot: Alpine\u2019s rookie arrives off a mixed run \u2014 P11 at Zandvoort (career\u2011best with Alpine), P17 at Monza and P19 in Baku \u2014 and remains the only full\u2011time driver yet to score in 2025. In Singapore last year he was tidy and hard to pass, qualifying P12 and finishing P11 for Williams, so the venue hasn\u2019t bitten him. This weekend he was P19/P19 on Friday, P16 in FP3, then qualified P18 but is set to start P16 after the Williams DQs. Alpine say he brushed the wall late in FP2 but logged good mileage. Race outlook: in hot, high\u2011deg night conditions the baseline is a one\u2011stop Medium\u2192Hard, yet Singapore\u2019s high Safety\u2011Car probability plus the added fourth DRS zone could reward an early undercut or a late Soft if there\u2019s a neutralisation. Given Alpine\u2019s low\u2011end pace, the job is to nail the launch, avoid Turn 7 lock\u2011ups and manage brakes/tyres to be in the right place when strategy windows open. A clean, mistake\u2011free night that converts attrition into a point would be a big win for a rookie under public pressure from management. ([media.alpinecars.com](https://media.alpinecars.com/2025-formula-one-dutch-grand-prix-sunday/?utm_source=openai))",
       "stakes_level": "high",
+      "perfect_quali": "P11\u2013P14 (solid Q2)",
+      "perfect_race": "Points finish (P9\u2013P10)",
+      "good_quali": "P15\u2013P16",
+      "good_race": "P11\u2013P12",
       "key_strengths": [
-        "Tyre management in hot, high-degradation races",
-        "Street-circuit precision and braking discipline"
+        "Defensive racecraft in traffic",
+        "late\u2011braking feel on street circuits",
+        "composure over long stints"
       ],
-      "watch_for": "Sainz controlling a DRS train to save tyres/energy, then pitting under Safety Car in the L18\u201335 window; traction out of T5 to set up T7 attacks/defences."
+      "watch_for": "An early undercut from the midfield (or a late Soft under SC) to convert P16 start into a last\u2011lap points shot. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf?utm_source=openai))"
     },
-    "Liam Lawson": {
-      "tldr": "Lawson returns to the scene of his first F1 points (P9 in 2023) with a car that should like Singapore\u2019s high-downforce, traction-heavy demands. If he nails out\u2011lap prep in quali and extends a Medium first stint to catch the inevitable Safety Car, points are on.",
-      "full": "Liam Lawson (#30) heads to Marina Bay\u2014where he scored his first F1 points in 2023\u2014looking to convert street\u2011circuit precision into a top\u201110. Singapore rewards high downforce, traction and brake stability: expect Racing Bulls to trim for rear grip over bumps and prioritize brake cooling and power\u2011unit temps in the humid night air. Qualifying is everything: traffic and rapid track evolution mean out\u2011lap prep is critical; watch Lawson ride the T1\u20133 curbs cleanly, maximize traction out of T5 onto Raffles Blvd, and commit on the big stop into T7. In the race, baseline is a one\u2011stop Medium\u2192Hard with a long opening stint\u2014perfect for capitalizing on Singapore\u2019s near\u2011certain Safety Cars. Avoiding Soft graining in traffic and managing rear\u2011tyre temps will be key. Overtakes: T7, end of the Esplanade straight, and the back\u2011straight chicane added for 2023; patience over Anderson Bridge into the Hairpin can set moves up. With a clean launch and timely SC call, Lawson can turn a Q3 fringe start into points even if raw pace is midfield. Check the latest weather\u2014brief showers can flip strategy.",
-      "perfect_quali": "P7\u2013P9",
+    "Esteban Ocon": {
+      "tldr": "Ocon showed genuine top-10 pace on Friday but a messy qualifying leaves him starting P17. From there, watch for Haas to gamble on strategy and Safety Cars to sneak the #31 into the points.",
+      "full": "After an encouraging Friday (FP1 P10, FP2 P7) and a solid FP3 (P13), Ocon\u2019s qualifying unraveled: he was P19 on pace but will start P17 after both Williams cars were disqualified. That puts him in traffic, yet his long\u2011run looked tidy and he called Friday \u201cprobably the best\u201d of Haas\u2019s year. Expect a one\u2011stop Medium\u2192Hard, but a Safety Car (historically very likely here) could open doors for an early stop or late Soft dash. Heat will be brutal under the FIA\u2019s first Heat Hazard designation, so tyre/energy management will matter. Recent form is mixed: one point in the last five races (P10 Zandvoort) with low\u2011teens elsewhere and a Baku qualifying DQ that forced a recovery Sunday. Big picture, Ocon leads Haas\u2019s scoring (28 pts) as the team chases every midfield point. If Haas preserve Friday balance and Ocon executes his usual clean racecraft, a P10\u2013P12 climb is realistic, with P8\u2013P10 possible if cautions fall his way. Sources: FP1/FP2 team quotes; FP3 classification; qualifying and revised grid; recent results/points; Baku DQ; tyres/SC/heat context. ([formula1.com](https://www.formula1.com/en/latest/article/what-the-teams-said-friday-in-singapore-2025.YY9zZiq6tcKvKORPwN388?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "P8\u2013P10 (Q3)",
+      "perfect_race": "P8\u2013P10",
+      "good_quali": "P11\u2013P13 (Q2)",
+      "good_race": "P10\u2013P12",
+      "key_strengths": [
+        "Measured racecraft in traffic",
+        "braking precision on street circuits",
+        "tyre/energy management in heat"
+      ],
+      "watch_for": "An extended first stint from P17 to set up a Safety Car pit window and jump into the lower points."
+    },
+    "Oliver Bearman": {
+      "tldr": "Rookie Oliver Bearman starts P9 after a tidy Q3 run \u2014 a strong platform at a track where track position is king. Form has picked up (P6 Zandvoort, then P12 Monza with a penalty, P12 Baku), but he must balance aggression with care as he sits on 10 licence points. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-qualifying-results/?utm_source=openai))",
+      "full": "Bearman arrives in Singapore on an upswing: P6 at Zandvoort from a pit\u2011lane start, followed by P12 at Monza (after a 10s penalty for a Sainz clash) and P12 at Baku; he narrowly missed points at Spa (P11). The Haas rookie converted promising long\u2011run pace into a composed Q3 and P9 grid slot here, after FP1 P16 and FP2 P12 \u2014 encouraging at a circuit that rewards traction, braking discipline, and tyre temperature control. The key is execution and racecraft: he\u2019s on 10 penalty points and can\u2019t risk contact, especially with high Safety Car odds and marginal cooling in F1\u2019s first \u201cHeat Hazard\u201d weekend. A clean race, managing rear\u2011tyre temps and timing the Medium\u2192Hard stop around mid\u2011distance, puts points squarely on the table; late neutralisations could invite a Soft dash. Given Haas\u2019s season and the street\u2011track traits, a top\u201110 finish would be an excellent return; anything around P6\u2013P8 would be a headline day. ([haasf1team.com](https://www.haasf1team.com/news/dutch-grand-prix-race-recap-3?utm_source=openai))",
+      "stakes_level": "high",
+      "perfect_quali": "P7\u2013P9 (Q3)",
       "perfect_race": "P6\u2013P8",
       "good_quali": "P10\u2013P12",
-      "good_race": "Points (P9\u2013P10)",
-      "stakes_level": "medium",
+      "good_race": "Points finish (P8\u2013P10)",
       "key_strengths": [
-        "Street-circuit precision",
-        "Tyre and brake management",
-        "Calm under Safety Car/late restarts",
-        "Traction out of low-speed corners"
+        "late\u2011braking/traction zones",
+        "tyre nursing on long stints",
+        "composure in traffic"
       ],
-      "watch_for": "Aggressive but tidy braking into Turn 7 and a long Medium first stint to pit under Safety Car; managing brake temps and out\u2011lap prep to spring a late Q2\u2192Q3 jump."
+      "watch_for": "How Haas times his stop versus Safety Car/VSC windows \u2014 and whether Bearman stays incident\u2011free given his 10\u2011point licence tally amid Singapore\u2019s heat\u2011hazard conditions. ([the-race.com](https://www.the-race.com/formula-1/f1-singapore-grand-prix-qualifying-results/?utm_source=openai))"
+    },
+    "Alex Albon": {
+      "tldr": "Albon starts from the back after a post\u2011qualifying DRS infraction, so his Singapore story is all about recovery, Safety Car timing and tyre life. He lost FP1 to a rear\u2011brake fire but rebounded to P11 in FP3, and arrives with solid recent form (P5 Zandvoort, P7 Monza, P6 Spa). ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Williams\u2019 Saturday was flipped by scrutineering: Albon\u2019s initial P12 in qualifying was wiped for an over\u2011gap DRS rear wing, putting him on the back row for Sunday. That makes strategy his lever: a long first stint and pouncing on a likely neutralisation could turn this into points. He lost almost all of FP1 to a rear\u2011brake issue and fire, but banked the laps he needed thereafter and was P11 in FP3\u2014encouraging race\u2011run hints even if single\u2011lap peak wasn\u2019t there. Form-wise, Albon\u2019s last five races read P13 (Azerbaijan), P7 (Italy), P5 (Netherlands), P15 (Hungary), P6 (Belgium), for 70 points total and P8 in the standings\u2014a steady upward trend with two top\u2011six finishes in three rounds before Baku. The FW47\u2019s 2025 brief was a broader operating window and more usable downforce, which should help on Marina Bay\u2019s traction\u2011heavy, kerb\u2011bumpy layout, but overtaking remains hard\u2014track position via undercuts/overcuts will decide his ceiling. Net: points from the back would be a win; a clean, tyre\u2011kind drive keeps Williams\u2019 constructors push on track. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "Q3 (P8-P10)",
+      "perfect_race": "P7-P9",
+      "good_quali": "Q2 (P11-P13)",
+      "good_race": "Points finish",
+      "key_strengths": [
+        "tyre management over long stints",
+        "calm racecraft in traffic",
+        "braking feel/precision"
+      ],
+      "watch_for": "An aggressive offset\u2014starting on Medium/Hard, extending the first stint to catch a Safety Car and jump clusters via the new back\u2011to\u2011back DRS zones."
+    },
+    "Carlos Sainz": {
+      "tldr": "Back-row start after Williams\u2019 DRS\u2011gap DQ turns Sainz\u2019s Singapore into a recovery mission, but his long\u2011run pace (FP1 P8, FP2 P8, FP3 P6) looked top\u201110 and he\u2019s a past Marina Bay master. Expect tyre management and racecraft to be his weapons in the Heat Hazard conditions. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))",
+      "full": "Form trending up: after a rough Belgium (P18) and penalty\u2011hit Dutch GP (finished P13; later rescinded), Sainz scored P11 at Monza and then a breakthrough P3 at Baku\u2014his first Williams podium. That lifted him to P12 in the standings and buoyed Williams\u2019 push for P5 in the Constructors\u2019. ([f1i.com](https://f1i.com/news/544881-2025-belgian-grand-prix-race-results.html?utm_source=openai)) Singapore fit: the FW47 is stronger in straights/short corners than in long, loaded turns\u2014more Baku than Budapest\u2014which should translate reasonably at Marina Bay\u2019s traction/braking zones if they nail ride height over bumps. ([crash.net](https://www.crash.net/f1/news/1078892/1/williams-hungary-woes-explained-inside-its-worst-2025-f1-showing?utm_source=openai)) Weekend pace: Sainz was solid through practice (FP1 P8, FP2 P8, FP3 P6), but both Williams were disqualified post\u2011qualifying for a rear\u2011wing DRS non\u2011compliance and will start at the back. ([formula1.com](https://www.formula1.com/en/latest/article/fp1-alonso-leads-leclerc-and-verstappen-during-first-practice-in-singapore.bU6SZHLZ8a8ZX9hp6mPvw?utm_source=openai)) Race keys: Safety Car likelihood, the new fourth DRS zone, and light\u2011deg tyres point to a 1\u2011stop with flexibility; undercuts into clear air will be crucial from P19/20. Heat Hazard protocols add a physical layer\u2014expect Sainz to lean on his tyre nursing and pace\u2011control smarts that won him Singapore in 2023. ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "Q3 (P8\u2013P10) pace on merit; DQ \u2192 back row",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P11\u2013P13 pace on merit; DQ \u2192 back row",
+      "good_race": "Points finish (P9\u2013P10)",
+      "key_strengths": [
+        "Tyre management and pace control",
+        "precision on brakes/traction out of slow corners",
+        "Safety\u2011Car restart discipline"
+      ],
+      "watch_for": "An early undercut onto clear air if an SC/VSC appears, to springboard a points\u2011charge from the back."
+    },
+    "Liam Lawson": {
+      "tldr": "After a messy FP3 crash and a Q2 exit, Lawson is set to start mid\u2011pack in Singapore (expected P12 after the Williams DQs). Can he keep it clean, manage the heat, and use Safety Car timing plus the new fourth DRS zone to nick points? ([reuters.com](https://www.reuters.com/sports/formula1/resurgent-verstappen-quickest-singapore-lawson-crashes-again-2025-10-04/?utm_source=openai))",
+      "full": "Form has trended up since summer: P6 in Austria, P12 at Zandvoort after a Sainz clash, P14 at Monza, then a career\u2011best P5 in Baku. That shows there\u2019s genuine race\u2011day upside in the Racing Bulls when track position and execution line up. He also knows Marina Bay well: he scored his first F1 points here (P9) in 2023. After crashing in FP3 and falling in Q2, Lawson is slated to start around P12 following the Williams rear\u2011wing disqualifications; a clean first stint and tyre care in the heat will be vital. Expect RB to trim for traction and stability over bumps, protect rear\u2011tyre temps, and try to leverage the added DRS between T14\u201316 to make progress despite Singapore\u2019s inherent track\u2011position premium. With F1\u2019s first \u201cHeat Hazard\u201d in force, hydration and cockpit cooling will matter as much as strategy. A tidy one\u2011stop (Medium\u2192Hard) with flexibility for SC/VSC is the baseline; a well\u2011timed overcut into clean air could unlock a top\u201110. A points finish would keep his momentum and bolster his standing inside the Red Bull camp. ([formula1.com](https://www.formula1.com/en/results/2025/races/1264/austria/race-result?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "P8\u2013P10",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P11\u2013P13",
+      "good_race": "Points finish (P8\u2013P10)",
+      "key_strengths": [
+        "Street\u2011circuit composure under pressure",
+        "braking/traction out of slow zones",
+        "tyre management in hot conditions ([reuters.com](https://www.reuters.com/sports/formula1/verstappen-wins-baku-piastri-crashes-out-2025-09-21/?utm_source=openai))"
+      ],
+      "watch_for": "Whether RB stretches Lawson\u2019s opening Medium stint to overcut into clear air around mid\u2011race, exploiting the high pit loss and his tyre management to convert a P12-ish start into points. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2025_Singapore_Grand_Prix?utm_source=openai))"
     },
     "Isack Hadjar": {
-      "tldr": "Rookie night-fight: Hadjar\u2019s street-circuit composure, late-braking style, and tyre care could turn Safety Car chaos into points. If he nails Turn 7 braking and T5 traction, a Q3 berth and a top-10 are on the table for Racing Bulls.",
-      "full": "What to look for: Isack Hadjar (#6) tackles Marina Bay for the first time in F1, where discipline beats raw pace. Singapore\u2019s heat, humidity, and relentless 90-degree braking zones reward drivers who manage tyres, batteries, and brakes without errors\u2014an area that suits Hadjar\u2019s measured racecraft and confidence on walls-close street tracks. Expect Racing Bulls to run high downforce with a focus on rear-end traction and brake cooling; getting rotation without rear snap over bumps is key. Track evolution is massive, so out-lap prep in qualifying and clean space are critical\u2014one strong push lap could sneak him into Q3. Strategy-wise, a Medium-to-Hard one-stop is baseline, but with Singapore\u2019s near-certain Safety Cars, being flexible\u2014extending the first stint and pitting under neutralization\u2014can decide the day. Watch Turn 7 for his overtakes and the T5 exit for traction; both shape passes down the straights. With no prior F1 starts here and a long, physical two-hour window, an error-free race and sharp calls on SC/VSC timing are the pathway to points. Rain threats and gusty urban winds could amplify the chaos\u2014opportunity knocks if he stays tidy.",
-      "perfect_quali": "P7\u2013P9 (strong Q3, ahead of direct midfield rivals)",
-      "perfect_race": "P6\u2013P8 (clean one-stop, capitalizes on Safety Car timing)",
-      "good_quali": "P10\u2013P12 (Q2 high-end, near Q3 cut)",
-      "good_race": "P9\u2013P10 (points finish, minimal errors)",
+      "tldr": "Rookie Isack Hadjar arrives in Singapore on a quiet hot streak: Zandvoort podium, points at Monza and Baku, and a tidy Q3 here with P8. He\u2019s been top\u201110 in all sessions and was P2 in FP2, but says tyre warm\u2011up on first push is their limiter\u2014watch his out\u2011laps and Safety Car restarts. ([reuters.com](https://www.reuters.com/sports/formula1/piastri-wins-dutch-gp-norriss-race-goes-up-smoke-2025-08-31/?utm_source=openai))",
+      "full": "Recent form is trending up: P3 at Zandvoort, then gritty points from a Monza pit\u2011lane start (P10), and P10 again in Baku. That\u2019s momentum for a street circuit that rewards precision and traction. In Singapore he\u2019s looked properly at home: P7 in FP1, P2 in FP2, P7 in FP3, and he converted it to P8 in qualifying. He tempered expectations, though, noting the car \u201cisn\u2019t as fast as we look\u201d and that switching the tyres on at the first push is tricky\u2014key for undercuts and post\u2011Safety\u2011Car pace. Strategically, a baseline one\u2011stop (Medium\u2192Hard) and high SC odds suit a patient racer like Hadjar; a well\u2011timed neutralisation could turn P8 on the grid into a top\u2011six shot. Beyond points, the stakes are real: he\u2019s linked to a 2026 Red Bull seat but insists he\u2019s signed nothing, with Racing Bulls saying decisions come later\u2014strong, mistake\u2011free Sundays keep that narrative hot. A \u201cgood\u201d night is solid points; a \u201cperfect\u201d one flirts with the top six. ([reuters.com](https://www.reuters.com/sports/formula1/piastri-wins-dutch-gp-norriss-race-goes-up-smoke-2025-08-31/?utm_source=openai))",
       "stakes_level": "high",
+      "perfect_quali": "P6-P8",
+      "perfect_race": "P5-P7",
+      "good_quali": "P9-P12",
+      "good_race": "P8-P10",
       "key_strengths": [
-        "Late-braking confidence and clean rotation in tight corners",
-        "Composed street-circuit racecraft near walls",
-        "Tyre and brake management in hot, stop\u2011start conditions",
-        "Adaptability to big track evolution across sessions"
+        "calm race execution in traffic",
+        "strong braking/traction on street circuits",
+        "tyre management over long stints"
       ],
-      "watch_for": "Turn 7 dive opportunities and a long first stint on Mediums to catch a Safety Car window; if he nails T1\u20133 at the start and the T5 launch, Hadjar can convert chaos into points."
+      "watch_for": "His tyre warm\u2011up on first push laps (out\u2011laps and SC restarts) after he flagged this as a weakness on Friday. ([formula1.com](https://www.formula1.com/en/latest/article/were-not-as-fast-as-we-look-hadjar-plays-down-pace-after-p2-on-friday-in.1Hw216nbcnu40FoDwzzhH3/?utm_source=openai))"
     },
     "Nico Hulkenberg": {
-      "tldr": "Hulkenberg\u2019s street-circuit precision suits Marina Bay, but converting a strong Saturday into points on Sunday is the hurdle. Watch Sauber gamble around Safety Cars with a long first stint and Nico\u2019s braking prowess into Turn 7.",
-      "full": "Nico Hulkenberg (#27) heads to Singapore with his usual calling card: sharp single-lap execution and tidy low-speed technique that matter most at Marina Bay. Recent form suggests solid qualifying pace versus the midfield, with race results hinging on tire life, traffic, and Safety Car timing. Historically he\u2019s been quick here but often luckless; clean execution and flexible strategy are key. Expect high-downforce setup, max traction focus (T5 exit, T7/Esplanade stops), and careful brake/PU cooling in the humid night air. Strategy: aim to start on Mediums, stretch the first stint, and pounce on the near-inevitable SC/VSC; Softs can grain in traffic, so track position is king. Starts and Lap 1 risk management will be vital, as will smooth out-lap prep to avoid front graining. Weather could bring brief showers\u2014conditions Nico typically handles well. Stakes are medium: he\u2019s an anchor for Sauber\u2019s Audi-bound project, so beating his teammate and bagging points matters more than heroics. A clean, patient race with one decisive pit call could turn Q3 pace into a top-8 finish.",
-      "perfect_quali": "P7\u2013P9",
-      "perfect_race": "P6\u2013P8 with SC-assisted strategy",
-      "good_quali": "P10\u2013P12 (high Q2, sniffing Q3)",
-      "good_race": "Points finish (P9\u2013P10)",
+      "tldr": "H\u00fclkenberg starts P11 with an extra set of new Softs and looks poised to turn tidy one\u2011lap pace into points if neutralisations arrive. Recent results have dipped, but his FP3 top\u201110 and Q2 near\u2011miss suggest Q3-level speed in race trim. ([sauber-group.com](https://www.sauber-group.com/corporate/news/detail/2025-singapore-grand-prix-saturday?utm_source=openai))",
+      "full": "After the high of his first F1 podium at Silverstone in July, H\u00fclkenberg\u2019s form cooled: P12 at Spa, P13 in Hungary, P14 at Zandvoort, a DNFs at Monza (hydraulics on the formation lap), and P16 in Baku. The raw pace hasn\u2019t vanished, though. On Saturday in Singapore he was P9 in FP3 and P11 in qualifying, missing Q3 by just 0.065s \u2014 and crucially, he retains an extra new Soft set for race gambles. Starting just outside the top 10 puts him in traffic but gives strategy freedom for under/overcuts and any Safety Car timing. Historically he\u2019s efficient here: six Singapore points finishes, best of P9 (including 2024 after qualifying P6), so a clean, attritional night suits him and Sauber. With the FIA\u2019s \u201cHeat Hazard\u201d in effect, note he\u2019s indicated a willingness to try the cooling vest, which could help late\u2011stint consistency in the humidity. A tidy opening, tyre nursing on the Medium/Hard, and pouncing on neutralisations are his route to points from P11. ([reuters.com](https://www.reuters.com/sports/formula1/hulkenberg-rids-himself-unwanted-record-239th-attempt-2025-07-06/?utm_source=openai))",
       "stakes_level": "medium",
+      "perfect_quali": "P8\u2013P10",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P11\u2013P12",
+      "good_race": "Points finish (P8\u2013P10)",
       "key_strengths": [
-        "Street-circuit qualifying precision",
-        "Braking feel and low-speed traction management",
-        "Experience reading Safety Car/VSC windows"
+        "Braking precision and traffic management",
+        "tyre preservation in hot conditions",
+        "mistake\u2011free execution on street circuits"
       ],
-      "watch_for": "Long first stint on Mediums to catch a Safety Car; late defensive work into Turn 7; clean pit stops and strong out-lap prep to avoid graining."
+      "watch_for": "Sauber using that extra new Soft set to attack after a late Safety Car from P11 track position. ([sauber-group.com](https://www.sauber-group.com/corporate/news/detail/2025-singapore-grand-prix-saturday?utm_source=openai))"
     },
     "Gabriel Bortoleto": {
-      "tldr": "Rookie Gabriel Bortoleto (#5) takes on his first F1 Singapore night race with Sauber. Clean quali execution, strong tyre care, and nailing Safety Car timing could turn a Q2/Q3 into points. Watch Turn 7 lunges and how he manages brakes and heat.",
-      "full": "What to look for with Gabriel Bortoleto at Marina Bay: This is his first F1 Singapore GP, a demanding night race where heat, humidity, and 62 laps of low\u2011speed corners punish brakes and tyres. Expect Sauber to run high downforce with an emphasis on ride compliance over bumps, robust brake cooling, and rear\u2011end traction for the 90\u2011degree exits and the back\u2011straight chicane. Qualifying is everything here\u2014out\u2011lap prep, track position, and clean banker laps are critical amid traffic. Race\u2011wise, a one\u2011stop (Medium to Hard) is baseline, but Singapore\u2019s near\u2011certain Safety Cars make flexibility the real weapon; extending the first stint into the Lap 18\u201335 window can be decisive. Bortoleto\u2019s smooth inputs and tyre sympathy should help in thermal degradation and in restarts, while measured aggression into Turn 7 and the chicane can open passing chances. With variable winds and a non\u2011trivial shower risk, keep an eye on his confidence on a green or damp track. Stakes are high for a rookie: error\u2011free execution, protecting the car, and being sharp on SC calls could convert a solid Q2 into points.",
-      "perfect_quali": "Q3 (P8\u2013P10)",
-      "perfect_race": "Solid points (P6\u2013P8)",
-      "good_quali": "High Q2 (P11\u2013P13)",
-      "good_race": "Points (P9\u2013P10)",
-      "stakes_level": "high",
+      "tldr": "Rookie Gabriel Bortoleto looked tidy through practice and was unlucky to miss Q2 after a late yellow; he qualified P16 but is set to start closer to P14 after Williams\u2019 post\u2011quali DQs. From there, watch for a measured, tyre\u2011friendly climb into the fringes of the points if Safety Cars fall his way. ([sauber-group.com](https://www.sauber-group.com/corporate/news/detail/2025-singapore-grand-prix-friday?utm_source=openai))",
+      "full": "Form is trending respectably for Bortoleto: he\u2019s scored 18 points in his debut season with recent finishes of P9 (Belgium), P6 (Hungary), P15 (Netherlands), P8 (Italy) and P11 (Azerbaijan). That\u2019s steady midfield pace with multiple points conversions. ([skysports.com](https://www.skysports.com/f1/drivers/gabriel-bortoleto/results?utm_source=openai)) Singapore prep was solid: FP1 P17, FP2 P15, FP3 P12, and he felt Q2 pace was on before he had to lift for a yellow in Q1, leaving him P16 on the times but poised to start higher after Williams\u2019 disqualifications. Expect a Medium-to-Hard baseline and patience to let the race come to him. ([sauber-group.com](https://www.sauber-group.com/corporate/news/detail/2025-singapore-grand-prix-friday?utm_source=openai)) As a rookie who claimed his first F1 points in Austria and has since added more, his race-day execution and tyre care have been strengths; Sauber will happily take any Safety Car\u2011assisted undercut/overcut opportunities in a traditionally interruption\u2011prone race. A clean first stint, rear\u2011tyre temperature discipline and opportunistic use of the new fourth DRS zone are his pathways forward from the mid\u2011grid. A top\u201110 would cap a quietly efficient weekend at a circuit that rewards control more than raw speed. ([reuters.com](https://www.reuters.com/sports/formula1/bortoleto-hopes-he-can-fight-points-rest-f1-season-2025-06-30/?utm_source=openai))",
+      "stakes_level": "medium",
+      "perfect_quali": "P9-P12",
+      "perfect_race": "P7-P9",
+      "good_quali": "P13-P15",
+      "good_race": "Points finish",
       "key_strengths": [
-        "Tyre management in hot, high-deg conditions",
-        "Braking discipline and traction out of slow corners"
+        "Calm race craft",
+        "tyre management in heat",
+        "braking precision into low\u2011speed corners"
       ],
-      "watch_for": "Safety Car pit call timing around Laps 18\u201335, disciplined Turn 7 attacks, and kerb-riding/exit traction at the back\u2011straight chicane."
+      "watch_for": "Whether he can extend the opening Medium stint to catch a mid\u2011race Safety Car/VSC and convert the fourth DRS zone into late\u2011stint passes from the T14\u201316 complex. ([sauber-group.com](https://www.sauber-group.com/corporate/news/detail/2025-singapore-grand-prix-saturday?utm_source=openai))"
     }
   },
-  "top5": {
-    "drivers": [
-      {
-        "rank": 1,
-        "driver": "Max Verstappen",
-        "reason": "Singapore is one of his trickier venues, but elite tire/thermal management and ruthless Safety Car judgment can flip a good car into track position. Qualifying out-lap execution on the C5 and Turn 7 aggression will define his ceiling.",
-        "stakes": "Defend championship momentum and anchor Red Bull\u2019s constructors push at a track that historically blunts dominance."
-      },
-      {
-        "rank": 2,
-        "driver": "Lewis Hamilton",
-        "reason": "Street-circuit ace with proven Marina Bay craft, and Ferrari should be in the front-row mix. If showers or Safety Cars hit, his decision-making can swing the race to a win or podium.",
-        "stakes": "Big points for Ferrari\u2019s constructors fight and a shot at a first Ferrari win under the lights; intra-team leadership vs Leclerc."
-      },
-      {
-        "rank": 3,
-        "driver": "Lando Norris",
-        "reason": "McLaren typically thrives on high-downforce street layouts and he was P2 here in 2023. Clean Q3 prep plus smart Safety Car timing puts a win in play.",
-        "stakes": "Sustain title-bid momentum and keep McLaren\u2019s constructors challenge alive while beating Piastri on a key benchmark track."
-      },
-      {
-        "rank": 4,
-        "driver": "Charles Leclerc",
-        "reason": "A Singapore specialist with pole pedigree, he\u2019s a front-row threat if Ferrari nails Q3 out-lap prep. Track-position racing here suits his tidy low-speed style.",
-        "stakes": "Pole/podium points to boost Ferrari\u2019s title hopes and set the intra-team qualifying benchmark against Hamilton."
-      },
-      {
-        "rank": 5,
-        "driver": "Yuki Tsunoda",
-        "reason": "Aggressive late-braking and strong one-lap punch suit Marina Bay, and the Red Bull seat gives front-running upside. Converting Safety Car windows while managing rear tires is his pathway to a podium.",
-        "stakes": "Validate promotion by delivering podium-level points alongside Verstappen and securing his long-term Red Bull standing in the constructors fight."
-      }
-    ]
-  },
-  "underdogs": {
-    "underdogs": [
-      {
-        "driver": "Liam Lawson",
-        "title": "Back for More in Marina Bay",
-        "story": "Lawson returns to the track where he scored his first F1 points in 2023, a circuit that rewards his tidy street-circuit precision. If he keeps it clean in qualifying and plays the inevitable Safety Car windows, he can turn fringe-Q3 pace into a top-10.",
-        "surprise_factor": "Singapore\u2019s long, stop\u2011start stints suit his tyre/brake management and late-braking confidence into Turn 7. A long opening run on Mediums positions him perfectly to pit under SC/VSC and jump faster cars stuck in traffic."
-      },
-      {
-        "driver": "Lance Stroll",
-        "title": "Singapore Redemption After Quali Heartbreak",
-        "story": "Stroll\u2019s 2023 qualifying crash still stings, but he was P6 here in the wet-to-dry 2022 race. With a clean Saturday and disciplined tyre/brake management, he can convert a midfield start into points when Safety Cars shuffle the deck.",
-        "surprise_factor": "He\u2019s strong on restarts and heavy-braking passes into Turn 7, and his wet-weather feel is a hidden edge if showers hit. Extending the first stint to catch an SC plays to his Sunday strengths on a track where track position is everything."
-      },
-      {
-        "driver": "Oliver Bearman",
-        "title": "Rookie Night Raid for Haas Points",
-        "story": "Bearman tackles his first Singapore night race, where precision and patience matter more than raw speed. If he nails out-lap prep amid big track evolution and stays error-free, a smart one-stop with SC timing can lift him into the points.",
-        "surprise_factor": "His street-circuit braking discipline and calm Safety Car restarts align perfectly with Marina Bay\u2019s demands. Starting on Mediums and pitting under a neutralization could flip Haas\u2019s typical Q2 pace into a P8\u2013P10 finish."
-      }
-    ]
-  },
-  "raceContext": "{\n  \"event\": \"2025 Singapore Grand Prix\",\n  \"date_local\": \"2025-10-05\",\n  \"venue\": \"Marina Bay Street Circuit (night race)\",\n  \"weather_forecast\": {\n    \"as_of\": \"2025-10-04\",\n    \"confidence\": \"low (no live data access; based on typical early-October evenings in Singapore)\",\n    \"race_window_local\": \"20:00\u201322:00\",\n    \"temperature_c\": {\n      \"ambient\": [28, 31],\n      \"track\": [32, 40]\n    },\n    \"rain_probability_percent\": [30, 50],\n    \"wind\": {\n      \"speed_kmh\": [5, 15],\n      \"direction\": \"variable (urban canyons; often ENE\u2013SE)\",\n      \"gusts_kmh\": [15, 25]\n    },\n    \"notes\": \"High humidity; risk of brief thunderstorms/showers. Verify with latest official forecast.\"\n  },\n  \"track\": {\n    \"length_km\": 4.928,\n    \"laps\": 62,\n    \"total_race_distance_km\": 305.5,\n    \"characteristics\": [\n      \"Tight street circuit; low average speed\",\n      \"High downforce, high braking and traction demand\",\n      \"Bumpy surface; big track evolution across the weekend\",\n      \"Night race under lights; very hot and humid\"\n    ],\n    \"key_corners\": [\n      {\n        \"section\": \"Turns 1\u20133\",\n        \"note\": \"Opening chicane; heavy braking, curb usage, critical for lap time and start.\"\n      },\n      {\n        \"section\": \"Turn 5 exit\",\n        \"note\": \"Sets up the long Raffles Blvd straight; traction crucial.\"\n      },\n      {\n        \"section\": \"Turn 7\",\n        \"note\": \"Primary overtaking spot; big stop from high speed.\"\n      },\n      {\n        \"section\": \"Anderson Bridge \u2192 Hairpin\",\n        \"note\": \"Narrow bridge into tight hairpin; braking stability and traction key.\"\n      },\n      {\n        \"section\": \"End of Esplanade straight\",\n        \"note\": \"Another heavy-braking passing opportunity.\"\n      },\n      {\n        \"section\": \"Back-straight chicane (added with 2023 layout change)\",\n        \"note\": \"Major braking zone; kerb riding and exit traction; passing chance.\"\n      }\n    ]\n  },\n  \"safety_car_statistics\": {\n    \"timeframe\": \"Since inaugural 2008 race (excl. 2020/2021 cancellations)\",\n    \"safety_car_in_every_race\": true,\n    \"avg_safety_car_deployments_per_race_est\": {\n      \"range\": [1, 3],\n      \"median\": 2\n    },\n    \"typical_total_safety_car_laps_est\": [8, 15],\n    \"virtual_safety_car_frequency\": \"common\",\n    \"implications\": \"High likelihood of interruptions; pitting under SC often decisive.\"\n  },\n  \"strategy_considerations\": {\n    \"pirelli_compounds_expected\": [\n      \"C3 (Hard)\",\n      \"C4 (Medium)\",\n      \"C5 (Soft)\"\n    ],\n    \"baseline_strategy\": \"One-stop (track position king; long pit delta).\",\n    \"typical_pit_windows_lap\": {\n      \"one_stop_M_to_H\": \"Laps 18\u201335 (extend with SC)\",\n      \"two_stop\": \"Viable mainly with multiple SC/VSC or late neutralizations\"\n    },\n    \"pit_lane_time_loss_seconds_green\": [27, 29],\n    \"undercut_effect\": \"Moderate; traffic often blunts gains. Overcut can work with clean air/SC.\",\n    \"degradation_profile\": \"Thermal deg high; graining risk on Soft in traffic; Medium preferred for first stint.\",\n    \"operational_notes\": [\n      \"Safety Car timing often trumps pure pace.\",\n      \"Brake cooling and power unit thermal management critical.\",\n      \"Big track evolution\u2014qualifying grip improves rapidly.\"\n    ]\n  },\n  \"recent_race_history\": [\n    {\n      \"year\": 2024,\n      \"winner\": null,\n      \"pole\": null,\n      \"podium\": null,\n      \"notes\": \"Result not available in this model\u2019s data.\"\n    },\n    {\n      \"year\": 2023,\n      \"winner\": \"Carlos Sainz (Ferrari)\",\n      \"pole\": \"Carlos Sainz (Ferrari)\",\n      \"podium\": [\n        \"Carlos Sainz (Ferrari)\",\n        \"Lando Norris (McLaren)\",\n        \"Lewis Hamilton (Mercedes)\"\n      ],\n      \"notes\": \"First non-Red Bull win of 2023; late VSC; Russell crashed on final lap while chasing P2.\"\n    },\n    {\n      \"year\": 2022,\n      \"winner\": \"Sergio P\u00e9rez (Red Bull)\",\n      \"pole\": \"Charles Leclerc (Ferrari)\",\n      \"podium\": [\n        \"Sergio P\u00e9rez (Red Bull)\",\n        \"Charles Leclerc (Ferrari)\",\n        \"Carlos Sainz (Ferrari)\"\n      ],\n      \"notes\": \"Wet-to-dry race; multiple SC/VSC; P\u00e9rez kept win after SC infringement penalty.\"\n    }\n  ],\n  \"unique_challenges\": [\n    \"Extreme heat/humidity and long race duration strain drivers and machinery.\",\n    \"High probability of Safety Cars; strategy must be flexible.\",\n    \"Bumps and 90-degree corners punish setups; traction and braking stability vital.\",\n    \"Walls close and visibility changes under lights; errors are costly.\",\n    \"Traffic management in qualifying is difficult; out-lap prep critical.\"\n  ]\n}",
+  "top5": [
+    {
+      "rank": 1,
+      "driver": "George Russell",
+      "reason": "On pole after rebounding from a Friday crash, with Mercedes genuinely quick here. If he nails the launch and manages tyres in Heat Hazard conditions, he can control a track where track position rules.",
+      "stakes": "Convert pole into a win to validate Mercedes\u2019 resurgence and assert his team\u2011leader credentials under pressure from Verstappen and the McLarens."
+    },
+    {
+      "rank": 2,
+      "driver": "Max Verstappen",
+      "reason": "Starts P2 after topping FP3 and arrives on a two\u2011race winning streak; the launch versus Russell is everything. He\u2019s never won Singapore, making this a high\u2011stakes bid at a traditionally tricky venue for him.",
+      "stakes": "Chance to slash Piastri\u2019s championship lead and tick off a maiden Singapore victory."
+    },
+    {
+      "rank": 3,
+      "driver": "Oscar Piastri",
+      "reason": "Championship leader starts P3 after topping FP2 and running Verstappen to 0.017s in FP3, insisting he won\u2019t play it safe. With the new fourth DRS zone, he has the tools to pressure Russell/Verstappen despite limited overtaking.",
+      "stakes": "Protect or extend the title lead while pushing McLaren toward clinching the Constructors\u2019 Championship."
+    },
+    {
+      "rank": 4,
+      "driver": "Lando Norris",
+      "reason": "P5 grid after a messy Friday and a Q3 flashpoint with Verstappen, but his recent form (7\u20112\u2011DNF\u20111\u20112) screams podium threat. Tire/temperature management plus the extra DRS zone set him up for late moves.",
+      "stakes": "A podium likely seals McLaren\u2019s constructors\u2019 crown and keeps his 25\u2011point chase of Piastri alive."
+    },
+    {
+      "rank": 5,
+      "driver": "Kimi Antonelli",
+      "reason": "Rookie starts P4 as Mercedes surges (with Russell on pole); confidence rebuilt after a strong P4 in Baku. Cool heads win Singapore\u2014if he manages the Heat Hazard and restarts, a podium is realistic.",
+      "stakes": "Breakthrough podium opportunity that would supercharge his rookie campaign and strengthen his standing within Mercedes."
+    }
+  ],
+  "underdogs": [
+    {
+      "driver": "Isack Hadjar",
+      "title": "Rookie heat master chases breakout podium",
+      "story": "The rookie\u2019s quiet hot streak continued with top\u201110 pace in every session and a tidy P8 in qualifying, including a standout P2 in FP2. With the Heat Hazard in play and a new fourth DRS zone aiding overtakes, his smooth out\u2011lap management and restart composure could turn track position into a career\u2011best night.",
+      "surprise_factor": "Consistent long\u2011run pace and sharp tyre warm\u2011up in brutal conditions make him primed to pounce on Safety Car timing and beat bigger names on merit."
+    },
+    {
+      "driver": "Oliver Bearman",
+      "title": "Calm rookie turns grid position into gold",
+      "story": "P9 at a track where track position rules gives the rookie a rare chance to control his race rather than react. With improving form and the discipline to avoid errors while sitting on 10 licence points, he can play the long game and strike late if a Safety Car compresses the field.",
+      "surprise_factor": "Clean launch plus tyre nursing in the heat, combined with an undercut/overcut window, could convert row five into a shock top\u2011six."
+    },
+    {
+      "driver": "Nico H\u00fclkenberg",
+      "title": "Extra softs, extra street\u2011fight upside",
+      "story": "Starting P11 with an extra fresh set of Softs and tidy one\u2011lap pace, H\u00fclkenberg is perfectly placed to exploit Singapore\u2019s frequent neutralisations. His restart craft and tyre management can flip a conservative opening stint into a late\u2011race surge when others fade.",
+      "surprise_factor": "The spare Softs unlock aggressive pit\u2011window choices around Safety Cars, giving him a realistic route to top\u2011seven\u2014or better\u2014on strategy."
+    }
+  ],
+  "raceContext": "Here\u2019s the latest, as of Saturday, October 4, 2025 (US time), for the Singapore Grand Prix (race: Sunday, October 5, 2025, 20:00 local, SGT).\n\nWeather outlook\n- Headline: Hot, humid nights with only a slight risk of showers for quali and the race.\n- Friday (Oct 3): Mostly cloudy; thundery showers risk earlier in the day. FP1 ~31\u00b0C, FP2 ~30\u00b0C; rain chance around 40%. Light southerly breeze. ([formula1.com](https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2025-singapore-grand-prix.7dRwo30AZ0T8hA5wXno40z?utm_source=openai))\n- Saturday (Oct 4): Mostly cloudy; low shower risk. FP3 ~31\u00b0C, qualifying ~30\u00b0C; rain chance ~20%. Light-to-moderate S\u2013SE breeze. ([formula1.com](https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2025-singapore-grand-prix.7dRwo30AZ0T8hA5wXno40z?utm_source=openai))\n- Sunday (Oct 5): Partly cloudy for the race; slight shower chance (~20%). Race start near 30\u00b0C; light southerly breeze. Hourly guidance for 20:00 SGT shows ~10% precip and clear conditions at the circuit. ([formula1.com](https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2025-singapore-grand-prix.7dRwo30AZ0T8hA5wXno40z?utm_source=openai))\n- Context: The FIA has issued its first \u201cHeat Hazard\u201d declaration for an F1 race this weekend due to expected heat/humidity; cooling vests or ballast allowances are permitted. ([reuters.com](https://www.reuters.com/sports/formula1/fia-declares-first-formula-one-heat-hazard-race-singapore-2025-10-02/?utm_source=openai))\n\nTrack and racing characteristics\n- Venue/lap: Marina Bay Street Circuit; 19 corners; 62 laps; lap length just under 5.0 km after the 2023 layout simplification. Lap record on the 2024 spec layout: 1:34.486 (Ricciardo, 2024). ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- DRS: A fourth DRS zone has been added between Turns 14\u201316, creating back\u2011to\u2011back zones in that sector (in addition to the T5\u20137 and main straight zones) to aid overtaking. ([motorsport.com](https://www.motorsport.com/f1/news/fia-adds-fourth-drs-zone-for-singapore-gp/10655159/?utm_source=openai))\n- Key corners/traits: Heavy braking at T7; precision needed through the \u201cSingapore Sling\u201d reprofiled T10\u201311; rear\u2011tyre temperature management late in the lap; bumpy surface, close walls, and traction zones dominate setup. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n\nPractice/qualifying to date\n- FP1 (Fri): Fernando Alonso fastest for Aston Martin. ([formula1.com](https://www.formula1.com/en/latest/article/alonso-hails-probably-the-best-friday-of-2025-so-far-for-aston-martin-after.1SRfqnYFpCBLIdMyjBE70X))\n- FP2 (Fri): Oscar Piastri topped the session for McLaren. ([formula1.com](https://www.formula1.com/en/latest/article/watch-ride-onboard-as-piastri-sets-the-pace-in-singapore-on-friday.CNrfLUptodOsjOcS1wwUx))\n- FP3 (Sat): Max Verstappen quickest ahead of Oscar Piastri; session red\u2011flagged for a Lawson crash. ([reuters.com](https://www.reuters.com/sports/formula1/resurgent-verstappen-quickest-singapore-lawson-crashes-again-2025-10-04/?utm_source=openai))\n- Qualifying (Sat): George Russell took pole with a 1:29.158 for Mercedes, from Verstappen and Piastri; Kimi Antonelli P4, Norris P5, Hamilton P6, Leclerc P7. Williams\u2019 Albon and Sainz were disqualified post\u2011session for rear\u2011wing DRS non\u2011compliance and start from the back. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))\n\nLatest F1 news/developments to know\n- Heat Hazard protocol activated (see above). ([reuters.com](https://www.reuters.com/sports/formula1/fia-declares-first-formula-one-heat-hazard-race-singapore-2025-10-02/?utm_source=openai))\n- Mercedes resurgence: Russell on pole after leading Q2; Antonelli P4. ([reuters.com](https://www.reuters.com/sports/formula1/russell-puts-mercedes-pole-singapore-grand-prix-2025-10-04/?utm_source=openai))\n- Williams DQ (post\u2011qualifying): Both cars failed DRS gap checks. ([sbnation.com](https://www.sbnation.com/formula-one/1083567/breaking-f1-news-sainz-albon-disqualification-singapore?utm_source=openai))\n- Title picture/context: McLaren can clinch the Constructors\u2019 Championship with a modest points haul; Verstappen has narrowed his gap to Piastri in recent rounds. ([reuters.com](https://www.reuters.com/sports/formula1/formula-one-statistics-singapore-grand-prix-2025-10-01/?utm_source=openai))\n\nSafety car/interruptions\n- Historic profile: First ever Singapore GP without a Safety Car came in 2024; prior to that, every race featured at least one SC. Total SC deployments at Marina Bay: 24 across 15 races. ([formula1.com](https://www.formula1.com/en/latest/article/facts-and-stats-norris-becomes-fifth-winner-in-five-years-at-first-safety.5mUfDxYMC0wzslttHeAY9f?utm_source=openai))\n- Short\u2011term probability: F1\u2019s event preview pegs SC probability at 83% and VSC at 33% based on the last six races here. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n\nStrategy outlook\n- Tyres: Pirelli brings C3 (hard), C4 (medium), C5 (soft) again. Expect Medium and Hard to be the main race tyres; Softs are more start/late\u2011SC tools. Thermal degradation (not surface wear) is the main limit. ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai))\n- Pit loss: Around 29 seconds at Marina Bay under normal conditions; track position is valuable, so a one\u2011stop is the baseline (Medium\u2192Hard), with flexibility for SC/VSC. Teams often target the switch around mid\u2011race if conditions allow. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- Wildcards: High SC/VSC likelihood, potential light showers, and the new fourth DRS zone could alter undercut/overcut calculations and increase late\u2011race Soft usage if neutralisations occur. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n\nRecent race history (last three editions)\n- 2024: Lando Norris (McLaren) won from pole; first Singapore GP with no Safety Car or even a yellow flag. Verstappen P2, Piastri P3. 62 recorded overtakes in 2024. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2024_Singapore_Grand_Prix?utm_source=openai))\n- 2023: Carlos Sainz (Ferrari) won after a masterclass in pace control/DRS tactics. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- 2022: Sergio P\u00e9rez (Red Bull) won a wet\u2011to\u2011dry race (time\u2011limited to 59 laps). ([en.wikipedia.org](https://en.wikipedia.org/wiki/2022_Singapore_Grand_Prix?utm_source=openai))\n\nUnique challenges for teams and drivers\n- Physical strain: Even at night, ambient ~30\u201332\u00b0C with high humidity; drivers can lose up to ~3 kg in body mass. FIA\u2019s Heat Hazard underscores the stress this weekend. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- Precision required: Tight walls, bumps, painted lines and manholes, plus long race duration and frequent neutralisations historically. Managing rear\u2011tyre temperatures and avoiding lock\u2011ups at key braking zones (notably T7) are critical. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- Overtaking remains difficult despite layout changes; the fourth DRS zone aims to help, but qualifying and track position still loom large. ([motorsport.com](https://www.motorsport.com/f1/news/fia-adds-fourth-drs-zone-for-singapore-gp/10655159/?utm_source=openai))\n\nQuick reference: race\u2011weekend snapshot\n- Weather: Race ~30\u00b0C, humid, ~20% rain risk; light S\u2013SE breeze (~5\u20138 mph). ([formula1.com](https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2025-singapore-grand-prix.7dRwo30AZ0T8hA5wXno40z?utm_source=openai))\n- Tyres: C3/C4/C5; baseline 1\u2011stop Medium\u2192Hard; Softs for start/late SC. ([formula1.com](https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2025-singapore-grand-prix.o1G8IryVwlbayGQ1z6JHo?utm_source=openai))\n- SC/VSC: Historically very likely (83% SC probability recent trend); 2024 was uniquely SC\u2011free. ([formula1.com](https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2025-singapore.468A8YSelm8nsKywLuGTf))\n- Form book this weekend: Alonso led FP1; Piastri FP2; Verstappen FP3; Russell on pole; Williams cars DQ\u2019d from qualifying. ([formula1.com](https://www.formula1.com/en/latest/article/alonso-hails-probably-the-best-friday-of-2025-so-far-for-aston-martin-after.1SRfqnYFpCBLIdMyjBE70X))\n\nIf you want, I can convert this into a tight briefing note for preview writers with ready-to-drop lines and data points.",
   "metadata": {
     "circuit": "singapore",
     "date": "2025-10-05",
