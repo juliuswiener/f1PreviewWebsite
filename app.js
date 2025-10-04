@@ -601,14 +601,14 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
 function getDriverImageUrl(driverName) {
     // Map of driver names to their team and code for 2025
     const driverInfo = {
-        'Max Verstappen': { team: 'redbull', code: 'maxver01' },
+        'Max Verstappen': { team: 'redbull', code: 'maxver' },
         'Yuki Tsunoda': { team: 'redbull', code: 'yuktsu01' },
         'Lewis Hamilton': { team: 'ferrari', code: 'lewham01' },
         'Charles Leclerc': { team: 'ferrari', code: 'chalec01' },
         'Lando Norris': { team: 'mclaren', code: 'lannor01' },
         'Oscar Piastri': { team: 'mclaren', code: 'oscpia01' },
         'George Russell': { team: 'mercedes', code: 'georus01' },
-        'Kimi Antonelli': { team: 'mercedes', code: 'kimant01' },
+        'Kimi Antonelli': { team: 'mercedes', code: 'andant01' },
         'Fernando Alonso': { team: 'astonmartin', code: 'feralo01' },
         'Lance Stroll': { team: 'astonmartin', code: 'lanstr01' },
         'Pierre Gasly': { team: 'alpine', code: 'piegas01' },
