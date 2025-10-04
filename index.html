@@ -1018,8 +1018,8 @@ Return as JSON array:
 
                 if (type === 'json_object') {
                     requestBody.text = {
-                        format: 'json_schema',
-                        json_schema: {
+                        format: {
+                            type: 'json_schema',
                             name: 'json_response',
                             schema: {
                                 type: 'object',
@@ -1029,15 +1029,21 @@ Return as JSON array:
                     };
                 } else if (type === 'json_schema') {
                     const schemaDefinition = formatOptions.json_schema || formatOptions.schema;
+                    const { json_schema: _, schema: __, ...rest } = formatOptions;
 
                     requestBody.text = {
-                        format: 'json_schema',
-                        ...(schemaDefinition ? { json_schema: schemaDefinition } : {})
+                        format: {
+                            type: 'json_schema',
+                            ...(schemaDefinition ? { schema: schemaDefinition } : {}),
+                            ...rest
+                        }
                     };
                 } else {
                     requestBody.text = {
-                        format: type,
-                        ...formatOptions
+                        format: {
+                            type,
+                            ...formatOptions
+                        }
                     };
                 }
             }
