@@ -318,12 +318,22 @@ function initializeDriverGrid() {
         const statusClass = hasPreview ? 'generated' : '';
         const statusBadge = hasPreview ? '✓' : '';
 
+        // Get stakes level and color
+        const stakesLevel = hasPreview?.stakes_level || 'medium';
+        const stakesColors = {
+            'high': '#ff0000',
+            'medium': '#ffaa00',
+            'low': '#00ff88'
+        };
+        const stakesColor = stakesColors[stakesLevel] || stakesColors['medium'];
+
         return `
             <div class="driver-card ${statusClass}" id="card-${driver.number}" onclick="viewDriver('${driver.name}')">
                 <div class="status-badge">${statusBadge}</div>
                 <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">#${driver.number}</div>
                 <div style="font-size: 1.1rem; font-weight: 600;">${driver.name}</div>
                 <div style="color: #999; margin-top: 0.3rem;">${driver.team}</div>
+                ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">⚡ ${stakesLevel} stakes</div>` : ''}
             </div>
         `;
     }).join('');
@@ -591,15 +601,21 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
 function renderHighlights() {
     const content = document.getElementById('highlights-content');
 
-    if (!generatedData.top5 || generatedData.top5.length === 0) {
+    // Handle nested structure from Python generation
+    const top5Data = generatedData.top5?.drivers || generatedData.top5 || [];
+
+    if (!top5Data || top5Data.length === 0) {
         content.innerHTML = '<div class="empty-state"><p>Generate previews to see the top 5 drivers to watch this weekend</p></div>';
         return;
     }
 
+    const circuitName = generatedData.metadata?.circuit || 'Unknown';
+    const season = generatedData.metadata?.season || '2025';
+
     content.innerHTML = `
         <div class="highlight-section">
-            <h3>🏆 Top 5 Drivers to Watch - ${document.getElementById('circuit').value.toUpperCase()} GP ${document.getElementById('season').value}</h3>
-            ${generatedData.top5.map((item, i) => `
+            <h3>🏆 Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
+            ${top5Data.map((item, i) => `
                 <div class="top-driver-item">
                     <h4>#${item.rank || i + 1} ${item.driver}</h4>
                     <p><strong>Why watch:</strong> ${item.reason}</p>
@@ -614,15 +630,21 @@ function renderHighlights() {
 function renderUnderdogs() {
     const content = document.getElementById('underdogs-content');
 
-    if (!generatedData.underdogs || generatedData.underdogs.length === 0) {
+    // Handle nested structure from Python generation
+    const underdogsData = generatedData.underdogs?.underdogs || generatedData.underdogs || [];
+
+    if (!underdogsData || underdogsData.length === 0) {
         content.innerHTML = '<div class="empty-state"><p>Generate previews to discover the underdog stories</p></div>';
         return;
     }
 
+    const circuitName = generatedData.metadata?.circuit || 'Unknown';
+    const season = generatedData.metadata?.season || '2025';
+
     content.innerHTML = `
         <div class="highlight-section">
-            <h3>🔥 Underdog Stories - ${document.getElementById('circuit').value.toUpperCase()} GP ${document.getElementById('season').value}</h3>
-            ${generatedData.underdogs.map((item, i) => `
+            <h3>🔥 Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
+            ${underdogsData.map((item, i) => `
                 <div class="top-driver-item">
                     <h4>${item.title || `Story ${i + 1}: ${item.driver}`}</h4>
                     <p>${item.story}</p>
