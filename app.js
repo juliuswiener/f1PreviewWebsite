@@ -522,6 +522,9 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
         throw new Error(`API Error: ${response.status} ${message}`);
     }
 
+    // Debug: log response structure
+    console.log('API Response:', JSON.stringify(data, null, 2));
+
     // Parse response: prioritize output_text helper
     if (typeof data.output_text === 'string') {
         return data.output_text;
@@ -541,7 +544,7 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
         }
     }
 
-    throw new Error('Unexpected API response format');
+    throw new Error('Unexpected API response format. Check console for details.');
 }
 
 function renderHighlights() {
