@@ -536,7 +536,8 @@ async function callOpenAI(apiKey, model, prompt, temperature, options = {}) {
         for (const item of data.output) {
             if (item.type === 'message' && Array.isArray(item.content)) {
                 for (const part of item.content) {
-                    if (part.type === 'text' && typeof part.text === 'string') {
+                    // Handle both 'text' and 'output_text' types
+                    if ((part.type === 'text' || part.type === 'output_text') && typeof part.text === 'string') {
                         return part.text.trim();
                     }
                 }
