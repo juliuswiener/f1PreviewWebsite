@@ -111,7 +111,7 @@ Provide two versions:
 2. FULL: Detailed informational text (150-200 words)
 
 Format as JSON:
-{
+{{
   "tldr": "...",
   "full": "...",
   "perfect_quali": "P1-P3",
@@ -121,7 +121,7 @@ Format as JSON:
   "stakes_level": "high/medium/low",
   "key_strengths": ["strength1", "strength2"],
   "watch_for": "specific thing to watch"
-}""",
+}}""",
 
     "top5": """Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for the upcoming race.
 
@@ -143,12 +143,12 @@ For each driver, provide:
 
 Return as JSON array:
 [
-  {
+  {{
     "rank": 1,
     "driver": "Driver Name",
     "reason": "Compelling 1-2 sentence explanation",
     "stakes": "What's on the line"
-  }
+  }}
 ]""",
 
     "underdogs": """Identify 3 UNDERDOG STORIES for the upcoming race.
@@ -171,12 +171,12 @@ For each underdog, provide:
 
 Return as JSON array:
 [
-  {
+  {{
     "driver": "Driver Name",
     "title": "Catchy story title",
     "story": "2-3 sentence narrative",
     "surprise_factor": "Why they could overperform"
-  }
+  }}
 ]"""
 }
 
