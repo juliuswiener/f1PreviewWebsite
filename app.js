@@ -50,7 +50,16 @@ Consider:
 
 Provide two versions:
 1. TLDR: 2-3 sentences max, punchy and informative
-2. FULL: Detailed informational text (150-200 words)
+2. FULL: Comprehensive analysis with multiple sections (300-400 words). Use markdown formatting with:
+   - ## headers for main sections
+   - Bullet points for lists
+   - **bold** for emphasis
+   Include sections on:
+   - Current form and momentum
+   - Circuit-specific strengths/challenges
+   - Championship/career context and stakes
+   - Key battles to watch (teammates, rivals)
+   - What success looks like this weekend
 
 Format as JSON:
 {
@@ -247,15 +256,15 @@ const f1API = {
 
                     // Fetch qualifying results
                     const qualiData = await this.getQualifyingResults(season, round);
-                    const qualiResult = qualiData.races?.qualifyingResults?.find(r => r.driver?.number === driverNumber);
+                    const qualiResult = qualiData.races?.qualyResults?.find(r => r.driver?.number === driverNumber);
 
                     if (qualiResult) {
                         const circuit = races.find(r => parseInt(r.round) === round);
                         results.qualifying.push({
                             circuit: circuit?.circuit?.circuitName || `Round ${round}`,
-                            position: parseInt(qualiResult.classificationId),
+                            position: parseInt(qualiResult.gridPosition),
                             dnf: false,
-                            dns: false,
+                            dns: qualiResult.gridPosition === '-',
                             date: circuit?.date,
                             round: round
                         });
