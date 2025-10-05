@@ -220,33 +220,12 @@ const openF1API = {
         return results;
     },
 
-    async getQualifyingResults(driverNumber, year = 2025) {
-        const response = await fetch(`${this.baseURL}/sessions?session_type=Qualifying&year=${year}`);
+    async getSessionResults(driverNumber, sessionType, year = 2025) {
+        const response = await fetch(`${this.baseURL}/sessions?session_type=${sessionType}&year=${year}`);
         const sessions = await response.json();
 
         const results = [];
-        for (const session of sessions.slice(-10)) { // Last 10 qualifying sessions
-            const resResponse = await fetch(`${this.baseURL}/session_result?session_key=${session.session_key}&driver_number=${driverNumber}`);
-            const result = await resResponse.json();
-            if (result.length > 0) {
-                results.push({
-                    circuit: session.circuit_short_name,
-                    position: result[0].position,
-                    date: session.date_start,
-                    duration: result[0].duration
-                });
-            }
-        }
-        // Sort by date to ensure chronological order
-        return results.sort((a, b) => new Date(a.date) - new Date(b.date));
-    },
-
-    async getRaceResults(driverNumber, year = 2025) {
-        const response = await fetch(`${this.baseURL}/sessions?session_type=Race&year=${year}`);
-        const sessions = await response.json();
-
-        const results = [];
-        for (const session of sessions.slice(-10)) { // Last 10 races
+        for (const session of sessions.slice(-15)) {
             const resResponse = await fetch(`${this.baseURL}/session_result?session_key=${session.session_key}&driver_number=${driverNumber}`);
             const result = await resResponse.json();
             if (result.length > 0) {
@@ -255,12 +234,29 @@ const openF1API = {
                     position: result[0].position,
                     date: session.date_start,
                     dnf: result[0].dnf,
-                    dns: result[0].dns
+                    dns: result[0].dns,
+                    sessionType: sessionType
                 });
             }
         }
         // Sort by date to ensure chronological order
         return results.sort((a, b) => new Date(a.date) - new Date(b.date));
+    },
+
+    async getQualifyingResults(driverNumber, year = 2025) {
+        return this.getSessionResults(driverNumber, 'Qualifying', year);
+    },
+
+    async getRaceResults(driverNumber, year = 2025) {
+        return this.getSessionResults(driverNumber, 'Race', year);
+    },
+
+    async getSprintResults(driverNumber, year = 2025) {
+        return this.getSessionResults(driverNumber, 'Sprint', year);
+    },
+
+    async getSprintQualifyingResults(driverNumber, year = 2025) {
+        return this.getSessionResults(driverNumber, 'Sprint Qualifying', year);
     },
 
     async getStartingGrid(sessionKey) {
@@ -507,7 +503,7 @@ function initializeDriverGrid() {
                 </div>
                 <img src="${getCarImageUrl(driver.name)}"
                      alt="${driver.team} car"
-                     style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); height: 120%; opacity: 0.15; z-index: 0; pointer-events: none;"
+                     style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); height: 100px; width: auto; opacity: 0.15; z-index: 0; pointer-events: none;"
                      onerror="this.style.display='none'">
             </div>
         `;
@@ -1116,14 +1112,21 @@ async function viewDriver(driverName) {
 
     // Fetch OpenF1 data asynchronously
     try {
-        const [qualiResults, raceResults] = await Promise.all([
+        const [qualiResults, raceResults, sprintResults, sprintQualiResults] = await Promise.all([
             openF1API.getQualifyingResults(driver.number).catch(() => []),
-            openF1API.getRaceResults(driver.number).catch(() => [])
+            openF1API.getRaceResults(driver.number).catch(() => []),
+            openF1API.getSprintResults(driver.number).catch(() => []),
+            openF1API.getSprintQualifyingResults(driver.number).catch(() => [])
         ]);
 
         const pearlsTopContainer = document.getElementById('openf1-pearls-top');
         if (pearlsTopContainer) {
-            pearlsTopContainer.innerHTML = renderCompactPearls(qualiResults, raceResults, driver);
+            pearlsTopContainer.innerHTML = renderCompactPearls({
+                qualifying: qualiResults,
+                race: raceResults,
+                sprint: sprintResults,
+                sprintQualifying: sprintQualiResults
+            }, driver);
         }
     } catch (error) {
         console.error('Error loading OpenF1 data:', error);
@@ -1134,7 +1137,7 @@ async function viewDriver(driverName) {
     }
 }
 
-function renderCompactPearls(qualiResults, raceResults, driver) {
+function renderCompactPearls(results, driver) {
     const teamColors = {
         'Red Bull': '#3671C6',
         'Ferrari': '#E8002D',
@@ -1148,6 +1151,8 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
         'Sauber': '#52E252'
     };
     const teamColor = teamColors[driver.team] || '#999';
+
+    const { qualifying, race, sprint, sprintQualifying } = results;
 
     const renderPearlString = (results, label) => {
         if (!results || results.length === 0) return '';
@@ -1217,8 +1222,10 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
         </style>
         <div style="background: #1a1a1a; padding: 0.75rem 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
             <h3 style="color: ${teamColor}; margin-bottom: 0.75rem; text-align: center; font-size: 1rem;">Recent Form</h3>
-            ${renderPearlString(qualiResults, 'Qualifying')}
-            ${renderPearlString(raceResults, 'Race')}
+            ${renderPearlString(qualifying, 'Qualifying')}
+            ${renderPearlString(sprintQualifying, 'Sprint Quali')}
+            ${renderPearlString(sprint, 'Sprint')}
+            ${renderPearlString(race, 'Race')}
         </div>
     `;
 }
