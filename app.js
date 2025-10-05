@@ -744,6 +744,16 @@ async function generateAllPreviews() {
             console.error('Error generating prediction:', error);
         }
         completed++;
+        progressFill.style.width = `${Math.round((completed / total) * 100)}%`;
+
+        // Fetch and save standings data
+        progressText.textContent = 'Fetching championship standings...';
+        try {
+            generatedData.standings = await fetchStandingsData();
+        } catch (error) {
+            console.error('Error fetching standings:', error);
+        }
+        completed++;
         progressFill.style.width = '100%';
         progressFill.textContent = '100%';
 
@@ -1204,63 +1214,93 @@ function renderPrediction() {
     `;
 }
 
-async function renderStandings() {
-    const content = document.getElementById('standings-content');
+async function fetchStandingsData() {
+    // Fetch current season data
+    const response = await fetch('https://f1api.dev/api/current');
+    const data = await response.json();
 
-    try {
-        // Fetch championship standings data for all drivers across all rounds
-        const response = await fetch('https://f1api.dev/api/current');
-        const data = await response.json();
+    if (!data.races) {
+        return null;
+    }
 
-        if (!data.races) {
-            content.innerHTML = '<div class="empty-state"><p>No standings data available</p></div>';
-            return;
-        }
+    const completedRaces = data.races.filter(r => r.winner !== null);
+    const latestRound = completedRaces.length;
 
-        const completedRaces = data.races.filter(r => r.winner !== null);
-        const latestRound = completedRaces.length;
+    if (latestRound === 0) {
+        return null;
+    }
 
-        if (latestRound === 0) {
-            content.innerHTML = '<div class="empty-state"><p>Season has not started yet</p></div>';
-            return;
-        }
+    // Calculate cumulative points for each round
+    const driverPoints = {};
+    const standingsData = {};
 
-        // Fetch standings for each round
-        const standingsData = {};
+    // Points system for positions
+    const pointsMap = {
+        1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1
+    };
 
-        for (let round = 1; round <= latestRound; round++) {
-            try {
-                const standingsResponse = await fetch(`https://f1api.dev/api/2025/${round}/drivers-championship`);
-                const roundStandings = await standingsResponse.json();
+    for (let round = 1; round <= latestRound; round++) {
+        const raceResponse = await fetch(`https://f1api.dev/api/2025/${round}/race`);
+        const raceData = await raceResponse.json();
 
-                if (roundStandings.drivers_championship) {
-                    roundStandings.drivers_championship.forEach(standing => {
-                        const driverName = `${standing.driver.name} ${standing.driver.surname}`;
-                        const displayName = driverName === 'Andrea Kimi Antonelli' ? 'Kimi Antonelli' : driverName;
+        if (raceData.races?.results) {
+            raceData.races.results.forEach(result => {
+                const driverName = `${result.driver.name} ${result.driver.surname}`;
+                const displayName = driverName === 'Andrea Kimi Antonelli' ? 'Kimi Antonelli' : driverName;
 
-                        if (!standingsData[displayName]) {
-                            standingsData[displayName] = {
-                                positions: [],
-                                team: standing.team.teamName,
-                                number: standing.driver.number
-                            };
-                        }
-                        standingsData[displayName].positions.push({
-                            round: round,
-                            position: standing.position
-                        });
+                if (!driverPoints[displayName]) {
+                    driverPoints[displayName] = 0;
+                }
+
+                // Add points for this race
+                const position = parseInt(result.position);
+                if (!isNaN(position) && pointsMap[position]) {
+                    driverPoints[displayName] += pointsMap[position];
+                }
+
+                // Initialize driver data
+                if (!standingsData[displayName]) {
+                    standingsData[displayName] = {
+                        positions: [],
+                        team: result.team.teamName,
+                        number: result.driver.number
+                    };
+                }
+            });
+
+            // Calculate standings for this round
+            const roundStandings = Object.entries(driverPoints)
+                .map(([name, points]) => ({ name, points }))
+                .sort((a, b) => b.points - a.points);
+
+            // Assign positions
+            roundStandings.forEach((standing, index) => {
+                if (standingsData[standing.name]) {
+                    standingsData[standing.name].positions.push({
+                        round: round,
+                        position: index + 1
                     });
                 }
-            } catch (error) {
-                console.error(`Failed to fetch standings for round ${round}:`, error);
-            }
+            });
         }
-
-        renderStandingsChart(content, standingsData, latestRound);
-    } catch (error) {
-        console.error('Error rendering standings:', error);
-        content.innerHTML = '<div class="empty-state"><p>Error loading standings data</p></div>';
     }
+
+    return {
+        standingsData: standingsData,
+        latestRound: latestRound
+    };
+}
+
+function renderStandings() {
+    const content = document.getElementById('standings-content');
+
+    if (!generatedData.standings) {
+        content.innerHTML = '<div class="empty-state"><p>Generate previews to see championship standings chart</p></div>';
+        return;
+    }
+
+    const { standingsData, latestRound } = generatedData.standings;
+    renderStandingsChart(content, standingsData, latestRound);
 }
 
 function renderStandingsChart(content, standingsData, latestRound) {
