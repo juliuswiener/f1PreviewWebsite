@@ -1062,11 +1062,21 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
         if (!results || results.length === 0) return '';
 
         return `
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: #ccc; font-size: 0.9rem; margin-bottom: 0.75rem; text-align: center;">${label}</h4>
-                <div style="display: flex; align-items: center; justify-content: center; position: relative; padding: 1rem 0;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div style="
+                    writing-mode: vertical-rl;
+                    text-orientation: mixed;
+                    transform: rotate(180deg);
+                    color: #888;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    min-width: 20px;
+                ">${label}</div>
+                <div style="display: flex; align-items: center; position: relative; flex: 1; padding: 0.5rem 0;">
                     <!-- Connection line -->
-                    <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, ${teamColor}30 0%, ${teamColor}15 50%, ${teamColor}30 100%); z-index: 0;"></div>
+                    <div style="position: absolute; top: 50%; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, ${teamColor}30 0%, ${teamColor}15 50%, ${teamColor}30 100%); z-index: 0;"></div>
 
                     ${results.slice(-6).map(result => {
                         const isDNF = result.dnf || result.dns;
@@ -1078,7 +1088,7 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
                         // Fixed font sizes: P1 larger, others proportional
                         const fontSize = isDNF ? '0.6rem' : isP1 ? '0.95rem' : result.position <= 3 ? '0.8rem' : result.position <= 9 ? '0.75rem' : '0.7rem';
                         return `
-                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1; margin: 0 0.5rem;">
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1; margin: 0 0.4rem;">
                                 <div style="
                                     width: ${size}px;
                                     height: ${size}px;
@@ -1098,7 +1108,7 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
                                 ">
                                     ${label}
                                 </div>
-                                <div style="font-size: 0.85rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
+                                <div style="font-size: 0.75rem; margin-top: 0.2rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
@@ -1114,8 +1124,8 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
                 50% { box-shadow: 0 0 30px #FFD700, 0 4px 16px #FFD700CC, inset 0 2px 4px rgba(255,255,255,0.5); }
             }
         </style>
-        <div style="background: #1a1a1a; padding: 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
-            <h3 style="color: ${teamColor}; margin-bottom: 1rem; text-align: center; font-size: 1.1rem;">Recent Form</h3>
+        <div style="background: #1a1a1a; padding: 0.75rem 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
+            <h3 style="color: ${teamColor}; margin-bottom: 0.75rem; text-align: center; font-size: 1rem;">Recent Form</h3>
             ${renderPearlString(qualiResults, 'Qualifying')}
             ${renderPearlString(raceResults, 'Race')}
         </div>
