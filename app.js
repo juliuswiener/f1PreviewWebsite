@@ -1,5 +1,5 @@
 const drivers2025 = [
-    { name: 'Max Verstappen', team: 'Red Bull', number: 33 },
+    { name: 'Max Verstappen', team: 'Red Bull', number: 1 },
     { name: 'Yuki Tsunoda', team: 'Red Bull', number: 22 },
     { name: 'Lewis Hamilton', team: 'Ferrari', number: 44 },
     { name: 'Charles Leclerc', team: 'Ferrari', number: 16 },
@@ -1226,7 +1226,9 @@ async function viewDriver(driverName) {
 
     // Fetch race and qualifying results from f1api.dev
     try {
-        const results = await f1API.getDriverResults(driver.number);
+        // Max Verstappen uses #1 as champion but API tracks him as #33
+        const apiNumber = driver.number === 1 ? 33 : driver.number;
+        const results = await f1API.getDriverResults(apiNumber);
 
         const pearlsTopContainer = document.getElementById('openf1-pearls-top');
         if (pearlsTopContainer) {
