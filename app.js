@@ -188,7 +188,92 @@ async function fetchRaceSchedule(circuit, season, raceDate) {
     }
 }
 
-// OpenF1 API Integration
+// F1 API for results data
+const f1API = {
+    async getCurrentSeason() {
+        const response = await fetch('https://f1api.dev/api/current');
+        return await response.json();
+    },
+
+    async getRaceResults(season, round) {
+        const response = await fetch(`https://f1api.dev/api/${season}/${round}/race`);
+        return await response.json();
+    },
+
+    async getQualifyingResults(season, round) {
+        const response = await fetch(`https://f1api.dev/api/${season}/${round}/qualifying`);
+        return await response.json();
+    },
+
+    async getDriverResults(driverNumber, season = 2025) {
+        try {
+            // Get current season to find latest round
+            const currentData = await this.getCurrentSeason();
+            const races = currentData.races || [];
+
+            // Find completed races (those with winners)
+            const completedRaces = races.filter(r => r.winner !== null);
+            const latestRound = completedRaces.length > 0 ? Math.max(...completedRaces.map(r => parseInt(r.round))) : 0;
+
+            // Get last 6 rounds of data
+            const rounds = [];
+            for (let i = Math.max(1, latestRound - 5); i <= latestRound; i++) {
+                rounds.push(i);
+            }
+
+            // Fetch race and qualifying results for each round
+            const results = {
+                qualifying: [],
+                race: []
+            };
+
+            for (const round of rounds) {
+                try {
+                    // Fetch race results
+                    const raceData = await this.getRaceResults(season, round);
+                    const raceResult = raceData.races?.results?.find(r => r.driver?.number === driverNumber);
+
+                    if (raceResult) {
+                        const circuit = races.find(r => parseInt(r.round) === round);
+                        results.race.push({
+                            circuit: circuit?.circuit?.circuitName || `Round ${round}`,
+                            position: raceResult.position === 'NC' ? null : parseInt(raceResult.position),
+                            dnf: raceResult.position === 'NC' || raceResult.retired !== null,
+                            dns: false,
+                            date: circuit?.date,
+                            round: round
+                        });
+                    }
+
+                    // Fetch qualifying results
+                    const qualiData = await this.getQualifyingResults(season, round);
+                    const qualiResult = qualiData.races?.qualifyingResults?.find(r => r.driver?.number === driverNumber);
+
+                    if (qualiResult) {
+                        const circuit = races.find(r => parseInt(r.round) === round);
+                        results.qualifying.push({
+                            circuit: circuit?.circuit?.circuitName || `Round ${round}`,
+                            position: parseInt(qualiResult.classificationId),
+                            dnf: false,
+                            dns: false,
+                            date: circuit?.date,
+                            round: round
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Failed to fetch results for round ${round}:`, error);
+                }
+            }
+
+            return results;
+        } catch (error) {
+            console.error('Failed to fetch driver results:', error);
+            return { qualifying: [], race: [] };
+        }
+    }
+};
+
+// OpenF1 API Integration (kept for backward compatibility)
 const openF1API = {
     baseURL: 'https://api.openf1.org/v1',
 
@@ -1110,22 +1195,19 @@ async function viewDriver(driverName) {
 
     modal.style.display = 'block';
 
-    // Fetch OpenF1 data asynchronously
+    // Fetch race and qualifying results from f1api.dev
     try {
-        const [qualiResults, raceResults] = await Promise.all([
-            openF1API.getQualifyingResults(driver.number).catch(() => []),
-            openF1API.getRaceResults(driver.number).catch(() => [])
-        ]);
+        const results = await f1API.getDriverResults(driver.number);
 
         const pearlsTopContainer = document.getElementById('openf1-pearls-top');
         if (pearlsTopContainer) {
             pearlsTopContainer.innerHTML = renderCompactPearls({
-                qualifying: qualiResults,
-                race: raceResults
+                qualifying: results.qualifying,
+                race: results.race
             }, driver);
         }
     } catch (error) {
-        console.error('Error loading OpenF1 data:', error);
+        console.error('Error loading race data:', error);
         const pearlsTopContainer = document.getElementById('openf1-pearls-top');
         if (pearlsTopContainer) {
             pearlsTopContainer.innerHTML = '';
@@ -1170,7 +1252,7 @@ function renderCompactPearls(results, driver) {
                     <!-- Connection line -->
                     <div style="position: absolute; top: 50%; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, ${teamColor}30 0%, ${teamColor}15 50%, ${teamColor}30 100%); z-index: 0;"></div>
 
-                    ${results.slice(-6).map(result => {
+                    ${results.map(result => {
                         const isDNF = result.dnf || result.dns;
                         const isP1 = result.position === 1;
                         // Smaller pearls: P1 = 38px, P2-3 = 32px, P4-10 = 28px, P11+ = 24px, DNF = 24px
