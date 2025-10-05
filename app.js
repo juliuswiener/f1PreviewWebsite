@@ -773,6 +773,7 @@ function renderAllContent() {
     renderHighlights();
     renderUnderdogs();
     renderPrediction();
+    renderStandings();
     initializeDriverGrid();
 }
 
@@ -1198,6 +1199,165 @@ function renderPrediction() {
             <h2 style="color: #e10600; margin-bottom: 1.5rem; font-family: 'Formula1', sans-serif;">AI Race Prediction</h2>
             <div style="color: #ddd; line-height: 1.8;">
                 ${simpleMarkdownToHtml(generatedData.prediction)}
+            </div>
+        </div>
+    `;
+}
+
+async function renderStandings() {
+    const content = document.getElementById('standings-content');
+
+    try {
+        // Fetch championship standings data for all drivers across all rounds
+        const response = await fetch('https://f1api.dev/api/current');
+        const data = await response.json();
+
+        if (!data.races) {
+            content.innerHTML = '<div class="empty-state"><p>No standings data available</p></div>';
+            return;
+        }
+
+        const completedRaces = data.races.filter(r => r.winner !== null);
+        const latestRound = completedRaces.length;
+
+        if (latestRound === 0) {
+            content.innerHTML = '<div class="empty-state"><p>Season has not started yet</p></div>';
+            return;
+        }
+
+        // Fetch standings for each round
+        const standingsData = {};
+
+        for (let round = 1; round <= latestRound; round++) {
+            try {
+                const standingsResponse = await fetch(`https://f1api.dev/api/2025/${round}/drivers-championship`);
+                const roundStandings = await standingsResponse.json();
+
+                if (roundStandings.drivers_championship) {
+                    roundStandings.drivers_championship.forEach(standing => {
+                        const driverName = `${standing.driver.name} ${standing.driver.surname}`;
+                        const displayName = driverName === 'Andrea Kimi Antonelli' ? 'Kimi Antonelli' : driverName;
+
+                        if (!standingsData[displayName]) {
+                            standingsData[displayName] = {
+                                positions: [],
+                                team: standing.team.teamName,
+                                number: standing.driver.number
+                            };
+                        }
+                        standingsData[displayName].positions.push({
+                            round: round,
+                            position: standing.position
+                        });
+                    });
+                }
+            } catch (error) {
+                console.error(`Failed to fetch standings for round ${round}:`, error);
+            }
+        }
+
+        renderStandingsChart(content, standingsData, latestRound);
+    } catch (error) {
+        console.error('Error rendering standings:', error);
+        content.innerHTML = '<div class="empty-state"><p>Error loading standings data</p></div>';
+    }
+}
+
+function renderStandingsChart(content, standingsData, latestRound) {
+    const teamColors = {
+        'Red Bull Racing': '#3671C6',
+        'Scuderia Ferrari': '#E8002D',
+        'McLaren Formula 1 Team': '#FF8000',
+        'Mercedes Formula 1 Team': '#27F4D2',
+        'Aston Martin F1 Team': '#229971',
+        'Alpine F1 Team': '#FF87BC',
+        'Haas F1 Team': '#B6BABD',
+        'Williams Racing': '#64C4FF',
+        'RB F1 Team': '#6692FF',
+        'Sauber F1 Team': '#52E252'
+    };
+
+    const chartHeight = 500;
+    const chartWidth = 900;
+    const padding = { top: 40, right: 200, bottom: 60, left: 60 };
+    const plotWidth = chartWidth - padding.left - padding.right;
+    const plotHeight = chartHeight - padding.top - padding.bottom;
+
+    // Calculate scales
+    const xScale = (round) => padding.left + ((round - 1) / (latestRound - 1)) * plotWidth;
+    const yScale = (position) => padding.top + ((position - 1) / 19) * plotHeight;
+
+    // Generate SVG
+    const lines = Object.entries(standingsData).map(([driverName, data]) => {
+        const color = teamColors[data.team] || '#999';
+        const points = data.positions.map(p => `${xScale(p.round)},${yScale(p.position)}`).join(' ');
+
+        return `
+            <polyline
+                points="${points}"
+                fill="none"
+                stroke="${color}"
+                stroke-width="2.5"
+                opacity="0.8"
+                onmouseover="this.setAttribute('stroke-width', '4'); this.setAttribute('opacity', '1');"
+                onmouseout="this.setAttribute('stroke-width', '2.5'); this.setAttribute('opacity', '0.8');"
+            />
+            ${data.positions.map(p => `
+                <circle
+                    cx="${xScale(p.round)}"
+                    cy="${yScale(p.position)}"
+                    r="4"
+                    fill="${color}"
+                    stroke="#1a1a1a"
+                    stroke-width="2"
+                />
+            `).join('')}
+        `;
+    }).join('');
+
+    const xAxisLabels = Array.from({length: latestRound}, (_, i) => i + 1).map(round => `
+        <text x="${xScale(round)}" y="${chartHeight - padding.bottom + 25}" text-anchor="middle" fill="#999" font-size="12">R${round}</text>
+    `).join('');
+
+    const yAxisLabels = Array.from({length: 20}, (_, i) => i + 1).map(pos => `
+        <text x="${padding.left - 10}" y="${yScale(pos) + 4}" text-anchor="end" fill="#999" font-size="12">P${pos}</text>
+        <line x1="${padding.left}" y1="${yScale(pos)}" x2="${chartWidth - padding.right}" y2="${yScale(pos)}" stroke="#333" stroke-width="1" opacity="0.3"/>
+    `).join('');
+
+    const legend = Object.entries(standingsData)
+        .sort((a, b) => {
+            const posA = a[1].positions[a[1].positions.length - 1]?.position || 999;
+            const posB = b[1].positions[b[1].positions.length - 1]?.position || 999;
+            return posA - posB;
+        })
+        .slice(0, 10)
+        .map(([driverName, data], i) => {
+            const color = teamColors[data.team] || '#999';
+            const latestPos = data.positions[data.positions.length - 1]?.position || '-';
+            return `
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div style="width: 20px; height: 3px; background: ${color};"></div>
+                    <span style="color: #ddd; font-size: 0.9rem;">P${latestPos} ${driverName}</span>
+                </div>
+            `;
+        }).join('');
+
+    content.innerHTML = `
+        <div style="background: #1a1a1a; padding: 2rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); border-top: 3px solid #e10600;">
+            <h2 style="color: #e10600; margin-bottom: 1.5rem; font-family: 'Formula1', sans-serif;">Championship Standings Progress</h2>
+            <div style="display: flex; gap: 2rem; align-items: flex-start;">
+                <svg width="${chartWidth}" height="${chartHeight}" style="background: #0a0a0a; border-radius: 8px;">
+                    ${yAxisLabels}
+                    ${xAxisLabels}
+                    ${lines}
+                    <text x="${chartWidth/2}" y="${padding.top - 15}" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Position by Round</text>
+                    <text x="${chartWidth/2}" y="${chartHeight - 10}" text-anchor="middle" fill="#999" font-size="12">Round</text>
+                    <text x="20" y="${chartHeight/2}" text-anchor="middle" fill="#999" font-size="12" transform="rotate(-90, 20, ${chartHeight/2})">Position</text>
+                </svg>
+                <div style="flex-shrink: 0;">
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-size: 1rem;">Top 10</h3>
+                    ${legend}
+                </div>
             </div>
         </div>
     `;
