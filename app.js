@@ -925,6 +925,43 @@ async function viewDriver(driverName) {
     }
 }
 
+function getCircuitFlag(circuitName) {
+    const circuitToCountry = {
+        'Bahrain': '🇧🇭',
+        'Jeddah': '🇸🇦',
+        'Albert Park': '🇦🇺',
+        'Melbourne': '🇦🇺',
+        'Suzuka': '🇯🇵',
+        'Shanghai': '🇨🇳',
+        'Miami': '🇺🇸',
+        'Imola': '🇮🇹',
+        'Monaco': '🇲🇨',
+        'Montreal': '🇨🇦',
+        'Barcelona': '🇪🇸',
+        'Catalunya': '🇪🇸',
+        'Red Bull Ring': '🇦🇹',
+        'Spielberg': '🇦🇹',
+        'Silverstone': '🇬🇧',
+        'Hungaroring': '🇭🇺',
+        'Spa-Francorchamps': '🇧🇪',
+        'Zandvoort': '🇳🇱',
+        'Monza': '🇮🇹',
+        'Baku': '🇦🇿',
+        'Marina Bay': '🇸🇬',
+        'Singapore': '🇸🇬',
+        'Austin': '🇺🇸',
+        'Mexico City': '🇲🇽',
+        'Interlagos': '🇧🇷',
+        'São Paulo': '🇧🇷',
+        'Las Vegas': '🇺🇸',
+        'Lusail': '🇶🇦',
+        'Qatar': '🇶🇦',
+        'Yas Marina': '🇦🇪',
+        'Abu Dhabi': '🇦🇪'
+    };
+    return circuitToCountry[circuitName] || '🏁';
+}
+
 function renderOpenF1Graphics(qualiResults, raceResults, driver) {
     const teamColors = {
         'Red Bull': '#3671C6',
@@ -954,7 +991,7 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
                             <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
                                 <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">P${result.position}</div>
                                 <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
-                                <div style="font-size: 0.7rem; color: #666; margin-top: 0.25rem; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${result.circuit}</div>
+                                <div style="font-size: 1.2rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
@@ -974,7 +1011,7 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
                             <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
                                 <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">${label}</div>
                                 <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
-                                <div style="font-size: 0.7rem; color: #666; margin-top: 0.25rem; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${result.circuit}</div>
+                                <div style="font-size: 1.2rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
