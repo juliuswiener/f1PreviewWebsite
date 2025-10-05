@@ -133,27 +133,28 @@ function createEmptyGeneratedData() {
 
 var generatedData = createEmptyGeneratedData();
 
-// F1 Connect API for schedule data
+// F1 API for schedule data
 async function fetchRaceSchedule(circuit, season, raceDate) {
     try {
-        // Fetch current season races to find the matching event
-        const response = await fetch(`https://f1connectapi.vercel.app/api/${season}`);
+        // Fetch current season races
+        const response = await fetch('https://f1api.dev/api/current');
         const data = await response.json();
 
         // Find the race matching our date or circuit
-        const race = data.race?.find(r =>
-            r.schedule?.race?.date === raceDate ||
-            r.circuit?.circuitName?.toLowerCase().includes(circuit.toLowerCase())
+        const race = data.races?.find(r =>
+            r.date === raceDate ||
+            r.raceName?.toLowerCase().includes(circuit.toLowerCase()) ||
+            r.Circuit?.circuitName?.toLowerCase().includes(circuit.toLowerCase())
         );
 
-        if (race && race.schedule) {
-            const schedule = race.schedule;
+        if (race) {
             const scheduleContainer = document.getElementById('race-schedule');
 
             // Convert UTC times to CEST/CET
             const formatDateTime = (dateStr, timeStr) => {
                 if (!dateStr) return null;
-                const date = new Date(dateStr + (timeStr ? 'T' + timeStr : ''));
+                const dateTimeStr = timeStr ? `${dateStr}T${timeStr}` : dateStr;
+                const date = new Date(dateTimeStr);
                 const options = {
                     weekday: 'short',
                     month: 'short',
@@ -167,13 +168,12 @@ async function fetchRaceSchedule(circuit, season, raceDate) {
             };
 
             const sessions = [
-                { name: 'FP1', date: schedule.fp1?.date, time: schedule.fp1?.time },
-                { name: 'FP2', date: schedule.fp2?.date, time: schedule.fp2?.time },
-                { name: 'FP3', date: schedule.fp3?.date, time: schedule.fp3?.time },
-                { name: 'Sprint Quali', date: schedule.sprintQualy?.date, time: schedule.sprintQualy?.time },
-                { name: 'Sprint', date: schedule.sprintRace?.date, time: schedule.sprintRace?.time },
-                { name: 'Qualifying', date: schedule.qualy?.date, time: schedule.qualy?.time },
-                { name: 'Race', date: schedule.race?.date, time: schedule.race?.time }
+                { name: 'FP1', date: race.FirstPractice?.date, time: race.FirstPractice?.time },
+                { name: 'FP2', date: race.SecondPractice?.date, time: race.SecondPractice?.time },
+                { name: 'FP3', date: race.ThirdPractice?.date, time: race.ThirdPractice?.time },
+                { name: 'Sprint', date: race.Sprint?.date, time: race.Sprint?.time },
+                { name: 'Qualifying', date: race.Qualifying?.date, time: race.Qualifying?.time },
+                { name: 'Race', date: race.date, time: race.time }
             ].filter(s => s.date); // Only show sessions that have dates
 
             scheduleContainer.innerHTML = sessions.map(s => `
