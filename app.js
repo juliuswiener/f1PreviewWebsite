@@ -531,7 +531,7 @@ function togglePromptEditor() {
     editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
 }
 
-function initializeDriverGrid() {
+async function initializeDriverGrid() {
     const grid = document.getElementById('driver-grid');
 
     // Team colors for 2025
@@ -553,7 +553,33 @@ function initializeDriverGrid() {
     grid.style.flexDirection = 'column';
     grid.style.gap = '1rem';
 
-    grid.innerHTML = drivers2025.map(driver => {
+    // Fetch current driver standings
+    let standingsMap = {};
+    try {
+        const response = await fetch('https://f1api.dev/api/current/drivers-championship');
+        const data = await response.json();
+        if (data.drivers_championship) {
+            data.drivers_championship.forEach(standing => {
+                const fullName = `${standing.driver.name} ${standing.driver.surname}`;
+                standingsMap[fullName] = {
+                    position: standing.position,
+                    points: standing.points
+                };
+            });
+        }
+    } catch (error) {
+        console.error('Failed to fetch driver standings:', error);
+    }
+
+    // Sort drivers by championship position
+    const sortedDrivers = [...drivers2025].sort((a, b) => {
+        const posA = standingsMap[a.name]?.position || 999;
+        const posB = standingsMap[b.name]?.position || 999;
+        return posA - posB;
+    });
+
+    grid.innerHTML = sortedDrivers.map(driver => {
+        const standing = standingsMap[driver.name];
         const hasPreview = generatedData.drivers[driver.name];
         const teamColor = teamColors[driver.team] || '#999';
 
@@ -584,6 +610,7 @@ function initializeDriverGrid() {
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
+                        ${standing ? `<span style="color: #888; font-size: 0.9rem;">P${standing.position} • ${standing.points} pts</span>` : ''}
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
@@ -1515,7 +1542,7 @@ function getCircuitFlag(circuitName) {
 
     const countryCode = circuitToCountry[circuitName];
     if (countryCode) {
-        return `<img src="https://flagsapi.com/${countryCode}/flat/32.png" alt="${circuitName}" style="width: 20px; height: 15px; object-fit: cover; border-radius: 2px; vertical-align: middle;">`;
+        return `<img src="https://flagsapi.com/${countryCode}/flat/32.png" alt="${circuitName}" style="width: 20px; height: 15px; object-fit: cover; border-radius: 2px; display: inline-block; vertical-align: middle;">`;
     }
     return '🏁';
 }
