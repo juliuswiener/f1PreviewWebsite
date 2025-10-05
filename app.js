@@ -486,26 +486,29 @@ function initializeDriverGrid() {
         const stakesColor = stakesColors[stakesLevel] || stakesColors['medium'];
 
         return `
-            <div style="display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.03); border-left: 4px solid ${teamColor}; border: 1px solid ${teamColor}40; border-left-width: 4px; border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.3s;"
+            <div style="display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.03); border-left: 4px solid ${teamColor}; border: 1px solid ${teamColor}40; border-left-width: 4px; border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;"
                  onclick="viewDriver('${driver.name}')"
                  onmouseover="this.style.background='${teamColor}20'; this.style.borderColor='${teamColor}'"
                  onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='${teamColor}40'; this.style.borderLeftColor='${teamColor}'; this.style.borderLeftWidth='4px'">
                 <img src="${getDriverImageUrl(driver.name, 'front')}"
                      alt="${driver.name}"
-                     style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                     style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; z-index: 1;"
                      onerror="this.style.display='none'">
                 <img src="${getDriverNumberImageUrl(driver.name)}"
                      alt="#${driver.number}"
-                     style="width: 60px; height: auto; filter: drop-shadow(0 2px 6px ${teamColor}80);"
+                     style="width: 60px; height: auto; filter: drop-shadow(0 2px 6px ${teamColor}80); z-index: 1;"
                      onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
-                <div style="flex: 1; cursor: pointer;">
+                <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
                 </div>
-                ${hasPreview ? `<div style="color: #00ff88; font-size: 1.5rem;">✓</div>` : ''}
+                <img src="${getCarImageUrl(driver.name)}"
+                     alt="${driver.team} car"
+                     style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); height: 120%; opacity: 0.15; z-index: 0; pointer-events: none;"
+                     onerror="this.style.display='none'">
             </div>
         `;
     }).join('');
@@ -851,14 +854,44 @@ function getTeamLogoUrl(driverName) {
         'Carlos Sainz': { team: 'williams' },
         'Liam Lawson': { team: 'racingbulls' },
         'Isack Hadjar': { team: 'racingbulls' },
-        'Nico Hulkenberg': { team: 'sauber' },
-        'Gabriel Bortoleto': { team: 'sauber' }
+        'Nico Hulkenberg': { team: 'kicksauber' },
+        'Gabriel Bortoleto': { team: 'kicksauber' }
     };
 
     const info = driverInfo[driverName];
     if (!info) return null;
 
     return `https://media.formula1.com/image/upload/c_lfill,w_48/q_auto/v1740000000/common/f1/2025/${info.team}/2025${info.team}logo.webp`;
+}
+
+function getCarImageUrl(driverName) {
+    const driverInfo = {
+        'Max Verstappen': { team: 'redbullracing' },
+        'Yuki Tsunoda': { team: 'redbullracing' },
+        'Lewis Hamilton': { team: 'ferrari' },
+        'Charles Leclerc': { team: 'ferrari' },
+        'Lando Norris': { team: 'mclaren' },
+        'Oscar Piastri': { team: 'mclaren' },
+        'George Russell': { team: 'mercedes' },
+        'Kimi Antonelli': { team: 'mercedes' },
+        'Fernando Alonso': { team: 'astonmartin' },
+        'Lance Stroll': { team: 'astonmartin' },
+        'Pierre Gasly': { team: 'alpine' },
+        'Franco Colapinto': { team: 'alpine' },
+        'Esteban Ocon': { team: 'haas' },
+        'Oliver Bearman': { team: 'haas' },
+        'Alex Albon': { team: 'williams' },
+        'Carlos Sainz': { team: 'williams' },
+        'Liam Lawson': { team: 'racingbulls' },
+        'Isack Hadjar': { team: 'racingbulls' },
+        'Nico Hulkenberg': { team: 'kicksauber' },
+        'Gabriel Bortoleto': { team: 'kicksauber' }
+    };
+
+    const info = driverInfo[driverName];
+    if (!info) return null;
+
+    return `https://media.formula1.com/image/upload/c_lfill,w_512/q_auto/d_common:f1:2025:fallback:car:2025fallbackcarright.webp/v1740000000/common/f1/2025/${info.team}/2025${info.team}carright.webp`;
 }
 
 function renderHighlights() {
