@@ -606,6 +606,9 @@ async function initializeDriverGrid() {
                  onclick="viewDriver('${driver.name}')"
                  onmouseover="this.style.background='${teamColor}20'; this.style.borderColor='${teamColor}'"
                  onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='${teamColor}40'; this.style.borderLeftColor='${teamColor}'; this.style.borderLeftWidth='4px'">
+                ${standing ? `<div style="width: 40px; min-width: 40px; display: flex; align-items: center; justify-content: center; z-index: 1;">
+                    <span style="font-family: 'Formula1', sans-serif; font-weight: bold; font-size: 1.5rem; color: ${teamColor};">${standing.position}</span>
+                </div>` : ''}
                 <img src="${getDriverImageUrl(driver.name, 'front')}"
                      alt="${driver.name}"
                      style="width: 80px; height: 80px; min-width: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; z-index: 1;"
@@ -619,7 +622,7 @@ async function initializeDriverGrid() {
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
-                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1', sans-serif; font-weight: bold;">P${standing.position} • ${standing.points} pts</span>` : ''}
+                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1', sans-serif; font-weight: bold;">${standing.points} pts</span>` : ''}
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
