@@ -301,7 +301,7 @@ def parse_driver_preview(text):
     preview = {}
 
     # Extract FULL
-    full_match = re.search(r'FULL:\s*(.+?)(?=\n\n(?:STAKES:|PERFECT_QUALI:|GOOD_QUALI:))', text, re.DOTALL)
+    full_match = re.search(r'FULL:\s*(.+?)(?=\s*(?:STAKES:|PERFECT_QUALI:|GOOD_QUALI:))', text, re.DOTALL)
     preview['full'] = full_match.group(1).strip() if full_match else ""
 
     # Extract STAKES
