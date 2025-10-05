@@ -908,8 +908,7 @@ async function viewDriver(driverName) {
 
     // Show loading state for OpenF1 data
     modalContent.innerHTML = `
-        <div class="driver-preview">
-            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem; margin-bottom: 2rem;">
                 <!-- Driver Image -->
                 <div style="position: sticky; top: 0; align-self: start;">
                     <img src="${getDriverImageUrl(driverName, 'left')}"
@@ -981,9 +980,8 @@ async function viewDriver(driverName) {
                 Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold; font-size: 1.2rem;">${preview.stakes_level || 'Medium'}</span>
             </div>
 
-            <div id="openf1-data" style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px;">
-                <div style="text-align: center; color: #666;">Loading recent results...</div>
-            </div>
+        <div id="openf1-data" style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px;">
+            <div style="text-align: center; color: #666;">Loading recent results...</div>
         </div>
     `;
 
