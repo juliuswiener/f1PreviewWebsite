@@ -19,29 +19,29 @@
             background: #1a1a1a;
             color: #fff;
             min-height: 100vh;
-        }
-
-        .header {
-            background: #1a1a1a;
-            padding: 2rem;
-            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .header::before {
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
+            height: 60vh;
             background-image: url('gp_header.png');
             background-size: cover;
-            background-position: center;
-            z-index: 0;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            background-position: center top;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%);
+        }
+
+        .header {
+            background: transparent;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
         }
 
         .header h1 {
