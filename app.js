@@ -734,6 +734,16 @@ async function generateAllPreviews() {
         progressText.textContent = 'Identifying underdog stories...';
         generatedData.underdogs = await generateUnderdogs(apiKey, model, generatedData.drivers, generatedData.raceContext, temperature);
         completed++;
+        progressFill.style.width = `${Math.round((completed / total) * 100)}%`;
+
+        // Generate AI prediction
+        progressText.textContent = 'Generating AI race predictions...';
+        try {
+            generatedData.prediction = await generatePredictionData(apiKey, model, generatedData.drivers, circuit, raceDate, temperature);
+        } catch (error) {
+            console.error('Error generating prediction:', error);
+        }
+        completed++;
         progressFill.style.width = '100%';
         progressFill.textContent = '100%';
 
@@ -1137,43 +1147,22 @@ function renderUnderdogs() {
     `;
 }
 
-async function generatePrediction() {
-    const content = document.getElementById('prediction-content');
-    const driverPreviews = Object.entries(generatedData.drivers);
+async function generatePredictionData(apiKey, model, drivers, circuit, raceDate, temperature) {
+    const driverPreviews = Object.entries(drivers);
 
-    if (driverPreviews.length === 0) {
-        alert('Please generate driver previews first');
-        return;
-    }
-
-    content.innerHTML = '<div style="text-align: center; padding: 2rem;"><div class="spinner"></div><p style="margin-top: 1rem;">Generating AI predictions...</p></div>';
-
-    try {
-        const apiKey = document.getElementById('api-key').value;
-        const model = document.getElementById('model').value || 'gpt-4o-mini';
-        const temperature = parseFloat(document.getElementById('temperature').value) || 0.7;
-
-        if (!apiKey) {
-            alert('Please set your OpenAI API key in the settings');
-            return;
-        }
-
-        // Compile all driver previews into a single context
-        const allPreviewsText = driverPreviews.map(([name, preview]) => {
-            const driver = drivers2025.find(d => d.name === name);
-            return `**${name}** (${driver?.team || 'Unknown Team'}):
+    // Compile all driver previews into a single context
+    const allPreviewsText = driverPreviews.map(([name, preview]) => {
+        const driver = drivers2025.find(d => d.name === name);
+        return `**${name}** (${driver?.team || 'Unknown Team'}):
 ${preview.full}
 
 Stakes: ${preview.stakes_level}
 Perfect Result: Quali ${preview.perfect_quali}, Race ${preview.perfect_race}
 Good Result: Quali ${preview.good_quali}, Race ${preview.good_race}
 `;
-        }).join('\n---\n\n');
+    }).join('\n---\n\n');
 
-        const circuit = generatedData.metadata?.circuit || 'Unknown Circuit';
-        const raceDate = generatedData.metadata?.date || 'Unknown Date';
-
-        const prompt = `Based on these detailed driver previews for the ${circuit} Grand Prix on ${raceDate}, provide your race weekend predictions.
+    const prompt = `Based on these detailed driver previews for the ${circuit} Grand Prix on ${raceDate}, provide your race weekend predictions.
 
 Driver Previews:
 ${allPreviewsText}
@@ -1188,15 +1177,8 @@ Provide predictions in markdown format as a numbered list including:
 
 Be specific, use driver names, and explain your reasoning based on the preview data.`;
 
-        const response = await callOpenAI(apiKey, model, temperature, prompt);
-
-        generatedData.prediction = response;
-        saveData();
-        renderPrediction();
-    } catch (error) {
-        console.error('Error generating prediction:', error);
-        content.innerHTML = '<div class="empty-state"><p>Error generating prediction. Check console for details.</p></div>';
-    }
+    const response = await callOpenAI(apiKey, model, temperature, prompt);
+    return response;
 }
 
 function renderPrediction() {
@@ -1205,11 +1187,8 @@ function renderPrediction() {
     if (!generatedData.prediction) {
         content.innerHTML = `
             <div class="empty-state">
-                <p>Generate driver previews first, then click "Generate AI Prediction" to get race predictions</p>
+                <p>Generate previews to see AI race predictions</p>
             </div>
-            <button class="generate-btn" onclick="generatePrediction()" style="margin-top: 1rem;">
-                Generate AI Prediction
-            </button>
         `;
         return;
     }
@@ -1221,9 +1200,6 @@ function renderPrediction() {
                 ${simpleMarkdownToHtml(generatedData.prediction)}
             </div>
         </div>
-        <button class="generate-btn" onclick="generatePrediction()" style="margin-top: 1rem;">
-            Regenerate Prediction
-        </button>
     `;
 }
 
