@@ -434,9 +434,12 @@ function initializeDriverGrid() {
                      alt="${driver.name}"
                      style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
                      onerror="this.style.display='none'">
+                <img src="${getDriverNumberImageUrl(driver.name)}"
+                     alt="#${driver.number}"
+                     style="width: 60px; height: auto; filter: drop-shadow(0 2px 6px ${teamColor}80);"
+                     onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
                 <div style="flex: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
-                        <span style="font-size: 1.2rem; font-weight: bold; color: ${teamColor};">#${driver.number}</span>
                         <span style="font-size: 1.1rem; font-weight: 600;">${driver.name}</span>
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
@@ -738,6 +741,36 @@ function getDriverImageUrl(driverName, angle = 'right') {
     return `https://media.formula1.com/image/upload/c_lfill,w_440/q_auto/d_common:f1:2025:fallback:driver:2025fallbackdriver${angle}.webp/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}${angle}.webp`;
 }
 
+function getDriverNumberImageUrl(driverName) {
+    const driverInfo = {
+        'Max Verstappen': { team: 'redbullracing', code: 'maxver01' },
+        'Yuki Tsunoda': { team: 'redbullracing', code: 'yuktsu01' },
+        'Lewis Hamilton': { team: 'ferrari', code: 'lewham01' },
+        'Charles Leclerc': { team: 'ferrari', code: 'chalec01' },
+        'Lando Norris': { team: 'mclaren', code: 'lannor01' },
+        'Oscar Piastri': { team: 'mclaren', code: 'oscpia01' },
+        'George Russell': { team: 'mercedes', code: 'georus01' },
+        'Kimi Antonelli': { team: 'mercedes', code: 'andant01' },
+        'Fernando Alonso': { team: 'astonmartin', code: 'feralo01' },
+        'Lance Stroll': { team: 'astonmartin', code: 'lanstr01' },
+        'Pierre Gasly': { team: 'alpine', code: 'piegas01' },
+        'Franco Colapinto': { team: 'alpine', code: 'fracol01' },
+        'Esteban Ocon': { team: 'haas', code: 'estoco01' },
+        'Oliver Bearman': { team: 'haas', code: 'olibea01' },
+        'Alex Albon': { team: 'williams', code: 'alealb01' },
+        'Carlos Sainz': { team: 'williams', code: 'carsai01' },
+        'Liam Lawson': { team: 'racingbulls', code: 'lialaw01' },
+        'Isack Hadjar': { team: 'racingbulls', code: 'isahad01' },
+        'Nico Hulkenberg': { team: 'sauber', code: 'nichul01' },
+        'Gabriel Bortoleto': { team: 'sauber', code: 'gabbor01' }
+    };
+
+    const info = driverInfo[driverName];
+    if (!info) return null;
+
+    return `https://media.formula1.com/image/upload/c_fit,w_876,h_742/q_auto/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}numberwhitefrless.webp`;
+}
+
 function renderHighlights() {
     const content = document.getElementById('highlights-content');
 
@@ -883,9 +916,12 @@ async function viewDriver(driverName) {
                          alt="${driverName}"
                          style="width: 100%; height: auto; border-radius: 12px; border: 3px solid ${teamColor}; box-shadow: 0 8px 24px ${teamColor}40;"
                          onerror="this.style.display='none'">
-                    <div style="text-align: center; margin-top: 1rem; padding: 0.75rem; background: ${teamColor}15; border-radius: 8px; border: 1px solid ${teamColor}40;">
-                        <div style="font-size: 2rem; font-weight: bold; color: ${teamColor};">#${driver.number}</div>
-                        <div style="color: #ccc; margin-top: 0.25rem;">${driver.team}</div>
+                    <div style="text-align: center; margin-top: 1rem; padding: 0.75rem; background: #1a1a1a; border-radius: 12px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
+                        <img src="${getDriverNumberImageUrl(driverName)}"
+                             alt="#${driver.number}"
+                             style="width: 80%; height: auto; filter: drop-shadow(0 4px 8px ${teamColor}80);"
+                             onerror="this.innerHTML='<div style=\\'font-size: 2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</div>'">
+                        <div style="color: #ccc; margin-top: 0.5rem; font-size: 0.9rem;">${driver.team}</div>
                     </div>
 
                     <!-- Fetch OpenF1 data for pearl display -->
