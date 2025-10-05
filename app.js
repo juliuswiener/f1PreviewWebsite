@@ -1,5 +1,5 @@
 const drivers2025 = [
-    { name: 'Max Verstappen', team: 'Red Bull', number: 1 },
+    { name: 'Max Verstappen', team: 'Red Bull', number: 33 },
     { name: 'Yuki Tsunoda', team: 'Red Bull', number: 22 },
     { name: 'Lewis Hamilton', team: 'Ferrari', number: 44 },
     { name: 'Charles Leclerc', team: 'Ferrari', number: 16 },
