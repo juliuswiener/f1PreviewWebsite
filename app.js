@@ -574,6 +574,14 @@ async function initializeDriverGrid() {
                     position: standing.position,
                     points: standing.points
                 };
+
+                // Handle special case: Andrea Kimi Antonelli -> Kimi Antonelli
+                if (fullName === 'Andrea Kimi Antonelli') {
+                    standingsMap['Kimi Antonelli'] = {
+                        position: standing.position,
+                        points: standing.points
+                    };
+                }
             });
         }
     } catch (error) {
@@ -622,11 +630,14 @@ async function initializeDriverGrid() {
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
-                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1', sans-serif; font-weight: bold;">${standing.points} pts</span>` : ''}
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
                 </div>
+                ${standing ? `<div style="display: flex; align-items: center; justify-content: center; padding: 0 1rem; z-index: 1;">
+                    <span style="font-family: 'Formula1', sans-serif; font-weight: bold; font-size: 1.3rem; color: #fff;">${standing.points}</span>
+                    <span style="font-family: 'Formula1', sans-serif; font-size: 0.8rem; color: #888; margin-left: 0.3rem;">pts</span>
+                </div>` : ''}
                 <img src="${getCarImageUrl(driver.name)}"
                      alt="${driver.team} car"
                      style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); height: 100px; width: auto; opacity: 0.15; z-index: 0; pointer-events: none;"
