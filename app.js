@@ -201,7 +201,7 @@ const f1API = {
     },
 
     async getQualifyingResults(season, round) {
-        const response = await fetch(`https://f1api.dev/api/${season}/${round}/qualifying`);
+        const response = await fetch(`https://f1api.dev/api/${season}/${round}/qualy`);
         return await response.json();
     },
 
@@ -1311,26 +1311,149 @@ function renderCompactPearls(results, driver) {
 function simpleMarkdownToHtml(markdown) {
     if (!markdown) return '';
 
-    // Convert markdown to HTML
-    let html = markdown
-        // Headers
-        .replace(/^### (.*$)/gim, '<h4 style="color: #ccc; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1rem;">$1</h4>')
-        .replace(/^## (.*$)/gim, '<h3 style="color: #e10600; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.2rem;">$1</h3>')
-        .replace(/^# (.*$)/gim, '<h2 style="color: #fff; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.4rem;">$1</h2>')
-        // Bold
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        // Italic
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        // Line breaks
-        .replace(/\n\n/g, '</p><p style="margin-bottom: 1rem; line-height: 1.6;">')
-        .replace(/\n/g, '<br>');
+    // Split into lines for processing
+    const lines = markdown.split('\n');
+    let html = '';
+    let inList = false;
+    let inOrderedList = false;
+    let currentParagraph = '';
 
-    // Wrap in paragraph if not already wrapped
-    if (!html.startsWith('<h') && !html.startsWith('<p')) {
-        html = '<p style="margin-bottom: 1rem; line-height: 1.6;">' + html + '</p>';
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const trimmed = line.trim();
+
+        // Check if it's a header
+        if (trimmed.startsWith('### ')) {
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            html += `<h4 style="color: #ccc; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1rem;">${trimmed.substring(4)}</h4>`;
+        } else if (trimmed.startsWith('## ')) {
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            html += `<h3 style="color: #e10600; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.2rem;">${trimmed.substring(3)}</h3>`;
+        } else if (trimmed.startsWith('# ')) {
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            html += `<h2 style="color: #fff; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.4rem;">${trimmed.substring(2)}</h2>`;
+        }
+        // Check if it's a bullet point
+        else if (trimmed.match(/^[-*]\s+(.+)$/)) {
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            if (!inList) {
+                html += '<ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;">';
+                inList = true;
+            }
+            const content = trimmed.substring(2).trim();
+            html += `<li style="margin-bottom: 0.5rem; color: #ddd;">${processInlineMarkdown(content)}</li>`;
+        }
+        // Check if it's a numbered list
+        else if (trimmed.match(/^\d+\.\s+(.+)$/)) {
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (!inOrderedList) {
+                html += '<ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;">';
+                inOrderedList = true;
+            }
+            const content = trimmed.replace(/^\d+\.\s+/, '');
+            html += `<li style="margin-bottom: 0.5rem; color: #ddd;">${processInlineMarkdown(content)}</li>`;
+        }
+        // Empty line - paragraph break
+        else if (trimmed === '') {
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            if (currentParagraph) {
+                html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
+                currentParagraph = '';
+            }
+        }
+        // Regular text
+        else {
+            if (inList) {
+                html += '</ul>';
+                inList = false;
+            }
+            if (inOrderedList) {
+                html += '</ol>';
+                inOrderedList = false;
+            }
+            if (currentParagraph) {
+                currentParagraph += ' ';
+            }
+            currentParagraph += processInlineMarkdown(trimmed);
+        }
+    }
+
+    // Close any remaining open tags
+    if (inList) {
+        html += '</ul>';
+    }
+    if (inOrderedList) {
+        html += '</ol>';
+    }
+    if (currentParagraph) {
+        html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
     }
 
     return html;
+}
+
+function processInlineMarkdown(text) {
+    return text
+        // Bold
+        .replace(/\*\*(.+?)\*\*/g, '<strong style="color: #fff;">$1</strong>')
+        // Italic
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        // Inline code
+        .replace(/`(.+?)`/g, '<code style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace;">$1</code>');
 }
 
 function getCircuitFlag(circuitName) {
