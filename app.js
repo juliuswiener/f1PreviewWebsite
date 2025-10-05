@@ -133,6 +133,85 @@ function createEmptyGeneratedData() {
 
 var generatedData = createEmptyGeneratedData();
 
+// OpenF1 API Integration
+const openF1API = {
+    baseURL: 'https://api.openf1.org/v1',
+
+    async getLatestSession(sessionType = 'Race') {
+        const response = await fetch(`${this.baseURL}/sessions?session_type=${sessionType}&year=2025`);
+        const sessions = await response.json();
+        return sessions[sessions.length - 1]; // Get most recent
+    },
+
+    async getDriverStandings(driverNumber, year = 2025) {
+        // Get all race sessions for the year
+        const response = await fetch(`${this.baseURL}/sessions?session_type=Race&year=${year}`);
+        const sessions = await response.json();
+
+        // Get results for each session
+        const results = [];
+        for (const session of sessions.slice(-10)) { // Last 10 races
+            const resResponse = await fetch(`${this.baseURL}/position?session_key=${session.session_key}&driver_number=${driverNumber}`);
+            const positions = await resResponse.json();
+            if (positions.length > 0) {
+                const finalPosition = positions[positions.length - 1];
+                results.push({
+                    circuit: session.circuit_short_name,
+                    position: finalPosition.position,
+                    date: session.date_start
+                });
+            }
+        }
+        return results;
+    },
+
+    async getQualifyingResults(driverNumber, year = 2025) {
+        const response = await fetch(`${this.baseURL}/sessions?session_type=Qualifying&year=${year}`);
+        const sessions = await response.json();
+
+        const results = [];
+        for (const session of sessions.slice(-10)) { // Last 10 qualifying sessions
+            const resResponse = await fetch(`${this.baseURL}/session_result?session_key=${session.session_key}&driver_number=${driverNumber}`);
+            const result = await resResponse.json();
+            if (result.length > 0) {
+                results.push({
+                    circuit: session.circuit_short_name,
+                    position: result[0].position,
+                    date: session.date_start,
+                    duration: result[0].duration
+                });
+            }
+        }
+        return results;
+    },
+
+    async getRaceResults(driverNumber, year = 2025) {
+        const response = await fetch(`${this.baseURL}/sessions?session_type=Race&year=${year}`);
+        const sessions = await response.json();
+
+        const results = [];
+        for (const session of sessions.slice(-10)) { // Last 10 races
+            const resResponse = await fetch(`${this.baseURL}/session_result?session_key=${session.session_key}&driver_number=${driverNumber}`);
+            const result = await resResponse.json();
+            if (result.length > 0) {
+                results.push({
+                    circuit: session.circuit_short_name,
+                    position: result[0].position,
+                    date: session.date_start,
+                    dnf: result[0].dnf,
+                    dns: result[0].dns
+                });
+            }
+        }
+        return results;
+    },
+
+    async getStartingGrid(sessionKey) {
+        const response = await fetch(`${this.baseURL}/starting_grid?session_key=${sessionKey}`);
+        return await response.json();
+    }
+};
+
 // Initialize
 async function init() {
     // Try to load pre-generated preview data
@@ -673,23 +752,40 @@ function renderHighlights() {
     const circuitName = generatedData.metadata?.circuit || 'Unknown';
     const season = generatedData.metadata?.season || '2025';
 
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+
     content.innerHTML = `
-        <div class="highlight-section">
-            <h3>Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
-            ${top5Data.map((item, i) => `
-                <div class="top-driver-item">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <img src="${getDriverImageUrl(item.driver)}"
-                             alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 2px solid #0096ff;"
-                             onerror="this.style.display='none'">
-                        <h4 style="margin: 0;">#${item.rank || i + 1} ${item.driver}</h4>
+        <div style="background: transparent; padding: 0;">
+            <h3 style="color: #4db8ff; margin-bottom: 1.5rem;">Top 5 Drivers to Watch - ${circuitName.toUpperCase()} GP ${season}</h3>
+            ${top5Data.map((item, i) => {
+                const driver = drivers2025.find(d => d.name === item.driver);
+                const teamColor = driver ? teamColors[driver.team] || '#999' : '#999';
+                return `
+                    <div style="background: ${teamColor}15; border: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <img src="${getDriverImageUrl(item.driver)}"
+                                 alt="${item.driver}"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                                 onerror="this.style.display='none'">
+                            <h4 style="margin: 0; color: ${teamColor};">#${item.rank || i + 1} ${item.driver}</h4>
+                        </div>
+                        <p><strong>Why watch:</strong> ${item.reason}</p>
+                        ${item.stakes ? `<p style="color: ${teamColor}; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
+                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.5rem; display: inline-block;">View full preview</a>
                     </div>
-                    <p><strong>Why watch:</strong> ${item.reason}</p>
-                    ${item.stakes ? `<p style="color: #4db8ff; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">View full preview</a>
-                </div>
-            `).join('')}
+                `;
+            }).join('')}
         </div>
     `;
 }
@@ -708,31 +804,48 @@ function renderUnderdogs() {
     const circuitName = generatedData.metadata?.circuit || 'Unknown';
     const season = generatedData.metadata?.season || '2025';
 
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+
     content.innerHTML = `
-        <div class="highlight-section">
-            <h3>Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
-            ${underdogsData.map((item, i) => `
-                <div class="top-driver-item">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                        <img src="${getDriverImageUrl(item.driver)}"
-                             alt="${item.driver}"
-                             style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 2px solid #ff8800;"
-                             onerror="this.style.display='none'">
-                        <div style="flex: 1;">
-                            <h4 style="margin: 0 0 0.25rem 0;">${item.driver}</h4>
-                            <p style="margin: 0; color: #ff8800; font-size: 0.95rem; font-style: italic;">${item.title}</p>
+        <div style="background: transparent; padding: 0;">
+            <h3 style="color: #ff8800; margin-bottom: 1.5rem;">Underdog Stories - ${circuitName.toUpperCase()} GP ${season}</h3>
+            ${underdogsData.map((item, i) => {
+                const driver = drivers2025.find(d => d.name === item.driver);
+                const teamColor = driver ? teamColors[driver.team] || '#999' : '#999';
+                return `
+                    <div style="background: ${teamColor}15; border: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <img src="${getDriverImageUrl(item.driver)}"
+                                 alt="${item.driver}"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                                 onerror="this.style.display='none'">
+                            <div style="flex: 1;">
+                                <h4 style="margin: 0 0 0.25rem 0; color: ${teamColor};">${item.driver}</h4>
+                                <p style="margin: 0; color: ${teamColor}; font-size: 0.95rem; font-style: italic;">${item.title}</p>
+                            </div>
                         </div>
+                        <p>${item.story}</p>
+                        ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.5rem;"><strong>Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
+                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.5rem; display: inline-block;">View full preview</a>
                     </div>
-                    <p>${item.story}</p>
-                    ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.5rem;"><strong>Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
-                    <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: #0096ff; margin-top: 0.5rem; display: inline-block;">View full preview</a>
-                </div>
-            `).join('')}
+                `;
+            }).join('')}
         </div>
     `;
 }
 
-function viewDriver(driverName) {
+async function viewDriver(driverName) {
     const preview = generatedData.drivers[driverName];
     if (!preview) {
         alert('Preview not yet generated for ' + driverName);
@@ -746,6 +859,7 @@ function viewDriver(driverName) {
 
     modalName.textContent = `${driverName} - #${driver.number} ${driver.team}`;
 
+    // Show loading state for OpenF1 data
     modalContent.innerHTML = `
         <div class="driver-preview">
             <h3>TL;DR</h3>
@@ -775,17 +889,105 @@ function viewDriver(driverName) {
 
             ${preview.watch_for ? `
                 <div style="margin-top: 1rem; background: rgba(225, 6, 0, 0.1); padding: 1rem; border-radius: 6px;">
-                    <strong style="color: #ff1e00;">🔍 Watch For:</strong> ${preview.watch_for}
+                    <strong style="color: #ff1e00;">Watch For:</strong> ${preview.watch_for}
                 </div>
             ` : ''}
 
             <div style="margin-top: 1rem; text-align: center; color: #666;">
                 Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold;">${preview.stakes_level || 'Medium'}</span>
             </div>
+
+            <div id="openf1-data" style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px;">
+                <div style="text-align: center; color: #666;">Loading recent results...</div>
+            </div>
         </div>
     `;
 
     modal.style.display = 'block';
+
+    // Fetch OpenF1 data asynchronously
+    try {
+        const [qualiResults, raceResults] = await Promise.all([
+            openF1API.getQualifyingResults(driver.number).catch(() => []),
+            openF1API.getRaceResults(driver.number).catch(() => [])
+        ]);
+
+        const openf1Container = document.getElementById('openf1-data');
+        if (openf1Container) {
+            openf1Container.innerHTML = renderOpenF1Graphics(qualiResults, raceResults, driver);
+        }
+    } catch (error) {
+        console.error('Error loading OpenF1 data:', error);
+        const openf1Container = document.getElementById('openf1-data');
+        if (openf1Container) {
+            openf1Container.innerHTML = '<div style="text-align: center; color: #666;">Unable to load recent results</div>';
+        }
+    }
+}
+
+function renderOpenF1Graphics(qualiResults, raceResults, driver) {
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+    const teamColor = teamColors[driver.team] || '#999';
+
+    return `
+        <h3 style="color: ${teamColor}; margin-bottom: 1rem;">Recent Form</h3>
+
+        ${qualiResults.length > 0 ? `
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: #ccc; margin-bottom: 0.75rem;">Qualifying Results</h4>
+                <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
+                    ${qualiResults.slice(-8).map(result => {
+                        const height = Math.max(10, 100 - (result.position * 4));
+                        const color = result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
+                        return `
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                                <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">P${result.position}</div>
+                                <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
+                                <div style="font-size: 0.7rem; color: #666; margin-top: 0.25rem; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${result.circuit}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        ` : ''}
+
+        ${raceResults.length > 0 ? `
+            <div>
+                <h4 style="color: #ccc; margin-bottom: 0.75rem;">Race Results</h4>
+                <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
+                    ${raceResults.slice(-8).map(result => {
+                        const height = result.dnf || result.dns ? 20 : Math.max(10, 100 - (result.position * 4));
+                        const color = result.dnf ? '#ff0000' : result.dns ? '#666' : result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
+                        const label = result.dnf ? 'DNF' : result.dns ? 'DNS' : `P${result.position}`;
+                        return `
+                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                                <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">${label}</div>
+                                <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
+                                <div style="font-size: 0.7rem; color: #666; margin-top: 0.25rem; text-align: center; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${result.circuit}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        ` : ''}
+
+        ${qualiResults.length === 0 && raceResults.length === 0 ? `
+            <div style="text-align: center; color: #666; padding: 2rem;">
+                No recent results available for this driver
+            </div>
+        ` : ''}
+    `;
 }
 
 function closeDriverModal() {
