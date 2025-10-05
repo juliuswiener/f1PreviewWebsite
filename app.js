@@ -440,9 +440,9 @@ function initializeDriverGrid() {
                      alt="#${driver.number}"
                      style="width: 60px; height: auto; filter: drop-shadow(0 2px 6px ${teamColor}80);"
                      onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
-                <div style="flex: 1;">
+                <div style="flex: 1; cursor: pointer;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
-                        <span style="font-size: 1.1rem; font-weight: 600;">${driver.name}</span>
+                        <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
@@ -841,9 +841,10 @@ function renderHighlights() {
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <img src="${getDriverImageUrl(item.driver)}"
                                  alt="${item.driver}"
-                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60;"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60; cursor: pointer;"
+                                 onclick="viewDriver('${item.driver}')"
                                  onerror="this.style.display='none'">
-                            <h4 style="margin: 0; color: ${teamColor}; font-size: 1.2rem;">#${item.rank || i + 1} ${item.driver}</h4>
+                            <h4 style="margin: 0; color: ${teamColor}; font-size: 1.2rem; cursor: pointer;" onclick="viewDriver('${item.driver}')">#${item.rank || i + 1} ${item.driver}</h4>
                         </div>
                         <p style="color: #ddd; line-height: 1.6;"><strong style="color: #fff;">Why watch:</strong> ${item.reason}</p>
                         ${item.stakes ? `<p style="color: ${teamColor}; margin-top: 0.75rem; line-height: 1.6;"><strong style="color: #fff;">Stakes:</strong> ${item.stakes}</p>` : ''}
@@ -893,10 +894,11 @@ function renderUnderdogs() {
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <img src="${getDriverImageUrl(item.driver)}"
                                  alt="${item.driver}"
-                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60;"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60; cursor: pointer;"
+                                 onclick="viewDriver('${item.driver}')"
                                  onerror="this.style.display='none'">
                             <div style="flex: 1;">
-                                <h4 style="margin: 0 0 0.25rem 0; color: ${teamColor}; font-size: 1.2rem;">${item.driver}</h4>
+                                <h4 style="margin: 0 0 0.25rem 0; color: ${teamColor}; font-size: 1.2rem; cursor: pointer;" onclick="viewDriver('${item.driver}')">${item.driver}</h4>
                                 <p style="margin: 0; color: ${teamColor}; font-size: 0.95rem; font-style: italic; opacity: 0.9;">${item.title}</p>
                             </div>
                         </div>
