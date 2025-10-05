@@ -7,12 +7,13 @@ import asyncio
 import json
 import os
 import sys
+import base64
 from datetime import datetime
 from openai import AsyncOpenAI
 
-# Configuration
-CIRCUIT = "singapore"
-RACE_DATE = "2025-10-05"
+# Configuration - Leave None to auto-detect next GP
+CIRCUIT = None  # e.g., "singapore" or None for auto-detect
+RACE_DATE = None  # e.g., "2025-10-05" or None for auto-detect
 SEASON = "2025"
 MODEL = "gpt-5"
 MAX_OUTPUT_TOKENS = 30000
@@ -371,6 +372,81 @@ async def generate_driver_preview_async(client, driver, circuit, race_context, s
         }, str(e)
 
 
+async def detect_next_gp(client):
+    """Auto-detect the next Grand Prix using web search"""
+    print("\n🔍 Auto-detecting next Grand Prix...")
+
+    prompt = """Search for the next Formula 1 Grand Prix race.
+
+    Return ONLY a JSON object with this exact format:
+    {
+        "circuit": "circuit name (e.g., 'singapore', 'monaco', 'silverstone')",
+        "race_date": "YYYY-MM-DD",
+        "gp_name": "Full GP name (e.g., 'Singapore Grand Prix', 'Monaco Grand Prix')"
+    }
+
+    Use today's date to determine which is the NEXT upcoming race."""
+
+    response = await call_openai(client, prompt)
+
+    try:
+        # Try to extract JSON from response
+        import re
+        json_match = re.search(r'\{[^{}]*\}', response)
+        if json_match:
+            data = json.loads(json_match.group())
+            return data.get("circuit"), data.get("race_date"), data.get("gp_name")
+    except Exception as e:
+        print(f"   ⚠ Could not auto-detect GP: {e}")
+        print(f"   Response: {response[:200]}")
+
+    return None, None, None
+
+async def generate_gp_header_image(client, circuit, gp_name):
+    """Generate a header image for the Grand Prix"""
+    print("\n🎨 Generating GP header image...")
+
+    prompt = f"""Create a dramatic, cinematic header image for the {gp_name}.
+
+    Style: Modern F1 aesthetic with dynamic lighting, showing the iconic elements of {circuit} circuit.
+    Include: Track elements, atmosphere of the location, F1 cars in motion blur.
+    Mood: Exciting, professional, high-energy racing atmosphere.
+    Composition: Wide landscape banner suitable for website header.
+    No text or logos - pure visual imagery with dark tones."""
+
+    try:
+        response = await client.responses.create(
+            model=MODEL,
+            input=prompt,
+            tools=[{
+                "type": "image_generation",
+                "size": "1536x1024",  # Landscape format for header
+                "quality": "high",
+                "format": "webp",
+                "compression": 80
+            }],
+        )
+
+        # Extract image data
+        image_data = [
+            output.result
+            for output in response.output
+            if output.type == "image_generation_call"
+        ]
+
+        if image_data:
+            image_base64 = image_data[0]
+            with open("gp_header.webp", "wb") as f:
+                f.write(base64.b64decode(image_base64))
+            print(f"   ✓ Header image saved to gp_header.webp")
+            return True
+        else:
+            print(f"   ✗ No image data returned")
+            return False
+    except Exception as e:
+        print(f"   ✗ Image generation failed: {e}")
+        return False
+
 async def main():
     # Initialize OpenAI client
     api_key = os.environ.get("OPENAI_API_KEY")
@@ -380,7 +456,26 @@ async def main():
 
     client = AsyncOpenAI(api_key=api_key)
 
-    print(f"Generating previews for {CIRCUIT} GP on {RACE_DATE}...")
+    # Auto-detect next GP if not specified
+    global CIRCUIT, RACE_DATE
+    gp_name = None
+
+    if CIRCUIT is None or RACE_DATE is None:
+        detected_circuit, detected_date, detected_name = await detect_next_gp(client)
+        if detected_circuit and detected_date:
+            CIRCUIT = detected_circuit
+            RACE_DATE = detected_date
+            gp_name = detected_name
+            print(f"   ✓ Detected: {gp_name} on {RACE_DATE}")
+        else:
+            print("   ✗ Auto-detection failed. Please set CIRCUIT and RACE_DATE manually.")
+            return
+
+    print(f"\nGenerating previews for {CIRCUIT} GP on {RACE_DATE}...")
+
+    # Generate header image
+    if gp_name:
+        await generate_gp_header_image(client, CIRCUIT, gp_name)
 
     # Check for web search capability
     if ENABLE_WEB_SEARCH and MODEL.startswith("gpt-5"):

@@ -23,6 +23,22 @@
             padding: 2rem;
             text-align: center;
             box-shadow: 0 4px 20px rgba(225, 6, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('gp_header.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 0;
         }
 
         .header h1 {
@@ -30,11 +46,17 @@
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .header p {
             opacity: 0.9;
             font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
         .container {
