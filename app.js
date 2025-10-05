@@ -63,15 +63,12 @@ Provide two versions:
 
 Format as JSON:
 {
-  "tldr": "...",
   "full": "...",
   "perfect_quali": "P1-P3",
   "perfect_race": "Podium finish",
   "good_quali": "P4-P6",
   "good_race": "Points finish",
-  "stakes_level": "high/medium/low",
-  "key_strengths": ["strength1", "strength2"],
-  "watch_for": "specific thing to watch"
+  "stakes_level": "high/medium/low"
 }`,
 
     top5: `Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for this race weekend.
@@ -813,7 +810,6 @@ async function generateDriverPreview(apiKey, model, driver, circuit, raceContext
         return typeof response === 'string' ? JSON.parse(response) : response;
     } catch {
         return {
-            tldr: response.substring(0, 200),
             full: response,
             perfect_quali: 'TBD',
             perfect_race: 'TBD',
@@ -1456,12 +1452,7 @@ async function viewDriver(driverName) {
                     <div id="openf1-pearls-top" style="margin-bottom: 2rem;">
                         <div style="text-align: center; color: #666; padding: 1rem;">Loading recent form...</div>
                     </div>
-                    <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); margin-bottom: 1.5rem; border-top: 3px solid ${teamColor};">
-                        <h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
-                        <div class="tldr" style="font-size: 1.05rem; line-height: 1.6; color: #ddd;">${preview.tldr}</div>
-                    </div>
 
-                    <h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
                     <div class="full-text" style="color: #ddd; line-height: 1.8;">
                         ${simpleMarkdownToHtml(preview.full)}
                     </div>
@@ -1484,20 +1475,6 @@ async function viewDriver(driverName) {
                     </div>
                 </div>
             </div>
-
-            ${preview.key_strengths ? `
-                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); border-top: 2px solid ${teamColor};">
-                    <strong style="color: ${teamColor};">Key Strengths:</strong>
-                    <div style="margin-top: 0.5rem; color: #ddd;">${preview.key_strengths.join(' • ')}</div>
-                </div>
-            ` : ''}
-
-            ${preview.watch_for ? `
-                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); border-top: 3px solid ${teamColor};">
-                    <strong style="color: ${teamColor}; font-size: 1.1rem;">Watch For:</strong>
-                    <div style="margin-top: 0.5rem; color: #ddd;">${preview.watch_for}</div>
-                </div>
-            ` : ''}
 
             <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #1a1a1a; border-radius: 16px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
                 Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold; font-size: 1.2rem;">${preview.stakes_level || 'Medium'}</span>

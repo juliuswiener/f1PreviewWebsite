@@ -143,19 +143,22 @@ FULL: [Write in clean, structured markdown format with the following sections:
 [2-3 sentences on recent race results, championship position, and momentum]
 
 ## Circuit History & Strengths
-[2-3 sentences on past performance here and why their driving style suits/doesn't suit this track]
+[2-3 sentences on past performance here and why their driving style suits/doesn't suit this track. Include 2-3 key strengths relevant to this circuit.]
 
 ## Situation
-[2-3 sentences on the current situation for the driver. What do the have to deal with]
+[2-3 sentences on the current situation for the driver. What do they have to deal with]
 
 ## Chances
-[2-3 sentences on what they can gain here. What are the chances they can capatilize on.]
+[2-3 sentences on what they can gain here. What are the chances they can capitalize on.]
 
 ## This Weekend's Brief
 [2-3 sentences on specific goals, strategy considerations, and what a good result looks like]
 
 ## The Stakes
 [1-2 sentences on what this race means for championship, contract, or team dynamics]
+
+## What to Watch For
+[1-2 sentences on the one specific thing to watch for this driver this weekend]
 ]
 
 STAKES: [high/medium/low]
@@ -163,11 +166,7 @@ STAKES: [high/medium/low]
 PERFECT_QUALI: [e.g., "P1-P3" or "Pole position"]
 PERFECT_RACE: [e.g., "Podium finish" or "Victory"]
 GOOD_QUALI: [e.g., "P4-P6" or "Top 10"]
-GOOD_RACE: [e.g., "Points finish" or "P6-P8"]
-
-STRENGTHS: [2-3 key strengths relevant to this circuit, comma-separated]
-
-WATCH_FOR: [One specific thing to watch for this driver this weekend]""",
+GOOD_RACE: [e.g., "Points finish" or "P6-P8"]""",
 
     "top5": """Based on these driver previews and race context, identify the TOP 5 DRIVERS TO WATCH for the upcoming race.
 
@@ -301,12 +300,8 @@ def parse_driver_preview(text):
 
     preview = {}
 
-    # Extract TLDR
-    tldr_match = re.search(r'TLDR:\s*(.+?)(?=\n\n|\nFULL:)', text, re.DOTALL)
-    preview['tldr'] = tldr_match.group(1).strip() if tldr_match else ""
-
     # Extract FULL
-    full_match = re.search(r'FULL:\s*(.+?)(?=\n\n|\nSTAKES:)', text, re.DOTALL)
+    full_match = re.search(r'FULL:\s*(.+?)(?=\n\n(?:STAKES:|PERFECT_QUALI:|GOOD_QUALI:))', text, re.DOTALL)
     preview['full'] = full_match.group(1).strip() if full_match else ""
 
     # Extract STAKES
@@ -323,20 +318,8 @@ def parse_driver_preview(text):
     good_quali_match = re.search(r'GOOD_QUALI:\s*(.+?)(?=\n)', text)
     preview['good_quali'] = good_quali_match.group(1).strip() if good_quali_match else ""
 
-    good_race_match = re.search(r'GOOD_RACE:\s*(.+?)(?=\n)', text)
+    good_race_match = re.search(r'GOOD_RACE:\s*(.+?)(?=\n|$)', text)
     preview['good_race'] = good_race_match.group(1).strip() if good_race_match else ""
-
-    # Extract STRENGTHS
-    strengths_match = re.search(r'STRENGTHS:\s*(.+?)(?=\n\n|\nWATCH_FOR:)', text, re.DOTALL)
-    if strengths_match:
-        strengths_text = strengths_match.group(1).strip()
-        preview['key_strengths'] = [s.strip() for s in strengths_text.split(',')]
-    else:
-        preview['key_strengths'] = []
-
-    # Extract WATCH_FOR
-    watch_match = re.search(r'WATCH_FOR:\s*(.+?)(?=\n\n|$)', text, re.DOTALL)
-    preview['watch_for'] = watch_match.group(1).strip() if watch_match else ""
 
     return preview
 
@@ -513,6 +496,21 @@ def load_existing_data(json_file="preview_data.json"):
     return data
 
 
+def get_preview_summary(preview):
+    """Extract a brief summary from the full preview text"""
+    import re
+
+    # Get just the "Current Form" section as a summary
+    full_text = preview.get('full', '')
+    current_form_match = re.search(r'## Current Form\s*\n(.+?)(?=\n##|\n\n##|$)', full_text, re.DOTALL)
+
+    if current_form_match:
+        return current_form_match.group(1).strip()
+
+    # Fallback: return first 200 characters
+    return full_text[:200].strip() if full_text else ""
+
+
 async def generate_prediction_only(client, json_file="preview_data.json"):
     """Generate only race prediction using existing data"""
     print("\n📊 Generating race prediction from existing data...")
@@ -564,7 +562,7 @@ async def generate_top5_only(client, json_file="preview_data.json"):
 
     # Format driver previews
     driver_previews_text = "\n\n".join([
-        f"{name}:\n{preview.get('tldr', '')}"
+        f"{name}:\n{get_preview_summary(preview)}"
         for name, preview in data['drivers'].items()
     ])
 
@@ -600,7 +598,7 @@ async def generate_underdogs_only(client, json_file="preview_data.json"):
 
     # Format driver previews
     driver_previews_text = "\n\n".join([
-        f"{name}:\n{preview.get('tldr', '')}"
+        f"{name}:\n{get_preview_summary(preview)}"
         for name, preview in data['drivers'].items()
     ])
 
@@ -934,7 +932,7 @@ Examples:
 
     # Format driver previews as readable text for the prompt
     driver_previews_text = "\n\n".join([
-        f"{name}:\n{preview.get('tldr', '')}"
+        f"{name}:\n{get_preview_summary(preview)}"
         for name, preview in driver_previews.items()
     ])
 
