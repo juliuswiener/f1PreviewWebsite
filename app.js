@@ -142,12 +142,12 @@ async function fetchRaceSchedule(circuit, season, raceDate) {
 
         // Find the race matching our date or circuit
         const race = data.races?.find(r =>
-            r.date === raceDate ||
+            r.schedule?.race?.date === raceDate ||
             r.raceName?.toLowerCase().includes(circuit.toLowerCase()) ||
-            r.Circuit?.circuitName?.toLowerCase().includes(circuit.toLowerCase())
+            r.circuit?.circuitName?.toLowerCase().includes(circuit.toLowerCase())
         );
 
-        if (race) {
+        if (race && race.schedule) {
             const scheduleContainer = document.getElementById('race-schedule');
 
             // Convert UTC times to CEST/CET
@@ -168,12 +168,12 @@ async function fetchRaceSchedule(circuit, season, raceDate) {
             };
 
             const sessions = [
-                { name: 'FP1', date: race.FirstPractice?.date, time: race.FirstPractice?.time },
-                { name: 'FP2', date: race.SecondPractice?.date, time: race.SecondPractice?.time },
-                { name: 'FP3', date: race.ThirdPractice?.date, time: race.ThirdPractice?.time },
-                { name: 'Sprint', date: race.Sprint?.date, time: race.Sprint?.time },
-                { name: 'Qualifying', date: race.Qualifying?.date, time: race.Qualifying?.time },
-                { name: 'Race', date: race.date, time: race.time }
+                { name: 'FP1', date: race.schedule.fp1?.date, time: race.schedule.fp1?.time },
+                { name: 'FP2', date: race.schedule.fp2?.date, time: race.schedule.fp2?.time },
+                { name: 'FP3', date: race.schedule.fp3?.date, time: race.schedule.fp3?.time },
+                { name: 'Sprint', date: race.schedule.sprintRace?.date, time: race.schedule.sprintRace?.time },
+                { name: 'Qualifying', date: race.schedule.qualy?.date, time: race.schedule.qualy?.time },
+                { name: 'Race', date: race.schedule.race?.date, time: race.schedule.race?.time }
             ].filter(s => s.date); // Only show sessions that have dates
 
             scheduleContainer.innerHTML = sessions.map(s => `
@@ -567,18 +567,20 @@ function initializeDriverGrid() {
         const stakesColor = stakesColors[stakesLevel] || stakesColors['medium'];
 
         return `
-            <div style="display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.03); border-left: 4px solid ${teamColor}; border: 1px solid ${teamColor}40; border-left-width: 4px; border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;"
+            <div style="display: flex; align-items: center; gap: 1rem; background: rgba(255, 255, 255, 0.03); border-left: 4px solid ${teamColor}; border: 1px solid ${teamColor}40; border-left-width: 4px; border-radius: 8px; padding: 1rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;"
                  onclick="viewDriver('${driver.name}')"
                  onmouseover="this.style.background='${teamColor}20'; this.style.borderColor='${teamColor}'"
                  onmouseout="this.style.background='rgba(255, 255, 255, 0.03)'; this.style.borderColor='${teamColor}40'; this.style.borderLeftColor='${teamColor}'; this.style.borderLeftWidth='4px'">
                 <img src="${getDriverImageUrl(driver.name, 'front')}"
                      alt="${driver.name}"
-                     style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; z-index: 1;"
+                     style="width: 80px; height: 80px; min-width: 80px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; z-index: 1;"
                      onerror="this.style.display='none'">
-                <img src="${getDriverNumberImageUrl(driver.name)}"
-                     alt="#${driver.number}"
-                     style="height: 40px; width: auto; filter: drop-shadow(0 2px 6px ${teamColor}80); z-index: 1;"
-                     onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
+                <div style="width: 60px; min-width: 60px; display: flex; align-items: center; justify-content: center; z-index: 1;">
+                    <img src="${getDriverNumberImageUrl(driver.name)}"
+                         alt="#${driver.number}"
+                         style="height: 40px; width: auto; max-width: 60px; filter: drop-shadow(0 2px 6px ${teamColor}80);"
+                         onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
+                </div>
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
