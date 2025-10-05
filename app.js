@@ -1112,20 +1112,16 @@ async function viewDriver(driverName) {
 
     // Fetch OpenF1 data asynchronously
     try {
-        const [qualiResults, raceResults, sprintResults, sprintQualiResults] = await Promise.all([
+        const [qualiResults, raceResults] = await Promise.all([
             openF1API.getQualifyingResults(driver.number).catch(() => []),
-            openF1API.getRaceResults(driver.number).catch(() => []),
-            openF1API.getSprintResults(driver.number).catch(() => []),
-            openF1API.getSprintQualifyingResults(driver.number).catch(() => [])
+            openF1API.getRaceResults(driver.number).catch(() => [])
         ]);
 
         const pearlsTopContainer = document.getElementById('openf1-pearls-top');
         if (pearlsTopContainer) {
             pearlsTopContainer.innerHTML = renderCompactPearls({
                 qualifying: qualiResults,
-                race: raceResults,
-                sprint: sprintResults,
-                sprintQualifying: sprintQualiResults
+                race: raceResults
             }, driver);
         }
     } catch (error) {
@@ -1152,7 +1148,7 @@ function renderCompactPearls(results, driver) {
     };
     const teamColor = teamColors[driver.team] || '#999';
 
-    const { qualifying, race, sprint, sprintQualifying } = results;
+    const { qualifying, race } = results;
 
     const renderPearlString = (results, label) => {
         if (!results || results.length === 0) return '';
@@ -1223,8 +1219,6 @@ function renderCompactPearls(results, driver) {
         <div style="background: #1a1a1a; padding: 0.75rem 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
             <h3 style="color: ${teamColor}; margin-bottom: 0.75rem; text-align: center; font-size: 1rem;">Recent Form</h3>
             ${renderPearlString(qualifying, 'Qualifying')}
-            ${renderPearlString(sprintQualifying, 'Sprint Quali')}
-            ${renderPearlString(sprint, 'Sprint')}
             ${renderPearlString(race, 'Race')}
         </div>
     `;
