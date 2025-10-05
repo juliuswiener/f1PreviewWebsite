@@ -610,7 +610,7 @@ async function initializeDriverGrid() {
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
-                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1-Bold', sans-serif;">P${standing.position} • ${standing.points} pts</span>` : ''}
+                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1', sans-serif; font-weight: bold;">P${standing.position} • ${standing.points} pts</span>` : ''}
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
@@ -1175,11 +1175,11 @@ async function viewDriver(driverName) {
                         <div style="text-align: center; color: #666; padding: 1rem;">Loading recent form...</div>
                     </div>
                     <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); margin-bottom: 1.5rem; border-top: 3px solid ${teamColor};">
-                        <h3 style="color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
+                        <h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
                         <div class="tldr" style="font-size: 1.05rem; line-height: 1.6; color: #ddd;">${preview.tldr}</div>
                     </div>
 
-                    <h3 style="color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
+                    <h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
                     <div class="full-text" style="color: #ddd; line-height: 1.8;">
                         ${simpleMarkdownToHtml(preview.full)}
                     </div>
@@ -1328,7 +1328,7 @@ function renderCompactPearls(results, driver) {
             }
         </style>
         <div style="background: #1a1a1a; padding: 0.75rem 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
-            <h3 style="color: ${teamColor}; margin-bottom: 0.75rem; text-align: center; font-size: 1rem;">Recent Form</h3>
+            <h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: ${teamColor}; margin-bottom: 0.75rem; text-align: center; font-size: 1rem;">Recent Form</h3>
             ${renderPearlString(qualifying, 'Qualifying')}
             ${renderPearlString(race, 'Race')}
         </div>
@@ -1363,7 +1363,7 @@ function simpleMarkdownToHtml(markdown) {
                 html += '</ol>';
                 inOrderedList = false;
             }
-            html += `<h4 style="color: #ccc; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1rem;">${trimmed.substring(4)}</h4>`;
+            html += `<h4 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: #ccc; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1rem;">${trimmed.substring(4)}</h4>`;
         } else if (trimmed.startsWith('## ')) {
             if (currentParagraph) {
                 html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
@@ -1377,7 +1377,7 @@ function simpleMarkdownToHtml(markdown) {
                 html += '</ol>';
                 inOrderedList = false;
             }
-            html += `<h3 style="color: #e10600; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.2rem;">${trimmed.substring(3)}</h3>`;
+            html += `<h3 style="font-family: 'Formula1', sans-serif; font-weight: normal; color: #e10600; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.2rem;">${trimmed.substring(3)}</h3>`;
         } else if (trimmed.startsWith('# ')) {
             if (currentParagraph) {
                 html += `<p style="margin-bottom: 1rem; line-height: 1.6;">${currentParagraph}</p>`;
@@ -1391,7 +1391,7 @@ function simpleMarkdownToHtml(markdown) {
                 html += '</ol>';
                 inOrderedList = false;
             }
-            html += `<h2 style="color: #fff; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.4rem;">${trimmed.substring(2)}</h2>`;
+            html += `<h2 style="font-family: 'Formula1', sans-serif; font-weight: bold; color: #fff; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.4rem;">${trimmed.substring(2)}</h2>`;
         }
         // Check if it's a bullet point
         else if (trimmed.match(/^[-*]\s+(.+)$/)) {
