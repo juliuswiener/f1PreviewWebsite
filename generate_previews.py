@@ -3,11 +3,13 @@
 Generate F1 race weekend previews using OpenAI API
 
 Usage:
-  python generate_previews.py              # Generate all sections
-  python generate_previews.py --only=prediction  # Only generate race prediction
-  python generate_previews.py --only=top5        # Only generate top 5
-  python generate_previews.py --only=underdogs   # Only generate underdogs
-  python generate_previews.py --only=standings   # Only generate standings data
+  python generate_previews.py                           # Generate all sections
+  python generate_previews.py --only=prediction         # Only generate race prediction
+  python generate_previews.py --only=top5               # Only generate top 5
+  python generate_previews.py --only=underdogs          # Only generate underdogs
+  python generate_previews.py --only=standings          # Only generate standings data
+  python generate_previews.py --only=drivers            # Only regenerate all driver profiles
+  python generate_previews.py --only=driver --driver="Max Verstappen"  # Regenerate single driver
 """
 
 import asyncio
@@ -696,6 +698,93 @@ async def generate_standings_only(json_file="preview_data.json"):
 
     print(f"   ✓ Standings data generated and saved to {json_file}")
 
+
+async def generate_single_driver_only(client, driver_name, json_file="preview_data.json"):
+    """Generate only a single driver profile using existing data"""
+    print(f"\n👤 Regenerating profile for {driver_name}...")
+
+    data = load_existing_data(json_file)
+    if not data:
+        return
+
+    # Find driver in drivers_2025 list
+    driver = next((d for d in drivers_2025 if d['name'] == driver_name), None)
+    if not driver:
+        print(f"   ✗ Driver '{driver_name}' not found in drivers list")
+        print(f"   Available drivers: {', '.join([d['name'] for d in drivers_2025])}")
+        return
+
+    # Get session context
+    session_context = get_session_context()
+
+    # Generate preview
+    circuit = data['metadata']['circuit']
+    race_date = data['metadata']['date']
+    season = data['metadata']['season']
+    race_context = data['raceContext']
+
+    _, preview, error = await generate_driver_preview_async(
+        client, driver, circuit, race_context, session_context, season
+    )
+
+    if error:
+        print(f"   ✗ Failed to generate preview: {error}")
+        return
+
+    # Update only this driver in data
+    data['drivers'][driver_name] = preview
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ {driver_name} profile regenerated and saved to {json_file}")
+
+
+async def generate_all_drivers_only(client, json_file="preview_data.json"):
+    """Generate only all driver profiles using existing data"""
+    print(f"\n👥 Regenerating all {len(drivers_2025)} driver profiles...")
+
+    data = load_existing_data(json_file)
+    if not data:
+        return
+
+    # Get session context
+    session_context = get_session_context()
+
+    # Get metadata
+    circuit = data['metadata']['circuit']
+    race_date = data['metadata']['date']
+    season = data['metadata']['season']
+    race_context = data['raceContext']
+
+    # Create tasks for all drivers
+    tasks = [
+        generate_driver_preview_async(client, driver, circuit, race_context, session_context, season)
+        for driver in drivers_2025
+    ]
+
+    # Run all tasks concurrently
+    results = await asyncio.gather(*tasks)
+
+    # Process results
+    driver_previews = {}
+    for driver_name, preview, error in results:
+        driver_previews[driver_name] = preview
+        if error:
+            print(f"   ✗ {driver_name}: {error}")
+        else:
+            print(f"   ✓ {driver_name}")
+
+    # Update drivers in data
+    data['drivers'] = driver_previews
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ All {len(driver_previews)} driver profiles regenerated and saved to {json_file}")
+
 async def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(
@@ -703,17 +792,24 @@ async def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python generate_previews.py                    # Generate everything
-  python generate_previews.py --only=prediction  # Only generate race prediction
-  python generate_previews.py --only=top5        # Only regenerate top 5
-  python generate_previews.py --only=underdogs   # Only regenerate underdogs
-  python generate_previews.py --only=standings   # Only regenerate standings
+  python generate_previews.py                              # Generate everything
+  python generate_previews.py --only=prediction            # Only generate race prediction
+  python generate_previews.py --only=top5                  # Only regenerate top 5
+  python generate_previews.py --only=underdogs             # Only regenerate underdogs
+  python generate_previews.py --only=standings             # Only regenerate standings
+  python generate_previews.py --only=drivers               # Only regenerate all driver profiles
+  python generate_previews.py --only=driver --driver="Max Verstappen"  # Regenerate single driver
         """
     )
     parser.add_argument(
         '--only',
-        choices=['prediction', 'top5', 'underdogs', 'standings'],
+        choices=['prediction', 'top5', 'underdogs', 'standings', 'drivers', 'driver'],
         help='Generate only a specific section using existing data'
+    )
+    parser.add_argument(
+        '--driver',
+        type=str,
+        help='Driver name when using --only=driver (e.g., "Max Verstappen")'
     )
     parser.add_argument(
         '--json',
@@ -722,6 +818,12 @@ Examples:
     )
 
     args = parser.parse_args()
+
+    # Validate driver argument
+    if args.only == 'driver' and not args.driver:
+        print("Error: --driver argument is required when using --only=driver")
+        print(f"Available drivers: {', '.join([d['name'] for d in drivers_2025])}")
+        return
 
     # Initialize OpenAI client (not needed for standings-only)
     api_key = os.environ.get("OPENAI_API_KEY")
@@ -743,6 +845,10 @@ Examples:
             await generate_underdogs_only(client, args.json)
         elif args.only == 'standings':
             await generate_standings_only(args.json)
+        elif args.only == 'drivers':
+            await generate_all_drivers_only(client, args.json)
+        elif args.only == 'driver':
+            await generate_single_driver_only(client, args.driver, args.json)
         return
 
     # Auto-detect next GP if not specified
