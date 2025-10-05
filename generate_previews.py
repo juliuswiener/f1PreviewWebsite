@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
 Generate F1 race weekend previews using OpenAI API
+
+Usage:
+  python generate_previews.py              # Generate all sections
+  python generate_previews.py --only=prediction  # Only generate race prediction
+  python generate_previews.py --only=top5        # Only generate top 5
+  python generate_previews.py --only=underdogs   # Only generate underdogs
+  python generate_previews.py --only=standings   # Only generate standings data
 """
 
 import asyncio
@@ -8,6 +15,7 @@ import json
 import os
 import sys
 import base64
+import argparse
 from datetime import datetime
 from openai import AsyncOpenAI
 
@@ -214,7 +222,27 @@ Driver Previews:
 {driverPreviews}
 
 Race Context:
-{raceContext}"""
+{raceContext}""",
+
+    "prediction": """Based on these detailed driver previews for the {circuit} Grand Prix on {raceDate}, provide your race weekend predictions.
+
+{sessionContext}
+
+Driver Previews:
+{driverPreviews}
+
+Race Context:
+{raceContext}
+
+Provide predictions in markdown format as a numbered list including:
+1. **Qualifying Top 3** - Who will take pole, P2, P3 and why
+2. **Race Podium** - Predicted race winner and podium finishers with reasoning
+3. **Driver of the Weekend** - Who will have the standout performance
+4. **Dark Horse** - Which driver could surprise and outperform expectations
+5. **Key Battle** - The most exciting head-to-head fight to watch
+6. **Bold Prediction** - One surprising or controversial prediction
+
+Be specific, use driver names, and explain your reasoning based on the preview data."""
 }
 
 
@@ -461,14 +489,261 @@ No text or logos - pure visual imagery with dark tones."""
         print(f"   ✗ Image generation failed: {e}")
         return False
 
-async def main():
-    # Initialize OpenAI client
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        print("Error: OPENAI_API_KEY environment variable not set")
+
+def load_existing_data(json_file="preview_data.json"):
+    """Load existing preview data from JSON file"""
+    if not os.path.exists(json_file):
+        print(f"   ✗ {json_file} not found. Generate full data first.")
+        return None
+
+    with open(json_file, 'r') as f:
+        data = json.load(f)
+
+    print(f"   ✓ Loaded existing data from {json_file}")
+    return data
+
+
+async def generate_prediction_only(client, json_file="preview_data.json"):
+    """Generate only race prediction using existing data"""
+    print("\n📊 Generating race prediction from existing data...")
+
+    data = load_existing_data(json_file)
+    if not data:
         return
 
-    client = AsyncOpenAI(api_key=api_key)
+    # Get session context
+    session_context = get_session_context()
+
+    # Format driver previews
+    driver_previews_text = "\n\n".join([
+        f"**{name}** ({data['drivers'][name].get('stakes_level', 'medium')} stakes):\n{preview.get('full', '')}\n\nPerfect Result: Quali {preview.get('perfect_quali', 'N/A')}, Race {preview.get('perfect_race', 'N/A')}\nGood Result: Quali {preview.get('good_quali', 'N/A')}, Race {preview.get('good_race', 'N/A')}"
+        for name, preview in data['drivers'].items()
+    ])
+
+    prediction_prompt = prompts["prediction"].format(
+        circuit=data['metadata']['circuit'],
+        raceDate=data['metadata']['date'],
+        sessionContext=session_context or "",
+        driverPreviews=driver_previews_text,
+        raceContext=data['raceContext']
+    )
+
+    prediction_text = await call_openai(client, prediction_prompt)
+    prediction = clean_urls(prediction_text)
+
+    # Update data
+    data['prediction'] = prediction
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ Race prediction generated and saved to {json_file}")
+
+
+async def generate_top5_only(client, json_file="preview_data.json"):
+    """Generate only top 5 using existing data"""
+    print("\n🏆 Generating top 5 analysis from existing data...")
+
+    data = load_existing_data(json_file)
+    if not data:
+        return
+
+    # Get session context
+    session_context = get_session_context()
+
+    # Format driver previews
+    driver_previews_text = "\n\n".join([
+        f"{name}:\n{preview.get('tldr', '')}"
+        for name, preview in data['drivers'].items()
+    ])
+
+    top5_prompt = prompts["top5"].format(
+        sessionContext=session_context or "",
+        driverPreviews=driver_previews_text,
+        raceContext=data['raceContext']
+    )
+
+    top5_text = await call_openai(client, top5_prompt)
+    top5 = parse_top5(top5_text)
+
+    # Update data
+    data['top5'] = top5
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ Top 5 analysis generated and saved to {json_file}")
+
+
+async def generate_underdogs_only(client, json_file="preview_data.json"):
+    """Generate only underdogs using existing data"""
+    print("\n⚡ Generating underdog stories from existing data...")
+
+    data = load_existing_data(json_file)
+    if not data:
+        return
+
+    # Get session context
+    session_context = get_session_context()
+
+    # Format driver previews
+    driver_previews_text = "\n\n".join([
+        f"{name}:\n{preview.get('tldr', '')}"
+        for name, preview in data['drivers'].items()
+    ])
+
+    underdogs_prompt = prompts["underdogs"].format(
+        sessionContext=session_context or "",
+        driverPreviews=driver_previews_text,
+        raceContext=data['raceContext']
+    )
+
+    underdogs_text = await call_openai(client, underdogs_prompt)
+    underdogs = parse_underdogs(underdogs_text)
+
+    # Update data
+    data['underdogs'] = underdogs
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ Underdog stories generated and saved to {json_file}")
+
+
+async def generate_standings_only(json_file="preview_data.json"):
+    """Generate only standings data using F1 API"""
+    print("\n📈 Generating standings data from F1 API...")
+
+    data = load_existing_data(json_file)
+    if not data:
+        return
+
+    import aiohttp
+
+    # Determine current season and latest round
+    season = data['metadata'].get('season', SEASON)
+
+    async with aiohttp.ClientSession() as session:
+        # Get current season data
+        async with session.get(f'https://f1api.dev/api/current') as response:
+            if response.status != 200:
+                print(f"   ✗ Failed to fetch current season data")
+                return
+
+            current_data = await response.json()
+            completed_races = [r for r in current_data['races'] if r.get('winner') is not None]
+            latest_round = len(completed_races)
+
+        print(f"   ℹ Found {latest_round} completed rounds")
+
+        # Calculate cumulative points for each round
+        driver_points = {}
+        standings_data = {}
+
+        for round_num in range(1, latest_round + 1):
+            async with session.get(f'https://f1api.dev/api/{season}/{round_num}/race') as response:
+                if response.status != 200:
+                    continue
+
+                race_data = await response.json()
+
+                if race_data.get('races', {}).get('results'):
+                    for result in race_data['races']['results']:
+                        driver_name = f"{result['driver']['name']} {result['driver']['surname']}"
+                        display_name = 'Kimi Antonelli' if driver_name == 'Andrea Kimi Antonelli' else driver_name
+
+                        if display_name not in driver_points:
+                            driver_points[display_name] = 0
+
+                        driver_points[display_name] += result.get('points', 0)
+
+                        if display_name not in standings_data:
+                            standings_data[display_name] = {
+                                'positions': [],
+                                'team': result['team']['teamName'],
+                                'number': result['driver']['number']
+                            }
+
+                    # Calculate standings for this round
+                    round_standings = sorted(
+                        [{'name': name, 'points': points} for name, points in driver_points.items()],
+                        key=lambda x: x['points'],
+                        reverse=True
+                    )
+
+                    # Assign positions
+                    for idx, standing in enumerate(round_standings):
+                        if standing['name'] in standings_data:
+                            standings_data[standing['name']]['positions'].append({
+                                'round': round_num,
+                                'position': idx + 1
+                            })
+
+            print(f"   ✓ Processed round {round_num}/{latest_round}")
+
+    # Update data
+    data['standings'] = {
+        'standingsData': standings_data,
+        'latestRound': latest_round
+    }
+
+    # Save updated data
+    with open(json_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"   ✓ Standings data generated and saved to {json_file}")
+
+async def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description="Generate F1 race weekend previews",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python generate_previews.py                    # Generate everything
+  python generate_previews.py --only=prediction  # Only generate race prediction
+  python generate_previews.py --only=top5        # Only regenerate top 5
+  python generate_previews.py --only=underdogs   # Only regenerate underdogs
+  python generate_previews.py --only=standings   # Only regenerate standings
+        """
+    )
+    parser.add_argument(
+        '--only',
+        choices=['prediction', 'top5', 'underdogs', 'standings'],
+        help='Generate only a specific section using existing data'
+    )
+    parser.add_argument(
+        '--json',
+        default='preview_data.json',
+        help='Path to preview data JSON file (default: preview_data.json)'
+    )
+
+    args = parser.parse_args()
+
+    # Initialize OpenAI client (not needed for standings-only)
+    api_key = os.environ.get("OPENAI_API_KEY")
+    client = None
+
+    if args.only != 'standings':
+        if not api_key:
+            print("Error: OPENAI_API_KEY environment variable not set")
+            return
+        client = AsyncOpenAI(api_key=api_key)
+
+    # Handle --only mode
+    if args.only:
+        if args.only == 'prediction':
+            await generate_prediction_only(client, args.json)
+        elif args.only == 'top5':
+            await generate_top5_only(client, args.json)
+        elif args.only == 'underdogs':
+            await generate_underdogs_only(client, args.json)
+        elif args.only == 'standings':
+            await generate_standings_only(args.json)
+        return
 
     # Auto-detect next GP if not specified
     global CIRCUIT, RACE_DATE
@@ -571,11 +846,100 @@ async def main():
     underdogs = parse_underdogs(underdogs_text)
     print(f"   ✓ Underdog stories generated")
 
+    # Step 5: Generate race prediction
+    print("\n5. Generating race prediction...")
+
+    # Format full driver previews for prediction
+    full_driver_previews_text = "\n\n".join([
+        f"**{name}** ({preview.get('stakes_level', 'medium')} stakes):\n{preview.get('full', '')}\n\nPerfect Result: Quali {preview.get('perfect_quali', 'N/A')}, Race {preview.get('perfect_race', 'N/A')}\nGood Result: Quali {preview.get('good_quali', 'N/A')}, Race {preview.get('good_race', 'N/A')}"
+        for name, preview in driver_previews.items()
+    ])
+
+    prediction_prompt = prompts["prediction"].format(
+        circuit=CIRCUIT,
+        raceDate=RACE_DATE,
+        sessionContext=session_context or "",
+        driverPreviews=full_driver_previews_text,
+        raceContext=race_context
+    )
+
+    prediction_text = await call_openai(client, prediction_prompt)
+    prediction = clean_urls(prediction_text)
+    print(f"   ✓ Race prediction generated")
+
+    # Step 6: Generate standings data
+    print("\n6. Generating championship standings data...")
+
+    import aiohttp
+
+    async with aiohttp.ClientSession() as session:
+        # Get current season data
+        async with session.get(f'https://f1api.dev/api/current') as response:
+            if response.status == 200:
+                current_data = await response.json()
+                completed_races = [r for r in current_data['races'] if r.get('winner') is not None]
+                latest_round = len(completed_races)
+
+                print(f"   ℹ Found {latest_round} completed rounds")
+
+                # Calculate cumulative points for each round
+                driver_points = {}
+                standings_data = {}
+
+                for round_num in range(1, latest_round + 1):
+                    async with session.get(f'https://f1api.dev/api/{SEASON}/{round_num}/race') as race_response:
+                        if race_response.status != 200:
+                            continue
+
+                        race_data = await race_response.json()
+
+                        if race_data.get('races', {}).get('results'):
+                            for result in race_data['races']['results']:
+                                driver_name = f"{result['driver']['name']} {result['driver']['surname']}"
+                                display_name = 'Kimi Antonelli' if driver_name == 'Andrea Kimi Antonelli' else driver_name
+
+                                if display_name not in driver_points:
+                                    driver_points[display_name] = 0
+
+                                driver_points[display_name] += result.get('points', 0)
+
+                                if display_name not in standings_data:
+                                    standings_data[display_name] = {
+                                        'positions': [],
+                                        'team': result['team']['teamName'],
+                                        'number': result['driver']['number']
+                                    }
+
+                            # Calculate standings for this round
+                            round_standings = sorted(
+                                [{'name': name, 'points': points} for name, points in driver_points.items()],
+                                key=lambda x: x['points'],
+                                reverse=True
+                            )
+
+                            # Assign positions
+                            for idx, standing in enumerate(round_standings):
+                                if standing['name'] in standings_data:
+                                    standings_data[standing['name']]['positions'].append({
+                                        'round': round_num,
+                                        'position': idx + 1
+                                    })
+
+                standings = {
+                    'standingsData': standings_data,
+                    'latestRound': latest_round
+                }
+                print(f"   ✓ Championship standings data generated")
+            else:
+                print(f"   ✗ Failed to fetch standings data")
+                standings = None
+
     # Compile results
     result = {
         "drivers": driver_previews,
         "top5": top5,
         "underdogs": underdogs,
+        "prediction": prediction,
         "raceContext": race_context,
         "metadata": {
             "circuit": CIRCUIT,
@@ -584,6 +948,10 @@ async def main():
             "generatedAt": None  # Will be set by JS when loaded
         }
     }
+
+    # Add standings if generated
+    if standings:
+        result["standings"] = standings
 
     # Save to file
     output_file = "preview_data.json"
