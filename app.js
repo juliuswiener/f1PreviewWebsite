@@ -610,7 +610,7 @@ async function initializeDriverGrid() {
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
                         <span style="font-size: 1.1rem; font-weight: 600; cursor: pointer;">${driver.name}</span>
-                        ${standing ? `<span style="color: #888; font-size: 0.9rem;">P${standing.position} • ${standing.points} pts</span>` : ''}
+                        ${standing ? `<span style="color: #888; font-size: 0.9rem; font-family: 'Formula1-Bold', sans-serif;">P${standing.position} • ${standing.points} pts</span>` : ''}
                     </div>
                     <div style="color: #999; font-size: 0.95rem;">${driver.team}</div>
                     ${hasPreview ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: ${stakesColor}; text-transform: uppercase; font-weight: bold;">${stakesLevel} stakes</div>` : ''}
