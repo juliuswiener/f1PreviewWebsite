@@ -408,36 +408,29 @@ async def generate_gp_header_image(client, circuit, gp_name):
 
     prompt = f"""Create a dramatic, cinematic header image for the {gp_name}.
 
-    Style: Modern F1 aesthetic with dynamic lighting, showing the iconic elements of {circuit} circuit.
-    Include: Track elements, atmosphere of the location, F1 cars in motion blur.
-    Mood: Exciting, professional, high-energy racing atmosphere.
-    Composition: Wide landscape banner suitable for website header.
-    No text or logos - pure visual imagery with dark tones."""
+Style: Modern F1 aesthetic with dynamic lighting, showing the iconic elements of {circuit} circuit.
+Include: Track elements, atmosphere of the location, F1 cars in motion blur.
+Mood: Exciting, professional, high-energy racing atmosphere.
+Composition: Wide landscape banner suitable for website header.
+No text or logos - pure visual imagery with dark tones."""
 
     try:
-        response = await client.responses.create(
-            model=MODEL,
-            input=prompt,
-            tools=[{
-                "type": "image_generation",
-                "size": "1536x1024",  # Landscape format for header
-                "quality": "high",
-                "format": "webp",
-                "compression": 80
-            }],
+        response = await client.images.generate(
+            model="gpt-image-1",
+            prompt=prompt,
+            size="1536x1024",  # Landscape format for header
+            quality="high",
+            output_format="webp",
+            output_compression=80,
+            n=1
         )
 
         # Extract image data
-        image_data = [
-            output.result
-            for output in response.output
-            if output.type == "image_generation_call"
-        ]
-
-        if image_data:
-            image_base64 = image_data[0]
+        if response.data and len(response.data) > 0:
+            image_base64 = response.data[0].b64_json
+            image_bytes = base64.b64decode(image_base64)
             with open("gp_header.webp", "wb") as f:
-                f.write(base64.b64decode(image_base64))
+                f.write(image_bytes)
             print(f"   ✓ Header image saved to gp_header.webp")
             return True
         else:
