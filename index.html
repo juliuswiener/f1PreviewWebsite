@@ -434,8 +434,13 @@
 
     <div class="container">
         <div class="control-panel" id="race-info" style="display: none;">
-            <h2 id="race-title">Race Weekend Preview</h2>
-            <p id="race-subtitle" style="color: #ccc; margin-top: 0.5rem;"></p>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+                <h2 id="race-title" style="margin: 0;">Race Weekend Preview</h2>
+                <span id="race-date" style="color: #ccc; font-size: 1.1rem;"></span>
+            </div>
+            <div id="race-schedule" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; font-size: 0.9rem;">
+                <!-- Schedule will be populated here -->
+            </div>
         </div>
 
         <div class="control-panel" id="prompt-editor" style="display: none;">

@@ -133,6 +133,61 @@ function createEmptyGeneratedData() {
 
 var generatedData = createEmptyGeneratedData();
 
+// F1 Connect API for schedule data
+async function fetchRaceSchedule(circuit, season, raceDate) {
+    try {
+        // Fetch current season races to find the matching event
+        const response = await fetch(`https://f1connectapi.vercel.app/api/${season}`);
+        const data = await response.json();
+
+        // Find the race matching our date or circuit
+        const race = data.race?.find(r =>
+            r.schedule?.race?.date === raceDate ||
+            r.circuit?.circuitName?.toLowerCase().includes(circuit.toLowerCase())
+        );
+
+        if (race && race.schedule) {
+            const schedule = race.schedule;
+            const scheduleContainer = document.getElementById('race-schedule');
+
+            // Convert UTC times to CEST/CET
+            const formatDateTime = (dateStr, timeStr) => {
+                if (!dateStr) return null;
+                const date = new Date(dateStr + (timeStr ? 'T' + timeStr : ''));
+                const options = {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: timeStr ? '2-digit' : undefined,
+                    minute: timeStr ? '2-digit' : undefined,
+                    timeZone: 'Europe/Berlin',
+                    timeZoneName: 'short'
+                };
+                return date.toLocaleString('en-US', options);
+            };
+
+            const sessions = [
+                { name: 'FP1', date: schedule.fp1?.date, time: schedule.fp1?.time },
+                { name: 'FP2', date: schedule.fp2?.date, time: schedule.fp2?.time },
+                { name: 'FP3', date: schedule.fp3?.date, time: schedule.fp3?.time },
+                { name: 'Sprint Quali', date: schedule.sprintQualy?.date, time: schedule.sprintQualy?.time },
+                { name: 'Sprint', date: schedule.sprintRace?.date, time: schedule.sprintRace?.time },
+                { name: 'Qualifying', date: schedule.qualy?.date, time: schedule.qualy?.time },
+                { name: 'Race', date: schedule.race?.date, time: schedule.race?.time }
+            ].filter(s => s.date); // Only show sessions that have dates
+
+            scheduleContainer.innerHTML = sessions.map(s => `
+                <div style="background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 8px; border-left: 3px solid #e10600;">
+                    <div style="color: #e10600; font-weight: 600; margin-bottom: 0.25rem;">${s.name}</div>
+                    <div style="color: #ccc; font-size: 0.85rem;">${formatDateTime(s.date, s.time) || s.date}</div>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Failed to fetch race schedule:', error);
+    }
+}
+
 // OpenF1 API Integration
 const openF1API = {
     baseURL: 'https://api.openf1.org/v1',
@@ -253,7 +308,7 @@ async function loadPreviewData() {
             // Update race info display
             const raceInfo = document.getElementById('race-info');
             const raceTitle = document.getElementById('race-title');
-            const raceSubtitle = document.getElementById('race-subtitle');
+            const raceDate = document.getElementById('race-date');
 
             if (data.metadata) {
                 const circuitName = data.metadata.circuit || 'Unknown';
@@ -261,8 +316,11 @@ async function loadPreviewData() {
                 const date = data.metadata.date || '';
 
                 raceTitle.textContent = `${circuitName.toUpperCase()} GP ${season}`;
-                raceSubtitle.textContent = `Race Weekend: ${date}`;
+                raceDate.textContent = date;
                 raceInfo.style.display = 'block';
+
+                // Fetch and display schedule
+                fetchRaceSchedule(circuitName, season, date);
             }
 
             renderAllContent();
