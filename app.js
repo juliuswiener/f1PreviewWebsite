@@ -859,42 +859,66 @@ async function viewDriver(driverName) {
 
     modalName.textContent = `${driverName} - #${driver.number} ${driver.team}`;
 
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+    const teamColor = teamColors[driver.team] || '#e10600';
+
     // Show loading state for OpenF1 data
     modalContent.innerHTML = `
         <div class="driver-preview">
-            <h3>TL;DR</h3>
-            <div class="tldr">${preview.tldr}</div>
+            <div style="background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
+                <div class="tldr" style="font-size: 1.05rem; line-height: 1.6;">${preview.tldr}</div>
+            </div>
 
-            <h3 style="margin-top: 1.5rem;">Full Analysis</h3>
-            <div class="full-text">${preview.full}</div>
+            <h3 style="color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
+            <div class="full-text" style="color: #ddd; line-height: 1.8;">
+                ${simpleMarkdownToHtml(preview.full)}
+            </div>
 
             <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div style="background: rgba(0, 255, 0, 0.1); padding: 1rem; border-radius: 6px;">
-                    <strong style="color: #00ff88;">Perfect Weekend:</strong><br>
-                    Quali: ${preview.perfect_quali || 'N/A'}<br>
-                    Race: ${preview.perfect_race || 'N/A'}
+                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+                    <strong style="color: #00ff88; font-size: 1.1rem;">Perfect Weekend</strong><br>
+                    <div style="margin-top: 0.75rem; color: #ccc;">
+                        <div style="margin-bottom: 0.5rem;">🏁 Quali: ${preview.perfect_quali || 'N/A'}</div>
+                        <div>🏆 Race: ${preview.perfect_race || 'N/A'}</div>
+                    </div>
                 </div>
-                <div style="background: rgba(255, 165, 0, 0.1); padding: 1rem; border-radius: 6px;">
-                    <strong style="color: #ffaa00;">Good Weekend:</strong><br>
-                    Quali: ${preview.good_quali || 'N/A'}<br>
-                    Race: ${preview.good_race || 'N/A'}
+                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+                    <strong style="color: #ffaa00; font-size: 1.1rem;">Good Weekend</strong><br>
+                    <div style="margin-top: 0.75rem; color: #ccc;">
+                        <div style="margin-bottom: 0.5rem;">🏁 Quali: ${preview.good_quali || 'N/A'}</div>
+                        <div>🏆 Race: ${preview.good_race || 'N/A'}</div>
+                    </div>
                 </div>
             </div>
 
             ${preview.key_strengths ? `
-                <div style="margin-top: 1rem;">
-                    <strong>Key Strengths:</strong> ${preview.key_strengths.join(', ')}
+                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
+                    <strong style="color: ${teamColor};">Key Strengths:</strong>
+                    <div style="margin-top: 0.5rem; color: #ddd;">${preview.key_strengths.join(' • ')}</div>
                 </div>
             ` : ''}
 
             ${preview.watch_for ? `
-                <div style="margin-top: 1rem; background: rgba(225, 6, 0, 0.1); padding: 1rem; border-radius: 6px;">
-                    <strong style="color: #ff1e00;">Watch For:</strong> ${preview.watch_for}
+                <div style="margin-top: 1.5rem; background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px;">
+                    <strong style="color: ${teamColor}; font-size: 1.1rem;">Watch For:</strong>
+                    <div style="margin-top: 0.5rem; color: #ddd;">${preview.watch_for}</div>
                 </div>
             ` : ''}
 
-            <div style="margin-top: 1rem; text-align: center; color: #666;">
-                Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold;">${preview.stakes_level || 'Medium'}</span>
+            <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #1a1a1a; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+                Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold; font-size: 1.2rem;">${preview.stakes_level || 'Medium'}</span>
             </div>
 
             <div id="openf1-data" style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px;">
@@ -923,6 +947,31 @@ async function viewDriver(driverName) {
             openf1Container.innerHTML = '<div style="text-align: center; color: #666;">Unable to load recent results</div>';
         }
     }
+}
+
+function simpleMarkdownToHtml(markdown) {
+    if (!markdown) return '';
+
+    // Convert markdown to HTML
+    let html = markdown
+        // Headers
+        .replace(/^### (.*$)/gim, '<h4 style="color: #ccc; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1rem;">$1</h4>')
+        .replace(/^## (.*$)/gim, '<h3 style="color: #e10600; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.2rem;">$1</h3>')
+        .replace(/^# (.*$)/gim, '<h2 style="color: #fff; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 1.4rem;">$1</h2>')
+        // Bold
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        // Italic
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        // Line breaks
+        .replace(/\n\n/g, '</p><p style="margin-bottom: 1rem; line-height: 1.6;">')
+        .replace(/\n/g, '<br>');
+
+    // Wrap in paragraph if not already wrapped
+    if (!html.startsWith('<h') && !html.startsWith('<p')) {
+        html = '<p style="margin-bottom: 1rem; line-height: 1.6;">' + html + '</p>';
+    }
+
+    return html;
 }
 
 function getCircuitFlag(circuitName) {

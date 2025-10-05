@@ -125,7 +125,20 @@ Format your response EXACTLY as follows:
 
 TLDR: [2-3 punchy sentences about what to watch for with this driver]
 
-FULL: [Detailed 150-200 word analysis covering current form, track suitability, stakes, and what would constitute a good weekend]
+FULL: [Write in clean, structured markdown format with the following sections:
+
+## Current Form
+[2-3 sentences on recent race results, championship position, and momentum]
+
+## Circuit History & Strengths
+[2-3 sentences on past performance here and why their driving style suits/doesn't suit this track]
+
+## This Weekend's Brief
+[2-3 sentences on specific goals, strategy considerations, and what a good result looks like]
+
+## The Stakes
+[1-2 sentences on what this race means for championship, contract, or team dynamics]
+]
 
 STAKES: [high/medium/low]
 
