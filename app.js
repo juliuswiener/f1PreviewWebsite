@@ -492,7 +492,7 @@ function initializeDriverGrid() {
                      onerror="this.style.display='none'">
                 <img src="${getDriverNumberImageUrl(driver.name)}"
                      alt="#${driver.number}"
-                     style="width: 60px; height: auto; filter: drop-shadow(0 2px 6px ${teamColor}80); z-index: 1;"
+                     style="height: 40px; width: auto; filter: drop-shadow(0 2px 6px ${teamColor}80); z-index: 1;"
                      onerror="this.outerHTML='<span style=\\'font-size: 1.2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</span>'">
                 <div style="flex: 1; cursor: pointer; z-index: 1;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
