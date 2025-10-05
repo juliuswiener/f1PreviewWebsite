@@ -1234,11 +1234,6 @@ async function fetchStandingsData() {
     const driverPoints = {};
     const standingsData = {};
 
-    // Points system for positions
-    const pointsMap = {
-        1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1
-    };
-
     for (let round = 1; round <= latestRound; round++) {
         const raceResponse = await fetch(`https://f1api.dev/api/2025/${round}/race`);
         const raceData = await raceResponse.json();
@@ -1252,11 +1247,8 @@ async function fetchStandingsData() {
                     driverPoints[displayName] = 0;
                 }
 
-                // Add points for this race
-                const position = parseInt(result.position);
-                if (!isNaN(position) && pointsMap[position]) {
-                    driverPoints[displayName] += pointsMap[position];
-                }
+                // Add points from API (already includes sprint points, fastest lap bonus, etc.)
+                driverPoints[displayName] += result.points || 0;
 
                 // Initialize driver data
                 if (!standingsData[displayName]) {
