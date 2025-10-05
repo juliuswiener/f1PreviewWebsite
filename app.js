@@ -182,7 +182,8 @@ const openF1API = {
                 });
             }
         }
-        return results;
+        // Sort by date to ensure chronological order
+        return results.sort((a, b) => new Date(a.date) - new Date(b.date));
     },
 
     async getRaceResults(driverNumber, year = 2025) {
@@ -203,7 +204,8 @@ const openF1API = {
                 });
             }
         }
-        return results;
+        // Sort by date to ensure chronological order
+        return results.sort((a, b) => new Date(a.date) - new Date(b.date));
     },
 
     async getStartingGrid(sessionKey) {
@@ -771,6 +773,36 @@ function getDriverNumberImageUrl(driverName) {
     return `https://media.formula1.com/image/upload/c_fit,w_876,h_742/q_auto/v1740000000/common/f1/2025/${info.team}/${info.code}/2025${info.team}${info.code}numberwhitefrless.webp`;
 }
 
+function getTeamLogoUrl(driverName) {
+    const driverInfo = {
+        'Max Verstappen': { team: 'redbullracing' },
+        'Yuki Tsunoda': { team: 'redbullracing' },
+        'Lewis Hamilton': { team: 'ferrari' },
+        'Charles Leclerc': { team: 'ferrari' },
+        'Lando Norris': { team: 'mclaren' },
+        'Oscar Piastri': { team: 'mclaren' },
+        'George Russell': { team: 'mercedes' },
+        'Kimi Antonelli': { team: 'mercedes' },
+        'Fernando Alonso': { team: 'astonmartin' },
+        'Lance Stroll': { team: 'astonmartin' },
+        'Pierre Gasly': { team: 'alpine' },
+        'Franco Colapinto': { team: 'alpine' },
+        'Esteban Ocon': { team: 'haas' },
+        'Oliver Bearman': { team: 'haas' },
+        'Alex Albon': { team: 'williams' },
+        'Carlos Sainz': { team: 'williams' },
+        'Liam Lawson': { team: 'racingbulls' },
+        'Isack Hadjar': { team: 'racingbulls' },
+        'Nico Hulkenberg': { team: 'sauber' },
+        'Gabriel Bortoleto': { team: 'sauber' }
+    };
+
+    const info = driverInfo[driverName];
+    if (!info) return null;
+
+    return `https://media.formula1.com/image/upload/c_lfill,w_48/q_auto/v1740000000/common/f1/2025/${info.team}/2025${info.team}logo.webp`;
+}
+
 function renderHighlights() {
     const content = document.getElementById('highlights-content');
 
@@ -918,9 +950,15 @@ async function viewDriver(driverName) {
                     <div style="text-align: center; margin-top: 1rem; padding: 0.75rem; background: #1a1a1a; border-radius: 12px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
                         <img src="${getDriverNumberImageUrl(driverName)}"
                              alt="#${driver.number}"
-                             style="width: 80%; height: auto; filter: drop-shadow(0 4px 8px ${teamColor}80);"
+                             style="width: 40%; height: auto; filter: drop-shadow(0 4px 8px ${teamColor}80);"
                              onerror="this.innerHTML='<div style=\\'font-size: 2rem; font-weight: bold; color: ${teamColor};\\'>##${driver.number}</div>'">
-                        <div style="color: #ccc; margin-top: 0.5rem; font-size: 0.9rem;">${driver.team}</div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.75rem;">
+                            <img src="${getTeamLogoUrl(driverName)}"
+                                 alt="${driver.team}"
+                                 style="width: 32px; height: auto;"
+                                 onerror="this.style.display='none'">
+                            <div style="color: #ccc; font-size: 0.9rem;">${driver.team}</div>
+                        </div>
                     </div>
 
                     <!-- Fetch OpenF1 data for pearl display -->
@@ -979,10 +1017,6 @@ async function viewDriver(driverName) {
             <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #1a1a1a; border-radius: 16px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
                 Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold; font-size: 1.2rem;">${preview.stakes_level || 'Medium'}</span>
             </div>
-
-        <div id="openf1-data" style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px;">
-            <div style="text-align: center; color: #666;">Loading recent results...</div>
-        </div>
     `;
 
     modal.style.display = 'block';
@@ -1035,13 +1069,14 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
                     ${results.slice(-6).map(result => {
                         const isDNF = result.dnf || result.dns;
                         const isP1 = result.position === 1;
-                        // Smaller pearls: P1 = 45px, P20 = 20px, DNF = 22px
-                        const size = isDNF ? 22 : isP1 ? 45 : Math.max(20, 45 - (result.position * 1.3));
+                        // Smaller pearls: P1 = 38px, P2-3 = 32px, P4-10 = 28px, P11+ = 24px, DNF = 24px
+                        const size = isDNF ? 24 : isP1 ? 38 : result.position <= 3 ? 32 : result.position <= 10 ? 28 : 24;
                         const color = result.dnf ? '#ff0000' : result.dns ? '#666' : isP1 ? '#FFD700' : result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
                         const label = result.dnf ? 'DNF' : result.dns ? 'DNS' : `P${result.position}`;
-                        const fontSize = isDNF ? '0.6rem' : isP1 ? '0.85rem' : `${Math.max(0.6, size / 35)}rem`;
+                        // Fixed font sizes: P1 larger, others proportional
+                        const fontSize = isDNF ? '0.6rem' : isP1 ? '0.95rem' : result.position <= 3 ? '0.8rem' : result.position <= 9 ? '0.75rem' : '0.7rem';
                         return `
-                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1; margin: 0 0.15rem;">
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1; margin: 0 0.5rem;">
                                 <div style="
                                     width: ${size}px;
                                     height: ${size}px;
@@ -1061,7 +1096,7 @@ function renderCompactPearls(qualiResults, raceResults, driver) {
                                 ">
                                     ${label}
                                 </div>
-                                <div style="font-size: 0.9rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
+                                <div style="font-size: 0.85rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
