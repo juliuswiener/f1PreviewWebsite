@@ -733,8 +733,8 @@ function getDriverImageUrl(driverName, angle = 'right') {
         'Carlos Sainz': { team: 'williams', code: 'carsai01' },
         'Liam Lawson': { team: 'racingbulls', code: 'lialaw01' },
         'Isack Hadjar': { team: 'racingbulls', code: 'isahad01' },
-        'Nico Hulkenberg': { team: 'sauber', code: 'nichul01' },
-        'Gabriel Bortoleto': { team: 'sauber', code: 'gabbor01' }
+        'Nico Hulkenberg': { team: 'kicksauber', code: 'nichul01' },
+        'Gabriel Bortoleto': { team: 'kicksauber', code: 'gabbor01' }
     };
 
     const info = driverInfo[driverName];
@@ -763,8 +763,8 @@ function getDriverNumberImageUrl(driverName) {
         'Carlos Sainz': { team: 'williams', code: 'carsai01' },
         'Liam Lawson': { team: 'racingbulls', code: 'lialaw01' },
         'Isack Hadjar': { team: 'racingbulls', code: 'isahad01' },
-        'Nico Hulkenberg': { team: 'sauber', code: 'nichul01' },
-        'Gabriel Bortoleto': { team: 'sauber', code: 'gabbor01' }
+        'Nico Hulkenberg': { team: 'kicksauber', code: 'nichul01' },
+        'Gabriel Bortoleto': { team: 'kicksauber', code: 'gabbor01' }
     };
 
     const info = driverInfo[driverName];
