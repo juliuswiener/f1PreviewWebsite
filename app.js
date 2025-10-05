@@ -751,6 +751,7 @@ async function generateAllPreviews() {
 function renderAllContent() {
     renderHighlights();
     renderUnderdogs();
+    renderPrediction();
     initializeDriverGrid();
 }
 
@@ -1122,6 +1123,96 @@ function renderUnderdogs() {
                 `;
             }).join('')}
         </div>
+    `;
+}
+
+async function generatePrediction() {
+    const content = document.getElementById('prediction-content');
+    const driverPreviews = Object.entries(generatedData.drivers);
+
+    if (driverPreviews.length === 0) {
+        alert('Please generate driver previews first');
+        return;
+    }
+
+    content.innerHTML = '<div style="text-align: center; padding: 2rem;"><div class="spinner"></div><p style="margin-top: 1rem;">Generating AI predictions...</p></div>';
+
+    try {
+        const apiKey = document.getElementById('api-key').value;
+        const model = document.getElementById('model').value || 'gpt-4o-mini';
+        const temperature = parseFloat(document.getElementById('temperature').value) || 0.7;
+
+        if (!apiKey) {
+            alert('Please set your OpenAI API key in the settings');
+            return;
+        }
+
+        // Compile all driver previews into a single context
+        const allPreviewsText = driverPreviews.map(([name, preview]) => {
+            const driver = drivers2025.find(d => d.name === name);
+            return `**${name}** (${driver?.team || 'Unknown Team'}):
+${preview.full}
+
+Stakes: ${preview.stakes_level}
+Perfect Result: Quali ${preview.perfect_quali}, Race ${preview.perfect_race}
+Good Result: Quali ${preview.good_quali}, Race ${preview.good_race}
+`;
+        }).join('\n---\n\n');
+
+        const circuit = generatedData.metadata?.circuit || 'Unknown Circuit';
+        const raceDate = generatedData.metadata?.date || 'Unknown Date';
+
+        const prompt = `Based on these detailed driver previews for the ${circuit} Grand Prix on ${raceDate}, provide your race weekend predictions.
+
+Driver Previews:
+${allPreviewsText}
+
+Provide predictions in markdown format as a numbered list including:
+1. **Qualifying Top 3** - Who will take pole, P2, P3 and why
+2. **Race Podium** - Predicted race winner and podium finishers with reasoning
+3. **Driver of the Weekend** - Who will have the standout performance
+4. **Dark Horse** - Which driver could surprise and outperform expectations
+5. **Key Battle** - The most exciting head-to-head fight to watch
+6. **Bold Prediction** - One surprising or controversial prediction
+
+Be specific, use driver names, and explain your reasoning based on the preview data.`;
+
+        const response = await callOpenAI(apiKey, model, temperature, prompt);
+
+        generatedData.prediction = response;
+        saveData();
+        renderPrediction();
+    } catch (error) {
+        console.error('Error generating prediction:', error);
+        content.innerHTML = '<div class="empty-state"><p>Error generating prediction. Check console for details.</p></div>';
+    }
+}
+
+function renderPrediction() {
+    const content = document.getElementById('prediction-content');
+
+    if (!generatedData.prediction) {
+        content.innerHTML = `
+            <div class="empty-state">
+                <p>Generate driver previews first, then click "Generate AI Prediction" to get race predictions</p>
+            </div>
+            <button class="generate-btn" onclick="generatePrediction()" style="margin-top: 1rem;">
+                Generate AI Prediction
+            </button>
+        `;
+        return;
+    }
+
+    content.innerHTML = `
+        <div style="background: #1a1a1a; padding: 2rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); margin-bottom: 2rem; border-top: 3px solid #e10600;">
+            <h2 style="color: #e10600; margin-bottom: 1.5rem; font-family: 'Formula1', sans-serif;">AI Race Prediction</h2>
+            <div style="color: #ddd; line-height: 1.8;">
+                ${simpleMarkdownToHtml(generatedData.prediction)}
+            </div>
+        </div>
+        <button class="generate-btn" onclick="generatePrediction()" style="margin-top: 1rem;">
+            Regenerate Prediction
+        </button>
     `;
 }
 
