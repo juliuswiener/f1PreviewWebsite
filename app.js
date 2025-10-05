@@ -1032,15 +1032,34 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
         ${qualiResults.length > 0 ? `
             <div style="margin-bottom: 3rem;">
                 <h4 style="color: #ccc; margin-bottom: 1.5rem;">Qualifying Results</h4>
-                <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
+                <div style="display: flex; align-items: center; justify-content: space-around; position: relative; padding: 2rem 0;">
+                    <!-- Connection line -->
+                    <div style="position: absolute; top: 50%; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, ${teamColor}40 0%, ${teamColor}20 50%, ${teamColor}40 100%); z-index: 0;"></div>
+
                     ${qualiResults.slice(-8).map(result => {
-                        const height = Math.max(10, 100 - (result.position * 4));
+                        // Size based on position: P1 = 70px, P20 = 30px
+                        const size = Math.max(30, 70 - (result.position * 2));
                         const color = result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
                         return `
-                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                                <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">P${result.position}</div>
-                                <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
-                                <div style="font-size: 1.2rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1;">
+                                <div style="
+                                    width: ${size}px;
+                                    height: ${size}px;
+                                    border-radius: 50%;
+                                    background: ${color};
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: bold;
+                                    font-size: ${Math.max(0.8, size / 50)}rem;
+                                    color: #000;
+                                    box-shadow: 0 4px 12px ${color}80, inset 0 2px 4px rgba(255,255,255,0.3);
+                                    border: 2px solid ${color};
+                                    position: relative;
+                                ">
+                                    P${result.position}
+                                </div>
+                                <div style="font-size: 1.2rem; margin-top: 0.5rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
@@ -1051,16 +1070,38 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
         ${raceResults.length > 0 ? `
             <div>
                 <h4 style="color: #ccc; margin-bottom: 1.5rem;">Race Results</h4>
-                <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
+                <div style="display: flex; align-items: center; justify-content: space-around; position: relative; padding: 2rem 0;">
+                    <!-- Connection line -->
+                    <div style="position: absolute; top: 50%; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, ${teamColor}40 0%, ${teamColor}20 50%, ${teamColor}40 100%); z-index: 0;"></div>
+
                     ${raceResults.slice(-8).map(result => {
-                        const height = result.dnf || result.dns ? 20 : Math.max(10, 100 - (result.position * 4));
+                        const isDNF = result.dnf || result.dns;
+                        // Size based on position: P1 = 70px, P20 = 30px, DNF = 35px
+                        const size = isDNF ? 35 : Math.max(30, 70 - (result.position * 2));
                         const color = result.dnf ? '#ff0000' : result.dns ? '#666' : result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
                         const label = result.dnf ? 'DNF' : result.dns ? 'DNS' : `P${result.position}`;
+                        const fontSize = isDNF ? '0.75rem' : `${Math.max(0.8, size / 50)}rem`;
                         return `
-                            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                                <div style="font-size: 0.9rem; font-weight: bold; color: ${color}; margin-bottom: 0.25rem;">${label}</div>
-                                <div style="width: 100%; background: ${color}; height: ${height}px; border-radius: 4px 4px 0 0; transition: all 0.3s;"></div>
-                                <div style="font-size: 1.2rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1;">
+                                <div style="
+                                    width: ${size}px;
+                                    height: ${size}px;
+                                    border-radius: 50%;
+                                    background: ${color};
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: bold;
+                                    font-size: ${fontSize};
+                                    color: #000;
+                                    box-shadow: 0 4px 12px ${color}80, inset 0 2px 4px rgba(255,255,255,0.3);
+                                    border: 2px solid ${color};
+                                    position: relative;
+                                    ${isDNF ? 'opacity: 0.7;' : ''}
+                                ">
+                                    ${label}
+                                </div>
+                                <div style="font-size: 1.2rem; margin-top: 0.5rem;">${getCircuitFlag(result.circuit)}</div>
                             </div>
                         `;
                     }).join('')}
