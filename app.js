@@ -1027,11 +1027,11 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
     const teamColor = teamColors[driver.team] || '#999';
 
     return `
-        <h3 style="color: ${teamColor}; margin-bottom: 1rem;">Recent Form</h3>
+        <h3 style="color: ${teamColor}; margin-bottom: 2rem;">Recent Form</h3>
 
         ${qualiResults.length > 0 ? `
-            <div style="margin-bottom: 2rem;">
-                <h4 style="color: #ccc; margin-bottom: 0.75rem;">Qualifying Results</h4>
+            <div style="margin-bottom: 3rem;">
+                <h4 style="color: #ccc; margin-bottom: 1.5rem;">Qualifying Results</h4>
                 <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
                     ${qualiResults.slice(-8).map(result => {
                         const height = Math.max(10, 100 - (result.position * 4));
@@ -1050,7 +1050,7 @@ function renderOpenF1Graphics(qualiResults, raceResults, driver) {
 
         ${raceResults.length > 0 ? `
             <div>
-                <h4 style="color: #ccc; margin-bottom: 0.75rem;">Race Results</h4>
+                <h4 style="color: #ccc; margin-bottom: 1.5rem;">Race Results</h4>
                 <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 120px;">
                     ${raceResults.slice(-8).map(result => {
                         const height = result.dnf || result.dns ? 20 : Math.max(10, 100 - (result.position * 4));
