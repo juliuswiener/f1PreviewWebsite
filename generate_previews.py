@@ -129,11 +129,13 @@ Consider:
 - Stakes (championship position, career implications, contract situation)
 - Driver strengths and weaknesses relevant to this circuit
 - What would be a good/perfect result (qualifying and race)
+- What has the driver has to deal with off the track (contract, penalties, rivals, personal)
+- What technical updates/changes has the team planned
+- Have they struggled recently with something specific
+- What have they recently said about the car
 - **IF SESSION RESULTS PROVIDED**: How this driver performed in completed sessions (practice/qualifying) and what it means for the race
 
 Format your response EXACTLY as follows:
-
-TLDR: [2-3 punchy sentences about what to watch for with this driver]
 
 FULL: [Write in clean, structured markdown format with the following sections:
 
@@ -142,6 +144,12 @@ FULL: [Write in clean, structured markdown format with the following sections:
 
 ## Circuit History & Strengths
 [2-3 sentences on past performance here and why their driving style suits/doesn't suit this track]
+
+## Situation
+[2-3 sentences on the current situation for the driver. What do the have to deal with]
+
+## Chances
+[2-3 sentences on what they can gain here. What are the chances they can capatilize on.]
 
 ## This Weekend's Brief
 [2-3 sentences on specific goals, strategy considerations, and what a good result looks like]

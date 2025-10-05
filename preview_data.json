@@ -1,304 +1,304 @@
 {
   "drivers": {
     "Max Verstappen": {
-      "tldr": "Verstappen arrives in Austin off a hot run \u2014 P2 in Singapore after back\u2011to\u2011back wins at Monza and Baku \u2014 and COTA is historically one of his best tracks. With a Sprint on tap and harder C1/C3/C4 tyres, watch Red Bull lean on Max\u2019s late\u2011braking and tyre control to claw back ground in the title fight.",
-      "full": "## Current Form\n- Last 5 GPs: P2 Singapore (Oct 5), P1 Azerbaijan (Sep 21), P1 Italy/Monza (Sep 7), P2 Netherlands/Zandvoort (Aug 31), P4 Belgium/Spa (Jul 27).  \n- Championship: P3 on 273 pts, 63 behind leader Oscar Piastri after Singapore. Momentum is positive with two wins in the last three races.",
+      "tldr": "",
+      "full": "## Current Form\nFresh off P2 in Singapore on October 5, Verstappen arrives in Austin with strong momentum after back\u2011to\u2011back wins at Monza (September 7) and Baku (September 21), plus P2 at Zandvoort preceding that run. He sits third in the standings on 273 points, 63 behind leader Oscar Piastri, with Austin\u2019s Sprint format offering extra scoring chances.",
       "stakes_level": "high",
       "perfect_quali": "Pole position",
-      "perfect_race": "Victory (plus Sprint win)",
+      "perfect_race": "Victory",
       "good_quali": "P2\u2013P3",
-      "good_race": "Podium finish (plus top\u20114 in Sprint)",
+      "good_race": "Podium finish",
       "key_strengths": [
-        "Late\u2011braking control into T1/T12",
-        "high\u2011speed change of direction through the Esses",
-        "tyre/pace management over long stints"
+        "Late\u2011braking precision into T1/T12",
+        "tyre management over high\u2011deg stints",
+        "adaptability through high\u2011speed direction changes"
       ],
-      "watch_for": "How aggressively Red Bull trims rear wing to defend/attack into T12 \u2014 balancing top\u2011speed for DRS with stability through T16\u201118 could decide his race."
+      "watch_for": "Whether Red Bull\u2019s Monza floor + Singapore front\u2011wing tweaks translate into consistent front\u2011end bite through the Esses \u2014 and if the Singapore downshift issue stays resolved."
     },
     "Yuki Tsunoda": {
-      "tldr": "Tsunoda comes to Austin off a mixed run \u2014 P9 (Zandvoort), P13 (Monza), P6 (Baku) and P12 (Singapore) \u2014 but COTA has been kind to him before. Watch whether he can qualify inside the top 10, then use late\u2011braking moves into T1/T12 and tyre management to turn it into points.",
-      "full": "## Current Form\nSince his early\u2011season promotion to Red Bull, Tsunoda\u2019s recent form is trending slightly upward: P9 at Zandvoort, P13 at Monza, P6 at Baku and P12 in Singapore. He sits on 20 points and around the lower mid\u2011teens in the standings heading to Austin.",
-      "stakes_level": "high",
-      "perfect_quali": "P7\u2013P9 (strong Q3)",
+      "tldr": "",
+      "full": "## Current Form\nTsunoda arrives in Austin off a mixed five\u2011race run: P13 Belgium, P9 Netherlands, P13 Italy (Monza), P6 Azerbaijan (his Red Bull best), and P12 Singapore. He sits on 20 points heading into COTA, with Red Bull fourth in the Constructors\u2019 standings behind Ferrari.",
+      "stakes_level": "medium",
+      "perfect_quali": "P4\u2013P6",
       "perfect_race": "P5\u2013P6",
-      "good_quali": "P10\u2013P12",
-      "good_race": "Points finish (P8\u2013P10)",
+      "good_quali": "P8\u2013P10",
+      "good_race": "Points finish (P7\u2013P10)",
       "key_strengths": [
-        "Late braking into hairpins (T1/T12)",
-        "agility through high\u2011speed direction changes (T3\u20116)",
-        "defensive racecraft/tyre care"
+        "Late\u2011braking overtakes into heavy stops",
+        "quick change\u2011of\u2011direction through high\u2011speed esses",
+        "improving tyre/pace management over long stints"
       ],
-      "watch_for": "Whether he can qualify inside the top 10 on Saturday to open up double\u2011points potential across the Sprint and Grand Prix."
+      "watch_for": "Whether Tsunoda has the latest front\u2011wing/floor spec seen on Verstappen\u2019s car since Singapore \u2014 if yes, one\u2011lap jump into SQ3/Q3 is on the cards."
     },
     "Lewis Hamilton": {
-      "tldr": "Hamilton returns to one of his best tracks with five COTA wins in his pocket, but Ferrari\u2019s 2025 inconsistency means execution and setup margins will decide everything. Recent form is mixed (P8 Singapore with a penalty, P6 Monza, DNF Zandvoort), so a clean Sprint weekend and strong qualy could put him back in podium contention. Watch ride\u2011height/brake management after recent penalties and issues.",
-      "full": "## Current Form\n- Last five GPs: Singapore P8 after a 5s track\u2011limits penalty; Italy P6; Dutch GP DNF; Hungary P12; Belgium P7. Momentum is steady-but-unspectacular, with the highlight of a strong recovery to P7 at Spa.  \n- Championship picture: Hamilton sits P6 on 127 points; Ferrari are P3 in the Constructors (300) in a tight fight with Red Bull (290) and behind Mercedes (325). McLaren clinched the title in Singapore.",
+      "tldr": "",
+      "full": "## Current Form\nHamilton arrives in Austin off P8 in Singapore after a late five\u2011second penalty for repeated track limits while nursing brake issues; before that he was P8 in Azerbaijan, P6 in Italy, DNF in the Netherlands and P12 in Hungary. He sits P6 in the Drivers\u2019 standings on 127 points, with Ferrari third in the Constructors\u2019. Momentum is modest but he showed flashes earlier this year with a Sprint win in China.",
       "stakes_level": "medium",
-      "perfect_quali": "P3\u2013P4",
+      "perfect_quali": "P3\u2013P5",
       "perfect_race": "Podium finish",
-      "good_quali": "P5\u2013P7",
-      "good_race": "P5\u2013P8",
+      "good_quali": "P6\u2013P8",
+      "good_race": "P5\u2013P7",
       "key_strengths": [
         "Late\u2011braking racecraft into T1/T12",
-        "high\u2011speed direction changes through the Esses",
-        "tyre and pace management over long green\u2011flag runs"
+        "tyre management over long stints",
+        "high\u2011speed direction change through the Esses"
       ],
-      "watch_for": "Ferrari leaving extra ride\u2011height/plank\u2011wear margin at a bumpy COTA\u2014without sacrificing Hamilton\u2019s kerb aggression\u2014after that 2023 DSQ reminder and recent brake concerns."
+      "watch_for": "Ferrari\u2019s brake temperature/consistency management into T12 and T1 after Singapore\u2019s issues and the season\u2011long \u201clottery\u201d concern."
     },
     "Charles Leclerc": {
-      "tldr": "Leclerc arrives in Austin on a steady but unspectacular run \u2014 P6 in Singapore after P9 in Baku \u2014 with Ferrari still chasing outright pace. His COTA pedigree is strong (2019 race lap record, 2024 win), so a clean Sprint weekend and sharp quali could put him in podium contention even if raw race pace trails McLaren.",
-      "full": "## Current Form\n- Results last five: P6 Singapore, P9 Baku, P4 Monza, DNF Zandvoort, P4 Hungary (from pole). Spa was his most recent podium (P3). That puts him P5 in the standings on 173 points heading to Austin.  \n- Mood music: Leclerc called the Ferrari \u201cunpredictable\u201d in Singapore qualifying and, earlier in the week, cautioned that a 2025 race win is unlikely \u2014 underscoring realistic goals for COTA.",
+      "tldr": "",
+      "full": "## Current Form\nLeclerc arrives with mixed but stabilizing form: P6 in Singapore (Oct 5), after P9 in Baku, P4 at Monza, a DNF at Zandvoort, and P3 at Spa. He sits 5th in the Drivers\u2019 standings on 173 points as McLaren clinched the Constructors\u2019 title in Singapore. Momentum is steady top\u2011six pace with an occasional podium when conditions swing his way.",
       "stakes_level": "medium",
       "perfect_quali": "P1\u2013P3",
       "perfect_race": "Podium finish",
       "good_quali": "P4\u2013P6",
-      "good_race": "P5\u2013P6",
+      "good_race": "P4\u2013P6",
       "key_strengths": [
-        "Precision in high\u2011speed direction changes",
-        "late\u2011braking consistency into T1/T12",
-        "qualifying lap extraction"
+        "Late\u2011braking into T1/T12",
+        "high\u2011speed change\u2011of\u2011direction in the Esses",
+        "qualifying lap execution"
       ],
-      "watch_for": "Whether Ferrari\u2019s rear\u2011suspension update tames the bumps and improves traction out of T11 \u2014 the key to making DRS passes into T12 stick over a long green run."
+      "watch_for": "Ferrari\u2019s brake cooling and ride\u2011height choices after Singapore\u2014if they keep temps in check and avoid plank\u2011wear sensitivity, Leclerc\u2019s race pace at T12/T16\u201118 could put a podium in play."
     },
     "Lando Norris": {
-      "tldr": "Norris arrives in Austin 22 points behind team-mate Piastri after a steady P3 in Singapore capped a mixed run of P2\u2013DNF\u2013P2\u2013P7\u2013P3. With Sprint points on offer and McLaren letting their drivers race after the Singapore flashpoint, expect full attack into T1/T12.",
-      "full": "## Current Form\n- Last five GPs: Belgium P2, Netherlands DNF (mechanical), Italy P2, Azerbaijan P7, Singapore P3. He sits P2 in the championship on 314 points, 22 behind Piastri, with Verstappen third. McLaren clinched the Constructors\u2019 title in Singapore.",
+      "tldr": "",
+      "full": "## Current Form\nNorris arrives in Austin on a strong run: P3 in Singapore (after late pressure on Verstappen), P7 in Baku, P2 at Monza, DNF late with a mechanical issue at Zandvoort, and P2 at Spa. He sits P2 in the Drivers\u2019 standings, 22 points behind teammate Oscar Piastri, with McLaren having clinched the Constructors\u2019 title in Singapore.",
       "stakes_level": "high",
       "perfect_quali": "Pole position",
       "perfect_race": "Victory",
-      "good_quali": "P1\u2013P3",
+      "good_quali": "P2\u2013P3",
       "good_race": "Podium finish",
       "key_strengths": [
-        "Late braking into T1/T12",
-        "high\u2011speed change of direction through the Esses",
-        "tyre management over multi\u2011stop stints"
+        "High\u2011speed change\u2011of\u2011direction (T3\u20136)",
+        "confident late\u2011braking into T1/T12",
+        "tyre management over long green runs"
       ],
-      "watch_for": "How McLaren manage Norris vs Piastri after the Singapore clash\u2014particularly Norris\u2019s Lap 1 approach into T1 and any team\u2011order radio traffic."
+      "watch_for": "How McLaren handle Norris vs Piastri in the Sprint and into Turn 1 on Sunday after the Singapore flashpoint."
     },
     "Oscar Piastri": {
-      "tldr": "Piastri arrives in Austin leading the title race but fresh from a spiky Singapore, where contact with Norris and P4 cut his cushion. Watch his lap\u2011one approach into Turn 1 and how McLaren manage intra\u2011team politics across a Sprint weekend.",
-      "full": "## Current Form\n- Last five races: P4 Singapore, DNF Azerbaijan (lap\u2011one crash after a jump\u2011start), P3 Italy (after late team orders), Win Netherlands, P2 Hungary. He still leads the Drivers\u2019 Championship, with Norris the nearest challenger after Singapore.\n- Singapore also stoked tensions with Norris following robust first\u2011lap contact; stewards took no action. Expect that storyline to shadow Austin.",
+      "tldr": "",
+      "full": "## Current Form\nPiastri arrives in Austin leading the Drivers\u2019 Championship, 22 points clear of Lando Norris and 63 ahead of Max Verstappen after finishing P4 in Singapore, where McLaren sealed the Constructors\u2019 title. His last five GPs: win at Spa, win at Zandvoort, P3 at Monza (after late team-orders context), DNF in Baku (jump-start/mistake then Turn 5 crash), and P4 in Singapore after lap\u2011one contact with Norris. Momentum is strong despite the Baku blip and Singapore tensions.",
       "stakes_level": "high",
       "perfect_quali": "Pole position",
       "perfect_race": "Victory",
-      "good_quali": "P1\u2013P3",
+      "good_quali": "P2-P4",
       "good_race": "Podium finish",
       "key_strengths": [
-        "High\u2011speed change of direction",
-        "late\u2011braking consistency",
-        "tyre management under pressure"
+        "High\u2011speed direction changes",
+        "tyre management over long stints",
+        "late\u2011braking confidence into T1/T12"
       ],
-      "watch_for": "How he navigates Lap 1 into COTA\u2019s uphill Turn 1 \u2014 and whether McLaren impose, or avoid, team orders after the Singapore flashpoint."
+      "watch_for": "How McLaren manage Norris vs Piastri after Singapore as \u201clet them race\u201d meets COTA\u2019s T1/T12 flashpoints."
     },
     "George Russell": {
-      "tldr": "Russell arrives in Austin off a statement win in Singapore and a solid late\u2011season run (Canada win, P5 Spa, P4 Zandvoort, P5 Monza). Expect Mercedes to lean on his one\u2011lap pace and late\u2011braking strength into T1/T12; with C1/C3/C4 tyres, clean tyre management and track\u2011limits discipline could turn him into a podium threat.",
-      "full": "## Current Form\n- Across the last five: win Singapore, P5 Monza, P4 Zandvoort, P5 Spa, win Canada \u2014 momentum and execution trending up. He sits P4 in the standings on 237 points heading to Austin.\n- Singapore underlined leadership at Mercedes in 2025 (pole-to-flag, second win of the year), building on his Montreal victory.",
-      "stakes_level": "medium",
-      "perfect_quali": "Pole position",
+      "tldr": "",
+      "full": "## Current Form\nRussell arrives in Austin on an upward curve: P5 at Spa, P4 at Zandvoort, P5 at Monza, P2 in Baku and a commanding win in Singapore. He now has two victories in 2025 (Canada and Singapore) and sits P4 in the Drivers\u2019 standings on 237 points, with clear momentum into a Sprint weekend.",
+      "stakes_level": "high",
+      "perfect_quali": "P1\u2013P2",
       "perfect_race": "Victory",
-      "good_quali": "P3-P5",
-      "good_race": "Podium finish",
+      "good_quali": "P3\u2013P5",
+      "good_race": "P3\u2013P4",
       "key_strengths": [
-        "One\u2011lap pace under pressure",
-        "late\u2011braking/positioning into T1/T12",
-        "tyre and energy management over long green runs"
+        "late\u2011braking into T1/T12",
+        "high\u2011speed direction change through the Esses",
+        "tyre and pace management over long green\u2011flag runs"
       ],
-      "watch_for": "Russell\u2019s gains into T12 \u2014 if Mercedes\u2019 brake/energy setup lets him consistently pass or defend there with the C1/C3/C4 mix, he\u2019s in podium (and Sprint) contention."
+      "watch_for": "Whether Mercedes\u2019 reverted suspension/baseline keeps the rear planted over COTA\u2019s bumps; if it does, Russell\u2019s podium ceiling turns into a genuine win shot."
     },
     "Kimi Antonelli": {
-      "tldr": "Rookie Kimi Antonelli (#12) arrives in Austin off a steady upswing \u2014 P5 in Singapore and P4 in Baku after a rough August \u2014 with Mercedes trending stronger at high\u2011traction, stop\u2011start venues. Watch his race starts and braking battles into Turn 1 and Turn 12; if he nails those, a top\u2011six is on.",
-      "full": "## Current Form\n- Results, last five GPs: Singapore P5 (Q4) \u2192 Azerbaijan P4 \u2192 Italy P9 (penalty) \u2192 Netherlands P16 (penalties) \u2192 Belgium P16. That\u2019s two strong points finishes since the break, stabilizing the rookie\u2019s trend after a messy August. Season highlight remains his maiden podium (P3) in Canada. He sits P7 in the standings on 88 points; Mercedes are P2 in the Constructors\u2019.",
+      "tldr": "",
+      "full": "## Current Form\n- Antonelli arrives off a solid run: P5 in Singapore (Oct 5), P4 in Azerbaijan (Sep 21), P9 at Monza (Sep 14) and a penalty\u2011hit P16 at Zandvoort (Aug 31). He also scored his maiden F1 podium with P3 in Canada (Jun 16).  \n- He sits P7 in the Drivers\u2019 standings on 88 points after Singapore; Mercedes are P2 in the Constructors\u2019. Momentum is trending back up since Zandvoort.",
       "stakes_level": "medium",
-      "perfect_quali": "P3\u2013P5",
-      "perfect_race": "Podium finish",
-      "good_quali": "P6\u2013P10",
-      "good_race": "P6\u2013P8",
+      "perfect_quali": "P4\u2013P6",
+      "perfect_race": "P4\u2013P5",
+      "good_quali": "Top 10",
+      "good_race": "Solid points (P6\u2013P8)",
       "key_strengths": [
-        "Late\u2011braking racecraft into heavy stops",
-        "composure in wheel\u2011to\u2011wheel fights",
-        "improving long\u2011run pace"
+        "High\u2011speed change of direction",
+        "confidence under heavy braking",
+        "strong single\u2011lap flashes"
       ],
-      "watch_for": "His launch and first\u2011lap choices into \u201cBig Red\u201d (T1) \u2014 starts have been a swing factor lately (lost spots at Monza; recovered well in Singapore) and will define his ceiling this weekend."
+      "watch_for": "His judgment into the uphill Turn 1 (starts and late dives) after the Zandvoort lesson \u2014 if he keeps it clean, a Sprint top\u20118 and Sunday P6\u2011P8 are on."
     },
     "Fernando Alonso": {
-      "tldr": "Alonso arrives in Austin on an upswing after a gritty P7 in Singapore, but Aston Martin\u2019s form has been circuit\u2011sensitive. Watch for his racecraft into T1/T12 and whether the harder C1 Hard opens a two\u2011stop window that plays to his tyre management.",
-      "full": "## Current Form\n- Momentum has improved late-season: P7 in Singapore (promoted after Hamilton\u2019s penalty), following a tough run of P15 in Baku (jump\u2011start penalty plus lack of pace) and a Monza DNF with suspension failure; before that he scored solid points with P8 at Zandvoort and a season\u2011best P5 in Hungary.  \n- Standings after Singapore (Oct 5): Alonso sits P11 on 34 points; Aston Martin are P7 on 66. Sprint points in Austin are a chance to chip away at the midfield.",
+      "tldr": "",
+      "full": "## Current Form\n- Fernando Alonso arrives off a tidy P7 in Singapore (promoted after Hamilton\u2019s penalty), his best finish since Zandvoort and a confidence bump after a tough late\u2011summer run. He sits P11 in the Drivers\u2019 standings on 34 points; Aston Martin are P7 on 66, six behind Racing Bulls.  \n- Recent results (last five): Belgium P17, Netherlands P8, Italy DNF (suspension failure), Azerbaijan P15 (jump\u2011start penalty), Singapore P7 with strong race pace and an alternate\u2011compound second stint.",
       "stakes_level": "medium",
-      "perfect_quali": "P6-P8",
-      "perfect_race": "P5-P6",
-      "good_quali": "P9-P12 (Q3 bubble)",
-      "good_race": "P7-P9 (solid points)",
+      "perfect_quali": "P6\u2013P8",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P9\u2013P12",
+      "good_race": "Points finish (P8\u2013P10)",
       "key_strengths": [
-        "tyre management on long stints",
+        "tyre management over high\u2011deg stints",
         "late\u2011braking racecraft into T1/T12",
-        "adaptability to changing grip/strategy"
+        "strategic adaptability in VSC/SC windows"
       ],
-      "watch_for": "An off\u2011sequence tyre call (e.g., Medium in the second stint) to undercut traffic into T12 if a VSC/SC appears."
+      "watch_for": "Alonso trying an offset tyre plan (long Mediums or a late Soft dash) to set up passes into T12 on Sunday."
     },
     "Lance Stroll": {
-      "tldr": "Stroll comes to Austin off a mixed run \u2014 P13 in Singapore after tough Monza/Baku but solid P7s at Zandvoort and Hungary. The key: qualify cleanly on Friday\u2019s Sprint Qualifying to avoid the Q1 trap and turn COTA\u2019s T1/T12 overtakes into points on Sunday.",
-      "full": "## Current Form\n- Last five Grands Prix: Singapore P13, Azerbaijan P17, Italy P18, Netherlands P7, Hungary P7. He sits on 32 points; Aston Martin are P7 in the Constructors after Singapore.\n- Recent note: he missed the Spanish GP with hand/wrist pain but was declared fit again for Canada after a procedure.",
+      "tldr": "",
+      "full": "## Current Form\nStroll arrives in Austin off a P13 in Singapore, after a rough September (P17 Azerbaijan, P18 Italy) but encouraging midsummer points with P7s at Zandvoort and Hungary. He sits 13th in the standings on 32 points, with Aston Martin seventh on 66 in the Constructors\u2019.",
       "stakes_level": "medium",
-      "perfect_quali": "P7\u2013P10 (Q3)",
+      "perfect_quali": "P8\u2013P10",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P11\u2013P13",
+      "good_race": "Points finish (P8\u2013P10)",
+      "key_strengths": [
+        "starts and first\u2011lap aggression",
+        "straight\u2011line braking consistency",
+        "tyre care over long stints"
+      ],
+      "watch_for": "Whether Aston prioritises a lower\u2011drag rear\u2011wing/beam\u2011wing set to maximise T11\u2192T12 speed without sacrificing stability in the Esses\u2014critical to convert Q2 pace into Sunday points given the AMR25\u2019s low\u2011speed limitations."
+    },
+    "Pierre Gasly": {
+      "tldr": "",
+      "full": "## Current Form\nPierre Gasly arrives in Austin off a P19 in Singapore, where Alpine started him from the pit lane after changing the floor and suspension set-up. Before that he logged P18 (Azerbaijan), P16 (Italy), P17 (Netherlands) and P19 (Hungary), with his last points from midsummer runs of P6 at Silverstone and P10 at Spa.  \nHe sits 16th in the Drivers\u2019 standings on 20 points; Alpine are 10th on 20 points in the Teams\u2019 table.",
+      "stakes_level": "medium",
+      "perfect_quali": "P9-P12",
+      "perfect_race": "P8-P10",
+      "good_quali": "P13-P15",
+      "good_race": "Points finish (P9-P10)",
+      "key_strengths": [
+        "Late\u2011braking control into T1/T12",
+        "smooth tyre management over long stints",
+        "precision through high\u2011speed direction changes"
+      ],
+      "watch_for": "Whether the Singapore floor/set\u2011up changes translate into a more stable, confidence\u2011giving front end over COTA\u2019s bumps in FP1\u2014and if that carries into Sprint/GP pace."
+    },
+    "Franco Colapinto": {
+      "tldr": "",
+      "full": "## Current Form\nColapinto arrives in Austin still searching for his first points with Alpine, with finishes of P16 Singapore, P17 Italy (Monza), P11 Netherlands (Zandvoort), P18 Hungary and P19 Belgium across his last five starts. He sits on 0 points while teammate Pierre Gasly has 20 and Alpine is 10th in the Constructors\u2019 standings after Singapore.",
+      "stakes_level": "high",
+      "perfect_quali": "P11\u2013P13 (high Q2)",
+      "perfect_race": "Points finish (P9\u2013P10)",
+      "good_quali": "P15\u2013P18",
+      "good_race": "P11\u2013P13",
+      "key_strengths": [
+        "Late\u2011braking racecraft into big stops",
+        "tyre care in traffic",
+        "steady build\u2011up across sessions"
+      ],
+      "watch_for": "Whether Alpine\u2019s baseline gives him enough rear stability out of T11 to attack into T12\u2014key to converting Sprint laps and late\u2011race chances."
+    },
+    "Esteban Ocon": {
+      "tldr": "",
+      "full": "## Current Form\nOcon arrives in Austin P15 in the Drivers\u2019 standings with 28 points, as Haas sit P9 on 46 points.  \nRecent run: P18 Singapore after a P19 qualifying hampered by a seatbelt issue and yellow flag; P14 Azerbaijan after a rear\u2011wing DQ in qualifying forced a back\u2011row start; P15 Italy (five\u2011second penalty); P10 Netherlands; P15 Belgium. He also banked P5 in the Spa Sprint.",
+      "stakes_level": "medium",
+      "perfect_quali": "P8\u2013P10",
       "perfect_race": "P7\u2013P8",
       "good_quali": "P11\u2013P13",
       "good_race": "Points finish (P9\u2013P10)",
       "key_strengths": [
-        "Launches and first-lap racecraft",
-        "brake-zone opportunism into hairpins (T1/T12)",
-        "tyre nursing over long green-flag runs"
+        "tyre management over long runs",
+        "late\u2011braking consistency into heavy stops",
+        "composure in mixed\u2011strategy races"
       ],
-      "watch_for": "Whether Stroll clears SQ1 on Friday \u2014 if he starts mid\u2011pack rather than deep in the teens, the Aston\u2019s race pace has recently been good enough to turn COTA\u2019s T12 overtakes into points."
-    },
-    "Pierre Gasly": {
-      "tldr": "Gasly arrives in Austin needing to arrest a post-summer slide (P17 Singapore, P18 Baku) and convert glimpses of pace into points. With Alpine\u2019s straight\u2011line deficit and COTA\u2019s long back straight, qualifying position and DRS management will define his Sunday.",
-      "full": "## Current Form\n- Last four GPs: Singapore P17, Baku P18, Monza P16, Zandvoort P17 \u2014 a barren run after his season\u2011best P6 at Silverstone on July 6. He sits on 20 points, with Alpine 10th in the Constructors\u2019.",
-      "stakes_level": "medium",
-      "perfect_quali": "P8\u2013P10",
-      "perfect_race": "P8\u2013P10",
-      "good_quali": "P11\u2013P13",
-      "good_race": "Points finish (P9\u2013P10)",
-      "key_strengths": [
-        "Late\u2011braking racecraft into T1/T12",
-        "tyre management in mixed/green conditions",
-        "clean lines through high\u2011speed direction changes"
-      ],
-      "watch_for": "Whether he can stay within DRS of faster cars on the back straight to set up T12 passes and protect tyres over a likely multi\u2011stop race."
-    },
-    "Franco Colapinto": {
-      "tldr": "Rookie watch: Franco Colapinto (#45) is still in \u201caudition mode\u201d at Alpine, coming off a tough run but with a near\u2011miss P11 at Zandvoort and a clean P16 in Singapore. In a Sprint weekend, two bites at points plus big overtaking zones (T1, T12) make Austin a good barometer of his progress.",
-      "full": "## Current Form\n- Results trend (last five GPs): Belgium P19 \u2192 Netherlands P11 \u2192 Italy P17 \u2192 Azerbaijan P19 (after Albon contact) \u2192 Singapore P16.  \n- He\u2019s been back in the car as Alpine rotate the seat, with the team still short on raw pace; Singapore was tidy if unspectacular, while Baku and Monza exposed the package.",
-      "stakes_level": "high",
-      "perfect_quali": "Q3 (P8\u2013P10)",
-      "perfect_race": "P7\u2013P9 (points in both Sprint and GP)",
-      "good_quali": "Q2 (P12\u2013P14)",
-      "good_race": "Points finish (P9\u2013P10)",
-      "key_strengths": [
-        "Late\u2011braking overtakes",
-        "quick adaptation to new circuits/formats",
-        "calm race management in traffic"
-      ],
-      "watch_for": "Whether he can turn DRS runs from T11 into decisive moves into T12 without compromising tyre temps for the long T16\u201118 sweep."
-    },
-    "Esteban Ocon": {
-      "tldr": "Ocon arrives in Austin needing a reset after a tough Singapore (P18) but with flashes of form in late summer, including points at Zandvoort. He\u2019s quick here in clear air \u2014 he set fastest lap at COTA last year \u2014 so watch whether Haas can give him straight\u2011line speed to attack into T12.",
-      "full": "## Current Form\n- Last five: P18 Singapore, P14 Azerbaijan (after a qualifying DSQ), P15 Italy, P10 Netherlands, P16 Hungary \u2014 form trending around the cusp of points, with the Zandvoort score the bright spot. He sits P15 in the standings on 28 points.  \n- Notable recent incident: Baku qualifying disqualification for rear\u2011wing deflection, which put him on the back foot that weekend.",
-      "stakes_level": "medium",
-      "perfect_quali": "P8\u2013P10",
-      "perfect_race": "P7\u2013P9",
-      "good_quali": "P11\u2013P14",
-      "good_race": "P9\u2013P10",
-      "key_strengths": [
-        "tyre management over long stints",
-        "late\u2011braking consistency into T12/T1",
-        "disciplined racecraft in DRS trains"
-      ],
-      "watch_for": "His DRS attacks into T12 if Haas trims wing for top speed in the Sprint and GP."
+      "watch_for": "Whether Haas and Ocon can avoid Friday gremlins (setup/operational issues) to unlock his stronger race pace in Sprint conditions."
     },
     "Oliver Bearman": {
-      "tldr": "Rookie Oliver Bearman arrives in Austin on a quiet upswing \u2014 P6 at Zandvoort and P9 in Singapore bookend solid midfield runs. Watch whether he converts Haas\u2019s improved race pace into back\u2011to\u2011back points while keeping his penalty tally clean.",
-      "full": "## Current Form\n- Bearman\u2019s last five: NED P6 (from pit lane), ITA P12 (10s penalty after contact), AZE P12, SGP P9 (points), plus BEL P11 just outside the points.  \n- Season to date: 16 points, 19th in the Drivers\u2019 standings; Haas ninth in Constructors. Momentum is modest but positive after Zandvoort and Singapore.",
-      "stakes_level": "high",
-      "perfect_quali": "P8-P10 (Q3)",
-      "perfect_race": "P7-P8",
-      "good_quali": "P11-P13",
-      "good_race": "P9-P10",
-      "key_strengths": [
-        "strong race craft in traffic",
-        "improving tyre management over long stints",
-        "confidence on heavy braking entries"
-      ],
-      "watch_for": "How aggressively he commits into T1/T12 given he\u2019s two points from a race ban \u2014 clean but decisive moves could make his race."
-    },
-    "Alex Albon": {
-      "tldr": "Albon arrives in Austin on the back of a mixed run \u2014 strong points at Zandvoort (P5) and Monza (P7), followed by tougher Sundays in Baku (P13) and Singapore (P14 after a post\u2011quali DRS infraction forced a pit\u2011lane start). With COTA\u2019s long straights and Sprint format, a trimmed\u2011out Williams could put him back in the points if they nail balance through the Esses.",
-      "full": "## Current Form\n- Results, last four: Netherlands P5, Italy P7, Azerbaijan P13, Singapore P14 (from pit lane after both Williams were disqualified from qualifying for a DRS slot\u2011gap breach). He sits P8 in the Drivers\u2019 standings on 70 points; Williams are P5 on 102. Momentum dipped across the last two rounds, but the baseline pace to score is there.",
-      "stakes_level": "medium",
-      "perfect_quali": "P6\u2013P8",
-      "perfect_race": "P5\u2013P7",
-      "good_quali": "P9\u2013P12",
-      "good_race": "P8\u2013P10",
-      "key_strengths": [
-        "High\u2011speed efficiency and top\u2011speed",
-        "late\u2011braking racecraft into big stops (T1/T12)",
-        "tyre and stint management in warm conditions"
-      ],
-      "watch_for": "How aggressively Williams trims rear wing after the Singapore DRS breach \u2014 can Albon keep front grip through the Esses while maximizing back\u2011straight speed?"
-    },
-    "Carlos Sainz": {
-      "tldr": "Sainz arrives in Austin on the back of a morale\u2011boosting P3 in Baku and a gritty P10 in Singapore from the back of the grid, hinting Williams can score when the layout suits. COTA\u2019s long straights play to the FW47\u2019s efficiency; the challenge will be holding balance through the long loaded corners and managing tyre deg across a Sprint weekend.",
-      "full": "## Current Form\n- Last five GPs: Singapore P10 (after a qualifying DSQ/start from P20), Azerbaijan P3 (first Williams podium), Italy P11, Netherlands P13 (penalty later rescinded), Belgium P18.\n- Championship picture: Sainz sits P12 on 32 points; Williams are fifth on 102, with Racing Bulls (72) and Aston Martin (66) chasing. Momentum ticked up with the Baku podium and points in Singapore.",
-      "stakes_level": "medium",
-      "perfect_quali": "P6\u2013P8",
-      "perfect_race": "P6\u2013P8",
-      "good_quali": "P9\u2013P12",
-      "good_race": "Points finish (P8\u2013P10)",
-      "key_strengths": [
-        "Late\u2011braking control into heavy stops",
-        "tyre management over long stints",
-        "measured racecraft in traffic"
-      ],
-      "watch_for": "Williams trimming rear wing to attack into T12 \u2014 if Sainz consistently nails traction out of T11, he can convert to Sprint and GP points."
-    },
-    "Liam Lawson": {
-      "tldr": "Lawson arrives in Austin on the back of a career\u2011best P5 in Baku but a ragged Singapore (two practice crashes, P15) \u2014 so the focus is on a clean Sprint weekend and turning solid race pace into points. He scored P9 here last year; with C1/C3/C4 tyres, tidy tyre management and exits from T11 could put the Racing Bull back in the top 10.",
-      "full": "## Current Form\n- Results last five GPs: Hungary P8, Netherlands P12, Italy P14, Azerbaijan P5 (career best), Singapore P15. That Baku run featured stout late\u2011race defence; Singapore was compromised by FP2/FP3 crashes before a low\u2011key race. Momentum: modest points trend through midsummer, dip at Monza/Singapore.\n- Standings/context: Racing Bulls sit 6th in the Constructors\u2019 with 72 points; Lawson is mid\u2011pack in the Drivers\u2019 table (around P14\u2013P16 range) after Singapore.",
-      "stakes_level": "medium",
-      "perfect_quali": "Q3 (P6\u2013P10)",
-      "perfect_race": "P6\u2013P8",
-      "good_quali": "P11\u2013P13",
-      "good_race": "Points finish (P8\u2013P10)",
-      "key_strengths": [
-        "tyre management on long runs",
-        "confident heavy\u2011braking/rotation into T1/T12",
-        "disciplined defending in traffic"
-      ],
-      "watch_for": "How Lawson balances rear\u2011traction for the T11 launch with straight\u2011line efficiency to overtake/defend into T12 \u2014 especially across Sprint parc ferm\u00e9 with the C1 hard in play."
-    },
-    "Isack Hadjar": {
-      "tldr": "Rookie momentum check. Isack Hadjar arrives in Austin off a maiden F1 podium at Zandvoort and back\u2011to\u2011back points at Monza and Baku, just missing out in Singapore. If Racing Bulls nails the C1/C3/C4 tyre window and top\u201110 quali, he can turn COTA\u2019s big braking zones into more points.",
-      "full": "## Current Form\n- Last 4 GPs: P3 Netherlands (maiden podium), P10 Italy (from a pit\u2011lane start), P10 Azerbaijan, P11 Singapore. That run has lifted him to 39 points in his rookie season.  \n- Season snapshot: P9 in the Drivers\u2019 standings with 39 points; Racing Bulls sit mid\u2011pack in the Constructors\u2019.",
-      "stakes_level": "medium",
-      "perfect_quali": "P4\u2013P6",
-      "perfect_race": "P5\u2013P7",
-      "good_quali": "P8\u2013P12",
-      "good_race": "Points finish",
-      "key_strengths": [
-        "Late\u2011braking confidence into T1/T12",
-        "clean race execution under pressure",
-        "high\u2011speed direction change through the Esses"
-      ],
-      "watch_for": "Whether Hadjar qualifies inside the top 10 to maximize DRS slingshots into T12\u2014key to converting Sprint and GP points at COTA."
-    },
-    "Nico Hulkenberg": {
-      "tldr": "H\u00fclkenberg\u2019s post\u2011summer slide needs a reset in Austin: P20 in Singapore after a late spin capped a run of P16 (Baku), DNS (Monza), P14 (Zandvoort), P13 (Hungary). With 37 points and P10 in the standings, a Sprint weekend and COTA\u2019s overtaking zones give him a realistic shot to nick points back for Sauber.",
-      "full": "## Current Form\n- Last five Grands Prix: Singapore P20 (late spin), Azerbaijan P16, Italy DNS (hydraulics), Netherlands P14, Hungary P13; momentum has cooled since his breakthrough Silverstone podium but he still sits 10th in the championship on 37 points.  \n- Post\u2011race notes from Singapore reflect a frustrating pace/track\u2011position weekend that left him mired in a DRS train. Sprint format in Austin begins Friday, Oct 17; no sessions have run yet as of Sunday, Oct 5.",
-      "stakes_level": "medium",
-      "perfect_quali": "P8\u2013P10",
-      "perfect_race": "P7\u2013P9",
-      "good_quali": "P11\u2013P13",
-      "good_race": "Points finish (P9\u2013P10)",
-      "key_strengths": [
-        "Late\u2011braking consistency into heavy stops",
-        "clean tyre management over green\u2011flag runs",
-        "race\u2011craft in DRS trains"
-      ],
-      "watch_for": "Sauber\u2019s top\u2011speed vs. drag trade\u2011off\u2014if they trim enough wing to be competitive into T12 without hurting the Esses, H\u00fclkenberg can turn a Q2 start into points."
-    },
-    "Gabriel Bortoleto": {
-      "tldr": "Rookie Gabriel Bortoleto arrives in Austin with real momentum from mid\u2011season points runs (Hungary P6, Belgium P9, Monza P8) but a scrappy Singapore (P17) shows he\u2019s still ironing out first\u2011lap risk. Watch Sauber\u2019s improved straight\u2011line package set him up for DRS moves into T12 and whether he can turn a Sprint weekend into more points.",
-      "full": "## Current Form\nAfter a strong summer that included P6 in Hungary and P9 at Spa, Bortoleto added P8 at Monza before a compromised Singapore (front\u2011wing change after T1 contact) left him P17. He sits on 18 points in his rookie campaign, with Sauber eighth on 55 points. Momentum is positive, but execution at race starts remains a focus.",
+      "tldr": "",
+      "full": "## Current Form\nBearman arrives off a season-best run of P6 at Zandvoort, followed by P12 at Monza, P12 in Baku, and P9 in Singapore on October 5. He sits 19th in the Drivers\u2019 standings on 18 points, with Haas ninth on 46 points after Singapore.",
       "stakes_level": "medium",
       "perfect_quali": "P7\u2013P10",
       "perfect_race": "P6\u2013P8",
+      "good_quali": "P10\u2013P12",
+      "good_race": "Points finish",
+      "key_strengths": [
+        "tyre management over long stints",
+        "racecraft in traffic and DRS use",
+        "improving one\u2011lap pace under pressure"
+      ],
+      "watch_for": "Managing 10 licence penalty points during a Sprint weekend\u2014clean SQ/Sprint duels could be the difference between safe points and costly penalties."
+    },
+    "Alex Albon": {
+      "tldr": "",
+      "full": "## Current Form\nAlbon arrives in Austin eighth in the Drivers\u2019 standings on 70 points, leading Williams\u2019 charge for P5 in the Constructors\u2019. His last five races: P5 at Zandvoort, P6 at Spa, P7 at Monza, P11 at Baku (after a 10s penalty), and P14 at Singapore after a pit\u2011lane start.",
+      "stakes_level": "medium",
+      "perfect_quali": "P5\u2013P7",
+      "perfect_race": "P5\u2013P6",
+      "good_quali": "P8\u2013P10",
+      "good_race": "Points finish (P7\u2013P10)",
+      "key_strengths": [
+        "Late\u2011braking/defensive racecraft",
+        "tire management over long stints",
+        "improved wind/ride tolerance"
+      ],
+      "watch_for": "Williams\u2019 wing choice on Friday \u2014 if they run a \u201cskinny\u201d rear wing to boost T12 overtakes, Albon\u2019s S1 pace and front\u2011left wear will tell you whether a big points haul is on."
+    },
+    "Carlos Sainz": {
+      "tldr": "",
+      "full": "## Current Form\nSainz arrives off a gritty P10 in Singapore after both Williams cars were disqualified from qualifying and sent to the back; he recovered to the points on Sunday. Before that he scored a breakthrough P3 podium in Baku (his first with Williams), after P11 at Monza and P13 at Zandvoort (a time penalty there was later rescinded with no change to the classification). He sits P12 in the standings on 32 points, with Williams fifth on 102.",
+      "stakes_level": "medium",
+      "perfect_quali": "P4\u2013P6",
+      "perfect_race": "Podium finish",
+      "good_quali": "Top 10",
+      "good_race": "Points finish (P7\u2013P10)",
+      "key_strengths": [
+        "late braking into T1/T12",
+        "measured tire management over long stints",
+        "racecraft in DRS trains"
+      ],
+      "watch_for": "How aggressively Williams trims rear wing after Singapore\u2019s DRS infringement\u2014and whether Sainz can convert that top\u2011speed into T12 passes without hurting the car through the Esses."
+    },
+    "Liam Lawson": {
+      "tldr": "",
+      "full": "## Current Form\nLawson arrives in Austin 14th in the standings on 30 points. His last five race finishes read P8 (Hungary), P12 (Netherlands), P14 (Italy), a career\u2011best P5 (Azerbaijan), and P15 (Singapore) \u2014 momentum blunted in Singapore after a strong Baku.",
+      "stakes_level": "medium",
+      "perfect_quali": "P7\u2013P10",
+      "perfect_race": "P5\u2013P7",
+      "good_quali": "P11\u2013P14",
+      "good_race": "Points finish (P8\u2013P10)",
+      "key_strengths": [
+        "Defensive racecraft under pressure",
+        "tyre and stint management",
+        "confident braking into heavy stops"
+      ],
+      "watch_for": "A cleaner Friday than Singapore \u2014 if Lawson keeps FP1 tidy in the Sprint format, his Q2/Q3 and points ceiling rises sharply."
+    },
+    "Isack Hadjar": {
+      "tldr": "",
+      "full": "## Current Form\n- Hadjar arrives in Austin off a solid run: P11 in Singapore (Oct 5), P10 in Azerbaijan (Sep 21), P10 from a pit\u2011lane start at Monza (Sep 7), P3 at Zandvoort for his maiden F1 podium (Aug 31), and P11 in Hungary (Aug 3).  \n- He sits ninth in the Drivers\u2019 standings on 39 points, leading the lower\u2011midfield pack.",
+      "stakes_level": "medium",
+      "perfect_quali": "P5\u2013P8",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P9\u2013P12",
+      "good_race": "Points finish (P8\u2013P10)",
+      "key_strengths": [
+        "Tyre management over long runs",
+        "confident late\u2011braking into heavy stops",
+        "stability through high\u2011speed direction changes"
+      ],
+      "watch_for": "His race starts into the uphill Turn 1 \u2014 a clean launch could unlock both Sprint and GP points."
+    },
+    "Nico Hulkenberg": {
+      "tldr": "",
+      "full": "## Current Form\nHulkenberg sits 10th in the standings on 37 points after Singapore. His last five: P13 Hungary (Aug 3), P14 Netherlands (Aug 31), DNS Italy (Sep 7, hydraulic), P16 Azerbaijan (Sep 21), P20 Singapore (Oct 5) \u2014 a tough run since his breakthrough P3 at Silverstone on July 6.",
+      "stakes_level": "medium",
+      "perfect_quali": "P8\u2013P10",
+      "perfect_race": "P6\u2013P8",
       "good_quali": "P11\u2013P13",
+      "good_race": "P9\u2013P10",
+      "key_strengths": [
+        "late\u2011braking control into T1/T12",
+        "clean tyre management over long green runs",
+        "racecraft in DRS trains"
+      ],
+      "watch_for": "His launch and traction out of T11 to set up T12 passes \u2014 if the C45 rotates cleanly through the Esses and stays stable under heavy braking, points are on."
+    },
+    "Gabriel Bortoleto": {
+      "tldr": "",
+      "full": "## Current Form\nBortoleto arrives in Austin off a mixed but upward\u2011trending run: P6 at the Hungaroring (career\u2011best), P8 at Monza, P11 in Baku, P15 at Zandvoort, and P17 in Singapore after a lap\u2011one front\u2011wing change. He sits P18 in the Drivers\u2019 standings on 18 points; Sauber are P8 on 55 points in the Constructors\u2019.",
+      "stakes_level": "medium",
+      "perfect_quali": "P7\u2013P9",
+      "perfect_race": "P6\u2013P8",
+      "good_quali": "P10\u2013P12",
       "good_race": "Points finish (P9\u2013P10)",
       "key_strengths": [
         "tyre management over long stints",
-        "clean racecraft when in traffic",
-        "improving single\u2011lap pace after mid\u2011season gains"
+        "high\u2011speed direction changes",
+        "qualifying under pressure"
       ],
-      "watch_for": "His opening\u2011lap choices into \u201cBig Red\u201d (T1) and whether Sauber\u2019s straight\u2011line speed lets him convert DRS runs into passes at T12 without overheating the brakes."
+      "watch_for": "His T11 exit/T12 braking; if he consistently nails that combo, he can turn DRS trains into overtakes."
     }
   },
   "top5": [
