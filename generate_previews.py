@@ -416,23 +416,31 @@ No text or logos - pure visual imagery with dark tones."""
 
     try:
         response = await client.images.generate(
-            model="gpt-image-1",
+            model="dall-e-3",
             prompt=prompt,
-            size="1536x1024",  # Landscape format for header
-            quality="high",
-            output_format="webp",
-            output_compression=80,
+            size="1792x1024",  # Landscape format for dall-e-3
+            quality="hd",
+            style="vivid",
             n=1
         )
 
-        # Extract image data
+        # Extract image URL and download
         if response.data and len(response.data) > 0:
-            image_base64 = response.data[0].b64_json
-            image_bytes = base64.b64decode(image_base64)
-            with open("gp_header.webp", "wb") as f:
-                f.write(image_bytes)
-            print(f"   ✓ Header image saved to gp_header.webp")
-            return True
+            image_url = response.data[0].url
+
+            # Download the image
+            import aiohttp
+            async with aiohttp.ClientSession() as session:
+                async with session.get(image_url) as img_response:
+                    if img_response.status == 200:
+                        image_bytes = await img_response.read()
+                        with open("gp_header.png", "wb") as f:
+                            f.write(image_bytes)
+                        print(f"   ✓ Header image saved to gp_header.png")
+                        return True
+                    else:
+                        print(f"   ✗ Failed to download image: HTTP {img_response.status}")
+                        return False
         else:
             print(f"   ✗ No image data returned")
             return False
