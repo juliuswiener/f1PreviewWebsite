@@ -772,17 +772,17 @@ function renderHighlights() {
                 const driver = drivers2025.find(d => d.name === item.driver);
                 const teamColor = driver ? teamColors[driver.team] || '#999' : '#999';
                 return `
-                    <div style="background: ${teamColor}15; border: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                    <div style="background: #1a1a1a; border-top: 3px solid ${teamColor}; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <img src="${getDriverImageUrl(item.driver)}"
                                  alt="${item.driver}"
-                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60;"
                                  onerror="this.style.display='none'">
-                            <h4 style="margin: 0; color: ${teamColor};">#${item.rank || i + 1} ${item.driver}</h4>
+                            <h4 style="margin: 0; color: ${teamColor}; font-size: 1.2rem;">#${item.rank || i + 1} ${item.driver}</h4>
                         </div>
-                        <p><strong>Why watch:</strong> ${item.reason}</p>
-                        ${item.stakes ? `<p style="color: ${teamColor}; margin-top: 0.5rem;"><strong>Stakes:</strong> ${item.stakes}</p>` : ''}
-                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.5rem; display: inline-block;">View full preview</a>
+                        <p style="color: #ddd; line-height: 1.6;"><strong style="color: #fff;">Why watch:</strong> ${item.reason}</p>
+                        ${item.stakes ? `<p style="color: ${teamColor}; margin-top: 0.75rem; line-height: 1.6;"><strong style="color: #fff;">Stakes:</strong> ${item.stakes}</p>` : ''}
+                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.75rem; display: inline-block; font-weight: 500;">View full preview →</a>
                     </div>
                 `;
             }).join('')}
@@ -824,20 +824,20 @@ function renderUnderdogs() {
                 const driver = drivers2025.find(d => d.name === item.driver);
                 const teamColor = driver ? teamColors[driver.team] || '#999' : '#999';
                 return `
-                    <div style="background: ${teamColor}15; border: none; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;">
+                    <div style="background: #1a1a1a; border-top: 3px solid ${teamColor}; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <img src="${getDriverImageUrl(item.driver)}"
                                  alt="${item.driver}"
-                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor};"
+                                 style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; object-position: center 0%; border: 3px solid ${teamColor}; box-shadow: 0 4px 12px ${teamColor}60;"
                                  onerror="this.style.display='none'">
                             <div style="flex: 1;">
-                                <h4 style="margin: 0 0 0.25rem 0; color: ${teamColor};">${item.driver}</h4>
-                                <p style="margin: 0; color: ${teamColor}; font-size: 0.95rem; font-style: italic;">${item.title}</p>
+                                <h4 style="margin: 0 0 0.25rem 0; color: ${teamColor}; font-size: 1.2rem;">${item.driver}</h4>
+                                <p style="margin: 0; color: ${teamColor}; font-size: 0.95rem; font-style: italic; opacity: 0.9;">${item.title}</p>
                             </div>
                         </div>
-                        <p>${item.story}</p>
-                        ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.5rem;"><strong>Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
-                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.5rem; display: inline-block;">View full preview</a>
+                        <p style="color: #ddd; line-height: 1.6;">${item.story}</p>
+                        ${item.surprise_factor ? `<p style="color: #00ff88; margin-top: 0.75rem; line-height: 1.6;"><strong style="color: #fff;">Surprise Factor:</strong> ${item.surprise_factor}</p>` : ''}
+                        <a href="#" onclick="viewDriver('${item.driver}'); return false;" style="color: ${teamColor}; margin-top: 0.75rem; display: inline-block; font-weight: 500;">View full preview →</a>
                     </div>
                 `;
             }).join('')}
@@ -887,13 +887,20 @@ async function viewDriver(driverName) {
                         <div style="font-size: 2rem; font-weight: bold; color: ${teamColor};">#${driver.number}</div>
                         <div style="color: #ccc; margin-top: 0.25rem;">${driver.team}</div>
                     </div>
+
+                    <!-- Fetch OpenF1 data for pearl display -->
+                    <div id="openf1-pearls-sidebar" style="margin-top: 1.5rem;"></div>
                 </div>
 
                 <!-- Content -->
                 <div>
-                    <div style="background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <!-- Recent Form Pearls at top -->
+                    <div id="openf1-pearls-top" style="margin-bottom: 2rem;">
+                        <div style="text-align: center; color: #666; padding: 1rem;">Loading recent form...</div>
+                    </div>
+                    <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); margin-bottom: 1.5rem; border-top: 3px solid ${teamColor};">
                         <h3 style="color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
-                        <div class="tldr" style="font-size: 1.05rem; line-height: 1.6;">${preview.tldr}</div>
+                        <div class="tldr" style="font-size: 1.05rem; line-height: 1.6; color: #ddd;">${preview.tldr}</div>
                     </div>
 
                     <h3 style="color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
@@ -903,15 +910,15 @@ async function viewDriver(driverName) {
                 </div>
             </div>
 
-            <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+            <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1); border-top: 2px solid #00ff88;">
                     <strong style="color: #00ff88; font-size: 1.1rem;">Perfect Weekend</strong><br>
                     <div style="margin-top: 0.75rem; color: #ccc;">
                         <div style="margin-bottom: 0.5rem;">🏁 Quali: ${preview.perfect_quali || 'N/A'}</div>
                         <div>🏆 Race: ${preview.perfect_race || 'N/A'}</div>
                     </div>
                 </div>
-                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+                <div style="background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1); border-top: 2px solid #ffaa00;">
                     <strong style="color: #ffaa00; font-size: 1.1rem;">Good Weekend</strong><br>
                     <div style="margin-top: 0.75rem; color: #ccc;">
                         <div style="margin-bottom: 0.5rem;">🏁 Quali: ${preview.good_quali || 'N/A'}</div>
@@ -921,20 +928,20 @@ async function viewDriver(driverName) {
             </div>
 
             ${preview.key_strengths ? `
-                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 12px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
+                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); border-top: 2px solid ${teamColor};">
                     <strong style="color: ${teamColor};">Key Strengths:</strong>
                     <div style="margin-top: 0.5rem; color: #ddd;">${preview.key_strengths.join(' • ')}</div>
                 </div>
             ` : ''}
 
             ${preview.watch_for ? `
-                <div style="margin-top: 1.5rem; background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px;">
+                <div style="margin-top: 1.5rem; background: #1a1a1a; padding: 1.5rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1); border-top: 3px solid ${teamColor};">
                     <strong style="color: ${teamColor}; font-size: 1.1rem;">Watch For:</strong>
                     <div style="margin-top: 0.5rem; color: #ddd;">${preview.watch_for}</div>
                 </div>
             ` : ''}
 
-            <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #1a1a1a; border-radius: 12px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
+            <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #1a1a1a; border-radius: 16px; box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5), inset -4px -4px 8px rgba(40, 40, 40, 0.1);">
                 Stakes Level: <span style="color: ${preview.stakes_level === 'high' ? '#ff0000' : preview.stakes_level === 'medium' ? '#ffaa00' : '#00ff88'}; text-transform: uppercase; font-weight: bold; font-size: 1.2rem;">${preview.stakes_level || 'Medium'}</span>
             </div>
 
@@ -953,17 +960,95 @@ async function viewDriver(driverName) {
             openF1API.getRaceResults(driver.number).catch(() => [])
         ]);
 
-        const openf1Container = document.getElementById('openf1-data');
-        if (openf1Container) {
-            openf1Container.innerHTML = renderOpenF1Graphics(qualiResults, raceResults, driver);
+        const pearlsTopContainer = document.getElementById('openf1-pearls-top');
+        if (pearlsTopContainer) {
+            pearlsTopContainer.innerHTML = renderCompactPearls(qualiResults, raceResults, driver);
         }
     } catch (error) {
         console.error('Error loading OpenF1 data:', error);
-        const openf1Container = document.getElementById('openf1-data');
-        if (openf1Container) {
-            openf1Container.innerHTML = '<div style="text-align: center; color: #666;">Unable to load recent results</div>';
+        const pearlsTopContainer = document.getElementById('openf1-pearls-top');
+        if (pearlsTopContainer) {
+            pearlsTopContainer.innerHTML = '';
         }
     }
+}
+
+function renderCompactPearls(qualiResults, raceResults, driver) {
+    const teamColors = {
+        'Red Bull': '#3671C6',
+        'Ferrari': '#E8002D',
+        'McLaren': '#FF8000',
+        'Mercedes': '#27F4D2',
+        'Aston Martin': '#229971',
+        'Alpine': '#FF87BC',
+        'Haas': '#B6BABD',
+        'Williams': '#64C4FF',
+        'Racing Bulls': '#6692FF',
+        'Sauber': '#52E252'
+    };
+    const teamColor = teamColors[driver.team] || '#999';
+
+    const renderPearlString = (results, label) => {
+        if (!results || results.length === 0) return '';
+
+        return `
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: #ccc; font-size: 0.9rem; margin-bottom: 0.75rem; text-align: center;">${label}</h4>
+                <div style="display: flex; align-items: center; justify-content: center; position: relative; padding: 1rem 0;">
+                    <!-- Connection line -->
+                    <div style="position: absolute; top: 50%; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, ${teamColor}30 0%, ${teamColor}15 50%, ${teamColor}30 100%); z-index: 0;"></div>
+
+                    ${results.slice(-6).map(result => {
+                        const isDNF = result.dnf || result.dns;
+                        const isP1 = result.position === 1;
+                        // Smaller pearls: P1 = 45px, P20 = 20px, DNF = 22px
+                        const size = isDNF ? 22 : isP1 ? 45 : Math.max(20, 45 - (result.position * 1.3));
+                        const color = result.dnf ? '#ff0000' : result.dns ? '#666' : isP1 ? '#FFD700' : result.position <= 3 ? '#00ff88' : result.position <= 10 ? teamColor : '#666';
+                        const label = result.dnf ? 'DNF' : result.dns ? 'DNS' : `P${result.position}`;
+                        const fontSize = isDNF ? '0.6rem' : isP1 ? '0.85rem' : `${Math.max(0.6, size / 35)}rem`;
+                        return `
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 1; margin: 0 0.15rem;">
+                                <div style="
+                                    width: ${size}px;
+                                    height: ${size}px;
+                                    border-radius: 50%;
+                                    background: ${color};
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: bold;
+                                    font-size: ${fontSize};
+                                    color: ${isP1 ? '#000' : '#000'};
+                                    box-shadow: ${isP1 ? `0 0 20px ${color}, 0 4px 12px ${color}80` : `0 4px 12px ${color}80`}, inset 0 2px 4px rgba(255,255,255,0.3);
+                                    border: ${isP1 ? '3px' : '2px'} solid ${color};
+                                    position: relative;
+                                    ${isDNF ? 'opacity: 0.7;' : ''}
+                                    ${isP1 ? 'animation: pulse-gold 2s infinite;' : ''}
+                                ">
+                                    ${label}
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.25rem;">${getCircuitFlag(result.circuit)}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+    };
+
+    return `
+        <style>
+            @keyframes pulse-gold {
+                0%, 100% { box-shadow: 0 0 20px #FFD700, 0 4px 12px #FFD70080, inset 0 2px 4px rgba(255,255,255,0.3); }
+                50% { box-shadow: 0 0 30px #FFD700, 0 4px 16px #FFD700CC, inset 0 2px 4px rgba(255,255,255,0.5); }
+            }
+        </style>
+        <div style="background: #1a1a1a; padding: 1rem; border-radius: 16px; box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(40, 40, 40, 0.1);">
+            <h3 style="color: ${teamColor}; margin-bottom: 1rem; text-align: center; font-size: 1.1rem;">Recent Form</h3>
+            ${renderPearlString(qualiResults, 'Qualifying')}
+            ${renderPearlString(raceResults, 'Race')}
+        </div>
+    `;
 }
 
 function simpleMarkdownToHtml(markdown) {
