@@ -876,14 +876,31 @@ async function viewDriver(driverName) {
     // Show loading state for OpenF1 data
     modalContent.innerHTML = `
         <div class="driver-preview">
-            <div style="background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <h3 style="color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
-                <div class="tldr" style="font-size: 1.05rem; line-height: 1.6;">${preview.tldr}</div>
-            </div>
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <!-- Driver Image -->
+                <div style="position: sticky; top: 0; align-self: start;">
+                    <img src="${getDriverImageUrl(driverName, 'left')}"
+                         alt="${driverName}"
+                         style="width: 100%; height: auto; border-radius: 12px; border: 3px solid ${teamColor}; box-shadow: 0 8px 24px ${teamColor}40;"
+                         onerror="this.style.display='none'">
+                    <div style="text-align: center; margin-top: 1rem; padding: 0.75rem; background: ${teamColor}15; border-radius: 8px; border: 1px solid ${teamColor}40;">
+                        <div style="font-size: 2rem; font-weight: bold; color: ${teamColor};">#${driver.number}</div>
+                        <div style="color: #ccc; margin-top: 0.25rem;">${driver.team}</div>
+                    </div>
+                </div>
 
-            <h3 style="color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
-            <div class="full-text" style="color: #ddd; line-height: 1.8;">
-                ${simpleMarkdownToHtml(preview.full)}
+                <!-- Content -->
+                <div>
+                    <div style="background: ${teamColor}15; border-left: 4px solid ${teamColor}; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: ${teamColor}; margin-bottom: 1rem;">TL;DR</h3>
+                        <div class="tldr" style="font-size: 1.05rem; line-height: 1.6;">${preview.tldr}</div>
+                    </div>
+
+                    <h3 style="color: #fff; margin-bottom: 1rem;">Full Analysis</h3>
+                    <div class="full-text" style="color: #ddd; line-height: 1.8;">
+                        ${simpleMarkdownToHtml(preview.full)}
+                    </div>
+                </div>
             </div>
 
             <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
